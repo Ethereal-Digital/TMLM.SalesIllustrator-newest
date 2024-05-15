@@ -1,0 +1,1690 @@
+﻿@{
+    Layout = null;
+}
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="~/js/jquery-3.5.1.min.js" asp-append-version="true"></script>
+    <script src="~/js/chart.js" asp-append-version="true"></script>
+    <script src="~/js/chartjs-plugin-labels.js" asp-append-version="true"></script>
+    <script src="~/js/rhbTreasureBuilder.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/kendo.all.min.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/js/chartjs-plugin-labels.min.js" asp-append-version="true"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/animation.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/hover.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/graph.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/datepicker-bulma.css" asp-append-version="true" />
+</head>
+
+<body>
+    <section class="page">
+        <div id="objectLoader" class="loader-wrapper">
+            <div id="loader" class="hidden"></div>
+        </div>
+        <div class="d-block">
+            <section>
+                <div class="header_bar">
+                    <img style="width: 10%;" src="~/assets/CoreLogo.png">
+                    <div class="header">Sales Illustrator</div>
+                </div>
+                <div class="top">
+                    <div class="pagination_button" id="pagination">
+                        <div style="width: 100%; display: flex; justify-content: space-between;">
+                        <div style="margin-right: 0.5rem; display: flex;"><button class="back_button" onclick="back_page()">
+                                Back
+                            </button></div>
+
+
+                            <div style="display: flex;">
+                            <button class="home_button" onclick="home()">
+                                Home Page
+                            </button>
+                            <div>
+                                <button class="next_button" onclick="next_page()">
+                                Next
+                                </button>
+                                <br id="break">
+                                <button class="skip_button" style="margin-top: 10px;" onclick="skip()">
+                                    Skip
+                                </button>
+                            </div>
+
+                            
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="main_title" class="main-title center">
+                        Choose Your Preferred Plan
+                    </div>
+                    <div id="sub_title" class="sub-title center">
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_1">
+                
+                <div class="bottom">
+                    <div style="width: 350px" onclick="next(2)" class="zoom">
+                        <img class="mt-2" style="
+                            display: block;
+                            margin-left: auto;
+                            cursor: pointer;
+                            margin-right: auto; width: 100%" src="~/assets/main3.jpg">
+                        <div class="main-button">
+                            RHB Treasure Builder
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section" id="section_2">
+                <div class="isNonMobile">
+                    <div class="row mobile_view_slide_two">
+                        <div class="box2 fade-in" onclick="submitChoice(1,3);">
+                            <span class="hover_text">Education</span>
+                            <a title="Education" class="text_box_1">
+                                <img src="~/assets/images/Education.jpg">
+                            </a>
+                        </div>
+                        <div class="box2 fade-in2" onclick="submitChoice(2,7);">
+                            <span class="hover_text">Retirement</span>
+                            <img src="~/assets/images/Retirement.jpg" />
+                            
+                        </div>
+                        <div class="box2 fade-in3" onclick="submitChoice(3,11);">
+                            <span class="hover_text">Diversification</span>
+                            <img src="~/assets/images/Diversification.jpg" />
+                            
+                        </div>
+                        <div class="box2 fade-in4" onclick="submitChoice(4,15);">
+                            <span class="hover_text legacy_word">Legacy Planning</span>
+                            <img src="~/assets/images/Legacy.jpg" />
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="isMobile">
+                    <div class="row mobile_view_slide_two">
+                        <div class="box2 fade-in" onclick="mobileClickOccurence(1,3);">
+                            <span class="hover_text" is="target_id">Education</span>
+                            <a title="Education" class="text_box_1">
+                                <img src="~/assets/images/Education.jpg">
+                            </a>
+                        </div>
+                        <div class="box2 fade-in2" onclick="mobileClickOccurence(2,7);">
+                            <span class="hover_text" is="target_id">Retirement</span>
+                            <img src="~/assets/images/Retirement.jpg" />
+                            
+                        </div>
+                        <div class="box2 fade-in3" onclick="mobileClickOccurence(3,11);">
+                            <span class="hover_text" is="target_id">Diversification</span>
+                            <img src="~/assets/images/Diversification.jpg" />
+                            
+                        </div>
+                        <div class="box2 fade-in4" onclick="mobileClickOccurence(4,15);">
+                            <span class="hover_text" is="target_id">Legacy</span>
+                            <img src="~/assets/images/Legacy.jpg" />
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_3">
+                <div class="container" style="min-width: 85%;
+                    display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 65%;">
+                    <div class="row">
+                        <div class="col-8">
+                            <p class="content_font">
+                                Most parents are aware that giving children a head start in life is through a great education. A great education enables them to secure a sound foothold to gain knowledge of the world for them to build a successful life for themselves.
+                            </p>
+                            <p class="content_font">
+                                In fact, education is the greatest gift that parents can give to their child.
+                            </p>
+                        </div>
+
+                        <div class="col-4">
+                            <img style="width: 80%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/images/graduates.jpg" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_4">
+                <div class="bottom" style="align-items: flex-start;">
+                    <div class="center">
+                        <div class="d-block">
+                            <h4 class="pl-1" style="font-size: 23px; text-align: left; font-weight: 700; margin: 20px;">
+                                What factors make financing a child's education challenging?
+                            </h4>
+                        </div>
+                        <div class="d-flex" style="width: 100%;">
+                            <div class="edu-img">
+                                <img width="85%" src="~/assets/images/education_bubble_1.png">
+                            </div>
+                            <div class="edu-img">
+                                <img width="85%" src="~/assets/images/education_bubble_2.png">
+                            </div>
+                            <div class="edu-img">
+                                <img width="85%" style="margin-top: -10px;" src="~/assets/images/education_bubble_3.png">
+                            </div>
+                        </div>
+
+                <div style="display: block; text-align: left !important;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                        Source:
+                    </p>
+                    <ol class="source_ol mt-0">
+                        <li>
+                            Source: https://www.theedgemarkets.com/content/advertise/are-parents-saving-enough-their-childrens-education
+
+                        </li>
+                    </ol>
+                </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_5">
+                <div class="slide_5_map">
+                    <div class="d-flex">
+                        <div class="col-12" style="max-width: 50vw;">
+                            <p class="content_font">
+                                The cost of tertiary education differs according to the type of
+                                courses and also the countries where your child plans to further his/ her studies.
+                            </p>
+                            <p class="content_font">
+                                Parents may not find returns on fixed deposits enough to build
+                                sizeable portfolios to fund for university education.
+                            </p>
+                        </div>
+
+                        <div class="center pt-3">
+                            <img class="m-auto" style="width: 40vw;
+                                min-width: 380px;
+                                display: block;" src="~/assets/flags/map.png" />
+                        </div>
+                    </div>
+                </div>
+                <div class="block d-block mt-2">
+                    <ol class="source_ol mt-0 source_ol_black">
+                        <li>
+                            Source: https://www.theedgemarkets.com/content/advertise/are-parents-saving-enough-their-childrens-education
+                        </li>
+                        <li>
+                            Source: University Cost Guide 2020, 10th Edition, Public Mutual
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_6">
+                <div class="bottom" style="
+                width: 90%;
+                margin: auto; display:block;">
+                    <div class="">
+                        <p class="content_font_2" style="margin-bottom: 30px; text-align:unset !important;">
+                            When reality finally starts to sink in, you then begin to wonder if you can actually afford to send your child to college after you have calculated all the expenses. Whether you’re planning to enroll your child in a public or private college or university, education fee will not be cheap, moreover will continue to get more expensive with the ever growing inflation rate.
+                        </p>
+                        <p style="text-align: left;
+                    font-size: 16px;
+                    font-weight: 550;">Estimated Inflation Rate<sup>1</sup></p>
+                        <img class="slide-in-bottom long_flag" width="80%; " src="~/assets/flags/new_flags.png" />
+                        <div class="short_flag center">
+                            <div class="col-12 center slide-in-bottom">
+                                <img width="100%" src="~/assets/flags/australia.png" />
+                                <h4 class="mt-1">
+                                    5.5%
+                                </h4>
+                            </div>
+                            <div class="col-12 center slide-in-bottom mt-2">
+                                <img width="100%" src="~/assets/flags/united-kingdom.png" />
+                                <h4 class="mt-1">
+                                    5.5%
+                                </h4>
+                            </div>
+                            <div class="col-12 center slide-in-bottom mt-2">
+                                <img width="100%" src="~/assets/flags/united-states.png" />
+                                <h4 class="mt-1">
+                                    5.5%
+                                </h4>
+                            </div>
+                            <div class="col-12 center slide-in-bottom mt-2">
+                                <img width="100%" src="~/assets/flags/canada.png" />
+                                <h4 class="mt-1">
+                                    5.5%
+                                </h4>
+                            </div>
+                            <div class="col-12 center slide-in-bottom mt-2">
+                                <img width="100%" src="~/assets/flags/singapore.png" />
+                                <h4 class="mt-1">
+                                    5.5%
+                                </h4>
+                            </div>
+                            <div class="col-12 center slide-in-bottom mt-2">
+                                <img width="100%" src="~/assets/flags/malaysia.png" />
+                                <h4 class="mt-1">
+                                    5.5%
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                        Source:
+                    </p>
+                    <ol class="source_ol mt-0">
+                        <li>
+                            Source: University Cost Guide 2020, 10th Edition, Public Mutual
+                        </li>
+                    </ol>
+                </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_7">
+                <div class="bottom">
+                    <div class="center">
+                        <h4 class="mt-1 fw_600" style="font-size: 26px">How Do You Want Your Retirement To Be Like?</h4>
+
+                        <img class="mb-2 mobile_img" src="~/assets/images/senior-couple-seaside-medium-shot.jpg">
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_8">
+                <div class="bottom" style="display: block !important">
+                    <div class="center d-flex">
+                        <div class="col-6 slide_8_left">
+                            <p class="content_font">How much do you need for retirement?</p>
+                            <p class="content_font">
+                                EPF says you need to save up at least RM240,000 by the time you retire at 55 years old
+                                to have
+                                RM1,000 a month for your basic needs, like food and daily expenses to live on up to the
+                                Malaysian
+                                average life expectancy of 75 years old.
+                            </p>
+
+                        </div>
+                        <div class="col-5 slide_8_right">
+                            <img class="mb-2 mt-4 mobile_top_none" style="max-width: 72vh;" width="100%" src="~/assets/images/slice_8.png">
+                        </div>
+                    </div>
+                    <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                        Source:
+                    </p>
+                    <ol class="source_ol mt-0">
+                        <li>
+                            Source: https://www.kwsp.gov.my/-/epf-sets-new-target-of-rm240-000-for-basic-savings
+                        </li>
+                    </ol>
+                </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_9">
+                <div style="display: block;" class="bottom">
+                    <div class="center d-flex">
+                        <div class="col-6 slide_8_left">
+                            <p class="content_font">
+                                To have a comfortable retirement, expenses on medical, family and entertainment are part
+                                of the necessary spending.
+                            </p>
+                            <p class="content_font">
+                                You would need take into account the cost of inflation, which leads to the increase of
+                                your
+                                expenses far more than what you have budgeted.
+                            </p>
+
+                        </div>
+                        <div class="col-5 slide_8_right">
+                            <img class="mb-2 mt-4 mobile_top_none" width="100%" src="~/assets/images/slide_9.png">
+                        </div>
+                    </div>
+                    <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                        Source:
+                    </p>
+                    <ol class="source_ol mt-0">
+                        <li>
+                            Source: Standard Chartered Wealth Expectancy Report 2019
+                        </li>
+                    </ol>
+                </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_10">
+                <div class="bottom" style="display: block;">
+                    <div class="center d-flex">
+                        <div class="col-6 slide_8_left">
+                            <p class="content_font">
+                                The amount of money you need for your retirement is subject to your own lifestyle and
+                                needs.
+                                To figure out if you’re on track with your retirement savings, here’s the table of the
+                                minimum
+                                basic savings you should have for your age recommended by Bank Negara Malaysia.
+                            </p>
+
+                        </div>
+                        <div class="col-5 slide_8_right">
+                            <img class="mb-2 mt-3 mobile_top_none" width="100%" style="max-width: 72vh; box-shadow: 0px 0px 20px #666666;" src="~/assets/images/slide_10.png">
+                        </div>
+                    </div>
+                    <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                        Source:
+                    </p>
+                    <ol class="source_ol mt-0">
+                        <li>
+                            Source: https://www.bnm.gov.my/documents/20124/826852/AR+BA4+-+The+Living+Wage+Beyond+Making+Ends+Meet.pdf/81ede661-d5b6-9e33-7df3-e2fc89033387?t=1585030026097
+                        </li>
+                    </ol>
+                </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_11">
+                <h4 class="mt-1 mb-2 pl-1 fw_600" style="font-size: 26px">What are the market trends?</h4>
+                <div class="container">
+                    <div class="row" style="align-items: center;">
+                        <div class="col-6">
+                            <img class="shadow" style="width: 75%;" src="~/assets/images/Interest Rates.jpg" />
+                            @*<p class="history_caption"
+                               class="mt-1">BNM reduced Overnight Policy Rate to 1.75%</p>*@
+                        </div>
+                        <div class="col-6">
+                            <img class="shadow" style="width: 100%;" id="history_img" src="~/assets/images/Malaysia Deposit Interest Rate History.png" />
+                            
+                        </div>
+                        <div class="col-12 mt-3">
+                            <p class="history_caption" 
+                               class="mt-1">Down trend of interest rate for the past 20+ years.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_12">
+                <h4 class="mt-1 mb-1 pl-3 fw_600" style="font-size: 26px">What are the market trends?</h4>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6" style="display: flex; justify-content: center; align-items: center;">
+                            <img class="shadow" style="width: 100%;" src="~/assets/images/Volatility.png" />
+                        </div>
+                        <div class="col-6">
+                            <p class="history_caption_2" 
+                               class="mt-1">Volatility is expected to remain high.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_13">
+                <h4 class="mt-1 mb-1 pl-1 fw_600" style="font-size: 26px">Hence, it is important to review your assets allocation regularly.</h4>
+                <div class="container">
+                    <div class="row" style="justify-content:center; align-items:center; margin-top: 1em;">
+                        <div class="col-6">
+                            <img style="width: 100%;" src="~/assets/images/portfolio.png" />
+                        </div>
+                        <div class="col-6">
+                            <ul>
+                                <li style="font-size: 18px">For younger age customers, it is common to allocate more of their wealth to stocks/Property/UT to <span class="bold">maximize the potential return.</span> </li>
+                                <li style="font-size: 18px">For closer to retirement age customers, the portfolio will commonly be reversed in favor of lower risk and <span class="bold">more assured asset classes</span> for <span class="bold">wealth preservation.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_14">
+                <div class="bottom" style="
+                width: 90%;
+                margin: auto;
+                display: block;">
+                    <div class="center">
+                        <p class="content_font mt-1" style="margin-bottom: 30px; font-size: 20px !important; font-weight: bold;">Hence, during the low interest and market volatility period, you may need something to be able to create a stream of steady income. Below is the comparison of the common financial instruments available in the market.</p>
+                        <img width="100%" class="shadow" src="~/assets/images/section14_table.png" />
+                    </div>
+                    <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                        * Terms and conditions apply.
+                    </p>
+                </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_15">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="center d-flex">
+                        <div class="" style="padding-left: 0; margin-top: 0px;">
+                            <div class="center d-block">
+                                <h4 class="fw_600" style="font-size: 23px">2016 </h4>
+                            </div>
+                            <img class="shadow" width="350" src="~/assets/images/Estates News.png">
+                        </div>
+                        <div class="slide_8_arrow">
+                            <img width="100" style="margin: 8em 1em 0em 1em;" src="~/assets/images/arrow.png">
+                        </div>
+                        <div class="">
+                            <div class="center d-block">
+                                <h4 class="fw_600" style="font-size: 23px">2020 </h4>
+                            </div>
+                            <img class="shadow" width="350" src="~/assets/images/Report News.png">
+                        </div>
+                    </div>
+                </div>
+                <h4 class="fw_600" style="  margin: 1em 0em;  font-size: 24px;text-align: center;">
+                    The are unclaimed monies increased by
+                    50% in just 4 years!
+                </h4>
+                <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                        Source:
+                    </p>
+                    <ol class="source_ol mt-0">
+                        <li>
+                            https://www.malaysiakini.com/news/328886 
+                        </li>
+                        <li>
+                            https://www.malaymail.com/news/malaysia/2021/09/11/report-some-rm90b-worth-of-assets-mostly-owned-by-malays-unclaimed-as-of-20/2004690
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_16">
+                <div class="bottom mt-2" style="align-items: flex-start;">
+                    <div class="center">
+
+                        <div class="d-block">
+                            <h4 class="pl-1 fw_600" style="font-size: 23px; text-align: left;">
+                                Why unclaimed monies are getting
+                                higher?
+                            </h4>
+                        </div>
+                        <div class="d-flex" style="width: 100%;">
+                            <div class="edu-img">
+                                <img width="85%" src="~/assets/images/legacy_bubble_1.png">
+                            </div>
+                            <div class="edu-img">
+                                <img width="85%" src="~/assets/images/legacy_bubble_2.png">
+                            </div>
+                            <div class="edu-img">
+                                <img width="85%" style="margin-top: -11px;" src="~/assets/images/legacy_bubble_3.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_17">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="center d-block">
+                        <div class="d-block">
+                            <h4 class="pl-1 fw_600" style="font-size: 23px; text-align: left;">
+                                Some Facts about Legacy and
+                                Estate Transfer that you need to know.
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="desktop_view" style="width: 100%;    justify-content: flex-start;">
+                    <div class="col-8">
+                        <img class="chatbox_img" src="~/assets/images/legacy_chat_1.png">
+                    </div>
+                    <div class="col-4">
+                        <img class="right_convo_man" src="~/assets/images/Speech Man.png">
+                    </div>
+                </div>
+                <div class="mobile_view">
+                    <div class="col-12">
+                        <img class="chatbox_img" src="~/assets/images/legacy_chat_1.png">
+                    </div>
+                    <div class="col-12 right">
+                        <img class="right_convo_man_mobile" src="~/assets/images/Speech Man.png">
+                    </div>
+                </div>
+                <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                        Source:
+                    </p>
+                    <ol class="source_ol mt-0">
+                        <li>
+                            http://dollarsandsense.my/9-things-you-need-to-know-about-wills-in-malaysia/
+                        </li>
+                        <li>
+                            https://www.freemalaysiatoday.com/category/leisure/2018/10/05/understanding-estate-probate-and-wealth-distribution/
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_18">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="center d-block">
+                        <div class="d-block">
+                            <h4 class="pl-1 fw_600" style="font-size: 23px; text-align: left;">
+                                Some Facts about Legacy and
+                                Estate Transfer that you need to know.
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="desktop_view" style="width: 100%;    justify-content: flex-end;">
+                    <div class="col-4">
+                        <img class="left_convo_man" src="~/assets/images/Speech Man.png">
+                    </div>
+                    <div class="col-8">
+                        <img class="chatbox_img" src="~/assets/images/legacy_chat_2.png">
+                        <div style="display: block;">
+                            <p class="mb-0 source_p" style="padding-left: 25px">
+                                Source:
+                            </p>
+                            <ol class="source_ol mt-0">
+                                <li style="max-width: 100%;">
+                                    http://dollarsandsense.my/9-things-you-need-to-know-about-wills-in-malaysia/
+                                </li>
+                                <li style="max-width: 100%;">
+                                    https://www.freemalaysiatoday.com/category/leisure/2018/10/05/understanding-estate-probate-and-wealth-distribution/
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile_view">
+                    <div class="col-12 right">
+                        <img class="chatbox_img" src="~/assets/images/legacy_chat_2.png">
+                    </div>
+                    <div class="col-12">
+                        <img class="left_convo_man_mobile" src="~/assets/images/Speech Man.png">
+                    </div>
+
+                    <div style="display: block;">
+                        <p class="mb-0 source_p" style="padding-left: 25px">
+                            Source:
+                        </p>
+                        <ol class="source_ol mt-0">
+                            <li style="max-width: 100%;">
+                                http://dollarsandsense.my/9-things-you-need-to-know-about-wills-in-malaysia/
+                            </li>
+                            <li style="max-width: 100%;">
+                                https://www.freemalaysiatoday.com/category/leisure/2018/10/05/understanding-estate-probate-and-wealth-distribution/
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="page_section fade-in " id="section_19">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="center d-block">
+                        <div class="d-block">
+                            <h4 class="pl-1 fw_600" style="font-size: 23px; text-align: left;">
+                                Some Facts about Legacy and
+                                Estate Transfer that you need to know.
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="desktop_view" style="width: 100%;    justify-content: flex-start;">
+                    <div class="col-8">
+                        <img class="chatbox_img" src="~/assets/images/legacy_chat_3.png">
+                    </div>
+                    <div>
+                        <img class="right_convo_man" src="~/assets/images/Speech Man.png">
+                    </div>
+                </div>
+                <div class="mobile_view">
+                    <div class="col-12">
+                        <img class="chatbox_img" src="~/assets/images/legacy_chat_3.png">
+                    </div>
+                    <div class="col-12 right">
+                        <img class="right_convo_man_mobile" src="~/assets/images/Speech Man.png">
+                    </div>
+                </div>
+                <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                        Source:
+                    </p>
+                    <ol class="source_ol mt-0">
+                        <li>
+                            http://dollarsandsense.my/9-things-you-need-to-know-about-wills-in-malaysia/
+                        </li>
+                        <li>
+                            https://www.freemalaysiatoday.com/category/leisure/2018/10/05/understanding-estate-probate-and-wealth-distribution/
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_20">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="center d-block">
+                        <div class="d-block">
+                            <h4 class="pl-1 fw_600" style="font-size: 23px; text-align: left;">
+                                How does insurance help in legacy
+                                distribution?
+                            </h4>
+                        </div>
+                        <div class="d-flex" style="width: 100%;">
+                            <div>
+                                <img width="100%" src="~/assets/images/legacy_chart.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section" id="section_21">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="d-block enquiry_1">
+                        <div class="d-block white">
+                            <div class="address_name slide-in-bottom information_1">
+                                <div class="col-12">
+                                    <h4>How do I address you?</h4>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-12 px-0">
+                                        <div class="d-flex m-auto">
+                                            <div class="main-selection w_100">
+                                                <input   type="text"
+                                                   onkeyup="numberMobile(event)" 
+                                                   pattern="[A-Za-z]" class="name" 
+                                                   style="background: transparent; border: 0;  text-align: center;  width: 100%; height: 100%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="address_name slide-in-bottom information_2">
+                                <div class="col-12">
+                                    <h4>When were you born?</h4>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-12 px-0">
+                                        <div class="d-flex m-auto">
+
+                                            <!-- isNonMobile -->
+                                            <div class=" main-selection w_100">
+                                                <input onchange="validateDate(event)" type="date" id="age" name="age" style="background: transparent; border: 0;  text-align: center;    width: 100%; height: 100%;">
+                                                <!--  min="1995-01-01" max="2000-12-31" -->
+                                            </div>
+                                        </div>
+                                        <small class="hidden red invalid_date">Invalid date</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="address_name slide-in-bottom information_3">
+                                <div class="col-12">
+                                    <h4>What is your gender?</h4>
+                                </div>
+                                <div class="kids hide">
+                                    <div class="col-6 center pointer">
+                                        <img width="150" onclick="submitForm1('male', 'assets/images/Boy icon.png')" src="~/assets/images/Boy icon.png">
+                                    </div>
+                                    <div class="col-6 center pointer">
+                                        <img width="150" onclick="submitForm1('female', 'assets/images/Girl icon.png')" src="~/assets/images/Girl icon.png">
+                                    </div>
+                                </div>
+                                <div class="adult hide">
+                                    <div class="col-6 center pointer">
+                                        <img width="150" onclick="submitForm1('male', 'assets/images/Male icon.png')" src="~/assets/images/Male icon.png">
+                                    </div>
+                                    <div class="col-6 center pointer">
+                                        <img width="150" onclick="submitForm1('female', 'assets/images/Female icon.png')" src="~/assets/images/Female icon.png">
+                                    </div>
+                                </div>
+                                <div class="old hide">
+                                    <div class="col-6 center pointer">
+                                        <img width="150" onclick="submitForm1('male', 'assets/images/Grandpa icon.png')" src="~/assets/images/Grandpa icon.png">
+                                    </div>
+                                    <div class="col-6 center pointer">
+                                        <img width="150" onclick="submitForm1('female', 'assets/images/Grandma icon.png')" src="~/assets/images/Grandma icon.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section" id="section_22">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="d-block enquiry_1">
+                        <div class="d-block white">
+                            <div class="address_name center">
+                                <div class="col-12">
+                                    <h4 id="enteredname"></h4>
+                                </div>
+                                <div class="col-12">
+                                    <h4>Nice to meet you!</h4>
+                                </div>
+
+                            </div>
+                            <div class="address_name">
+                                <div class="col-12">
+                                    <h4 class="mt-2">What is your desired premium payment term and coverage term?</h4>
+                                </div>
+                                <div class="d-flex center" style="height: 50px;">
+                                    <div class="col-6">
+                                        <button class="premium_selection premium_520" onclick="select520()">
+                                            5 Pay 20 Years
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="premium_selection premium_825" onclick="select825()">
+                                            8 Pay 25 Years
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="address_name">
+                                <div class="col-12">
+                                    <h4 class="mt-2">What is your desired annual premium amount annually?</h4>
+                                </div>
+                                <div class="d-flex center">
+                                    <div class="col-4">
+                                        <button onclick="submitAmount2('15000')" class="premium_selection premium_price p15000">
+                                            RM 15,000  <br>
+                                            <span style=" font-weight: 400 !important;">Annual Premium </span>
+
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="premium_selection premium_price p20000" onclick="submitAmount2('20000')">
+                                            RM 20,000  <br>
+                                            <span style=" font-weight: 400 !important;">Annual Premium </span>
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="premium_selection premium_price p25000" onclick="submitAmount2('25000')">
+
+                                            RM 25,000  <br>
+                                            <span style=" font-weight: 400 !important;">Annual Premium </span>
+
+
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex center mt-1">
+                                    <div class="col-4">
+                                        <button  class="premium_selection premium_price p30000" onclick="submitAmount2('30000')">
+                                            RM 30,000  <br>
+                                            <span style=" font-weight: 400 !important;">Annual Premium </span>
+
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="premium_selection premium_price p40000" onclick="submitAmount2('40000')">
+                                            RM 40,000  <br>
+                                            <span style=" font-weight: 400 !important;">Annual Premium </span>
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="premium_selection premium_price p50000" onclick="submitAmount2('50000')">
+
+                                            RM 50,000  <br>
+                                            <span style=" font-weight: 400 !important;">Annual Premium </span>
+
+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main-generate-button w_100 disabled" id="getyourquote" onclick="submitForm2()">
+                                GET YOUR QUOTE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section" id="section_23">
+                <div class="">
+                    <div class="slide_23_image" style="display: flex;opacity: 0">
+                        <img id="bubble1" class="" style="    width: 80%; height: 30vh;">
+                        <img id="thinker" style="margin-top: 125px; width: 50%; height: 250px !important;" src="">
+                        <img id="thinker2" style="margin-top: 125px;height: 70px !important;" src="">
+                        <img id="thinker3" style="margin-top: 125px; height: 150px !important;" src="">
+                        <img id="bubble2" class="" style="padding-top: 2em;width: 80%; height: 30vh;" src="assets/images/bubble2.png">
+                    </div>
+                </div>
+                <div style="text-align: center;" class="after_input">
+                    <p id="enteredname2" style="font-weight: bold; margin-bottom: 0;"></p>
+                    <p style="margin-bottom: 0;">&nbsp;plans to set aside </p>
+                </div>
+                <div style="text-align: center;" class="after_input">
+                    <p id="enteredamount" style="font-weight: bold;"></p>
+                    <p>&nbsp;annually for&nbsp;</p>
+                    <p id="enteredyear"></p>
+                </div>
+            </section>
+
+            <section class="page_section" id="section_24">
+                <div class="container" style="display: block; !important">
+                    <div class="row">
+                        <div class="col-4 center slide_24_1" style="display: flex; align-items: center; justify-content: right;">
+                            <div>
+                                <img class="slide_24_policy" src="~/assets/images/Policy.png"/>
+                                <h5 class="center mt-1">
+                                    RHB Treasure Builder + <br> Income Builder Rider <br>
+                                    (Packaged Plan)
+
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-8 pt-3 slide_24_right_section" style="display: flex; align-items: center; justify-content: left; padding-left: 4em;">
+                        <div>
+                            <div class="d-flex line_1 slide_24 slide_24_2" style="align-items: center;">
+                                <img id="arrow_24_1" class="pt-2" src="~/assets/images/arrow.png"/>
+                                <img id="img_24_1" class="ml-5" src="~/assets/images/slide_24_1.png"/>
+                            </div>
+                            <div class="d-flex line_2 slide_24 slide_24_3" style="align-items: center;">
+                                <img id="arrow_24_2" src="~/assets/images/arrow.png"/>
+                                <img id="img_24_2" class="ml-5 50_below" src="~/assets/images/slide_24_2.png"/>
+                                <img id="img_24_2" class="ml-5 50_above" src="~/assets/images/slide_24_5.png"/>
+                            </div>
+                            <div class="d-flex mt-1 line_3 slide_24 slide_24_4" style="align-items: center;">
+                                <img id="arrow_24_3" class="" src="~/assets/images/arrow.png"/>
+                                <img id="img_24_3" class="ml-5" src="~/assets/images/slide_24_3.png"/>
+                            </div>
+                            <div class="d-flex mt-2 line_4 slide_24 slide_24_5" style="align-items: center;">
+                                <img id="arrow_24_4" src="~/assets/images/arrow.png"/>
+                                <img id="img_24_4" class="ml-5" src="~/assets/images/slide_24_4.png"/>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding: 25px">
+                        * Provided the premium payment of the policy (including the rider premium) is all paid up-to-date.
+                    </p>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_25">
+
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="d-block summary_1">
+                        <div class="d-block white" style="padding: 10px">
+
+                            <div class="center overview_green_bar">
+                                RHB Treasure Builder
+                            </div>
+
+                            <div class="center d-flex mb-1" style="    align-items: end; justify-content: center;">
+                                <div class="pr-2">
+                                    <img width="100" src="~/assets/rt100/overview_heart.png">
+                                    <p class="mb-0 overview_actual_age">xx years old </p>
+                                </div>
+                                <div class="pl-2">
+                                    <img width="150" class="overview_img" src="~/assets/images/Male icon.png">
+                                    <p class="mb-0 overview_gender" style="     text-transform: capitalize;   border-left: 0.5px#362f29 solid;margin-top: -10px">Male</p>
+                                </div>
+                            </div>
+
+                            <div class="row d-flex">
+                                <div class="col-12 px-0 d-flex">
+                                    <div class="col-3 center">
+                                        <div class="d-block center overview_box">
+                                            <img class="d-block m-auto mt-1" width="40" src="~/assets/rt100/overview_shield.png">
+                                     
+                                            <h5 class="mb-0 mt-1 premium_age_minus fs_115" id="premium_1">20</h5>
+                                            <span class="fs_115">YEARS</span> 
+                                            
+                                            <div class="overview_box_bottom">
+                                                COVERAGE TERM
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3 center">
+                                        <div class="d-block center overview_box">
+                                            <img class="d-block m-auto mt-1" width="40" src="~/assets/rt100/overview_cert.png">
+                                     
+                                            <h5 class="mb-0 mt-1 premium_payment_term fs_115" id="premium_2">5</h5>
+                                            <span class="fs_115">YEARS</span> 
+                                            
+                                            <div class="overview_box_bottom">
+                                                PREMIUM PAYMENT TERM
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3 center">
+                                        <div class="d-block center overview_box box_26 overview_clickable" onclick="checkOverview(26)">
+
+                                            <div class="box_check"></div>
+                                            <img class="d-block m-auto mt-1" width="40" src="~/assets/rt100/overview_coin.png">
+                                     
+                                            <h5 class="mb-0 mt-1 basic_sum_premium totalCoverage fs_115" id="">100,000</h5>
+                                            <span class="fs_115">MYR</span> 
+                                            
+                                            <div class="overview_box_bottom">
+                                                BASIC SUM ASSURED
+
+                                            </div>
+
+                                            <div class="box_animation">
+                                               <div class="animating_click ping"></div>
+                                               <img class="animating_finger move_upward" width="40" src="~/assets/rt100/tap.png">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3 center">
+                                        <div class="d-block center overview_box box_27 overview_clickable overview_disable" onclick="checkOverview(27)">
+
+                                            <div class="box_check"></div>
+                                            <img class="d-block m-auto mt-1" width="40" src="~/assets/rt100/overview_coin.png">
+                                     
+                                            <h5 class="mb-0 mt-1 basic_sum_premium totalCoverage fs_115" id="">100,000</h5>
+                                            <span class="fs_115">MYR</span> 
+                                            
+                                            <div class="overview_box_bottom">
+                                                BASIC ANNUAL PREMIUM
+
+                                            </div>
+
+                                            <div class="box_animation">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row d-flex ">
+
+                                <div class="col-12 px-0 d-flex">
+                                    <div class="col-3 center">
+                                        <div class="d-block center overview_box_2 box_28 overview_clickable overview_disable" onclick="checkOverview(28)">
+                                            <div class="box_check"></div>
+                                            <img class="d-block m-auto mt-1" width="40" src="~/assets/rt100/overview_angelheart.png">
+
+                                            <div class="mb-1">
+                                                <span class="fs_13 fs_68">Up to higher of</span>
+                                                <h5 class="mb-0 mt-0 fs_115 fw_600">125% of Total Premium Paid</h5>
+                                                <span class="fs_13 fs_68">(excluding RTU) less any GCP declared  <br /> up to date or  Cash Value</span> 
+                                            </div>
+                                            
+                                            <div class="overview_box_bottom_2">
+                                                
+                                                DEATH / TPD BENEFIT
+
+                                            </div>
+
+                                            <div class="box_animation"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3 center">
+                                        <div class="d-block center overview_box_2 box_29 overview_clickable overview_disable" onclick="checkOverview(29)">
+
+
+                                            <div class="additional_box">ADDITIONAL</div>
+                                            <div class="box_check"></div>
+                                            <img class="d-block m-auto mt-1" width="40" src="~/assets/rt100/overview_accident.png">
+                                     
+                                            <div style="    margin-top: 0.5em !important;">
+                                                <span class="fs_68">Up to additional 
+                                                <b class="fs_115">200% <br />of Total Sum Assured</b> <br />
+                                                ON TOP of Death/TPD Benefit</span> 
+                                            </div>
+                                            
+                                            <div class="overview_box_bottom_2">
+                                                
+                                                ACCIDENTAL DEATH / 
+                                                TPD BENEFIT
+
+
+                                            </div>
+
+                                            <div class="box_animation"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3 center">
+                                        <div class="d-block center overview_box_2 box_30 overview_clickable overview_disable" onclick="checkOverview(30)">
+                                            <div class="additional_box">ADDITIONAL</div>
+                                            <div class="box_check"></div>
+                                            <img class="d-block m-auto mt-1" width="40" src="~/assets/rt100/accident spouse.png">
+                                     
+                                            <h5 class="pb-1 mt-1 fs_115" id="premium_1" style="margin-bottom: 1.5em; font-size: 16px">
+                                                Additional
+                                                100% <br />
+                                                of Total Sum Assured
+
+
+                                            </h5>
+                                            
+                                            <div class="overview_box_bottom_2">
+                                                SPOUSE ACCIDENTAL 
+                                                DEATH BENEFIT
+
+                                            </div>
+
+                                            <div class="box_animation"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                             <div class="row d-flex">
+
+                                <div class="col-12 px-0 d-flex">
+                                    <div class="col-3 center">
+                                        <div class="d-block center overview_box_3 box_31 overview_clickable overview_disable" onclick="checkOverview(31)">
+                                            <div class="box_check"></div>
+                                            <img class="d-block m-auto mt-1" style="margin-bottom: 15px !important;" width="40" src="~/assets/rt100/overview_moneybag.png">
+                                     
+                                            <span class="fs_68">GCP and GCP booster</span>
+                                            <h5 class="mb-0 mt-0 fs_115" id="cash_premium_payment">RM XXX</h5>
+                                            <span class="fs_68">on final policy year</span> 
+
+                                            <div class="overview_box_bottom_3">
+                                                GUARANTEED CASH 
+                                                PAYMENT (GCP)
+                                            </div>
+
+                                            <div class="box_animation"></div>
+                                        </div>
+                                    </div>
+
+
+                                    @*overview_green_lg_bx*@
+                                    <div class="col-9 center " style="padding-top: 30px">
+
+                      @*                  <div class="overview_inside_green_content box_32 col-12  overview_disable overview_clickable fs_115" onclick="checkOverview(32)">
+                                            <div class="box_check"></div>
+                                            OVERALL PAYOUT RECEIVED VS TOTAL PREMIUM PAID
+
+                                            <div class="box_animation"></div>
+                                        </div>*@
+
+                                        
+                                        <div class="w-100 col-12 px-0">
+                                            
+                                            <div class="overview_inside_green_content box_32  overview_disable overview_clickable last_green_bg_box fs_115" onclick="checkOverview(32)" style="margin-top: 45px">
+                                                <div class="box_check"></div>
+                                                IMPACT OF EARLY TERMINATION / SURRENDER
+                                                <div class="box_animation"></div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                
+            </section>
+
+            <section class="page_section fade-in" id="section_26" >
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex">
+                        <div class="d-flex summary_2_1">
+                            <div class="graph_bg d-flex slide_29 summary_2_3" style="padding: 4em;">
+                                <div class="row" style="align-items: center;">
+                                    <div class="col-6">
+                                        <p class="green_header">
+                                            Category
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="green_header">
+                                            Sum Assured
+                                 
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row" style="align-items: center; margin-top: 10px;">
+                                    <div class="col-6">
+                                        <p class="white_content">
+                                            Basic Plan
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="yellow_content">
+                                            <span class="basic_first_value"></span>
+                                  
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="align-items: center; margin-top: 10px;">
+                                    <div class="col-6">
+                                        <p class="white_content">
+                                           Income Builder Rider
+
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="yellow_content">
+                                            <span class="basic_second_value"></span>
+                                  
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <section class="page_section fade-in" id="section_27" >
+                
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex">
+                        <div class="d-flex summary_2_1">
+                            <div class="graph_bg d-flex slide_29 summary_2_3">
+                                <div class="row">
+                                    <div class="col">
+                                        <div>
+                                            <p class="graph_title" style="font-size: 21px;">If Premium is Payable Yearly for <span id="premium_years"></span> Years With Annual Premium RM <span id="premium_paid"></span> </p>
+                                            <div class="relative">
+                                                <canvas id="premium_yearly"></canvas>      
+                                                <div class="absolute-center text-center">
+                                                    <p id="enteredGraph"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col p-1">
+                                        <div>
+                                            <p class="graph_title" style="font-size: 21px;">If Premium is Payable With Advanced Premium Option (APO) </p>
+                                            <div class="relative">
+                                                <canvas id="premium_advanced"></canvas>      
+                                                <div class="absolute-center text-center">
+                                                    <p id="enteredGraph2"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <small class="graph_caption">
+                                        * The current Advanced Premium Option (APO) interest rate is 3% p.a.. The actual interest declared is not guaranteed and depends on the company’s investment and operating performance.
+
+                                    </small>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_28">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="d-block summary_1">
+                        <div class="d-flex">
+                            <div class="graph_bg mobile_flex slide_29 slide_29_extra">
+                                <div style="max-width: 335px; float: left">
+                                    <div class="overall_payout px-3 center">
+                                        <h5 class="fw_600 fs_16 one_liner" style="margin-top: 9px;">
+                                            RECEIVE
+                                        </h5>
+                                        <div class="mobile_flex">
+                                            <div class="col-6 px-0">
+                                                <button onclick="generateDeathGraph('high')" class="overall_btn green_button High_all">
+                                                    High
+                                                </button>
+                                            </div>
+                                            <div class="col-6 px-0">
+                                                <button onclick="generateDeathGraph('low')" class="Low_all overall_btn ">
+                                                    Low
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg_white mt-1 p-2 fs_13">
+                                        <b>The protection payout of Basic Plan for death/TPD is:</b> <br>
+                                        Any Investment Fund Value + higher of the following: <br>
+                                        (a) &nbsp;&nbsp;RM 5,000; or <br>
+                                        (b) &nbsp;&nbsp;Protection Fund Value; or <br>
+                                        (c) &nbsp;&nbsp;<span class="slide_29_percentage"></span>* of Total Basic Premium Paid (excluding any top-ups)
+                                    </div>
+
+                                    <div class="bg_white mt-1 p-2 fs_13">
+                                        <b>The protection payout of Rider Plan for death/TPD is:</b> <br>
+                                        Any accumulated GCP and GCP Booster + higher of the following: <br>
+                                        (a) &nbsp;&nbsp;Rider Cash Value; or <br>
+                                        (b) &nbsp;&nbsp;<span class="slide_29_percentage"></span>* of Total Rider Premium Paid minus total GCP and GCP Booster declared up to date
+
+                                    </div>
+                                </div>
+
+                                <div class="slide_29_right pt-2">
+                                    <div>
+                                        <div class="slide_29_a overflow_scroll payout_for_death_chart_div" style="display: grid">
+                                            @*<canvas id="payout_for_death_chart" class="payout_for_death_chart"></canvas>*@
+                                            <div id="payout_for_death_chart"></div>
+                                            <p style="text-align:center; font-size:12px; padding: 0; margin: 0; min-height: 0; background: unset;">End of Policy Year (EOPY)</p>
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div>
+                                        <div class="slide_29_b overflow_scroll overall_gcp_boosted_graph_div" style="display: gird">
+                                            @*<canvas id="overall_gcp_boosted_graph" class="overall_gcp_boosted_graph hidden"></canvas>*@
+                                            <div id="overall_gcp_boosted_graph"></div>
+                                            <p style="text-align:center; font-size:12px; padding: 0; margin: 0; min-height: 0; background: unset;">End of Policy Year (EOPY)</p>
+                                        </div>
+                                    </div>
+                                    
+
+                                  @*  <div id="DeathButton" class="main-generate-button booster_button px-3" onclick="checkBoostedGraphSelection();">
+                                        Click to show GCP & GCP Booster Declared Up to Date
+                                    </div>*@
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="col-12 d-block mt-1 section_29_footer" style="font-size: 11px">
+                            * The percentage of Total Basic Premium Paid as shown here represents only Standard (S1) Life and it differs by Life category. The classification of Life category is subjected to underwriting decision.
+                            <br>
+                            Note: 
+
+                            <p class="mb-0 fs_11">
+                                (i) &nbsp;&nbsp; The information contained herein is based on modal age 40 next birthday (for age selection 1 – 44), age 50 next birthday (for age selection 45 – 55) or age 65 next birthday (for age selection 56 – 65), and is strictly meant to be general information and reference only. It does not constitute a contract of insurance. For further details on this product, please refer to the Product Brochure, Sales Illustration, Product Disclosure Sheet (PDS) and policy contract for detailed benefits, exclusions, terms and conditions.
+                            </p>
+                            <p class="mb-0 fs_11">
+                                 (ii) &nbsp;&nbsp;  The Total Payout Received is based on the fund value of TokioMarine-Managed Fund illustrated at investment return of 5% p.a. (High) and 2% p.a. (Low) respectively. The investment return is not guaranteed and is based on the performance of funds invested.
+
+                            </p>
+
+                        </div>
+
+                        <!-- title:  -->
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="page_section fade-in " id="section_29">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex">
+                        <div class="d-flex summary_2_1">
+                            <div class="graph_bg d-flex slide_29 summary_2_3" style="padding: 5em;">
+                                <div class="row" style="align-items: center;">
+                            <div class="col-6">
+                                <p class="slide_30_white_top">
+                                    Due to accident of any causes other than while commuting in public conveyance and natural disaster
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p class="slide_30_yellow_top">
+                                    <span style="font-weight: bold;">Additional 100%</span>
+                                    of Total Annual Premium*                                    
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row" style="align-items: center; margin-top: 45px;">
+                            <div class="col-6">
+                                <p class="slide_30_white_bottom">
+                                    Due to accident while commuting in public conveyance
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p class="slide_30_yellow_bottom">
+                                    <span style="font-weight: bold;">Additional 200%</span>
+                                    of Total Annual Premium*                                    
+                                </p>
+                            </div>
+                        </div>
+                            </div>
+                        </div>
+                        <p style="font-size: 11px" id="slide_28_footer" class="mb-0 mt-1">
+                            * Total Annual Premium refers to the sum of the Annual Premium of Basic Plan (RHB Treasure Builder) and Rider Annual Premium of the Income Builder Rider, excluding any Top-Ups. <br />
+                            Note: If Accidental Death/Accidental TPD is due to multiple events, the highest benefit shall be payable and the benefit payout is subject to juvenile lien if the Life Assured is below age 5 years old next birthday as of claims event date.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_30">
+                
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex">
+                        <div class="d-flex summary_2_1">
+                            <div class="graph_bg d-flex slide_29 summary_2_3" style="margin: 0px !important">
+                                <div class="row" style="align-items: center;">
+                                    <div class="col-5 center">
+                                        <img src="~/assets/images/Spouse.png">
+                                        <p id="enteredamount2"></p>
+                                    </div>
+                                    <div class="col-7">
+                                        <p class="married_text">
+                                            100% of Total Annual Premium*
+                                            upon legal spouse’s Accidental Death or Accidental Total and Permanent Disability
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="font-size: 11px" id="slide_28_footer" class="mb-0 mt-1">
+                            * Total Annual Premium refers to the sum of the Annual Premium of Basic Plan (RHB Treasure Builder) and Rider Annual Premium of the Income Builder Rider, excluding any Top-Ups.
+                        </p>
+                    </div>
+                </div>
+                
+            </section>
+
+            <section class="page_section fade-in" id="section_31">
+                <div class="bottom" style="align-items: flex-start; height: auto">
+                    <div class="d-block summary_1">
+                        <div class="d-flex">
+                            <div class="col-4 center">
+                                <div onclick="changeTab('preferred-button-received')" class="preferred-button preferred-button-received">
+                                    <h4>
+                                        RECEIVE
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-4 center ">
+                                <div onclick="changeTab('preferred-button-accumulated')" class="preferred-button preferred-button-accumulated">
+                                    <h4>
+                                        ACCUMULATE
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-4 center ">
+                                <div onclick="changeTab('preferred-button-reinvest')" class="preferred-button preferred-button-reinvest">
+                                    <h4>
+                                        REINVEST
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mobile_padding_side">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6 p-1">
+                                    <div class=" graph_bg" style="    max-height: fit-content;">
+                                        <div>
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>End of Policy Year (EOPY)</th>
+                                                        <th>Guaranteed Cash Payment (GCP)</th>
+                                                        <th>Guaranteed Cash Payment (GCP) Booster</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="eopy_table_body">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6 p-1 gcp_right_section gcp_preferred-button-received">
+                                    <div class="graph_bg" style="    max-height: fit-content;">
+                                        <div class="d-mobile overflow_scroll" style="display: grid;">
+                                            <div id="gcp_receive_chart"></div>
+                                            <p style="text-align:center; font-size:12px; padding: 0; margin: 0; min-height: 0; background: unset;">End of Policy Year (EOPY)</p>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6 p-1 gcp_right_section gcp_preferred-button-accumulated">
+                                    <div class="graph_bg" style="max-height: fit-content;">
+                                        <div class="d-flex d-mobile" style="height: 100%">
+                                            <div class="bg_white d-flex received_gcp" >
+                                                <h5 style="  font-size: 20px; line-height: 24px;">
+                                                 The current GCP accumulation interest rate is 4% p.a.. The actual interest rate used for accumulation may be depending on the Company’s investment experience. This rate is not guaranteed and is subject to change without prior notice.
+
+                                                </h5>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6 p-1 gcp_right_section gcp_preferred-button-reinvest">
+                                    <div class="graph_bg" style="    max-height: fit-content;">
+                                        <div class="d-flex d-mobile" style="height: 100%">
+                                            <div class="bg_white d-flex received_gcp" >
+                                                <h5 style="    font-size: 20px; line-height: 24px;">
+                                                    The GCP and GCP Booster will be 100% allocated into Investment Fund Value (IFV) and apportioned in the selected Tokio Marine Life Investment-Linked Funds.
+    
+                                                <p class="mt-2" style="font-size: 11px">
+                                                    Note: The number of units created shall be based on the unit price on the next valuation date.
+                                                </p>
+    
+                                                </h5>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p style="font-size: 11px" id="slice_31_footer" class="mb-0 mt-1">
+                        </p>
+
+                    </div>
+                </div>
+
+                
+            </section>
+
+          @*  <section class="page_section fade-in " id="section_32">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="d-block summary_1">
+                        <div class="d-flex">
+                            <div class="col-4 center">
+                                <div class="overall_payout">
+                                    <h4>
+                                        RECEIVE
+                                    </h4>
+                                    <div class="mobile_flex">
+                                        <div class="col-6 px-0">
+                                            <button onclick="leftReceiveAssignation('High')" class="overall_btn green_button High_receive">
+                                                High
+                                            </button>
+                                        </div>
+                                        <div class="col-6 px-0">
+                                            <button onclick="leftReceiveAssignation('Low')" class="Low_receive overall_btn ">
+                                                Low
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 center ">
+                                <div class="overall_payout">
+                                    <h4>
+                                        ACCUMULATE
+                                    </h4>
+                                    <div class="mobile_flex">
+                                        <div class="col-6 px-0">
+                                            <button onclick="leftAccumulatedAssignation('High')" class="overall_btn  High_accumulated">
+                                                High
+                                            </button>
+                                        </div>
+                                        <div class="col-6 px-0">
+                                            <button onclick="leftAccumulatedAssignation('Low')" class="overall_btn Low_accumulated">
+                                                Low
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 center ">
+                                <div class="overall_payout">
+                                    <h4>
+                                        REINVEST
+                                    </h4>
+                                    <div class="mobile_flex">
+                                        <div class="col-6 px-0">
+                                            <button onclick="leftReinvestAssignation('High')" class="overall_btn  High_reinvest">
+                                                High
+                                            </button>
+                                        </div>
+                                        <div class="col-6 px-0">
+                                            <button onclick="leftReinvestAssignation('Low')" class="overall_btn Low_reinvest">
+                                                Low
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="overall_btm">
+                            <div class="d-flex col-12">
+                                <div class="col-4 center">
+                                    <div class="d-block bg_white p-1">
+                                        <small class="d-block block">Total Payout Received</small>
+                                        <h4 class="Payout">RM XXX</h4>
+                                        <small class="d-block block fw_600">(<span class="Payout_Rate"></span>% of Total Premium Paid)  </small>
+                                        <small>while holding the policy to maturity</small>
+                                    </div>
+                                    <div class="d-block bg_white p-1 mt-1">
+                                        <h5>
+                                            Breakeven at Policy Year <span class="Policy_Year"></span>
+                                        </h5>
+                                    </div>
+                                    <div class="d-block bg_white p-1 mt-1">
+                                        <small class="d-block block">Annualized Return  </small>
+                                        <h4 class="Internal_Rate">X.XX% </h4>
+                                        <small>while holding the policy to maturity</small>
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="d-mobile overflow_scroll" style="display: grid;">
+                                        <div id="overall_payout_graph"></div>
+                                        <p style="text-align:center; font-size:12px; padding: 0; margin: 0; min-height: 0; background: unset;">End of Policy Year (EOPY)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p style="font-size: 11px" id="slide_32_footer" class="mb-0 mt-1 slide28notes">
+                           
+                        </p>
+                    </div>
+                </div>
+            </section>*@
+
+            <section class="page_section fade-in " id="section_32">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="d-block summary_1">
+                        <div class="d-flex">
+                            <div class="col-12 center">
+                                <div class="overall_payout">
+                                    <h4>
+                                        RECEIVE
+                                    </h4>
+                                    <div class="mobile_flex">
+                                        <div class="col-2 px-0">
+                                            <button onclick="generateSurrenderTable('receive', 'high')" class="overall_btn green_button High_receive">
+                                                High
+                                            </button>
+                                        </div>
+                                        <div class="col-2 px-0">
+                                            <button onclick="generateSurrenderTable('receive', 'low')" class="Low_receive overall_btn ">
+                                                Low
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                   @*         <div class="col-4 center ">
+                                <div class="overall_payout">
+                                    <h4>
+                                        ACCUMULATE
+                                    </h4>
+                                    <div class="mobile_flex">
+                                        <div class="col-6 px-0">
+                                            <button onclick="generateSurrenderTable('accumulate', 'high')" class="overall_btn  High_accumulated">
+                                                High
+                                            </button>
+                                        </div>
+                                        <div class="col-6 px-0">
+                                            <button onclick="generateSurrenderTable('accumulate', 'low')" class="overall_btn Low_accumulated">
+                                                Low
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                     @*       <div class="col-4 center ">
+                                <div class="overall_payout">
+                                    <h4>
+                                        REINVEST
+                                    </h4>
+                                    <div class="mobile_flex">
+                                        <div class="col-6 px-0">
+                                            <button onclick="generateSurrenderTable('reinvest', 'high')" class="overall_btn  High_reinvest">
+                                                High
+                                            </button>
+                                        </div>
+                                        <div class="col-6 px-0">
+                                            <button onclick="generateSurrenderTable('reinvest', 'low')" class="overall_btn Low_reinvest">
+                                                Low
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                        </div>
+
+                        <div style="margin-top: 1em;">
+                            <div class="d-flex col-12" style="overflow-x: scroll;">
+                                <table id="overall_payout_table">
+                                    
+                                </table>
+                            </div>
+                        </div>
+
+                        <div style="padding: 5px;
+                        text-align: center;
+                        color: red;
+                        font-size: 20px;
+                        background: #E9E9E9;
+                        margin: 15px 0px;"> WARNING: Early surrender will lead to a potential loss.</div>
+
+                        <p style="font-size: 11px" class="mb-0 mt-1 last_slide_footer">
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <div class="strict">
+                    STRICTLY FOR INTERNAL USE ONLY
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>

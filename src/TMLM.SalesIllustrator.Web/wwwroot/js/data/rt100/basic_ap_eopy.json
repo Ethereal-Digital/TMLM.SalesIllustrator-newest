@@ -1,0 +1,328 @@
+{
+  "basic_ap_5": {
+    "data": [
+      {
+        "annual_premium_selection": "15,000",
+        "total_premium_without_apo": "75,000",
+        "total_premium_with_apo": "71,015"
+      },
+      {
+        "annual_premium_selection": "20,000",
+        "total_premium_without_apo": "100,000",
+        "total_premium_with_apo": "94,687"
+      },
+      {
+        "annual_premium_selection": "25,000",
+        "total_premium_without_apo": "125,000",
+        "total_premium_with_apo": "118,358"
+      },
+      {
+        "annual_premium_selection": "30,000",
+        "total_premium_without_apo": "150,000",
+        "total_premium_with_apo": "142,030"
+      },
+      {
+        "annual_premium_selection": "50,000",
+        "total_premium_without_apo": "250,000",
+        "total_premium_with_apo": "236,716"
+      },
+      {
+        "annual_premium_selection": "100,000",
+        "total_premium_without_apo": "500,000",
+        "total_premium_with_apo": "473,432"
+      }
+    ]
+  },
+  "basic_ap_8": {
+    "data": [
+      {
+        "annual_premium_selection": "15,000",
+        "total_premium_without_apo": "120,000",
+        "total_premium_with_apo": "108,850"
+      },
+      {
+        "annual_premium_selection": "20,000",
+        "total_premium_without_apo": "160,000",
+        "total_premium_with_apo": "145,134"
+      },
+      {
+        "annual_premium_selection": "25,000",
+        "total_premium_without_apo": "200,000",
+        "total_premium_with_apo": "181,417"
+      },
+      {
+        "annual_premium_selection": "30,000",
+        "total_premium_without_apo": "240,000",
+        "total_premium_with_apo": "217,701"
+      },
+      {
+        "annual_premium_selection": "50,000",
+        "total_premium_without_apo": "400,000",
+        "total_premium_with_apo": "362,834"
+      },
+      {
+        "annual_premium_selection": "100,000",
+        "total_premium_without_apo": "800,000",
+        "total_premium_with_apo": "725,668"
+      }
+    ]
+  },
+  "basic_ap_10": {
+    "data": [
+      {
+        "annual_premium_selection": "7,500",
+        "total_premium_without_apo": "75,000",
+        "total_premium_with_apo": "66,137"
+      },
+      {
+        "annual_premium_selection": "10,000",
+        "total_premium_without_apo": "100,000",
+        "total_premium_with_apo": "88,182"
+      },
+      {
+        "annual_premium_selection": "12,500",
+        "total_premium_without_apo": "125,000",
+        "total_premium_with_apo": "110,228"
+      },
+      {
+        "annual_premium_selection": "15,000",
+        "total_premium_without_apo": "150,000",
+        "total_premium_with_apo": "132,273"
+      },
+      {
+        "annual_premium_selection": "25,000",
+        "total_premium_without_apo": "250,000",
+        "total_premium_with_apo": "220,455"
+      },
+      {
+        "annual_premium_selection": "50,000",
+        "total_premium_without_apo": "500,000",
+        "total_premium_with_apo": "440,910"
+      }
+    ]
+  },
+  "eopy_data": {
+    "data": [
+      {
+        "package": "mass",
+        "data": [
+          {
+            "year": 5,
+            "data": [
+              {
+                "eopy": "1 - 5",
+                "eopy_1": "1",
+                "eopy_2": "5",
+                "percentage": "5"
+              },
+              {
+                "eopy": "6 - 10",
+                "eopy_1": "6",
+                "eopy_2": "10",
+                "percentage": "10"
+              },
+              {
+                "eopy": "11 – 15",
+                "eopy_1": "11",
+                "eopy_2": "15",
+                "percentage": "10"
+              },
+              {
+                "eopy": "16 – 20",
+                "eopy_1": "16",
+                "eopy_2": "20",
+                "percentage": "15"
+              },
+              {
+                "eopy": "21 & onwards",
+                "eopy_1": "21",
+                "eopy_2": " & onwards",
+                "percentage": "15"
+              }
+            ]
+          },
+          {
+            "year": 8,
+            "data": [
+              {
+                "eopy": "1 - 5",
+                "eopy_1": "1",
+                "eopy_2": "5",
+                "percentage": "8"
+              },
+              {
+                "eopy": "6 - 10",
+                "eopy_1": "6",
+                "eopy_2": "10",
+                "percentage": "16"
+              },
+              {
+                "eopy": "11 – 15",
+                "eopy_1": "11",
+                "eopy_2": "15",
+                "percentage": "16"
+              },
+              {
+                "eopy": "16 – 20",
+                "eopy_1": "16",
+                "eopy_2": "20",
+                "percentage": "24"
+              },
+              {
+                "eopy": "21 & onwards",
+                "eopy_1": "21",
+                "eopy_2": " & onwards",
+                "percentage": "24"
+              }
+            ]
+          },
+          {
+            "year": 10,
+            "data": [
+              {
+                "eopy": "1 - 5",
+                "eopy_1": "1",
+                "eopy_2": "5",
+                "percentage": "10"
+              },
+              {
+                "eopy": "6 - 10",
+                "eopy_1": "6",
+                "eopy_2": "10",
+                "percentage": "10"
+              },
+              {
+                "eopy": "11 – 15",
+                "eopy_1": "11",
+                "eopy_2": "15",
+                "percentage": "20"
+              },
+              {
+                "eopy": "16 – 20",
+                "eopy_1": "16",
+                "eopy_2": "20",
+                "percentage": "20"
+              },
+              {
+                "eopy": "21 & onwards",
+                "eopy_1": "21",
+                "eopy_2": " & onwards",
+                "percentage": "30"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "package": "premier",
+        "data": [
+          {
+            "year": 5,
+            "data": [
+              {
+                "eopy": "1 - 5",
+                "eopy_1": "1",
+                "eopy_2": "5",
+                "percentage": "7"
+              },
+              {
+                "eopy": "6 - 10",
+                "eopy_1": "6",
+                "eopy_2": "10",
+                "percentage": "12"
+              },
+              {
+                "eopy": "11 – 15",
+                "eopy_1": "11",
+                "eopy_2": "15",
+                "percentage": "12"
+              },
+              {
+                "eopy": "16 – 20",
+                "eopy_1": "16",
+                "eopy_2": "20",
+                "percentage": "17"
+              },
+              {
+                "eopy": "21 & onwards",
+                "eopy_1": "21",
+                "eopy_2": " & onwards",
+                "percentage": "17"
+              }
+            ]
+          },
+          {
+            "year": 8,
+            "data": [
+              {
+                "eopy": "1 - 5",
+                "eopy_1": "1",
+                "eopy_2": "5",
+                "percentage": "11"
+              },
+              {
+                "eopy": "6 - 10",
+                "eopy_1": "6",
+                "eopy_2": "10",
+                "percentage": "19"
+              },
+              {
+                "eopy": "11 – 15",
+                "eopy_1": "11",
+                "eopy_2": "15",
+                "percentage": "19"
+              },
+              {
+                "eopy": "16 – 20",
+                "eopy_1": "16",
+                "eopy_2": "20",
+                "percentage": "27"
+              },
+              {
+                "eopy": "21 & onwards",
+                "eopy_1": "21",
+                "eopy_2": " & onwards",
+                "percentage": "27"
+              }
+            ]
+          },
+          {
+            "year": 10,
+            "data": [
+              {
+                "eopy": "1 - 5",
+                "eopy_1": "1",
+                "eopy_2": "5",
+                "percentage": "12"
+              },
+              {
+                "eopy": "6 - 10",
+                "eopy_1": "6",
+                "eopy_2": "10",
+                "percentage": "12"
+              },
+              {
+                "eopy": "11 – 15",
+                "eopy_1": "11",
+                "eopy_2": "15",
+                "percentage": "22"
+              },
+              {
+                "eopy": "16 – 20",
+                "eopy_1": "16",
+                "eopy_2": "20",
+                "percentage": "22"
+              },
+              {
+                "eopy": "21 & onwards",
+                "eopy_1": "21",
+                "eopy_2": " & onwards",
+                "percentage": "32"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

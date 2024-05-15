@@ -1,0 +1,3254 @@
+{
+  "eopy_table": {
+    "data": {
+      "five_pay": [
+        {
+          "eopy": "EOPY 1 - 4",
+          "eopy_1": "1",
+          "eopy_2": "4",
+          "gcp": 0.07,
+          "gcp_boosted": 0.23
+        },
+        {
+          "eopy": "EOPY 5",
+          "eopy_1": "5",
+          "eopy_2": "",
+          "gcp": 0.07,
+          "gcp_boosted": 0.23
+        },
+        {
+          "eopy": "EOPY 6 - 9",
+          "eopy_1": "6",
+          "eopy_2": "9",
+          "gcp": 0.08,
+          "gcp_boosted": 0.42
+        },
+        {
+          "eopy": "EOPY 10",
+          "eopy_1": "10",
+          "eopy_2": "",
+          "gcp": 0.08,
+          "gcp_boosted": 0.42
+        },
+        {
+          "eopy": "EOPY 11 – 14",
+          "eopy_1": "11",
+          "eopy_2": "14",
+          "gcp": 0.13,
+          "gcp_boosted": 0.7
+        },
+        {
+          "eopy": "EOPY 15",
+          "eopy_1": "15",
+          "eopy_2": "",
+          "gcp": 0.13,
+          "gcp_boosted": 0.7
+        },
+        {
+          "eopy": "EOPY 16 – 19",
+          "eopy_1": "16",
+          "eopy_2": "19",
+          "gcp": 0.13,
+          "gcp_boosted": 3.13
+        },
+        {
+          "eopy": "EOPY 20",
+          "eopy_1": "20",
+          "eopy_2": "",
+          "gcp": 0.13,
+          "gcp_boosted": 3.13
+        }
+      ],
+      "eight_pay": [
+        {
+          "eopy": "EOPY 1 - 4",
+          "eopy_1": "1",
+          "eopy_2": "4",
+          "gcp": 0.09,
+          "gcp_boosted": 0.31
+        },
+        {
+          "eopy": "EOPY 5",
+          "eopy_1": "5",
+          "eopy_2": "",
+          "gcp": 0.09,
+          "gcp_boosted": 0.31
+        },
+        {
+          "eopy": "EOPY 6 - 9",
+          "eopy_1": "6",
+          "eopy_2": "9",
+          "gcp": 0.09,
+          "gcp_boosted": 0.81
+        },
+        {
+          "eopy": "EOPY 10",
+          "eopy_1": "10",
+          "eopy_2": "",
+          "gcp": 0.09,
+          "gcp_boosted": 0.81
+        },
+        {
+          "eopy": "EOPY 11 - 14",
+          "eopy_1": "11",
+          "eopy_2": "14",
+          "gcp": 0.12,
+          "gcp_boosted": 1.31
+        },
+        {
+          "eopy": "EOPY 15",
+          "eopy_1": "15",
+          "eopy_2": "",
+          "gcp": 0.12,
+          "gcp_boosted": 1.31
+        },
+        {
+          "eopy": "EOPY 16 - 19",
+          "eopy_1": "16",
+          "eopy_2": "19",
+          "gcp": 0.12,
+          "gcp_boosted": 1.31
+        },
+        {
+          "eopy": "EOPY 20",
+          "eopy_1": "20",
+          "eopy_2": "",
+          "gcp": 0.12,
+          "gcp_boosted": 1.81
+        },
+        {
+          "eopy": "EOPY 21 - 24",
+          "eopy_1": "21",
+          "eopy_2": "24",
+          "gcp": 0.15,
+          "gcp_boosted": 3.91
+        },
+        {
+          "eopy": "EOPY 25",
+          "eopy_1": "25",
+          "eopy_2": "",
+          "gcp": 0.15,
+          "gcp_boosted": 3.91
+        }
+      ]
+    }
+  },
+  "eopy_five_pay_graph": {
+    "data": [
+      {
+        "type": "receive",
+        "data": [
+          {
+            "amount": 15000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 924.0000000000001,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 924.0000000000001,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 3,
+                "gcp": 924.0000000000001,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 4,
+                "gcp": 924.0000000000001,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 5,
+                "gcp": 924.0000000000001,
+                "gcp_boosted": 3036
+              },
+              {
+                "eopy": 6,
+                "gcp": 1056,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 7,
+                "gcp": 1056,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 8,
+                "gcp": 1056,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 9,
+                "gcp": 1056,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 10,
+                "gcp": 1056,
+                "gcp_boosted": 5544
+              },
+              {
+                "eopy": 11,
+                "gcp": 1716,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 12,
+                "gcp": 1716,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 13,
+                "gcp": 1716,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 14,
+                "gcp": 1716,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 15,
+                "gcp": 1716,
+                "gcp_boosted": 9240
+              },
+              {
+                "eopy": 16,
+                "gcp": 1716,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 17,
+                "gcp": 1716,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 18,
+                "gcp": 1716,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 19,
+                "gcp": 1716,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 20,
+                "gcp": 1716,
+                "gcp_boosted": 41316
+              }
+            ]
+          },
+          {
+            "amount": 20000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 1274.0000000000002,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 1274.0000000000002,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 3,
+                "gcp": 1274.0000000000002,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 4,
+                "gcp": 1274.0000000000002,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 5,
+                "gcp": 1274.0000000000002,
+                "gcp_boosted": 4186
+              },
+              {
+                "eopy": 6,
+                "gcp": 1456,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 7,
+                "gcp": 1456,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 8,
+                "gcp": 1456,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 9,
+                "gcp": 1456,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 10,
+                "gcp": 1456,
+                "gcp_boosted": 7644
+              },
+              {
+                "eopy": 11,
+                "gcp": 2366,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 12,
+                "gcp": 2366,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 13,
+                "gcp": 2366,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 14,
+                "gcp": 2366,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 15,
+                "gcp": 2366,
+                "gcp_boosted": 12740
+              },
+              {
+                "eopy": 16,
+                "gcp": 2366,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 17,
+                "gcp": 2366,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 18,
+                "gcp": 2366,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 19,
+                "gcp": 2366,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 20,
+                "gcp": 2366,
+                "gcp_boosted": 56966
+              }
+            ]
+          },
+          {
+            "amount": 25000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 1624.0000000000002,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 1624.0000000000002,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 3,
+                "gcp": 1624.0000000000002,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 4,
+                "gcp": 1624.0000000000002,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 5,
+                "gcp": 1624.0000000000002,
+                "gcp_boosted": 5336
+              },
+              {
+                "eopy": 6,
+                "gcp": 1856,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 7,
+                "gcp": 1856,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 8,
+                "gcp": 1856,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 9,
+                "gcp": 1856,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 10,
+                "gcp": 1856,
+                "gcp_boosted": 9744
+              },
+              {
+                "eopy": 11,
+                "gcp": 3016,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 12,
+                "gcp": 3016,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 13,
+                "gcp": 3016,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 14,
+                "gcp": 3016,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 15,
+                "gcp": 3016,
+                "gcp_boosted": 16239.999999999998
+              },
+              {
+                "eopy": 16,
+                "gcp": 3016,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 17,
+                "gcp": 3016,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 18,
+                "gcp": 3016,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 19,
+                "gcp": 3016,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 20,
+                "gcp": 3016,
+                "gcp_boosted": 72616
+              }
+            ]
+          },
+          {
+            "amount": 30000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 1974.0000000000002,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 1974.0000000000002,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 3,
+                "gcp": 1974.0000000000002,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 4,
+                "gcp": 1974.0000000000002,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 5,
+                "gcp": 1974.0000000000002,
+                "gcp_boosted": 6485.999999999999
+              },
+              {
+                "eopy": 6,
+                "gcp": 2256,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 7,
+                "gcp": 2256,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 8,
+                "gcp": 2256,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 9,
+                "gcp": 2256,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 10,
+                "gcp": 2256,
+                "gcp_boosted": 11844
+              },
+              {
+                "eopy": 11,
+                "gcp": 3666,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 12,
+                "gcp": 3666,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 13,
+                "gcp": 3666,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 14,
+                "gcp": 3666,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 15,
+                "gcp": 3666,
+                "gcp_boosted": 19740
+              },
+              {
+                "eopy": 16,
+                "gcp": 3666,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 17,
+                "gcp": 3666,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 18,
+                "gcp": 3666,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 19,
+                "gcp": 3666,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 20,
+                "gcp": 3666,
+                "gcp_boosted": 88266
+              }
+            ]
+          },
+          {
+            "amount": 40000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 2674.0000000000005,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 2674.0000000000005,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 3,
+                "gcp": 2674.0000000000005,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 4,
+                "gcp": 2674.0000000000005,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 5,
+                "gcp": 2674.0000000000005,
+                "gcp_boosted": 8786
+              },
+              {
+                "eopy": 6,
+                "gcp": 3056,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 7,
+                "gcp": 3056,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 8,
+                "gcp": 3056,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 9,
+                "gcp": 3056,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 10,
+                "gcp": 3056,
+                "gcp_boosted": 16044
+              },
+              {
+                "eopy": 11,
+                "gcp": 4966,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 12,
+                "gcp": 4966,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 13,
+                "gcp": 4966,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 14,
+                "gcp": 4966,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 15,
+                "gcp": 4966,
+                "gcp_boosted": 26740
+              },
+              {
+                "eopy": 16,
+                "gcp": 4966,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 17,
+                "gcp": 4966,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 18,
+                "gcp": 4966,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 19,
+                "gcp": 4966,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 20,
+                "gcp": 4966,
+                "gcp_boosted": 119566
+              }
+            ]
+          },
+          {
+            "amount": 50000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 3374.0000000000005,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 3374.0000000000005,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 3,
+                "gcp": 3374.0000000000005,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 4,
+                "gcp": 3374.0000000000005,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 5,
+                "gcp": 3374.0000000000005,
+                "gcp_boosted": 11086
+              },
+              {
+                "eopy": 6,
+                "gcp": 3856,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 7,
+                "gcp": 3856,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 8,
+                "gcp": 3856,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 9,
+                "gcp": 3856,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 10,
+                "gcp": 3856,
+                "gcp_boosted": 20244
+              },
+              {
+                "eopy": 11,
+                "gcp": 6266,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 12,
+                "gcp": 6266,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 13,
+                "gcp": 6266,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 14,
+                "gcp": 6266,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 15,
+                "gcp": 6266,
+                "gcp_boosted": 33740
+              },
+              {
+                "eopy": 16,
+                "gcp": 6266,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 17,
+                "gcp": 6266,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 18,
+                "gcp": 6266,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 19,
+                "gcp": 6266,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 20,
+                "gcp": 6266,
+                "gcp_boosted": 150866
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "accumulated",
+        "data": [
+          {
+            "amount": 15000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 924.0000000000001,
+                "gcp_boosted": 0,
+                "accumulated": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 1848.0000000000002,
+                "gcp_boosted": 0,
+                "accumulated": 36.99999999999977
+              },
+              {
+                "eopy": 3,
+                "gcp": 2772.0000000000005,
+                "gcp_boosted": 0,
+                "accumulated": 111.99999999999955
+              },
+              {
+                "eopy": 4,
+                "gcp": 3696.0000000000005,
+                "gcp_boosted": 0,
+                "accumulated": 226.99999999999955
+              },
+              {
+                "eopy": 5,
+                "gcp": 4620.000000000001,
+                "gcp_boosted": 3036,
+                "accumulated": 383.9999999999991
+              },
+              {
+                "eopy": 6,
+                "gcp": 5676.000000000001,
+                "gcp_boosted": 3036,
+                "accumulated": 706
+              },
+              {
+                "eopy": 7,
+                "gcp": 6732.000000000001,
+                "gcp_boosted": 3036,
+                "accumulated": 1083
+              },
+              {
+                "eopy": 8,
+                "gcp": 7788.000000000001,
+                "gcp_boosted": 3036,
+                "accumulated": 1517
+              },
+              {
+                "eopy": 9,
+                "gcp": 8844,
+                "gcp_boosted": 3036,
+                "accumulated": 2011
+              },
+              {
+                "eopy": 10,
+                "gcp": 9900,
+                "gcp_boosted": 8580,
+                "accumulated": 2567
+              },
+              {
+                "eopy": 11,
+                "gcp": 11616,
+                "gcp_boosted": 8580,
+                "accumulated": 3409
+              },
+              {
+                "eopy": 12,
+                "gcp": 13332,
+                "gcp_boosted": 8580,
+                "accumulated": 4353
+              },
+              {
+                "eopy": 13,
+                "gcp": 15048,
+                "gcp_boosted": 8580,
+                "accumulated": 5404
+              },
+              {
+                "eopy": 14,
+                "gcp": 16764,
+                "gcp_boosted": 8580,
+                "accumulated": 6565
+              },
+              {
+                "eopy": 15,
+                "gcp": 18480,
+                "gcp_boosted": 17820,
+                "accumulated": 7841
+              },
+              {
+                "eopy": 16,
+                "gcp": 20196,
+                "gcp_boosted": 17820,
+                "accumulated": 9607
+              },
+              {
+                "eopy": 17,
+                "gcp": 21912,
+                "gcp_boosted": 17820,
+                "accumulated": 11512
+              },
+              {
+                "eopy": 18,
+                "gcp": 23628,
+                "gcp_boosted": 17820,
+                "accumulated": 13562
+              },
+              {
+                "eopy": 19,
+                "gcp": 25344,
+                "gcp_boosted": 17820,
+                "accumulated": 15762
+              },
+              {
+                "eopy": 20,
+                "gcp": 27060,
+                "gcp_boosted": 59136,
+                "accumulated": 18119
+              }
+            ]
+          },
+          {
+            "amount": 20000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 1274.0000000000002,
+                "gcp_boosted": 0,
+                "accumulated": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 2548.0000000000005,
+                "gcp_boosted": 0,
+                "accumulated": 50.999999999999545
+              },
+              {
+                "eopy": 3,
+                "gcp": 3822.000000000001,
+                "gcp_boosted": 0,
+                "accumulated": 154.9999999999991
+              },
+              {
+                "eopy": 4,
+                "gcp": 5096.000000000001,
+                "gcp_boosted": 0,
+                "accumulated": 313.9999999999991
+              },
+              {
+                "eopy": 5,
+                "gcp": 6370.000000000001,
+                "gcp_boosted": 4186,
+                "accumulated": 530
+              },
+              {
+                "eopy": 6,
+                "gcp": 7826.000000000001,
+                "gcp_boosted": 4186,
+                "accumulated": 973
+              },
+              {
+                "eopy": 7,
+                "gcp": 9282,
+                "gcp_boosted": 4186,
+                "accumulated": 1492
+              },
+              {
+                "eopy": 8,
+                "gcp": 10738,
+                "gcp_boosted": 4186,
+                "accumulated": 2090
+              },
+              {
+                "eopy": 9,
+                "gcp": 12194,
+                "gcp_boosted": 4186,
+                "accumulated": 2771
+              },
+              {
+                "eopy": 10,
+                "gcp": 13650,
+                "gcp_boosted": 11830,
+                "accumulated": 3537
+              },
+              {
+                "eopy": 11,
+                "gcp": 16016,
+                "gcp_boosted": 11830,
+                "accumulated": 4698
+              },
+              {
+                "eopy": 12,
+                "gcp": 18382,
+                "gcp_boosted": 11830,
+                "accumulated": 6000
+              },
+              {
+                "eopy": 13,
+                "gcp": 20748,
+                "gcp_boosted": 11830,
+                "accumulated": 7448
+              },
+              {
+                "eopy": 14,
+                "gcp": 23114,
+                "gcp_boosted": 11830,
+                "accumulated": 9049
+              },
+              {
+                "eopy": 15,
+                "gcp": 25480,
+                "gcp_boosted": 24570,
+                "accumulated": 10809
+              },
+              {
+                "eopy": 16,
+                "gcp": 27846,
+                "gcp_boosted": 24570,
+                "accumulated": 13243
+              },
+              {
+                "eopy": 17,
+                "gcp": 30212,
+                "gcp_boosted": 24570,
+                "accumulated": 15869
+              },
+              {
+                "eopy": 18,
+                "gcp": 32578,
+                "gcp_boosted": 24570,
+                "accumulated": 18695
+              },
+              {
+                "eopy": 19,
+                "gcp": 34944,
+                "gcp_boosted": 24570,
+                "accumulated": 21729
+              },
+              {
+                "eopy": 20,
+                "gcp": 37310,
+                "gcp_boosted": 81536,
+                "accumulated": 24979
+              }
+            ]
+          },
+          {
+            "amount": 25000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 1624.0000000000002,
+                "gcp_boosted": 0,
+                "accumulated": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 3248.0000000000005,
+                "gcp_boosted": 0,
+                "accumulated": 64.99999999999955
+              },
+              {
+                "eopy": 3,
+                "gcp": 4872.000000000001,
+                "gcp_boosted": 0,
+                "accumulated": 197.9999999999991
+              },
+              {
+                "eopy": 4,
+                "gcp": 6496.000000000001,
+                "gcp_boosted": 0,
+                "accumulated": 400.9999999999991
+              },
+              {
+                "eopy": 5,
+                "gcp": 8120.000000000001,
+                "gcp_boosted": 5336,
+                "accumulated": 677
+              },
+              {
+                "eopy": 6,
+                "gcp": 9976,
+                "gcp_boosted": 5336,
+                "accumulated": 1242
+              },
+              {
+                "eopy": 7,
+                "gcp": 11832,
+                "gcp_boosted": 5336,
+                "accumulated": 1904
+              },
+              {
+                "eopy": 8,
+                "gcp": 13688,
+                "gcp_boosted": 5336,
+                "accumulated": 2667
+              },
+              {
+                "eopy": 9,
+                "gcp": 15544,
+                "gcp_boosted": 5336,
+                "accumulated": 3535
+              },
+              {
+                "eopy": 10,
+                "gcp": 17400,
+                "gcp_boosted": 15080,
+                "accumulated": 4512
+              },
+              {
+                "eopy": 11,
+                "gcp": 20416,
+                "gcp_boosted": 15080,
+                "accumulated": 5992
+              },
+              {
+                "eopy": 12,
+                "gcp": 23432,
+                "gcp_boosted": 15080,
+                "accumulated": 7652
+              },
+              {
+                "eopy": 13,
+                "gcp": 26448,
+                "gcp_boosted": 15080,
+                "accumulated": 9499
+              },
+              {
+                "eopy": 14,
+                "gcp": 29464,
+                "gcp_boosted": 15080,
+                "accumulated": 11540
+              },
+              {
+                "eopy": 15,
+                "gcp": 32480,
+                "gcp_boosted": 31320,
+                "accumulated": 13783
+              },
+              {
+                "eopy": 16,
+                "gcp": 35496,
+                "gcp_boosted": 31320,
+                "accumulated": 16886
+              },
+              {
+                "eopy": 17,
+                "gcp": 38512,
+                "gcp_boosted": 31320,
+                "accumulated": 20234
+              },
+              {
+                "eopy": 18,
+                "gcp": 41528,
+                "gcp_boosted": 31320,
+                "accumulated": 23837
+              },
+              {
+                "eopy": 19,
+                "gcp": 44544,
+                "gcp_boosted": 31320,
+                "accumulated": 27704
+              },
+              {
+                "eopy": 20,
+                "gcp": 47560,
+                "gcp_boosted": 103936,
+                "accumulated": 31847
+              }
+            ]
+          },
+          {
+            "amount": 30000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 1974.0000000000002,
+                "gcp_boosted": 0,
+                "accumulated": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 3948.0000000000005,
+                "gcp_boosted": 0,
+                "accumulated": 78.99999999999955
+              },
+              {
+                "eopy": 3,
+                "gcp": 5922.000000000001,
+                "gcp_boosted": 0,
+                "accumulated": 239.9999999999991
+              },
+              {
+                "eopy": 4,
+                "gcp": 7896.000000000001,
+                "gcp_boosted": 0,
+                "accumulated": 485.9999999999991
+              },
+              {
+                "eopy": 5,
+                "gcp": 9870.000000000002,
+                "gcp_boosted": 6485.999999999999,
+                "accumulated": 821
+              },
+              {
+                "eopy": 6,
+                "gcp": 12126.000000000002,
+                "gcp_boosted": 6485.999999999999,
+                "accumulated": 1508
+              },
+              {
+                "eopy": 7,
+                "gcp": 14382.000000000002,
+                "gcp_boosted": 6485.999999999999,
+                "accumulated": 2313
+              },
+              {
+                "eopy": 8,
+                "gcp": 16638,
+                "gcp_boosted": 6485.999999999999,
+                "accumulated": 3240
+              },
+              {
+                "eopy": 9,
+                "gcp": 18894,
+                "gcp_boosted": 6485.999999999999,
+                "accumulated": 4295
+              },
+              {
+                "eopy": 10,
+                "gcp": 21150,
+                "gcp_boosted": 18330,
+                "accumulated": 5482
+              },
+              {
+                "eopy": 11,
+                "gcp": 24816,
+                "gcp_boosted": 18330,
+                "accumulated": 7280
+              },
+              {
+                "eopy": 12,
+                "gcp": 28482,
+                "gcp_boosted": 18330,
+                "accumulated": 9297
+              },
+              {
+                "eopy": 13,
+                "gcp": 32148,
+                "gcp_boosted": 18330,
+                "accumulated": 11541
+              },
+              {
+                "eopy": 14,
+                "gcp": 35814,
+                "gcp_boosted": 18330,
+                "accumulated": 14022
+              },
+              {
+                "eopy": 15,
+                "gcp": 39480,
+                "gcp_boosted": 38070,
+                "accumulated": 16749
+              },
+              {
+                "eopy": 16,
+                "gcp": 43146,
+                "gcp_boosted": 38070,
+                "accumulated": 20521
+              },
+              {
+                "eopy": 17,
+                "gcp": 46812,
+                "gcp_boosted": 38070,
+                "accumulated": 24590
+              },
+              {
+                "eopy": 18,
+                "gcp": 50478,
+                "gcp_boosted": 38070,
+                "accumulated": 28969
+              },
+              {
+                "eopy": 19,
+                "gcp": 54144,
+                "gcp_boosted": 38070,
+                "accumulated": 33670
+              },
+              {
+                "eopy": 20,
+                "gcp": 57810,
+                "gcp_boosted": 126336,
+                "accumulated": 38705
+              }
+            ]
+          },
+          {
+            "amount": 40000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 2674.0000000000005,
+                "gcp_boosted": 0,
+                "accumulated": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 5348.000000000001,
+                "gcp_boosted": 0,
+                "accumulated": 106.99999999999909
+              },
+              {
+                "eopy": 3,
+                "gcp": 8022.000000000002,
+                "gcp_boosted": 0,
+                "accumulated": 324.9999999999982
+              },
+              {
+                "eopy": 4,
+                "gcp": 10696.000000000002,
+                "gcp_boosted": 0,
+                "accumulated": 658.9999999999982
+              },
+              {
+                "eopy": 5,
+                "gcp": 13370.000000000002,
+                "gcp_boosted": 8786,
+                "accumulated": 1113
+              },
+              {
+                "eopy": 6,
+                "gcp": 16426,
+                "gcp_boosted": 8786,
+                "accumulated": 2044
+              },
+              {
+                "eopy": 7,
+                "gcp": 19482,
+                "gcp_boosted": 8786,
+                "accumulated": 3134
+              },
+              {
+                "eopy": 8,
+                "gcp": 22538,
+                "gcp_boosted": 8786,
+                "accumulated": 4390
+              },
+              {
+                "eopy": 9,
+                "gcp": 25594,
+                "gcp_boosted": 8786,
+                "accumulated": 5819
+              },
+              {
+                "eopy": 10,
+                "gcp": 28650,
+                "gcp_boosted": 24830,
+                "accumulated": 7427
+              },
+              {
+                "eopy": 11,
+                "gcp": 33616,
+                "gcp_boosted": 24830,
+                "accumulated": 9863
+              },
+              {
+                "eopy": 12,
+                "gcp": 38582,
+                "gcp_boosted": 24830,
+                "accumulated": 12595
+              },
+              {
+                "eopy": 13,
+                "gcp": 43548,
+                "gcp_boosted": 24830,
+                "accumulated": 15635
+              },
+              {
+                "eopy": 14,
+                "gcp": 48514,
+                "gcp_boosted": 24830,
+                "accumulated": 18996
+              },
+              {
+                "eopy": 15,
+                "gcp": 53480,
+                "gcp_boosted": 51570,
+                "accumulated": 22690
+              },
+              {
+                "eopy": 16,
+                "gcp": 58446,
+                "gcp_boosted": 51570,
+                "accumulated": 27800
+              },
+              {
+                "eopy": 17,
+                "gcp": 63412,
+                "gcp_boosted": 51570,
+                "accumulated": 33313
+              },
+              {
+                "eopy": 18,
+                "gcp": 68378,
+                "gcp_boosted": 51570,
+                "accumulated": 39245
+              },
+              {
+                "eopy": 19,
+                "gcp": 73344,
+                "gcp_boosted": 51570,
+                "accumulated": 45613
+              },
+              {
+                "eopy": 20,
+                "gcp": 78310,
+                "gcp_boosted": 171136,
+                "accumulated": 52434
+              }
+            ]
+          },
+          {
+            "amount": 50000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 3374.0000000000005,
+                "gcp_boosted": 0,
+                "accumulated": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 6748.000000000001,
+                "gcp_boosted": 0,
+                "accumulated": 134.9999999999991
+              },
+              {
+                "eopy": 3,
+                "gcp": 10122.000000000002,
+                "gcp_boosted": 0,
+                "accumulated": 409.9999999999982
+              },
+              {
+                "eopy": 4,
+                "gcp": 13496.000000000002,
+                "gcp_boosted": 0,
+                "accumulated": 830.9999999999982
+              },
+              {
+                "eopy": 5,
+                "gcp": 16870.000000000004,
+                "gcp_boosted": 11086,
+                "accumulated": 1403.9999999999964
+              },
+              {
+                "eopy": 6,
+                "gcp": 20726.000000000004,
+                "gcp_boosted": 11086,
+                "accumulated": 2577.9999999999964
+              },
+              {
+                "eopy": 7,
+                "gcp": 24582.000000000004,
+                "gcp_boosted": 11086,
+                "accumulated": 3954
+              },
+              {
+                "eopy": 8,
+                "gcp": 28438.000000000004,
+                "gcp_boosted": 11086,
+                "accumulated": 5539
+              },
+              {
+                "eopy": 9,
+                "gcp": 32294.000000000004,
+                "gcp_boosted": 11086,
+                "accumulated": 7342
+              },
+              {
+                "eopy": 10,
+                "gcp": 36150,
+                "gcp_boosted": 31330,
+                "accumulated": 9371
+              },
+              {
+                "eopy": 11,
+                "gcp": 42416,
+                "gcp_boosted": 31330,
+                "accumulated": 12445
+              },
+              {
+                "eopy": 12,
+                "gcp": 48682,
+                "gcp_boosted": 31330,
+                "accumulated": 15893
+              },
+              {
+                "eopy": 13,
+                "gcp": 54948,
+                "gcp_boosted": 31330,
+                "accumulated": 19729
+              },
+              {
+                "eopy": 14,
+                "gcp": 61214,
+                "gcp_boosted": 31330,
+                "accumulated": 23969
+              },
+              {
+                "eopy": 15,
+                "gcp": 67480,
+                "gcp_boosted": 65070,
+                "accumulated": 28630
+              },
+              {
+                "eopy": 16,
+                "gcp": 73746,
+                "gcp_boosted": 65070,
+                "accumulated": 35077
+              },
+              {
+                "eopy": 17,
+                "gcp": 80012,
+                "gcp_boosted": 65070,
+                "accumulated": 42033
+              },
+              {
+                "eopy": 18,
+                "gcp": 86278,
+                "gcp_boosted": 65070,
+                "accumulated": 49518
+              },
+              {
+                "eopy": 19,
+                "gcp": 92544,
+                "gcp_boosted": 65070,
+                "accumulated": 57553
+              },
+              {
+                "eopy": 20,
+                "gcp": 98810,
+                "gcp_boosted": 215936,
+                "accumulated": 66160
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "eopy_eight_pay_graph": {
+    "data": [
+      {
+        "type": "receive",
+        "data": [
+          {
+            "amount": 15000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 1188,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 1188,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 3,
+                "gcp": 1188,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 4,
+                "gcp": 1188,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 5,
+                "gcp": 1188,
+                "gcp_boosted": 4092
+              },
+              {
+                "eopy": 6,
+                "gcp": 1188,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 7,
+                "gcp": 1188,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 8,
+                "gcp": 1188,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 9,
+                "gcp": 1188,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 10,
+                "gcp": 1188,
+                "gcp_boosted": 10692
+              },
+              {
+                "eopy": 11,
+                "gcp": 1584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 12,
+                "gcp": 1584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 13,
+                "gcp": 1584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 14,
+                "gcp": 1584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 15,
+                "gcp": 1584,
+                "gcp_boosted": 17292
+              },
+              {
+                "eopy": 16,
+                "gcp": 1584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 17,
+                "gcp": 1584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 18,
+                "gcp": 1584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 19,
+                "gcp": 1584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 20,
+                "gcp": 1584,
+                "gcp_boosted": 23892
+              },
+              {
+                "eopy": 21,
+                "gcp": 1980,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 22,
+                "gcp": 1980,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 23,
+                "gcp": 1980,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 24,
+                "gcp": 1980,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 25,
+                "gcp": 1980,
+                "gcp_boosted": 51611.99999999999
+              }
+            ]
+          },
+          {
+            "amount": 20000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 1638,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 1638,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 3,
+                "gcp": 1638,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 4,
+                "gcp": 1638,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 5,
+                "gcp": 1638,
+                "gcp_boosted": 5642
+              },
+              {
+                "eopy": 6,
+                "gcp": 1638,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 7,
+                "gcp": 1638,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 8,
+                "gcp": 1638,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 9,
+                "gcp": 1638,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 10,
+                "gcp": 1638,
+                "gcp_boosted": 14742.000000000002
+              },
+              {
+                "eopy": 11,
+                "gcp": 2184,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 12,
+                "gcp": 2184,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 13,
+                "gcp": 2184,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 14,
+                "gcp": 2184,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 15,
+                "gcp": 2184,
+                "gcp_boosted": 23842
+              },
+              {
+                "eopy": 16,
+                "gcp": 2184,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 17,
+                "gcp": 2184,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 18,
+                "gcp": 2184,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 19,
+                "gcp": 2184,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 20,
+                "gcp": 2184,
+                "gcp_boosted": 32942
+              },
+              {
+                "eopy": 21,
+                "gcp": 2730,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 22,
+                "gcp": 2730,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 23,
+                "gcp": 2730,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 24,
+                "gcp": 2730,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 25,
+                "gcp": 2730,
+                "gcp_boosted": 71162
+              }
+            ]
+          },
+          {
+            "amount": 25000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 2088,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 2088,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 3,
+                "gcp": 2088,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 4,
+                "gcp": 2088,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 5,
+                "gcp": 2088,
+                "gcp_boosted": 7192
+              },
+              {
+                "eopy": 6,
+                "gcp": 2088,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 7,
+                "gcp": 2088,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 8,
+                "gcp": 2088,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 9,
+                "gcp": 2088,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 10,
+                "gcp": 2088,
+                "gcp_boosted": 18792
+              },
+              {
+                "eopy": 11,
+                "gcp": 2784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 12,
+                "gcp": 2784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 13,
+                "gcp": 2784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 14,
+                "gcp": 2784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 15,
+                "gcp": 2784,
+                "gcp_boosted": 30392
+              },
+              {
+                "eopy": 16,
+                "gcp": 2784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 17,
+                "gcp": 2784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 18,
+                "gcp": 2784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 19,
+                "gcp": 2784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 20,
+                "gcp": 2784,
+                "gcp_boosted": 41992
+              },
+              {
+                "eopy": 21,
+                "gcp": 3480,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 22,
+                "gcp": 3480,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 23,
+                "gcp": 3480,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 24,
+                "gcp": 3480,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 25,
+                "gcp": 3480,
+                "gcp_boosted": 90712
+              }
+            ]
+          },
+          {
+            "amount": 30000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 2538,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 2538,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 3,
+                "gcp": 2538,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 4,
+                "gcp": 2538,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 5,
+                "gcp": 2538,
+                "gcp_boosted": 8742
+              },
+              {
+                "eopy": 6,
+                "gcp": 2538,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 7,
+                "gcp": 2538,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 8,
+                "gcp": 2538,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 9,
+                "gcp": 2538,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 10,
+                "gcp": 2538,
+                "gcp_boosted": 22842
+              },
+              {
+                "eopy": 11,
+                "gcp": 3384,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 12,
+                "gcp": 3384,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 13,
+                "gcp": 3384,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 14,
+                "gcp": 3384,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 15,
+                "gcp": 3384,
+                "gcp_boosted": 36942
+              },
+              {
+                "eopy": 16,
+                "gcp": 3384,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 17,
+                "gcp": 3384,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 18,
+                "gcp": 3384,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 19,
+                "gcp": 3384,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 20,
+                "gcp": 3384,
+                "gcp_boosted": 51042
+              },
+              {
+                "eopy": 21,
+                "gcp": 4230,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 22,
+                "gcp": 4230,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 23,
+                "gcp": 4230,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 24,
+                "gcp": 4230,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 25,
+                "gcp": 4230,
+                "gcp_boosted": 110261.99999999999
+              }
+            ]
+          },
+          {
+            "amount": 40000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 3438,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 3438,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 3,
+                "gcp": 3438,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 4,
+                "gcp": 3438,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 5,
+                "gcp": 3438,
+                "gcp_boosted": 11842
+              },
+              {
+                "eopy": 6,
+                "gcp": 3438,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 7,
+                "gcp": 3438,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 8,
+                "gcp": 3438,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 9,
+                "gcp": 3438,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 10,
+                "gcp": 3438,
+                "gcp_boosted": 30942.000000000004
+              },
+              {
+                "eopy": 11,
+                "gcp": 4584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 12,
+                "gcp": 4584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 13,
+                "gcp": 4584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 14,
+                "gcp": 4584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 15,
+                "gcp": 4584,
+                "gcp_boosted": 50042
+              },
+              {
+                "eopy": 16,
+                "gcp": 4584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 17,
+                "gcp": 4584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 18,
+                "gcp": 4584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 19,
+                "gcp": 4584,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 20,
+                "gcp": 4584,
+                "gcp_boosted": 69142
+              },
+              {
+                "eopy": 21,
+                "gcp": 5730,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 22,
+                "gcp": 5730,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 23,
+                "gcp": 5730,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 24,
+                "gcp": 5730,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 25,
+                "gcp": 5730,
+                "gcp_boosted": 149362
+              }
+            ]
+          },
+          {
+            "amount": 50000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 4338,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 4338,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 3,
+                "gcp": 4338,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 4,
+                "gcp": 4338,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 5,
+                "gcp": 4338,
+                "gcp_boosted": 14942
+              },
+              {
+                "eopy": 6,
+                "gcp": 4338,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 7,
+                "gcp": 4338,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 8,
+                "gcp": 4338,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 9,
+                "gcp": 4338,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 10,
+                "gcp": 4338,
+                "gcp_boosted": 39042
+              },
+              {
+                "eopy": 11,
+                "gcp": 5784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 12,
+                "gcp": 5784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 13,
+                "gcp": 5784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 14,
+                "gcp": 5784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 15,
+                "gcp": 5784,
+                "gcp_boosted": 63142
+              },
+              {
+                "eopy": 16,
+                "gcp": 5784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 17,
+                "gcp": 5784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 18,
+                "gcp": 5784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 19,
+                "gcp": 5784,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 20,
+                "gcp": 5784,
+                "gcp_boosted": 87242
+              },
+              {
+                "eopy": 21,
+                "gcp": 7230,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 22,
+                "gcp": 7230,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 23,
+                "gcp": 7230,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 24,
+                "gcp": 7230,
+                "gcp_boosted": 0
+              },
+              {
+                "eopy": 25,
+                "gcp": 7230,
+                "gcp_boosted": 188462
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "accumulated",
+        "data": [
+          {
+            "amount": 15000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 1188,
+                "gcp_boosted": 0,
+                "accumulated": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 2376,
+                "gcp_boosted": 0,
+                "accumulated": 48
+              },
+              {
+                "eopy": 3,
+                "gcp": 3564,
+                "gcp_boosted": 0,
+                "accumulated": 145
+              },
+              {
+                "eopy": 4,
+                "gcp": 4752,
+                "gcp_boosted": 0,
+                "accumulated": 293
+              },
+              {
+                "eopy": 5,
+                "gcp": 5940,
+                "gcp_boosted": 4092,
+                "accumulated": 495
+              },
+              {
+                "eopy": 6,
+                "gcp": 7128,
+                "gcp_boosted": 4092,
+                "accumulated": 916
+              },
+              {
+                "eopy": 7,
+                "gcp": 8316,
+                "gcp_boosted": 4092,
+                "accumulated": 1401
+              },
+              {
+                "eopy": 8,
+                "gcp": 9504,
+                "gcp_boosted": 4092,
+                "accumulated": 1953
+              },
+              {
+                "eopy": 9,
+                "gcp": 10692,
+                "gcp_boosted": 4092,
+                "accumulated": 2575
+              },
+              {
+                "eopy": 10,
+                "gcp": 11880,
+                "gcp_boosted": 14784,
+                "accumulated": 3269
+              },
+              {
+                "eopy": 11,
+                "gcp": 13464,
+                "gcp_boosted": 14784,
+                "accumulated": 4466
+              },
+              {
+                "eopy": 12,
+                "gcp": 15048,
+                "gcp_boosted": 14784,
+                "accumulated": 5775
+              },
+              {
+                "eopy": 13,
+                "gcp": 16632,
+                "gcp_boosted": 14784,
+                "accumulated": 7199
+              },
+              {
+                "eopy": 14,
+                "gcp": 18216,
+                "gcp_boosted": 14784,
+                "accumulated": 8744
+              },
+              {
+                "eopy": 15,
+                "gcp": 19800,
+                "gcp_boosted": 32076,
+                "accumulated": 10414
+              },
+              {
+                "eopy": 16,
+                "gcp": 21384,
+                "gcp_boosted": 32076,
+                "accumulated": 12906
+              },
+              {
+                "eopy": 17,
+                "gcp": 22968,
+                "gcp_boosted": 32076,
+                "accumulated": 15561
+              },
+              {
+                "eopy": 18,
+                "gcp": 24552,
+                "gcp_boosted": 32076,
+                "accumulated": 18385
+              },
+              {
+                "eopy": 19,
+                "gcp": 26136,
+                "gcp_boosted": 32076,
+                "accumulated": 21386
+              },
+              {
+                "eopy": 20,
+                "gcp": 27720,
+                "gcp_boosted": 55968,
+                "accumulated": 24570
+              },
+              {
+                "eopy": 21,
+                "gcp": 29700,
+                "gcp_boosted": 55968,
+                "accumulated": 28900
+              },
+              {
+                "eopy": 22,
+                "gcp": 31680,
+                "gcp_boosted": 55968,
+                "accumulated": 33483
+              },
+              {
+                "eopy": 23,
+                "gcp": 33660,
+                "gcp_boosted": 55968,
+                "accumulated": 38328
+              },
+              {
+                "eopy": 24,
+                "gcp": 35640,
+                "gcp_boosted": 55968,
+                "accumulated": 43446
+              },
+              {
+                "eopy": 25,
+                "gcp": 37620,
+                "gcp_boosted": 107580,
+                "accumulated": 48848
+              }
+            ]
+          },
+          {
+            "amount": 20000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 1638,
+                "gcp_boosted": 0,
+                "accumulated": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 3276,
+                "gcp_boosted": 0,
+                "accumulated": 66
+              },
+              {
+                "eopy": 3,
+                "gcp": 4914,
+                "gcp_boosted": 0,
+                "accumulated": 200
+              },
+              {
+                "eopy": 4,
+                "gcp": 6552,
+                "gcp_boosted": 0,
+                "accumulated": 405
+              },
+              {
+                "eopy": 5,
+                "gcp": 8190,
+                "gcp_boosted": 5642,
+                "accumulated": 683
+              },
+              {
+                "eopy": 6,
+                "gcp": 9828,
+                "gcp_boosted": 5642,
+                "accumulated": 1264
+              },
+              {
+                "eopy": 7,
+                "gcp": 11466,
+                "gcp_boosted": 5642,
+                "accumulated": 1933
+              },
+              {
+                "eopy": 8,
+                "gcp": 13104,
+                "gcp_boosted": 5642,
+                "accumulated": 2695
+              },
+              {
+                "eopy": 9,
+                "gcp": 14742,
+                "gcp_boosted": 5642,
+                "accumulated": 3553
+              },
+              {
+                "eopy": 10,
+                "gcp": 16380,
+                "gcp_boosted": 20384,
+                "accumulated": 4510
+              },
+              {
+                "eopy": 11,
+                "gcp": 18564,
+                "gcp_boosted": 20384,
+                "accumulated": 6161
+              },
+              {
+                "eopy": 12,
+                "gcp": 20748,
+                "gcp_boosted": 20384,
+                "accumulated": 7965
+              },
+              {
+                "eopy": 13,
+                "gcp": 22932,
+                "gcp_boosted": 20384,
+                "accumulated": 9929
+              },
+              {
+                "eopy": 14,
+                "gcp": 25116,
+                "gcp_boosted": 20384,
+                "accumulated": 12059
+              },
+              {
+                "eopy": 15,
+                "gcp": 27300,
+                "gcp_boosted": 44226,
+                "accumulated": 14361
+              },
+              {
+                "eopy": 16,
+                "gcp": 29484,
+                "gcp_boosted": 44226,
+                "accumulated": 17796
+              },
+              {
+                "eopy": 17,
+                "gcp": 31668,
+                "gcp_boosted": 44226,
+                "accumulated": 21456
+              },
+              {
+                "eopy": 18,
+                "gcp": 33852,
+                "gcp_boosted": 44226,
+                "accumulated": 25350
+              },
+              {
+                "eopy": 19,
+                "gcp": 36036,
+                "gcp_boosted": 44226,
+                "accumulated": 29487
+              },
+              {
+                "eopy": 20,
+                "gcp": 38220,
+                "gcp_boosted": 77168,
+                "accumulated": 33877
+              },
+              {
+                "eopy": 21,
+                "gcp": 40950,
+                "gcp_boosted": 77168,
+                "accumulated": 39848
+              },
+              {
+                "eopy": 22,
+                "gcp": 43680,
+                "gcp_boosted": 77168,
+                "accumulated": 46167
+              },
+              {
+                "eopy": 23,
+                "gcp": 46410,
+                "gcp_boosted": 77168,
+                "accumulated": 52848
+              },
+              {
+                "eopy": 24,
+                "gcp": 49140,
+                "gcp_boosted": 77168,
+                "accumulated": 59905
+              },
+              {
+                "eopy": 25,
+                "gcp": 51870,
+                "gcp_boosted": 148330,
+                "accumulated": 67354
+              }
+            ]
+          },
+          {
+            "amount": 25000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 2088,
+                "gcp_boosted": 0,
+                "accumulated": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 4176,
+                "gcp_boosted": 0,
+                "accumulated": 84
+              },
+              {
+                "eopy": 3,
+                "gcp": 6264,
+                "gcp_boosted": 0,
+                "accumulated": 254
+              },
+              {
+                "eopy": 4,
+                "gcp": 8352,
+                "gcp_boosted": 0,
+                "accumulated": 515
+              },
+              {
+                "eopy": 5,
+                "gcp": 10440,
+                "gcp_boosted": 7192,
+                "accumulated": 870
+              },
+              {
+                "eopy": 6,
+                "gcp": 12528,
+                "gcp_boosted": 7192,
+                "accumulated": 1610
+              },
+              {
+                "eopy": 7,
+                "gcp": 14616,
+                "gcp_boosted": 7192,
+                "accumulated": 2463
+              },
+              {
+                "eopy": 8,
+                "gcp": 16704,
+                "gcp_boosted": 7192,
+                "accumulated": 3434
+              },
+              {
+                "eopy": 9,
+                "gcp": 18792,
+                "gcp_boosted": 7192,
+                "accumulated": 4527
+              },
+              {
+                "eopy": 10,
+                "gcp": 20880,
+                "gcp_boosted": 25984,
+                "accumulated": 5747
+              },
+              {
+                "eopy": 11,
+                "gcp": 23664,
+                "gcp_boosted": 25984,
+                "accumulated": 7851
+              },
+              {
+                "eopy": 12,
+                "gcp": 26448,
+                "gcp_boosted": 25984,
+                "accumulated": 10151
+              },
+              {
+                "eopy": 13,
+                "gcp": 29232,
+                "gcp_boosted": 25984,
+                "accumulated": 12654
+              },
+              {
+                "eopy": 14,
+                "gcp": 32016,
+                "gcp_boosted": 25984,
+                "accumulated": 15369
+              },
+              {
+                "eopy": 15,
+                "gcp": 34800,
+                "gcp_boosted": 56376,
+                "accumulated": 18304
+              },
+              {
+                "eopy": 16,
+                "gcp": 37584,
+                "gcp_boosted": 56376,
+                "accumulated": 22683
+              },
+              {
+                "eopy": 17,
+                "gcp": 40368,
+                "gcp_boosted": 56376,
+                "accumulated": 27349
+              },
+              {
+                "eopy": 18,
+                "gcp": 43152,
+                "gcp_boosted": 56376,
+                "accumulated": 32313
+              },
+              {
+                "eopy": 19,
+                "gcp": 45936,
+                "gcp_boosted": 56376,
+                "accumulated": 37587
+              },
+              {
+                "eopy": 20,
+                "gcp": 48720,
+                "gcp_boosted": 98368,
+                "accumulated": 43183
+              },
+              {
+                "eopy": 21,
+                "gcp": 52200,
+                "gcp_boosted": 98368,
+                "accumulated": 50794
+              },
+              {
+                "eopy": 22,
+                "gcp": 55680,
+                "gcp_boosted": 98368,
+                "accumulated": 58848
+              },
+              {
+                "eopy": 23,
+                "gcp": 59160,
+                "gcp_boosted": 98368,
+                "accumulated": 67364
+              },
+              {
+                "eopy": 24,
+                "gcp": 62640,
+                "gcp_boosted": 98368,
+                "accumulated": 76360
+              },
+              {
+                "eopy": 25,
+                "gcp": 66120,
+                "gcp_boosted": 189080,
+                "accumulated": 85855
+              }
+            ]
+          },
+          {
+            "amount": 30000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 2538,
+                "gcp_boosted": 0,
+                "accumulated": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 5076,
+                "gcp_boosted": 0,
+                "accumulated": 102
+              },
+              {
+                "eopy": 3,
+                "gcp": 7614,
+                "gcp_boosted": 0,
+                "accumulated": 309
+              },
+              {
+                "eopy": 4,
+                "gcp": 10152,
+                "gcp_boosted": 0,
+                "accumulated": 626
+              },
+              {
+                "eopy": 5,
+                "gcp": 12690,
+                "gcp_boosted": 8742,
+                "accumulated": 1057
+              },
+              {
+                "eopy": 6,
+                "gcp": 15228,
+                "gcp_boosted": 8742,
+                "accumulated": 1957
+              },
+              {
+                "eopy": 7,
+                "gcp": 17766,
+                "gcp_boosted": 8742,
+                "accumulated": 2994
+              },
+              {
+                "eopy": 8,
+                "gcp": 20304,
+                "gcp_boosted": 8742,
+                "accumulated": 4174
+              },
+              {
+                "eopy": 9,
+                "gcp": 22842,
+                "gcp_boosted": 8742,
+                "accumulated": 5503
+              },
+              {
+                "eopy": 10,
+                "gcp": 25380,
+                "gcp_boosted": 31584,
+                "accumulated": 6986
+              },
+              {
+                "eopy": 11,
+                "gcp": 28764,
+                "gcp_boosted": 31584,
+                "accumulated": 9544
+              },
+              {
+                "eopy": 12,
+                "gcp": 32148,
+                "gcp_boosted": 31584,
+                "accumulated": 12340
+              },
+              {
+                "eopy": 13,
+                "gcp": 35532,
+                "gcp_boosted": 31584,
+                "accumulated": 15383
+              },
+              {
+                "eopy": 14,
+                "gcp": 38916,
+                "gcp_boosted": 31584,
+                "accumulated": 18683
+              },
+              {
+                "eopy": 15,
+                "gcp": 42300,
+                "gcp_boosted": 68526,
+                "accumulated": 22250
+              },
+              {
+                "eopy": 16,
+                "gcp": 45684,
+                "gcp_boosted": 68526,
+                "accumulated": 27573
+              },
+              {
+                "eopy": 17,
+                "gcp": 49068,
+                "gcp_boosted": 68526,
+                "accumulated": 33244
+              },
+              {
+                "eopy": 18,
+                "gcp": 52452,
+                "gcp_boosted": 68526,
+                "accumulated": 39278
+              },
+              {
+                "eopy": 19,
+                "gcp": 55836,
+                "gcp_boosted": 68526,
+                "accumulated": 45688
+              },
+              {
+                "eopy": 20,
+                "gcp": 59220,
+                "gcp_boosted": 119568,
+                "accumulated": 52490
+              },
+              {
+                "eopy": 21,
+                "gcp": 63450,
+                "gcp_boosted": 119568,
+                "accumulated": 61741
+              },
+              {
+                "eopy": 22,
+                "gcp": 67680,
+                "gcp_boosted": 119568,
+                "accumulated": 71531
+              },
+              {
+                "eopy": 23,
+                "gcp": 71910,
+                "gcp_boosted": 119568,
+                "accumulated": 81882
+              },
+              {
+                "eopy": 24,
+                "gcp": 76140,
+                "gcp_boosted": 119568,
+                "accumulated": 92816
+              },
+              {
+                "eopy": 25,
+                "gcp": 80370,
+                "gcp_boosted": 229830,
+                "accumulated": 104357
+              }
+            ]
+          },
+          {
+            "amount": 40000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 3438,
+                "gcp_boosted": 0,
+                "accumulated": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 6876,
+                "gcp_boosted": 0,
+                "accumulated": 138
+              },
+              {
+                "eopy": 3,
+                "gcp": 10314,
+                "gcp_boosted": 0,
+                "accumulated": 419
+              },
+              {
+                "eopy": 4,
+                "gcp": 13752,
+                "gcp_boosted": 0,
+                "accumulated": 848
+              },
+              {
+                "eopy": 5,
+                "gcp": 17190,
+                "gcp_boosted": 11842,
+                "accumulated": 1432
+              },
+              {
+                "eopy": 6,
+                "gcp": 20628,
+                "gcp_boosted": 11842,
+                "accumulated": 2651
+              },
+              {
+                "eopy": 7,
+                "gcp": 24066,
+                "gcp_boosted": 11842,
+                "accumulated": 4056
+              },
+              {
+                "eopy": 8,
+                "gcp": 27504,
+                "gcp_boosted": 11842,
+                "accumulated": 5655
+              },
+              {
+                "eopy": 9,
+                "gcp": 30942,
+                "gcp_boosted": 11842,
+                "accumulated": 7455
+              },
+              {
+                "eopy": 10,
+                "gcp": 34380,
+                "gcp_boosted": 42784,
+                "accumulated": 9465
+              },
+              {
+                "eopy": 11,
+                "gcp": 38964,
+                "gcp_boosted": 42784,
+                "accumulated": 12930
+              },
+              {
+                "eopy": 12,
+                "gcp": 43548,
+                "gcp_boosted": 42784,
+                "accumulated": 16717
+              },
+              {
+                "eopy": 13,
+                "gcp": 48132,
+                "gcp_boosted": 42784,
+                "accumulated": 20839
+              },
+              {
+                "eopy": 14,
+                "gcp": 52716,
+                "gcp_boosted": 42784,
+                "accumulated": 25309
+              },
+              {
+                "eopy": 15,
+                "gcp": 57300,
+                "gcp_boosted": 92826,
+                "accumulated": 30141
+              },
+              {
+                "eopy": 16,
+                "gcp": 61884,
+                "gcp_boosted": 92826,
+                "accumulated": 37352
+              },
+              {
+                "eopy": 17,
+                "gcp": 66468,
+                "gcp_boosted": 92826,
+                "accumulated": 45034
+              },
+              {
+                "eopy": 18,
+                "gcp": 71052,
+                "gcp_boosted": 92826,
+                "accumulated": 53207
+              },
+              {
+                "eopy": 19,
+                "gcp": 75636,
+                "gcp_boosted": 92826,
+                "accumulated": 61890
+              },
+              {
+                "eopy": 20,
+                "gcp": 80220,
+                "gcp_boosted": 161968,
+                "accumulated": 71104
+              },
+              {
+                "eopy": 21,
+                "gcp": 85950,
+                "gcp_boosted": 161968,
+                "accumulated": 83636
+              },
+              {
+                "eopy": 22,
+                "gcp": 91680,
+                "gcp_boosted": 161968,
+                "accumulated": 96898
+              },
+              {
+                "eopy": 23,
+                "gcp": 97410,
+                "gcp_boosted": 161968,
+                "accumulated": 110920
+              },
+              {
+                "eopy": 24,
+                "gcp": 103140,
+                "gcp_boosted": 161968,
+                "accumulated": 125732
+              },
+              {
+                "eopy": 25,
+                "gcp": 108870,
+                "gcp_boosted": 311330,
+                "accumulated": 141366
+              }
+            ]
+          },
+          {
+            "amount": 50000,
+            "data": [
+              {
+                "eopy": 1,
+                "gcp": 4338,
+                "gcp_boosted": 0,
+                "accumulated": 0
+              },
+              {
+                "eopy": 2,
+                "gcp": 8676,
+                "gcp_boosted": 0,
+                "accumulated": 174
+              },
+              {
+                "eopy": 3,
+                "gcp": 13014,
+                "gcp_boosted": 0,
+                "accumulated": 528
+              },
+              {
+                "eopy": 4,
+                "gcp": 17352,
+                "gcp_boosted": 0,
+                "accumulated": 1070
+              },
+              {
+                "eopy": 5,
+                "gcp": 21690,
+                "gcp_boosted": 14942,
+                "accumulated": 1807
+              },
+              {
+                "eopy": 6,
+                "gcp": 26028,
+                "gcp_boosted": 14942,
+                "accumulated": 3345
+              },
+              {
+                "eopy": 7,
+                "gcp": 30366,
+                "gcp_boosted": 14942,
+                "accumulated": 5118
+              },
+              {
+                "eopy": 8,
+                "gcp": 34704,
+                "gcp_boosted": 14942,
+                "accumulated": 7135
+              },
+              {
+                "eopy": 9,
+                "gcp": 39042,
+                "gcp_boosted": 14942,
+                "accumulated": 9406
+              },
+              {
+                "eopy": 10,
+                "gcp": 43380,
+                "gcp_boosted": 53984,
+                "accumulated": 11942
+              },
+              {
+                "eopy": 11,
+                "gcp": 49164,
+                "gcp_boosted": 53984,
+                "accumulated": 16314
+              },
+              {
+                "eopy": 12,
+                "gcp": 54948,
+                "gcp_boosted": 53984,
+                "accumulated": 21092
+              },
+              {
+                "eopy": 13,
+                "gcp": 60732,
+                "gcp_boosted": 53984,
+                "accumulated": 26293
+              },
+              {
+                "eopy": 14,
+                "gcp": 66516,
+                "gcp_boosted": 53984,
+                "accumulated": 31933
+              },
+              {
+                "eopy": 15,
+                "gcp": 72300,
+                "gcp_boosted": 117126,
+                "accumulated": 38030
+              },
+              {
+                "eopy": 16,
+                "gcp": 78084,
+                "gcp_boosted": 117126,
+                "accumulated": 47128
+              },
+              {
+                "eopy": 17,
+                "gcp": 83868,
+                "gcp_boosted": 117126,
+                "accumulated": 56822
+              },
+              {
+                "eopy": 18,
+                "gcp": 89652,
+                "gcp_boosted": 117126,
+                "accumulated": 67135
+              },
+              {
+                "eopy": 19,
+                "gcp": 95436,
+                "gcp_boosted": 117126,
+                "accumulated": 78092
+              },
+              {
+                "eopy": 20,
+                "gcp": 101220,
+                "gcp_boosted": 204368,
+                "accumulated": 89718
+              },
+              {
+                "eopy": 21,
+                "gcp": 108450,
+                "gcp_boosted": 204368,
+                "accumulated": 105530
+              },
+              {
+                "eopy": 22,
+                "gcp": 115680,
+                "gcp_boosted": 204368,
+                "accumulated": 122264
+              },
+              {
+                "eopy": 23,
+                "gcp": 122910,
+                "gcp_boosted": 204368,
+                "accumulated": 139956
+              },
+              {
+                "eopy": 24,
+                "gcp": 130140,
+                "gcp_boosted": 204368,
+                "accumulated": 158645
+              },
+              {
+                "eopy": 25,
+                "gcp": 137370,
+                "gcp_boosted": 392830,
+                "accumulated": 178371
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

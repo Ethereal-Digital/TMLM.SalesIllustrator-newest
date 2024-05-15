@@ -1,0 +1,895 @@
+﻿@{
+    Layout = null;
+}
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="~/js/jquery-3.5.1.min.js" asp-append-version="true"></script>
+    <script src="~/js/ff_js.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/ff_css.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/animation.css" asp-append-version="true" />
+    
+</head>
+
+<body>
+    <section class="page">
+        <div class="d-block">
+            <section>
+                <div class="header_bar">
+                    <img style="width: 10%;" src="~/assets/CoreLogo.png">
+                    <div class="header">Financial Health Check</div>
+                </div>
+                <div class="top">
+
+                    <div id="main_title" class="main-title center">
+                        How well do you plan for your assets?
+                    </div>
+                    <div id="sub_title" class="sub-title center">
+
+                    </div>
+
+                    <div id="info_title">
+                        <div style="flex-grow: 1">
+                            <img src="~/assets/ff/info.png " onclick="showMoreInformation()" class="info_img" />
+                        </div>
+
+                        <div>
+                            <img src="~/assets/ff/Dollar Sign.png " class="dollar_img"/>
+                            <input type="text" class="amount_input" disabled="true" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_1">
+                <div class="bottom mobile_block" style="padding-top: 10vh">
+                    <div class="mr-5 mobile_center">
+                        <img src="~/assets/ff/slide_1.png " class="mobile_img" style="max-width: 20vw"/>
+                    </div>
+                    <div class="pt-4">
+                        <h4 class="mb-2 fw_600 fs_20">
+                            1. How well do you understand about wealth planning?
+                        </h4>
+                        <h4 class="mb-2 fw_600 fs_20">
+                            2. What is your current financial goal?
+                        </h4>
+                        <h4 class="mb-2 fw_600 fs_20">
+                            3. How do you manage your current portfolio?
+                        </h4>
+                    </div>
+                </div>
+                <div class="main-generate-button" onclick="next_page()" style="font-size: 26px">   
+                    Let's Begin
+                </div>
+            </section>
+
+            <section class="page_section" id="section_2">
+                <div class="d-block center mobile_block" style="padding-top: 3vh">
+                    <h4 class="mb-1 fw_600 fs_30" style="line-height: 45px;">
+                        If you have  
+                        <select id="money" class="amt_dropdown" onchange="selectAmount()">
+                          <option value="RM 500,000">RM 500,000</option>
+                          <option value="RM 1,000,000">RM 1,000,000</option>
+                          <option value="RM 3,000,000">RM 3,000,000</option>
+                          <option value="RM 5,000,000">RM 5,000,000</option>
+                        </select> 
+                        asset, how would you <br class="mobile_hidden" style="display: none !important"> plan for it?
+                    </h4>
+
+                    <div class="mb-1">
+                        <h5 class="mb-1 mt-1">
+                            How may I address you?
+                        </h5>
+
+                        <input type="text" class="name_input" placeholder="Please enter name" />
+                        <!-- <div class="d-block">
+                            <small class="red" id="invalid_name_msg"></small>
+                        </div> -->
+                    </div>
+                    
+                    <div class="mb-1 mt-1">
+                        <h5>
+                            Fill in your age to begin the assessment!
+                        </h5>
+
+                        <select id="age" class="age_dropdown" onchange="selectAge()">
+                        </select>
+                        <div class="d-block">
+                            <small class="red" id="invalid_age_msg"></small>
+                        </div>
+                    </div>
+                    
+
+                    <div class="d-flex" style="justify-content: center;">
+                        <div class="left_outline" onclick="back_page()">   
+                            Previous
+                        </div>
+                        <div class="right_button" onclick="checkInput()">   
+                            Next
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section" id="section_3">
+                <div class="d-block center mobile_block" style="padding-top: 7vh">
+                        
+                    <div class="col-12 row d-flex">
+                        <div class="col-4 d-flex">
+                            <div class="center min_width_13">
+                                <img src="~/assets/ff/FD.png" class="singular_img"/>
+                                <h5 class="img_caption">FD/ Money Market</h5>
+                            </div>
+                            <div class="d-flex flex_center">
+                                <input type="tel" class="img_input fd numberonly" />
+                                <div class="icon_box">
+                                    <img class="up" onclick="amt_up('fd')" src="~/assets/ff/up.png">
+                                    <img class="down" onclick="amt_down('fd')" src="~/assets/ff/down.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 d-flex flex_center">
+                            <div class="center min_width_13">
+                                <img src="~/assets/ff/Real Estate.png" class="singular_img"/>
+                                <h5 class="img_caption">Real Estate/ Property</h5>
+                            </div>
+                            <div class="d-flex flex_center">
+                                <input type="tel" class="img_input re numberonly" />
+                                <div class="icon_box">
+                                    <img class="up" onclick="amt_up('re')" src="~/assets/ff/up.png">
+                                    <img class="down" onclick="amt_down('re')" src="~/assets/ff/down.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 d-flex flex_center">
+                            <div class="center min_width_13">
+                                <img src="~/assets/ff/Insurance Protection Plan.png " class="singular_img"/>
+                                <h5 class="img_caption">Insurance Protection Plan/ Legacy Plan</h5>
+                            </div>
+                            <div class="d-flex flex_center">
+                                <input type="tel" class="img_input ipp numberonly" />
+                                <div class="icon_box">
+                                    <img class="up" onclick="amt_up('ipp')" src="~/assets/ff/up.png">
+                                    <img class="down" onclick="amt_down('ipp')" src="~/assets/ff/down.png">
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-12 row d-flex mt-2">
+                        <div class="col-4 d-flex flex_center">
+                            
+                            <div class="center min_width_13">
+                                <img src="~/assets/ff/Stock.png " class="singular_img"/>
+                                <h5 class="img_caption">Stock/ Unit Trust</h5>
+                            </div>
+                            <div class="d-flex flex_center">
+                                <input type="tel" class="img_input sut numberonly" />
+                                <div class="icon_box">
+                                    <img class="up" onclick="amt_up('sut')" src="~/assets/ff/up.png">
+                                    <img class="down" onclick="amt_down('sut')" src="~/assets/ff/down.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                        </div>
+                        <div class="col-4 d-flex flex_center">
+                            <div class="center min_width_13">
+                                <img src="~/assets/ff/Insurance Saving Plan.png " class="singular_img"/>
+                                <h5 class="img_caption">Insurance Saving Plan</h5>
+                            </div>
+                            <div class="d-flex flex_center">
+                                <input type="tel" class="img_input isp numberonly" />
+                                <div class="icon_box">
+                                    <img class="up" onclick="amt_up('isp')" src="~/assets/ff/up.png">
+                                    <img class="down" onclick="amt_down('isp')" src="~/assets/ff/down.png">
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="d-flex" style="justify-content: center;">
+                        <div class="left_outline" onclick="back_page()">   
+                            Previous
+                        </div>
+                        <div class="right_button" onclick="next_page()">   
+                            Next
+                        </div>
+                    </div>
+                    
+
+                    <div class="center col-12 red_msg mt-1">
+                        <p style="color: red; font-weight: 600; font-size: 17px;">Total asset value not fully utilize</p>
+                    </div>
+
+                    <div class="popup">
+                        <div class="col-12 d-flex row">
+                            <img src="~/assets/ff/cross.png" class="close_button" onclick="closeInformationPopUp();" />
+                            <div class="col-6 pl-0 mp-0">
+                                <div class="d-flex mb-5">
+                                    <div class="center min_width_13 pr-2">
+                                        <img src="~/assets/ff/FD.png" class="singular_img_sm"/>
+                                        <h4 class="text_caption">FD/ Money Market</h4>
+                                    </div>
+                                    <div>
+                                        <h4 class="information_font left">
+                                            A Fixed Deposit Account is a type of bank account that promises the investor a fixed rate of interest. In return, the investor agrees not to withdraw or access their funds for a fixed period of time. In a fixed deposit, interest is only paid at the very end of the investment period
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 pr-0 mp-0">
+                                <div class="d-flex mb-2">
+                                    <div class="center min_width_13 pr-2">
+                                        <img src="~/assets/ff/Real Estate.png" class="singular_img_sm"/>
+                                        <h4 class="text_caption">Real Estate/ Property</h4>
+                                    </div>
+                                    <div>
+                                        <h4 class="information_font left">
+                                            Real estate investment involves the purchase, management and sale or rental of real estate for profit. Improvement of realty property as part of a real estate investment strategy is generally considered to be a sub-specialty of real estate investing called real estate development.
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 pl-0 mp-0">
+                                <div class="d-flex">
+                                    <div class="center min_width_13 pr-2">
+                                        <img src="~/assets/ff/Stock.png" class="singular_img_sm"/>
+                                        <h4 class="text_caption">Stock/ Unit Trust</h4>
+                                    </div>
+                                    <div>
+                                        <h4 class="information_font left">
+                                            A stock (also known as equity) is a security that represents the ownership of a fraction of a corporation. This entitles the owner of the stock to a proportion of the corporation's assets and profits equal to how much stock they own. Units of stock are called "shares.“
+                                        </h4>
+                                        <h4 class="information_font left">
+                                            A unit trust is an unincorporated mutual fund structure that allows funds to hold assets and provide profits that go straight to individual unit owners instead of reinvesting them back into the fund. Mutual funds are investments that are made up of pooled money from investors, which hold various securities, such as bonds and equities. However, a unit trust differs from a mutual fund in that a unit trust is established under a trust deed, and the investor is effectively the beneficiary of the trust.
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 pr-0 mp-0">
+                                
+                                <div class="d-flex mb-5">
+                                    <div class="center min_width_13 pr-2">
+                                        <img src="~/assets/ff/Insurance Protection Plan.png" class="singular_img_sm"/>
+                                        <h4 class="text_caption">Insurance Protection Plan/ Legacy Plan</h4>
+                                    </div>
+                                    <div>
+                                        <h4 class="information_font left mt-1">
+                                            A term life insurance plan that provides coverage* for death or terminal illness during the policy term to protect your legacy for your loved ones.
+                                        </h4>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex">
+                                    <div class="center min_width_13 pr-2">
+                                        <img src="~/assets/ff/Insurance Saving Plan.png" class="singular_img_sm"/>
+                                        <h4 class="text_caption">Insurance Saving Plan</h4>
+                                    </div>
+                                    <div>
+                                        <h4 class="information_font left" style="margin-top: 5px">
+                                            Endowment life insurance is a specialized insurance product that's often dressed up as a college savings plan. The endowment life insurance policy promises a low-risk, guaranteed return on a fixed period of date as long as you make the fixed monthly payments.
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="page_section" id="section_4">
+                <div class="center mobile_block loader_div" style="padding-top: 50px; display: flex !important;">
+                    @*<h4 class="loading_text">
+                        loading...
+                    </h4>*@
+                    @*<div class="loader_border">
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                        <div class="wave wave_mobile"></div>
+                    </div>*@
+
+                    <div id="objectLoader" class="loader-wrapper">
+                        <div id="loader" class="hidden"></div>
+                    </div>
+
+                    <h4 class="loading_text_below">
+                        @*...Your Profile...*@
+                        Loading your Profile...
+                    </h4>
+                </div>
+            </section>
+
+            <section class="page_section" id="section_5">
+                <div class="d-block center mobile_block" style="padding-top: 3vh">
+                        
+                    <div  class="row d-flex ">
+                        <div class="col-6 gap_column">
+                            <h4 class="center fs_16">
+                                Your allocation
+                            </h4>
+                            <div class="col-12 d-flex row">
+                                <div class="col-6 px-0">
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/FD.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm fd_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Stock.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm sut_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Real Estate.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm re_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="col-6 px-0 mobile_padding" style="padding-top: 40px;">
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Insurance Protection Plan.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm ipp_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Insurance Saving Plan.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm isp_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="center fs_16 mt-2">
+                                Your Net Asset: <span class="total_amount"></span>
+                            </h4>
+                        </div>
+                        <div class="col-6">
+                            <h4 class="center fs_16">
+                                Don't leave yourself unprotected. These are the reasons you need life insurance:
+                            </h4>
+
+                            <div class="d-flex mt-2">
+                                <div class="center min_width_11">
+                                    <img src="~/assets/ff/Picture1.png" class="singular_img_sm"/>
+                                    <h5 class="img_caption mt-2">Take care of your loved ones </h5>
+                                </div>
+                                <div class="center min_width_11">
+                                    <img src="~/assets/ff/Picture2.png" class="singular_img_sm"/>
+                                    <h5 class="img_caption mt-2">Pay off your debts</h5>
+                                </div>
+                                <div class="center min_width_11">
+                                    <img src="~/assets/ff/Picture3.png" class="singular_img_sm"/>
+                                    <h5 class="img_caption mt-2">Leave an inheritance</h5>
+                                </div>
+                                <div class="center min_width_11">
+                                    <img src="~/assets/ff/Picture4.png" class="singular_img_sm"/>
+                                    <h5 class="img_caption mt-2">Peace of mind</h5>
+                                </div>
+                            </div>
+
+                            <h4 class="center fs_19 fw_600 mt-1">
+                                Proper Wealth Management is important in our life!
+                            </h4>
+
+                            <h4 class="center fs_16 mb-1 mt-1">
+                                Death and disability are unpredictable and we need to be prepared <br /> 
+                                for that! It is a great responsibility for us to ensure our family is <br />
+                                able to continue their lifestyle even though we are not there for them physically.
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="d-flex" style="justify-content: center;">
+                        <div class="left_outline" onclick="back_page()">   
+                            Previous
+                        </div>
+                        <div class="right_button" onclick="checkAgePage()">   
+                            Next
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section class="page_section" id="section_6">
+                <div class="d-block center mobile_block" style="padding-top: 3vh">
+                        
+                    <div class="row d-flex ">
+                        <div class="col-6 gap_column">
+                            <h4 class="center fs_16">
+                                Your allocation
+                            </h4>
+                            <div class="col-12 d-flex row">
+                                <div class="col-6 px-0">
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/FD.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm fd_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Stock.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm sut_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Real Estate.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm re_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="col-6 px-0 mobile_padding" style="padding-top: 40px;">
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Insurance Protection Plan.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm ipp_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Insurance Saving Plan.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm isp_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="center fs_16 mt-2">
+                                Your Net Asset: <span class="total_amount"></span>
+                            </h4>
+                        </div>
+                        <div class="col-6 center">
+                            <img src="~/assets/ff/Picture5.png " class="exclamation" />
+
+                            <div class="left" style="    width: 78%; margin: auto;">
+                                <h4 class="mb-0 fs_16">
+                                    You are putting all eggs in 1 basket! You may face:
+                                </h4>
+                                <ul style="  padding-left: 20px;  text-align: left;">
+                                    <li class="mb-0">
+                                        Challenges of beating inflation
+                                    </li>
+                                    <li>
+                                        Challenges to liquid your assets when faced with unfortunate circumstances
+                                    </li>
+                                </ul>
+                            </div>
+
+                           
+
+                            <img src="~/assets/ff/Picture6.png " style="width: 50%; max-width: 500px;" />
+
+                            <h4 class="center fs_19 fw_600 mt-1">
+                                Proper Wealth Management is important in our life!
+                            </h4>
+
+                            <h4 class="center fs_16 mb-1 mt-1">
+                                You can diversify a portion of your money into other assets which <br />
+                                increase in value over time as a hedge to inflation.
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="d-flex" style="justify-content: center;">
+                        <div class="left_outline" onclick="next(3)">   
+                            Previous
+                        </div>
+                        <div class="right_button" onclick="checkAgePage()">   
+                            Next
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section class="page_section" id="section_7">
+                <div class="d-block center mobile_block" style="padding-top: 3vh">
+                        
+                    <div class="row d-flex ">
+                        <div class="col-6 gap_column">
+                            <h4 class="center fs_16">
+                                Your allocation
+                            </h4>
+                            <div class="col-12 d-flex row">
+                                <div class="col-6 px-0">
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/FD.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm fd_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Stock.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm sut_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Real Estate.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm re_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="col-6 px-0 mobile_padding" style="padding-top: 40px;">
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Insurance Protection Plan.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm ipp_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Insurance Saving Plan.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm isp_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="center fs_16 mt-2">
+                                Your Net Asset: <span class="total_amount"></span>
+                            </h4>
+                        </div>
+                        <div class="col-6 center">
+                            <img src="~/assets/ff/Picture5.png " class="exclamation" />
+
+                            <div class="left" style="    width: 78%; margin: auto;">
+                                <h4 class="mb-0 fs_16">
+                                    This is a diversified portfolio, however you may face:
+                                </h4>
+                                <ul style="  padding-left: 20px;  text-align: left;">
+                                    <li class="mb-0">
+                                        Challenges with market volatilities
+                                    </li>
+                                    <li>
+                                        Challenges to liquid your assets when faced with unfortunate circumstances
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="d-flex" style="justify-content: center;">
+                                <img src="~/assets/ff/Picture7.png " class="mr-5" style="width: 40%" />
+                                <img src="~/assets/ff/Picture8.png " style="width: 40%" />
+                            </div>
+
+                            <h4 class="center fs_19 fw_600 mt-1">
+                                Proper Wealth Management is important in our life!
+                            </h4>
+
+                            <h4 class="center fs_16 mb-1 mt-1">
+                                It is important to diversify your investments to low risk assets to preserve your net worth/asset value.
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="d-flex" style="justify-content: center;">
+                        <div class="left_outline" onclick="next(3)">   
+                            Previous
+                        </div>
+                        <div class="right_button" onclick="checkAgePage()">   
+                            Next
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section class="page_section" id="section_8">
+                <div class="d-block center mobile_block" style="padding-top: 3vh">
+                        
+                    <div class="row d-flex ">
+                        <div class="col-6 gap_column">
+                            <h4 class="center fs_16">
+                                Your allocation
+                            </h4>
+                            <div class="col-12 d-flex row">
+                                <div class="col-6 px-0">
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/FD.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm fd_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Stock.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm sut_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Real Estate.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm re_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="col-6 px-0 mobile_padding" style="padding-top: 40px;">
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Insurance Protection Plan.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm ipp_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex">
+                                        <div class="center min_width_11">
+                                            <img src="~/assets/ff/Insurance Saving Plan.png" class="singular_img_sm"/>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="img_input_sm isp_percentage" disabled="true" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="center fs_16 mt-2">
+                                Your Net Asset: <span class="total_amount"></span>
+                            </h4>
+                        </div>
+                        <div class="col-6 center">
+                            <img src="~/assets/ff/Picture9.png " class="exclamation" />
+                            <h4 class="center fs_16" style="    width: 80%; margin: auto;">
+                                You have done an excellent job in diversifying your asset.
+                            </h4>
+
+                            <img src="~/assets/ff/Picture10.png " style="width: 55%" class="picture_10 mt-1" />
+
+                            <h4 class="center fs_19 fw_600 mt-1">
+                                Proper Wealth Management is important in our life!
+                            </h4>
+
+                            <h4 class="center fs_16 mb-1 mt-1">
+                                Continue to review your portfolio annually with your financial advisor.
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="d-flex" style="justify-content: center;">
+                        <div class="left_outline" onclick="next(3)">   
+                            Previous
+                        </div>
+                        <div class="right_button" onclick="checkAgePage()">   
+                            Next
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="page_section" id="section_9">
+                <div class="d-block center" style="padding-top: 3vh">
+                        
+                    <div class="d-flex mobile_block" style="    justify-content: center; align-items: center; align-content: center;">
+                        <h4 class="center fs_16 d-flex" style="    justify-content: center; align-items: center; align-content: center;">
+                            Assets diversification based on your age group: &nbsp;&nbsp;<span id="age_range">20s-35s</span>
+
+                            <div class="d-flex ml-3">
+                                <img src="~/assets/ff/man.png" id="age_img_male" class="gender_img" />
+                                <img src="~/assets/ff/female.png" id="age_img_female" class="gender_img" />
+                            </div>
+                        </h4>
+                    </div>
+
+                    <div class="mt-1 d-flex mobile_block center" style="    justify-content: center; align-items: center; align-content: center;">
+                        <div class="center min_width_13 mobile_width">
+                            <img src="~/assets/ff/FD.png" class="singular_img_xs"/>
+                            <div>
+                                <input type="text" class="slide_8_input fd_recommendation_percentage" disabled="true" />
+                            </div>
+                        </div>
+
+                        <div class="center min_width_13 mobile_width">
+                            <img src="~/assets/ff/Stock.png" class="singular_img_xs"/>
+                            <div>
+                                <input type="text" class="slide_8_input sut_recommendation_percentage" disabled="true" />
+                            </div>
+                        </div>
+
+                        <div class="center min_width_13 mobile_width">
+                            <img src="~/assets/ff/Real Estate.png" class="singular_img_xs"/>
+                            <div>
+                                <input type="text" class="slide_8_input re_recommendation_percentage" disabled="true" />
+                            </div>
+                        </div>
+
+                        <div class="center min_width_13 mobile_width">
+                            <img src="~/assets/ff/Insurance Protection Plan.png" class="singular_img_xs"/>
+                            <div>
+                                <input type="text" class="slide_8_input ipp_recommendation_percentage" disabled="true" />
+                            </div>
+                        </div>
+
+                        <div class="center min_width_13 mobile_width">
+                            <img src="~/assets/ff/Insurance Saving Plan.png" class="singular_img_xs"/>
+                            <div>
+                                <input type="text" class="slide_8_input isp_recommendation_percentage" disabled="true" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="first_paragraph"></div>
+
+                    <u>
+                        <h4 class="center fs_19 fw_600 mt-1" style="font-size: 19px">
+                            Suggestions based on your portfolio:
+                        </h4>
+                    </u>
+
+                    <div id="second_paragraph"></div>
+
+                    <div class="d-flex" style="justify-content: center;">
+                        <div class="left_outline" onclick="beforeAgePage()">   
+                            Previous
+                        </div>
+                        <div class="right_button" onclick="next_page()">   
+                            Next
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="page_section" id="section_10">
+                <div class="d-block center" style="padding-top: 3vh">
+                        
+                    <div class="row d-flex ">
+                        <div class="col-6 right" style="padding-right: 75px">
+                           
+                            <img src="~/assets/ff/new_tips.png" class="tips_charts" style="width: 80%; max-width: 500px" />
+                        </div>
+                        <div class="col-6 tips_image" style="background-image: url('assets/ff/tips1.png'); background-size: contain; 
+                                background-position: left; background-repeat: no-repeat;">
+                            
+                        </div>
+                    </div>
+
+                    <div class="d-flex last_page_buttons" style="justify-content: center;">
+                        <div class="left_outline" onclick="closeWindow()">   
+                            Close 
+                        </div>
+                        <div class="right_button" onclick="startOver()">   
+                            Financial Health Check
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </section>
+</body>
+
+</html>

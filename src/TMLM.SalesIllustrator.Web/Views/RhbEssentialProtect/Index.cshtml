@@ -1,0 +1,1919 @@
+﻿@{
+    Layout = null;
+}
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="~/js/jquery-3.5.1.min.js" asp-append-version="true"></script>
+    <script src="~/js/chart.js" asp-append-version="true"></script>
+    <script src="~/js/chartjs-plugin-labels.js" asp-append-version="true"></script>
+    <script src="~/js/rhbEssentialProtect.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/glider/glider.js" asp-append-version="true"></script>
+    <script src="~/js/kendo.all.min.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/js/chartjs-plugin-labels.min.js" asp-append-version="true"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/REP.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/animation.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/hover.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/graph.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/glider.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/datepicker-bulma.css" asp-append-version="true" />
+</head>
+
+<body>
+    <section class="page">
+        <div id="objectLoader" class="loader-wrapper">
+            <div id="loader" class="hidden"></div>
+        </div>
+        <div class="d-block">
+            <section>
+                <div class="header_bar">
+                    <img loading="lazy" style="width: 10%;" src="~/assets/CoreLogo.png">
+                    <div class="header">Sales Illustrator</div>
+                </div>
+                <div class="top">
+                    <div class="pagination_button" id="pagination">
+                        <div style="width: 100%; display: flex; justify-content: space-between;">
+                            <div style="margin-right: 0.5rem; display: flex;">
+                                <button class="back_button" onclick="back_page()">
+                                    Back
+                                </button>
+                            </div>
+
+
+                            <div style="display: flex;">
+                                <button class="home_button" onclick="home()">
+                                    Home Page
+                                </button>
+                                <div>
+                                    <button class="next_button" onclick="next_page()">
+                                        Next
+                                    </button>
+                                    <br id="break">
+                                    <button class="skip_button" style="margin-top: 10px;" onclick="skip()">
+                                        Skip
+                                    </button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="main_title" class="main-title center">
+                        Choose Your Preferred Plan
+                    </div>
+                    <div id="sub_title" class="sub-title center">
+                        Life Insurance Solutions for Your Needs
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_1">
+                <div class="bottom">
+
+                    <div class="carousel mt-3" data-flickity='{ "wrapAround": true }'>
+                        <div class="carousel-cell">
+                            <div onclick=" selectTypeFirstPage('mass'); UpdatePurpose(2);">
+                                <div style="     background: #0096a9;
+                                    padding: 10px;
+                                    text-align: center;
+                                    color: #fff;
+                                    font-weight: 600;">
+                                    RHB Treasure 100
+                                </div>
+                                <img loading="lazy" style="
+                                display: block;
+                                margin-left: auto;
+                                cursor: pointer;
+                                margin-right: auto; width: 100%" src="~/assets/rt100/slide_1.png">
+
+                                <div class="bottom_Description_f">
+                                    <ul>
+                                        <li class="fs_13">A non-participating plan that provides annual Guaranteed Cash Payment (GCP) until the maturity of policy. </li>
+                                        <li class="fs_13">This plan also provides coverage on Death or Total & Permanent Disability (TPD).  </li>
+                                        <li class="fs_13">Additional coverage will be provided for Death or TPD due to Accident. </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-cell">
+                            <div onclick="selectTypeFirstPage('premier'); UpdatePurpose(2); ">
+                                <div style="     background: #0096a9;
+                                    padding: 10px;
+                                    text-align: center;
+                                    color: #fff;
+                                    font-weight: 600;">
+                                    RHB Treasure 100 Premier
+                                </div>
+                                <img loading="lazy" style="
+                                display: block;
+                                margin-left: auto;
+                                cursor: pointer;
+                                margin-right: auto; width: 100%" src="~/assets/rt100/slide_1_2.png">
+
+                                <div class="bottom_Description_f">
+                                    <ul>
+                                        <li class="fs_13">A non-participating plan that provides annual Guaranteed Cash Payment (GCP) until the maturity of policy. </li>
+                                        <li class="fs_13">This plan also provides coverage on Death or Total & Permanent Disability (TPD).  </li>
+                                        <li class="fs_13">Additional coverage will be provided for Death or TPD due to Accident. </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-cell">
+                            <div onclick="UpdateRHBPurpose()">
+                                <div style="     background: #0096a9;
+                                    padding: 10px;
+                                    text-align: center;
+                                    color: #fff;
+                                    font-weight: 600;">
+                                    RHB Treasure Builder
+                                </div>
+                                <img loading="lazy" style="
+                                display: block;
+                                margin-left: auto;
+                                cursor: pointer;
+                                margin-right: auto; width: 100%" src="~/assets/main3.jpg">
+
+                                <div class="bottom_Description_f">
+                                    <ul>
+                                        <li class="fs_13">A limited 5 or 8 pay regular premium Investment-Linked plan covering Death or Total & Permanent Disability (TPD) up to 20 or 25 years. </li>
+                                        <li class="fs_13">This plan also comes with packaged premium paying riders that provides annual Guaranteed Cash Payment (GCP) until the maturity of policy. Additional GCP Booster will also be payable at the end of every five policy year. </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="d-flex col-12">
+                        <div class="col-4 center">
+                        <button onclick="generateSampleGraph(1)">1 - 20 sample</button>
+                        <button onclick="generateSampleGraph(2)">1 - 40 sample</button>
+                        <button onclick="generateSampleGraph(3)">1 - 100 sample</button>
+                        </div>
+                        <div class="col-8">
+                        <div class="d-mobile overflow_scroll" style="display: grid;">
+                        <div id="overall_payout_graph"></div>
+                        <p style="text-align:center; font-size:12px; padding: 0; margin: 0; min-height: 0; background: unset;">End of Policy Year (EOPY)</p>
+                        </div>
+                        </div>
+                        </div>*@
+
+                </div>
+            </section>
+
+            <section class="page_section" id="section_2">
+                <div class="isNonMobile">
+                    <div class="row mobile_view_slide_two">
+                        <div class="box2 fade-in" onclick="submitChoice(1,3);">
+                            <span class="hover_text legacy_word">High Protection</span>
+                            <img loading="lazy" src="~/assets/REP/highprotect.png">
+                        </div>
+                        <div class="box2 fade-in2" onclick="submitChoice(2,13);">
+                            <span class="hover_text">Estate Distribution</span>
+                            <img loading="lazy" src="~/assets/REP/estatedistribution.png" />
+                        </div>
+                        <div class="box2 fade-in3" onclick="submitChoice(3,16);">
+                            <span class="hover_text">Legacy Planning</span>
+                            <img loading="lazy" src="~/assets/REP/legacyplanningg.png" />
+                        </div>
+                    </div>
+                </div>
+                <div class="isMobile">
+                    <div class="row mobile_view_slide_two">
+                        <div class="box2 fade-in" onclick="mobileClickOccurence(1,3);">
+                            <span class="hover_text" is="target_id">High Protection</span>
+                            <a title="Education" class="text_box_1">
+                                <img loading="lazy" src="~/assets/REP/highprotect.png">
+                            </a>
+                        </div>
+                        <div class="box2 fade-in2" onclick="mobileClickOccurence(2,13);">
+                            <span class="hover_text" is="target_id">Estate Distribution</span>
+                            <img loading="lazy" src="~/assets/REP/estatedistribution.png" />
+                        </div>
+                        <div class="box2 fade-in3" onclick="mobileClickOccurence(3,16);">
+                            <span class="hover_text" is="target_id">Legacy Planning</span>
+                            <img loading="lazy" src="~/assets/REP/legacyplanning.png" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section" id="section_3">
+                <div class="container" style="min-width: 85%; display: flex; align-items: center !important; justify-content: center; min-height: 40%;">
+                    <div class="row mt-4" style="justify-content: center; width: 100%;">
+                        <div class="boxLegacy fade-in col-12 col-lg-3 col-md-3" onclick="submitPersona(2, 7);">
+                            <img class="personaImg" loading="lazy" src="~/assets/REP/single.png" />
+                            <h3 class="personaText" style="margin-top: 20px;">Single</h3>
+                        </div>
+                         <div class="boxLegacy fade-in2 col-12 col-lg-3 col-md-3" onclick="submitPersona(1, 4);">
+                            <img class="personaImg" loading="lazy" src="~/assets/REP/family2.png">
+                            <h3 class="personaText" style="margin-top: 20px;">Young Family/Family Breadwinner</h3>
+                        </div>
+                        <div class="boxLegacy fade-in3 col-12 col-lg-3 col-md-3" onclick="submitPersona(3, 10);">
+                            <img class="personaImg" loading="lazy" src="~/assets/REP/businessman.png" />
+                            <h3 class="personaText" style="margin-top: 20px;">Businessman/Loan Borrower</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Young Family*@
+            <section class="page_section fade-in" id="section_4">
+                <div class="container" style="min-width: 85%; display: flex; align-items: center; justify-content: center; min-height: 65%;">
+                    <div class="row" style="align-items: center">
+                        <div class="col-8">
+                            <h4 style="font-size: 23px; text-align: left; font-weight: 700; margin: 20px; margin-left: 0px">
+                                Do you have enough savings to support your family for the remaining years, i.e. 20 years, if any unfortunate event is ever to happen today?
+                            </h4>
+                        </div>
+
+                        <div class="col-4">
+                            <img loading="lazy" style="width: 50%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/REP/money.png" class="img28" />
+                        </div>
+                    </div>
+                </div>
+                <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                       @* Source : https://themalaysianreserve.com/2020/01/30/unclaimed-money-ballooned-to-rm8-8b-in-2019/#:~:text=A%20TOTAL%20of%20RM8.,the%20money%20to%20their%20owners.*@
+                    </p>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_5" style="background:rgb(235 241 242)">
+                <div class="container" style="min-width: 85%; display: flex; align-items: center !important; justify-content: center; min-height: 65%;">
+                    <img loading="lazy" class="Img100" id="super" width="100%" src="" /><br />
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_6">
+                <div class="container" style="max-width: 1000px; display: flex; align-items: center; justify-content: center; min-height: 65%;">
+                    <div class="row">
+                        <div class="col-8">
+                            <h4 style="font-size: 23px; text-align: left; font-weight: 700; margin: 20px; margin-left: 0px">
+                                Benefits of High Protection Life Insurance
+                            </h4>
+                            <p class="content_font">
+                                <ol class="content_size" style="list-style: initial;">
+                                    <li>
+                                        Income replacement
+                                    </li>
+
+                                    <li>
+                                        Ease of mind for your family
+                                    </li>
+                                </ol>
+                            </p>
+                        </div>
+
+                        <div class="col-4">
+                            <img loading="lazy" style="width: 100%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/REP/Slide 7.png" class="Img100 img75" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Singles*@
+            <section class="page_section fade-in" id="section_7">
+                <div class="container" style="min-width: 85%; display: flex; align-items: center; justify-content: center; min-height: 65%;">
+                    <div class="row" style="align-items: center">
+                        <div class="col-8">
+                            <h4 style="font-size: 23px; text-align: left; font-weight: 700; margin: 20px; margin-left: 0px">
+                                Do you have enough savings to support yourself for the remaining years, i.e. 20 years, if any unfortunate event is ever to happen today? <br /> <br />Such as Death or Total Permanent Disability
+
+                            </h4>
+                        </div>
+
+                        <div class="col-4">
+                            <img loading="lazy" style="width: 50%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/REP/money.png" class="img28" />
+                        </div>
+                    </div>
+                </div>
+                <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                        @*Source : https://themalaysianreserve.com/2020/01/30/unclaimed-money-ballooned-to-rm8-8b-in-2019/#:~:text=A%20TOTAL%20of%20RM8.,the%20money%20to%20their%20owners.*@
+                    </p>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_8">
+                <div class="bottom" style="display: block !important">
+                    <div class="center d-flex" style="align-items: center; justify-content:center;">
+                        <div class="col-5">
+                            <img loading="lazy" class="mb-2 mt-4 mobile_top_none" style="max-width: 72vh;" width="80%" src="~/assets/REP/single2.png">
+                        </div>
+                        <div class="col-5 ">
+                            <img loading="lazy" class="mb-2 mt-4 mobile_top_none" style="max-width: 72vh;" width="80%" src="~/assets/REP/single3_1.png">
+                        </div>
+                    </div>
+                    <div style="display: block;">
+                        <p class="mb-0 source_p" style="padding-left: 25px">
+                            @*1 Source: https://www.kwsp.gov.my/-/epf-sets-new-target-of-rm240-000-for-basic-savings*@
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_9">
+                <div class="container" style="max-width: 1000px; display: flex; align-items: center; justify-content: center; min-height: 65%;">
+                    <div class="row">
+                        <div class="col-8">
+                            <h4 style="font-size: 23px; text-align: left; font-weight: 700; margin: 20px; margin-left: 0px">
+                                Benefits of High Protection Life Insurance
+                            </h4>
+                            <p class="content_font">
+                                <ol class="content_size" style="list-style: initial;">
+                                    <li>
+                                        Income replacement for your parents
+                                    </li>
+
+                                    <li>
+                                        Ease of mind for you & your parents
+                                    </li>
+                                </ol>
+                            </p>
+                        </div>
+
+                        <div class="col-4">
+                            <img loading="lazy" style="width: 100%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/REP/Slide 10.png" class="Img100 img75" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Businessman*@
+            <section class="page_section fade-in" id="section_10">
+                <div class="container" style="min-width: 85%; display: flex; align-items: center; justify-content: center; min-height: 65%;">
+                    <div class="row" style="align-items: center">
+                        <div class="col-8">
+                            <h4 style="font-size: 23px; text-align: left; font-weight: 700; margin: 20px; margin-left: 0px">
+                                Do you have enough savings to support your business or debts for the remaining years, i.e. 20 years, if any unfortunate event is ever to happen today? 
+                                <br /> <br />
+                                i.e. Business continuity, Outstanding Debt, Business Cash Flow & etc.
+
+                            </h4>
+                        </div>
+
+                        <div class="col-4">
+                            <img loading="lazy" style="width: 50%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/REP/money.png" class="img28 Img28" />
+                        </div>
+                    </div>
+                </div>
+                <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                        @*Source : https://themalaysianreserve.com/2020/01/30/unclaimed-money-ballooned-to-rm8-8b-in-2019/#:~:text=A%20TOTAL%20of%20RM8.,the%20money%20to%20their%20owners.*@
+                    </p>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_11" style="background: #edf1f5;">
+                <div class="container" style="min-width: 85%; display: flex; align-items: center !important; justify-content: center; min-height: 65%;">
+                    <img loading="lazy" class="Img100" id="businessPath" width="90%" src=""/>
+                </div>
+            </section>
+
+             <section class="page_section fade-in" id="section_12">
+                <div class="container" style="max-width: 1000px; display: flex; align-items: center; justify-content: center; min-height: 65%;">
+                    <div class="row">
+                        <div class="col-8">
+                            <h4 style="font-size: 23px; text-align: left; font-weight: 700; margin: 20px; margin-left: 0px">
+                                Benefits of High Protection Life Insurance
+                            </h4>
+                            <p class="content_font">
+                                <ol class="content_size" style="list-style: initial;">
+                                    <li>
+                                        Income replacement to sustain your business
+                                    </li>
+
+                                    <li>
+                                        Ease of mind for your family to maintain lifestyle
+                                    </li>
+                                </ol>
+                            </p>
+                        </div>
+
+                        <div class="col-4">
+                            <img loading="lazy" style="width: 100%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/REP/briefcase3.png" class="Img100 img75" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            @*Estate Distribution*@
+            <section class="page_section fade-in" id="section_13">
+                <h2 class="f-20" style="color: #002353; text-align: center; font-weight: bold; margin: 25px 0px 25px;"> How to create an effective and reliable Estate Distribution? </h2>
+                <div class="container" style="min-width: 96%; display: flex; align-items: center; justify-content: center;">
+                    <div class="row" style="justify-content: space-evenly;">
+                        <div class="col-5 m-0" style="padding: 24px; box-shadow: 0px 0px 20px 0px rgb(167 167 167); margin-right: 15px;     margin-bottom: 30px !important;">
+                            <img loading="lazy" style="width: 20%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/REP/will.png" class="img15" />
+                            <p class="content_font">
+                                <ul class="content_size">
+                                    <li>
+                                        Suitable for <span style="font-weight: bold;">Non-cash Assets.</span>
+                                    </li>
+
+                                    <li>
+                                        Use to administrate your estate such as appointment of guardian, executor and funeral arrangement.
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="col-5 m-0" style="padding: 24px; box-shadow: 0px 0px 20px 0px rgb(167 167 167); margin-left: 15px;     margin-bottom: 30px !important;">
+                            <img loading="lazy" style="width: 20%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/REP/insurance.png" class="img15" />
+                            <p class="content_font">
+                                <ul class="content_size">
+                                    <li>
+                                        <span style="font-weight: bold;">Diversify Urgent & Important Cash</span> such as living expenses, education fees & medical fees.
+                                    </li>
+
+                                    <li>
+                                        Able to accommodate immediate transfer of the estate.
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_14">
+                <h2 class="f-20" style="color: #002353; text-align: center; font-weight: bold; margin: 25px 0px 25px;">How to LEVERAGE to create more value?</h2>
+                <div class="container" style="min-width: 96%; display: flex; align-items: center; justify-content: center;">
+                    <div class="row" style="justify-content: space-evenly;">
+                        <div class="col-5 m-0" style="padding: 24px; box-shadow: 0px 0px 20px 0px rgb(167 167 167); margin-right: 15px; margin-bottom: 30px !important;">
+                            <img loading="lazy" style="width: 20%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/REP/loan.png" class="img15" />
+                            <p class="content_font">
+                                <h4 class="f-15" style="text-align: center;text-decoration: underline;">Leverage on Loans to create your Assets</h4>
+                                <ul class="content_size">
+                                    <li>Term Loan for working capital/ business expansion</li>
+                                    <li>Loan to finance Real Estate</li>
+                                    <li>Machinery/ equipment Loan for business operation</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="col-5 m-0" style="padding: 24px; box-shadow: 0px 0px 20px 0px rgb(167 167 167); margin-left: 15px; margin-bottom: 30px !important;">
+                            <img loading="lazy" style="width: 20%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/REP/insurance.png" class="img15" />
+                            <p class="content_font">
+                                <h4 class="f-15" style="text-align: center;text-decoration: underline;">Diversify Financial Plan into Life Insurance</h4>
+                                <ul class="content_size">
+                                    <li>Immediate creation of guaranteed value via Basic Sum Assured</li>
+                                    <li>Multiplying effect of your premium paid</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_15">
+                <div class="container" style="min-width: 85%; min-height: 65%; display:initial;">
+                    <h2 class="f-20" style="color: #002353; text-align: center; font-weight: bold; margin: 0px 0px 25px;">How to LEVERAGE to create more value?</h2>
+                    <div class="row" style="justify-content:center;">
+                        <div class="col-10 col-md-3" style="border: solid #d7dee3; padding: 10px; background: white;">
+                            <img loading="lazy" style="width: 80%; margin: auto;
+                                display: block;" src="~/assets/REP/estate1.png" />
+                        </div>
+                        <div class="col-10 col-md-3" style="border: solid #d7dee3; padding: 10px; background: white;">
+                            <img loading="lazy" style="width: 80%; margin: auto;
+                                display: block;" src="~/assets/REP/estate2.png" />
+                        </div>
+                        <div class="col-10 col-md-3" style="border: solid #d7dee3; padding: 10px; background: white;">
+                            <img loading="lazy" style="width: 80%; margin: auto;
+                                display: block;" src="~/assets/REP/estate3.png" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            @*Legacy*@
+            <section class="page_section fade-in " id="section_16">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="center d-flex">
+                        <div class="" style="padding-left: 0; margin-top: 0px;">
+                            <div class="center d-block">
+                                <h4 class="fw_600" style="font-size: 23px">2016 </h4>
+                            </div>
+                            <img class="shadow" width="350" src="~/assets/images/Estates News.png">
+                        </div>
+                        <div class="slide_8_arrow">
+                            <img width="100" style="margin: 8em 1em 0em 1em;" src="~/assets/images/arrow.png">
+                        </div>
+                        <div class="">
+                            <div class="center d-block">
+                                <h4 class="fw_600" style="font-size: 23px">2020 </h4>
+                            </div>
+                            <img class="shadow" width="350" src="~/assets/images/Report News.png">
+                        </div>
+                    </div>
+                </div>
+                <h4 class="fw_600" style="  margin: 1em 0em;  font-size: 24px;text-align: center;">
+                    The unclaimed monies increased by
+                    50% in just 4 years!
+                </h4>
+                <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                        Source:
+                    </p>
+                    <ol class="source_ol mt-0">
+                        <li>
+                            https://www.malaysiakini.com/news/328886
+                        </li>
+                        <li>
+                            https://www.malaymail.com/news/malaysia/2021/09/11/report-some-rm90b-worth-of-assets-mostly-owned-by-malays-unclaimed-as-of-20/2004690
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_17">
+                <div class="bottom mt-2" style="align-items: flex-start;">
+                    <div class="center">
+
+                        <div class="d-block">
+                            <h4 class="pl-1 fw_600" style="font-size: 23px; text-align: left;">
+                                Why unclaimed monies are getting
+                                higher?
+                            </h4>
+                        </div>
+                        <div class="d-flex" style="width: 100%;">
+                            <div class="edu-img">
+                                <img width="85%" src="~/assets/images/legacy_bubble_1.png">
+                            </div>
+                            <div class="edu-img">
+                                <img width="85%" src="~/assets/images/legacy_bubble_2.png">
+                            </div>
+                            <div class="edu-img">
+                                <img width="85%" style="margin-top: -11px;" src="~/assets/images/legacy_bubble_3.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_18">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="center d-block">
+                        <div class="d-block">
+                            <h4 class="pl-1 fw_600" style="font-size: 23px; text-align: left;">
+                                Some Facts about Legacy and
+                                Estate Transfer that you need to know.
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="desktop_view" style="width: 100%;    justify-content: flex-start;">
+                    <div class="col-8">
+                        <img class="chatbox_img" src="~/assets/images/legacy_chat_1.png">
+                    </div>
+                    <div class="col-4">
+                        <img class="right_convo_man" src="~/assets/images/Speech Man.png">
+                    </div>
+                </div>
+                <div class="mobile_view">
+                    <div class="col-12">
+                        <img class="chatbox_img" src="~/assets/images/legacy_chat_1.png">
+                    </div>
+                    <div class="col-12 right">
+                        <img class="right_convo_man_mobile" src="~/assets/images/Speech Man.png">
+                    </div>
+                </div>
+                <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                        Source:
+                    </p>
+                    <ol class="source_ol mt-0">
+                        <li>
+                            http://dollarsandsense.my/9-things-you-need-to-know-about-wills-in-malaysia/
+                        </li>
+                        <li>
+                            https://www.freemalaysiatoday.com/category/leisure/2018/10/05/understanding-estate-probate-and-wealth-distribution/
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_19">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="center d-block">
+                        <div class="d-block">
+                            <h4 class="pl-1 fw_600" style="font-size: 23px; text-align: left;">
+                                Some Facts about Legacy and
+                                Estate Transfer that you need to know.
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="desktop_view" style="width: 100%;    justify-content: flex-end;">
+                    <div class="col-4">
+                        <img class="left_convo_man" src="~/assets/images/Speech Man.png">
+                    </div>
+                    <div class="col-8">
+                        <img class="chatbox_img" src="~/assets/images/legacy_chat_2.png">
+                        <div style="display: block;">
+                            <p class="mb-0 source_p" style="padding-left: 25px">
+                                Source:
+                            </p>
+                            <ol class="source_ol mt-0">
+                                <li style="max-width: 100%;">
+                                    http://dollarsandsense.my/9-things-you-need-to-know-about-wills-in-malaysia/
+                                </li>
+                                <li style="max-width: 100%;">
+                                    https://www.freemalaysiatoday.com/category/leisure/2018/10/05/understanding-estate-probate-and-wealth-distribution/
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile_view">
+                    <div class="col-12 right">
+                        <img class="chatbox_img" src="~/assets/images/legacy_chat_2.png">
+                    </div>
+                    <div class="col-12">
+                        <img class="left_convo_man_mobile" src="~/assets/images/Speech Man.png">
+                    </div>
+
+                    <div style="display: block;">
+                        <p class="mb-0 source_p" style="padding-left: 25px">
+                            Source:
+                        </p>
+                        <ol class="source_ol mt-0">
+                            <li style="max-width: 100%;">
+                                http://dollarsandsense.my/9-things-you-need-to-know-about-wills-in-malaysia/
+                            </li>
+                            <li style="max-width: 100%;">
+                                https://www.freemalaysiatoday.com/category/leisure/2018/10/05/understanding-estate-probate-and-wealth-distribution/
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_20">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="center d-block">
+                        <div class="d-block">
+                            <h4 class="pl-1 fw_600" style="font-size: 23px; text-align: left;">
+                                Some Facts about Legacy and
+                                Estate Transfer that you need to know.
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="desktop_view" style="width: 100%;    justify-content: flex-start;">
+                    <div class="col-8">
+                        <img class="chatbox_img" src="~/assets/images/legacy_chat_3.png">
+                    </div>
+                    <div>
+                        <img class="right_convo_man" src="~/assets/images/Speech Man.png">
+                    </div>
+                </div>
+                <div class="mobile_view">
+                    <div class="col-12">
+                        <img class="chatbox_img" src="~/assets/images/legacy_chat_3.png">
+                    </div>
+                    <div class="col-12 right">
+                        <img class="right_convo_man_mobile" src="~/assets/images/Speech Man.png">
+                    </div>
+                </div>
+                <div style="display: block;">
+                    <p class="mb-0 source_p" style="padding-left: 25px">
+                        Source:
+                    </p>
+                    <ol class="source_ol mt-0">
+                        <li>
+                            http://dollarsandsense.my/9-things-you-need-to-know-about-wills-in-malaysia/
+                        </li>
+                        <li>
+                            https://www.freemalaysiatoday.com/category/leisure/2018/10/05/understanding-estate-probate-and-wealth-distribution/
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="page_section fade-in " id="section_21">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="center d-block">
+                        <div class="d-block">
+                            <h4 class="pl-1 fw_600" style="font-size: 23px; text-align: left;">
+                                How does insurance help in legacy
+                                distribution?
+                            </h4>
+                        </div>
+                        <div class="d-flex" style="width: 100%;">
+                            <div>
+                                <img width="100%" src="~/assets/images/legacy_chart.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Form *@
+            <section class="page_section fade-in " id="section_22">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="d-block enquiry_1">
+                        <div class="d-block white">
+                            <div class="address_name slide-in-bottom information_1">
+                                <div class="col-12">
+                                    <h4>How do I address you?</h4>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-12 px-0">
+                                        <div class="d-flex m-auto">
+                                            <div class="main-selection w_100">
+                                                <input type="text"
+                                                       onkeyup="numberMobile(event)"
+                                                       pattern="[A-Za-z]" class="rt_name"
+                                                       style="background: transparent; border: 0;    width: 100%; height: 100%;     text-align: center; text-align-last: center;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="address_name mt-2 slide-in-bottom information_2">
+                                <div class="col-12">
+                                    <h4>When were you born?</h4>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-12 px-0">
+                                        <div class="d-flex m-auto">
+
+                                            <div class=" main-selection w_100">
+                                                <input onchange="validateDate(event)" type="date" id="rt_age" name="rt_age" style="background: transparent; border: 0;    text-align: center; text-align-last: center;   width: 100%; height: 100%;">
+                                                <!--  min="1995-01-01" max="2000-12-31" -->
+                                            </div>
+                                        </div>
+                                        <small class="hidden red invalid_date">Invalid date</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="address_name mt-2 slide-in-bottom information_3">
+                                <div class="col-12">
+                                    <h4>What is your gender?</h4>
+                                </div>
+                                <div class="kids hide">
+                                    <div class="col-6 center pointer">
+                                        <img loading="lazy" width="150" onclick="submitForm1('male', 'assets/images/Boy icon.png')" src="~/assets/images/Boy icon.png">
+                                    </div>
+                                    <div class="col-6 center pointer">
+                                        <img loading="lazy" width="150" onclick="submitForm1('female', 'assets/images/Girl icon.png')" src="~/assets/images/Girl icon.png">
+                                    </div>
+                                </div>
+                                <div class="adult hide">
+                                    <div class="col-6 center pointer">
+                                        <img loading="lazy" width="150" onclick="submitForm1('male', 'assets/images/Male icon.png')" src="~/assets/images/Male icon.png">
+                                    </div>
+                                    <div class="col-6 center pointer">
+                                        <img loading="lazy" width="150" onclick="submitForm1('female', 'assets/images/Female icon.png')" src="~/assets/images/Female icon.png">
+                                    </div>
+                                </div>
+                                <div class="old hide">
+                                    <div class="col-6 center pointer">
+                                        <img loading="lazy" width="150" onclick="submitForm1('male', 'assets/images/Grandpa icon.png')" src="~/assets/images/Grandpa icon.png">
+                                    </div>
+                                    <div class="col-6 center pointer">
+                                        <img loading="lazy" width="150" onclick="submitForm1('female', 'assets/images/Grandma icon.png')" src="~/assets/images/Grandma icon.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="page_section fade-in " id="section_23">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="d-block enquiry_1">
+                        <div class="d-block white">
+                            <div class="address_name center">
+                                <div class="col-12">
+                                    <h4 id="rt_enteredname"></h4>
+                                </div>
+                                <div class="col-12">
+                                    <h4>Nice to meet you!</h4>
+                                </div>
+
+                            </div>
+                            <div class="d-block ">
+                                <div class="address_name">
+                                    <div class="col-12">
+                                        <h4 class="mt-2">What is your desired premium payment term?</h4>
+                                    </div>
+                                    <div class="d-flex center" style="overflow: auto">
+                                        <div class="col-6">
+                                            <button class="premium_selection premium_520" onclick="select5()">
+                                                5 Pay
+                                            </button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button class="premium_selection premium_105" onclick="select10()">
+                                                10 Pay
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="coverage_mass address_name">
+                                <div class="col-12">
+                                    <h4 class="mt-2" style="font-weight: bold">What is your desired coverage term?</h4>
+                                </div>
+                                <div class="d-flex center" style="overflow: auto; justify-content:center">
+                                    <div class="col-4" id="mass1">
+                                        <button style="min-height:76px !important" onclick="submitCoverage('1')" class="premium_selection premium_coverage c1">
+                                            15 years<br>
+                                        </button>
+                                    </div>
+                                    <div class="col-4" id="mass2">
+                                        <button style="min-height:76px !important" class="premium_selection premium_coverage c2" onclick="submitCoverage('2')">
+                                            20 years<br>
+                                        </button>
+                                    </div>
+                                    <div class="col-4 coverageAge" id="mass3">
+                                        <button style="min-height:76px !important" class="premium_selection premium_coverage c3" onclick="submitCoverage('3')">
+                                            Up to Age 70<br>
+                                            <span style=" font-weight: bold !important;">Next Birthday </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="coverage_premier address_name">
+                                <div class="col-12">
+                                    <h4 class="mt-2">What is your desired coverage term?</h4>
+                                </div>
+                                <div class="d-flex center" style="overflow: auto; justify-content:space-evenly">
+                                    <div class="row" style="width: 100%; justify-content: space-evenly"> 
+                                        <div id="coverage_col1">
+                                            <button style="min-height:76px !important" onclick="submitCoverage('1')" class="premium_selection premium_coverage c1">
+                                                15 years<br>
+                                            </button>
+                                        </div>
+                                        <div id="coverage_col2">
+                                            <button style="min-height:76px !important" class="premium_selection premium_coverage c2" onclick="submitCoverage('2')">
+                                                20 years<br>
+                                            </button>
+                                        </div>
+                                        <div id="coverage_col3" class="coverageAge3">
+                                            <button style="min-height:76px !important" class="premium_selection premium_coverage c3" onclick="submitCoverage('3')">
+                                                Up to Age 70<br>
+                                                <span style=" font-weight: bold !important;">Next Birthday </span>
+                                            </button>
+                                        </div>
+                                        <div id="coverage_col4" class="coverageAge2">
+                                            <button style="min-height:76px !important" class="premium_selection premium_coverage c4" onclick="submitCoverage('4')">
+                                                Up to Age 100<br>
+                                                <span style=" font-weight: bold !important;">Next Birthday </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="address_name">
+                                <div class="col-12">
+                                    <h4 class="mt-2">What is your desired basic sum assured?</h4>
+                                </div>
+                                <div class="d-flex center" style="overflow: auto">
+                                    <div class="col-4">
+                                        <button onclick="submitAmount2('1')" class="premium_selection premium_price p1" id="form_price1">
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="premium_selection premium_price p2" onclick="submitAmount2('2')" id="form_price2">
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="premium_selection premium_price p3" onclick="submitAmount2('3')" id="form_price3">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main-generate-button w_100 disabled" id="getyourquote" onclick="submitForm2()">
+                                GET YOUR QUOTE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Before Overview*@
+              <section class="page_section fade-in" id="section_24">
+                <div class="container" style="min-width: 85%; display: flex; align-items: center; justify-content: center; min-height: 65%;">
+                    <div class="row" style="align-items: center;">
+                        <div class="col-6" style="padding-right: 40px;">
+                            <img loading="lazy" style="width: 35%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;
+                                margin-bottom: 20px;" id="coverageProfile" src="~/assets/REP/slide 29 renewable.png"/>
+
+                            <p class="coverageText2" style="text-align:center">
+                                JIMMY purchases RHB Essential Protect for RMXXX,XXX annually for XX years with coverage term of XX years to cover against unexpected events during his active working years.
+                            </p>
+                        </div>
+
+                        <div class="col-6" style="background: white; border-radius: 27px; padding: 31px 55px; box-shadow: 0px 0px 20px 0px rgb(70 70 70);     margin-bottom: 20px;">
+                            <h3 id="coverageName" style="font-weight: bold; color: #0096a9; text-align: center; margin-bottom: 12px;">
+                                Jimmy's benefits</h3>
+
+                            <div class="row" style="justify-content: center; align-items: center; margin-bottom: 13px;">
+                                <div class="col-2">
+                                <img loading="lazy" style="width: 100%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/REP/slide 29 renewable.png"/>
+                                </div>
+                                <div class="col-10" style="font-weight: bold;">
+                                    Auto Renewal Option
+                                </div>
+                            </div>
+
+                            <div class="row" style="justify-content: center; align-items: center; margin-bottom: 13px;">
+                                <div class="col-2">
+                                <img loading="lazy" style="width: 100%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/rt100/overview_angelheart.png"/>
+                                </div>
+                                <div class="col-10" style="font-weight: bold;">
+                                    Death/TPD Coverage
+                                </div>
+                            </div>
+
+                            <div class="row" style="justify-content: center; align-items: center; margin-bottom: 13px;">
+                                <div class="col-2">
+                                <img loading="lazy" style="width: 100%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/rt100/overview_accident.png"/>
+                                </div>
+                                <div class="col-10" style="font-weight: bold;">
+                                    Accidental Coverage
+                                </div>
+                            </div>
+
+                            <div class="row" style="justify-content: center; align-items: center; margin-bottom: 13px;">
+                                <div class="col-2">
+                                <img loading="lazy" style="width: 100%;
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="~/assets/REP/slide 29 old-man.png"/>
+                                </div>
+                                <div class="col-10" style="font-weight: bold;">
+                                    Senior Disability
+                                </div>
+                            </div>
+
+                            <div class="row" style="justify-content: center; align-items: center; margin-bottom: 13px;">
+                                <div class="col-2">
+                                <img loading="lazy" style="width: 100%; display: block; margin-left: auto; margin-right: auto;" 
+                                id="coverageImg" src="~/assets/REP/briefcase.png"/>
+                                </div>
+                                <div class="col-10 coverageText" style="font-weight: bold;">
+                                    iComprehensive Critical Illness Rider (Optional)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Overview*@
+            <section class="page_section" id="section_25">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="d-block summary_1">
+                        <div class="d-block white" style="padding: 10px">
+
+                            <div style="text-transform: capitalize;" class="center overview_green_bar overview_title_caption">
+                            </div>
+
+                            <div class="center d-flex mb-1" style="    align-items: end; justify-content: center;">
+                                <div class="pr-2">
+                                    <img loading="lazy" width="100" src="~/assets/rt100/overview_heart.png">
+                                    <p class="mb-0 overview_actual_age"> years old </p>
+                                </div>
+                                <div class="pl-2">
+                                    <img loading="lazy" width="150" class="overview_img" src="~/assets/images/Male icon.png">
+                                    <p class="mb-0 overview_gender" style="     text-transform: capitalize;   border-left: 0.5px#362f29 solid;margin-top: -10px">Male</p>
+                                </div>
+                            </div>
+
+                            <div class ="row" style="justify-content:space-around; margin-bottom: 15px;">
+                                <div class="overview_base" style="border: solid 1px black;">
+                                    <img loading="lazy" class="d-block m-auto mt-1" width="55" src="~/assets/rt100/overview_shield.png">
+                                    
+                                    <h5 class="mb-0 mt-1 premium_age_minus fs_115" style="flex-grow: 1; font-weight:600;" id="">
+                                    </h5>
+                                    
+                                    <div class="overview_box_bottom">COVERAGE TERM</div>
+                                </div>
+                                <div class="overview_base" style="border: solid 1px black;">
+                                    <img loading="lazy" class="d-block m-auto mt-1" width="55" src="~/assets/rt100/overview_cert.png">
+                                    
+                                    <h5 class="mb-0 mt-1 premium_payment_term fs_115" style="flex-grow: 1; font-weight:600;" id=""> <br /> <span class="fs_115">YEARS</span></h5>
+
+                                    <div class="overview_box_bottom">PREMIUM PAYMENT TERM</div>
+                                </div>
+                                <div class="overview_base" style="border: solid 1px black;">
+                                    <img loading="lazy" class="d-block m-auto mt-1" width="55" src="~/assets/rt100/overview_coin.png">
+                                    
+                                    <h5 class="mb-0 mt-1 basic_sum_assured fs_115" style="flex-grow: 1; font-weight:600;" id=""><br /><span class="fs_115">MYR</span></h5>
+                                    
+                                    <div class="overview_box_bottom">BASIC SUM ASSURED</div>
+                                </div>
+                                <div class="overview_base box_26 overview_clickable" style="border: solid 1px black; " onclick="checkOverview(26)">
+                                    <div class="box_check"></div>
+
+                                    <img loading="lazy" class="d-block m-auto mt-1" width="55" src="~/assets/rt100/overview_coin.png">
+
+                                    <h5 class="mb-0 mt-1 basic_sum_premium fs_115" style="flex-grow: 1; font-weight:600;" id=""><br /><span class="fs_115">MYR</span></h5>
+                                    
+
+                                    <div class="overview_box_bottom">TOTAL ANNUAL PREMIUM</div>
+
+                                    <div class="box_animation">
+                                        <div class="animating_click ping"></div>
+                                        <img loading="lazy" class="animating_finger move_upward" width="40" src="~/assets/rt100/tap.png">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="justify-content:space-around; margin-bottom: 15px;">
+                                <div class="overview_base box_27 overview_clickable overview_disable" style="border: solid 1px #0096A7;" onclick="checkOverview(27)">
+                                    <div class="box_check"></div>
+                                    <img loading="lazy" class="d-block m-auto mt-1" width="55" src="~/assets/rt100/overview_angelheart.png">
+
+
+                                    <h5 class="mb-0 mt-1 fs_115" style="flex-grow: 1; margin: 10px;" id="">
+                                        Higher of <br>
+                                        <span class="fs_115" style="font-weight: 600"> Protection Fund Value; </span> OR
+                                        <span class="fs_115" style="font-weight: 600"> 100% of Current Basic Sum Assured less any withdrawal within last 12 months</span>
+                                    </h5>
+
+                                    <div class="overview_box_bottom_2">DEATH BENEFIT</div>
+
+                                    <div class="box_animation"></div>
+                                </div>
+                                <div class="overview_base box_28 overview_clickable overview_disable" style="border: solid 1px #0096A7;" onclick="checkOverview(28)">
+                                    <div class="additional_box">ADDITIONAL</div>
+                                    <div class="box_check"></div>
+
+                                    <img loading="lazy" class="d-block m-auto mt-1" width="55" src="~/assets/REP/oku.png">
+
+                                    <h5 class="mb-0 mt-1 fs_115" style="flex-grow: 1; margin: 10px;" id="">
+                                        Higher of <br>
+                                        <span class="fs_115" style="font-weight: 600"> Protection Fund Value; </span> OR
+                                        <span class="fs_115" style="font-weight: 600"> 100% of Current Basic Sum Assured less any withdrawal within last 12 months</span>
+                                    </h5>
+
+                                    <div class="overview_box_bottom_2">TPD/SENIOR DISABILITY BENEFIT</div>
+
+                                    <div class="box_animation"></div>
+                                </div>
+                                <div class="overview_base box_29 overview_clickable overview_disable" style="border: solid 1px #0096A7;" onclick="checkOverview(29)">
+                                    <div class="additional_box">ADDITIONAL</div>
+                                    <div class="box_check"></div>
+
+                                    <img loading="lazy" class="d-block m-auto mt-1" width="55" src="~/assets/rt100/overview_accident.png">
+
+                                    <h5 class="mb-0 mt-1 fs_115" style="flex-grow: 1; margin: 10px;" id="">
+                                        Up to addiional of <span class="fs_115" style="font-weight: 600" id="overview_Accidental"></span>
+                                        <span class="fs_115" style="font-weight: 600">of Basic Sum Assured</span>
+                                        ON TOP of Death/TPD Benefit
+                                    </h5>
+
+                                    <div class="overview_box_bottom_2">ACCIDENTAL DEATH / TPD BENEFIT</div>
+
+                                    <div class="box_animation"></div>
+                                </div>
+                                <div class="overview_base box_30 overview_clickable overview_disable" style="border: solid 1px #0096A7;" onclick="checkOverview(30)">
+                                    <div class="additional_box">ADDITIONAL</div>
+                                    <div class="box_check"></div>
+
+                                    <img loading="lazy" class="d-block m-auto mt-1" width="55" src="~/assets/REP/accidentBlue.png">
+
+                                    <h5 class="mb-0 mt-1 fs_115 " style="flex-grow: 1; margin: 10px;" id="">
+                                        <span class="fs_115 basic_sum_percent"></span><br>
+                                        <span class="fs_115" style="font-weight: 600">of Basic Sum Assured</span>
+                                    </h5>
+
+                                    <div class="overview_box_bottom_2">SPOUSE ACCIDENTAL DEATH / TPD BENEFIT</div>
+
+                                    <div class="box_animation"></div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="justify-content:space-around;">
+                                <div class="overview_base box_31 overview_clickable overview_disable" style="border: solid 1px #A3843B;  margin-bottom: 15px;" onclick="checkOverview(31)">
+                                    <div class="additional_box">ADDITIONAL</div>
+                                    <div class="box_check"></div>
+                                    <img loading="lazy" class="d-block m-auto mt-1" width="55" src="~/assets/REP/lifestyle.png">
+
+                                    <h5 class="mb-0 mt-1 fs_115" style="flex-grow: 1; margin: 10px;" id="">
+                                        Up to higher <span class="fs_115 basic_sum_percent" style="font-weight: 600"></span>
+                                        <span class="fs_115" style="font-weight: 600"> of Basic Sum Assured</span>
+                                        to be added to the Current Basic Sum Assured
+                                    </h5>
+
+                                    <div class="overview_box_bottom_3">LIFESTYLE REWARD</div>
+
+                                    <div class="box_animation"></div>
+                                </div>
+                                <div class="overview_base box_32 overview_clickable overview_disable" style="border: solid 1px #A3843B;  margin-bottom: 15px;" onclick="checkOverview(32)">
+                                    <div class="additional_box">ADDITIONAL</div>
+                                    <div class="box_check"></div>
+
+                                    <img loading="lazy" class="d-block m-auto mt-1" width="55" src="~/assets/REP/gift.png">
+
+                                    <h5 class="mb-0 mt-1 fs_115" style="flex-grow: 1; margin: 10px;" id="">
+                                        Up to additional <span class="fs_115 basic_sum_percent2" style="font-weight: 600"></span>
+                                        <span class="fs_115" style="font-weight: 600"> of Basic Sum Assured </span>
+                                        to be credited into Protection Fund Value (Subject to maximum of
+                                        <span class="fs_115 loyalty_bonus" style="font-weight: 600"></span>)
+                                    </h5>
+
+                                    <div class="overview_box_bottom_3">LOYALTY BONUS</div>
+
+                                    <div class="box_animation"></div>
+                                </div>
+                                <div class="overview_base box_33 overview_clickable overview_disable" style="border: solid 1px #A3843B;  margin-bottom: 15px;" onclick="checkOverview(33)">
+                                    <div class="additional_box">ADDITIONAL</div>
+                                    <div class="box_check"></div>
+
+                                    <img loading="lazy" class="d-block m-auto mt-1" width="55" src="~/assets/REP/Overview Auto Extension Option.png">
+
+                                    <h5 class="mb-0 mt-1 fs_115 auto_text" style="flex-grow: 1; margin: 10px;" id="">
+                                        Upon maturity, coverage will be extended to age 100 without re-underwriting.
+                                    </h5>
+
+                                    <div class="overview_box_bottom_3 auto_title">AUTO EXTENSION OPTION</div>
+
+                                    <div class="box_animation"></div>
+                                </div>
+                                <div class="overview_base box_34 overview_clickable overview_disable" style="border: solid 1px #A3843B;  margin-bottom: 15px;" onclick="checkOverview(34)">
+                                    <div class="optional_box">OPTIONAL</div>
+                                    <div class="box_check"></div>
+
+                                    <img loading="lazy" class="d-block m-auto mt-1" width="55" src="" id="overview_rider_img">
+
+                                    <h5 class="mb-0 mt-1 fs_115 overview_rider_text" style="flex-grow: 1; margin: 10px;" id="">
+                                        Up to a prescribed percentage of  <span class="fs_115" style="font-weight: 600"> Rider Sum Assured </span>
+                                        upon Life Assured diagnosed with listed Critical Illness
+                                    </h5>
+
+                                    <div class="overview_box_bottom_3 overview_rider">iCOMPREHENSIVE CRITICAL ILLNESS RIDER</div>
+
+                                    <div class="box_animation"></div>
+                                </div>
+                                 <div class="overview_base box_36 overview_clickable overview_disable" style="border: solid 1px #A3843B;  margin-bottom: 15px;" onclick="checkOverview(36)">
+                                    <div class="optional_box">OPTIONAL</div>
+                                    <div class="box_check"></div>
+
+                                    <img loading="lazy" class="d-block m-auto mt-1" width="55" src="~/assets/rt100/overview_chat.png">
+
+                                    <ul class="overview_li" style="display: flex; flex-direction: column; align-items: center; padding: 0px; flex-grow: 1; margin-top: 1em;">
+                                        <li><span class="optional_riders"></span></li>
+                                        <li>iLife Waiver 2.0</li>
+                                        <li>iPayor Waiver 2.0</li>
+                                    </ul>
+
+                                    <div class="overview_box_bottom_3">OPTIONAL RIDERS</div>
+
+                                    <div class="box_animation"></div>
+                                </div>
+                                <div class="overview_base overview_clickable overview_disable">
+                                   
+                                </div>
+                                <div class="overview_base overview_clickable overview_disable">
+                                   
+                                </div>
+                                <div class="overview_base overview_clickable overview_disable">
+                                   
+                                </div>
+                            </div>
+                            <div class="row" style="justify-content:space-around; margin-bottom: 15px;">
+                               
+                            </div>
+                           @* <div class="row extraOverview" style="justify-content:space-around; margin-bottom: 15px;">
+                                
+                                <div class="overview_base"></div>
+                                <div class="overview_base"></div>
+                                <div class="overview_base"></div>
+                            </div>*@
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Total Premium Payment*@
+            <section class="page_section fade-in" id="section_26">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex" style="justify-content: center; align-items: center;">    
+                        <table style="    width: 80%; margin: auto;">
+                            <tbody>
+                                <tr>
+                                    <td class="tpd_font2">
+                                        Basic Annual Premium
+                                    </td>
+                                    <td class="tpd_font" id="basic_premium_value">
+                                        RM xxx,xxx
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tpd_font2">
+                                        Limited Top Up (LTU)
+                                    </td>
+                                    <td class="tpd_font" id="ltu_value">
+                                        RM xxx,xxx
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tpd_font2">
+                                        Total Annual Premium
+                                    </td>
+                                    <td class="tpd_font" id="annual_total_value">
+                                        RM xxx,xxx
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+
+                        <div class="d-flex summary_2_1" style="margin-top: 1em;">
+                            <div class="graph_bg d-flex slide_29 summary_2_3">
+                                <div class="row">
+                                    <div class="col">
+                                        <div>
+                                            <p class="graph_title">If Premium is Payable Yearly for <span id="premium_years"></span> Years With Annual Premium of RM <span class="basic_sum_premium2"></span> </p>
+                                            <div class="relative">
+                                                <canvas id="premium_yearly"></canvas>
+                                                <div class="absolute-center text-center">
+                                                    <p id="enteredGraph"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col p-1">
+                                        <div>
+                                            <p class="graph_title">If Premium is Payable With Advanced Premium Option (APO) </p>
+                                            <div class="relative">
+                                                <canvas id="premium_advanced"></canvas>
+                                                <div class="absolute-center text-center">
+                                                    <p id="enteredGraph2"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <small class="graph_caption">
+                            * The current Advanced Premium Option (APO) interest rate is 3% p.a.. The actual interest declared is not guaranteed and depends on the company’s investment and operating performance.
+
+                        </small>
+                        <small class="graph_caption">
+                            * The figure shown is calculated based on non-smoker and 100% TokioMarine-Managed Fund
+                        </small>
+
+                        <div style="display: none">
+                            <table>
+                                <thead>
+                                    <th>Year</th>
+                                    <th>Month</th>
+                                    <th>Life Assured Age</th>
+                                    <th>Allocation Rate</th>
+                                    <th>Pol Fee</th>
+                                    <th>Basic COI Rate</th>
+                                    <th>COI Rate</th>
+                                    <th>AV</th>
+                                    <th>Per RM1</th>
+                                    <th>Modal Premium</th>
+                                </thead>
+                                <tbody id="premium_calculation_table">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Overall Protection Payout for Death*@
+            <section class="page_section fade-in" id="section_27">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex">
+                        <div class="d-flex summary_2_1">
+                            <div class="graph_bg d-flex slide_29 summary_2_3" style="background:unset !important">
+                                <div style="background: #F1F4F9; padding: 25px;">
+                                     <div style="background: white; padding: 15px; margin: 0px 0px 30px;">
+                                    Any Investment Fund Value (IFV) + higher of the following:<br />
+                                    (a)     Protection Fund Value (PFV); or <br />
+                                    (b)     100%* of the Current Basic Sum Assured, less any withdrawal made from Protection Fund; within the past 12 months of event date
+                                </div>
+
+                                 <div class="row" style="align-items: center;">
+                                    <div class="col-6">
+                                        <p class="slide_30_white_top" style="color: white; border-radius: 0px !important; background: #0096a7 !important; min-height:unset !important;">
+                                            End of Policy Year
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="slide_30_yellow_top" style="color: white; border-radius: 0px !important; background: #0096a7 !important; min-height:unset !important;">
+                                            Current Basic Sum Assurred 
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="align-items: center;">
+                                    <div class="col-6">
+                                        <p class="slide_30_white_top" style="border-radius: 0px !important">
+                                            Year 1 - 4
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="slide_30_yellow_top massValue" style="border-radius: 0px !important">
+                                            RM xxx,xxx
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row" style="align-items: center;">
+                                    <div class="col-6">
+                                        <p class="slide_30_white_bottom" style="border-radius: 0px !important">
+                                            Year 5 - 9
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="slide_30_yellow_bottom massValue2" style="border-radius: 0px !important">
+                                            RM xxx,xxx
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row" style="align-items: center;">
+                                    <div class="col-6">
+                                        <p class="slide_30_white_bottom sec33_font" style="border-radius: 0px !important">
+                                            Year 10 - 14
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="slide_30_yellow_bottom massValue3" style="border-radius: 0px !important">
+                                            RM xxx,xxx
+                                        </p>
+                                    </div>
+                                </div>
+                                 <div class="row sec33_row" style="align-items: center;">
+                                    <div class="col-6">
+                                        <p class="slide_30_white_bottom" style="border-radius: 0px !important">
+                                            Year 15 - 19
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="slide_30_yellow_bottom massValue4" style="border-radius: 0px !important">
+                                            RM xxx,xxx
+                                        </p>
+                                    </div>
+                                </div>
+                                 <div class="row sec33_row" style="align-items: center;">
+                                    <div class="col-6">
+                                        <p class="slide_30_white_bottom" style="border-radius: 0px !important">
+                                            Year 20 and above
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="slide_30_yellow_bottom massValue5" style="border-radius: 0px !important">
+                                            RM xxx,xxx
+                                        </p>
+                                    </div>
+                                </div>
+                                </div>
+                                <div style="font-size: 11px" id="slide_28_footer" class="mb-0 mt-1">
+                                    * The benefit payout is subject to juvenile lien if the Life Assured is below age 5 next birthday as of claims event date.<br />
+                                    Note:
+                                    <ul class="s24_li">
+                                        <li>The information contained herein is purely projecting on part (b) only, assuming no withdrawal are made from Protection Fund Value (PFV) and there is a possibility the Protection Fund Value might be higher than the Current Basic Sum Assured.</li>
+                                        <li>This illustration is strictly meant to be general information and reference only. It does not constitute a contract of insurance. For further details on this product, please refer to the Product Brochure, Sales Illustration, Product Disclosure Sheet (PDS) and policy contract for detailed benefits, exclusions, terms and conditions.</li>
+                                        <li>Current Basic Sum Assured shall refer to the Basic Sum Assured plus any additional Sum Assured from Lifestyle Reward(s) that have been entitled.</li>
+                                        <li>Basic Sum Assured shall refer to the Initial Sum Assured or Sum Assured as stated in endorsement.</li>
+                                        <li>Investment Fund Value (IFV) refers to any allocated Regular Top-Up Premium plus any allocated Single Premium Top-Up, payable following the date of notification. </li>
+                                        <li>Protection Fund Value (PFV) refers to allocated Basic Premium and any Limited Top-Up Premium, payable following the date of notification. </li>
+                                        <li>Total Fund Value is the total of Investment Fund Value and Protection Fund Value. </li>
+                                    </ul>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </section>
+
+            @*Overall Protection Payout for TPD / Senior Disability*@
+            <section class="page_section fade-in" id="section_28">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex">
+                        <div class="d-flex summary_2_1" style="overflow: auto; background: #f1f4f9; align-items:center; justify-content: center; display: flex !important;">
+                            
+                            <div style="background: white; margin: 20px; width: 95%">
+                                <div style="margin: 20px;">
+                                    <div style="background: white; padding: 15px; margin: 0px 0px 30px;">
+                                    Any Investment Fund Value (IFV) + higher of the following:<br />
+                                    (a)     Protection Fund Value (PFV); or <br />
+                                    (b)     100%* of the Current Basic Sum Assured, less any withdrawal made from Protection Fund; within the past 12 months of event date
+                                    </div>
+                                </div>
+                            </div>
+
+                            <img loading="lazy" style="width: 80%; margin: 20px;" src="~/assets/REP/s25.png">
+                        </div>
+
+                        <div style="margin: 10px; font-size: 11px">
+                            * The benefit payout is subject to juvenile lien if the Life Assured is below age 5 next birthday as of claims event date. <br /> Note:
+                            <ul class="s24_li">
+                                <li>TPD Benefit will cease at the policy anniversary immediately following the Life Assured’s attainment of age 70 next birthday.</li>
+                                <li>Any claim on TPD benefit will cease the Senior Disability Benefit.</li>
+                                <li>The maximum amount payable for TPD is RM 8 million per life for all individual life policies. </li>
+                                <li>Senior Disability benefit will cease upon maturity of the policy.</li>
+                                <li>The maximum amount payable for Senior Disability is RM 2 million per life for all individual life policies. </li>
+                                <li>In the event that the Current Basic Sum Assured payable on this policy exceeds the maximum payable limit:
+                                    <ul>
+                                        <li style="color: black; margin:0px;">the Company will pay up to, but not exceeding, the maximum payable limit.</li>
+                                        <li style="color: black; margin:0px;">the Current Basic Sum Assured and the Protection Fund Value will be reduced proportionally.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Additional Protection Payout for Accidental Death / TPD*@
+            <section class="page_section fade-in " id="section_29">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex">
+                        <div class="d-flex summary_2_1">
+                            <div class="graph_bg d-flex slide_29 summary_2_3 s26_container">
+                                <div class="row" style="align-items: center;">
+                            <div class="col-6">
+                                <p class="slide_30_white_top accident_col_left">
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p class="slide_30_yellow_top">
+                                    <span style="font-weight: bold;">Additional 100%</span>
+                                    of Basic Sum Assured                          
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row" style="align-items: center; margin-top: 45px;">
+                            <div class="col-6">
+                                <p class="slide_30_white_bottom">
+                                    Due to accident while commuting in public conveyance
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p class="slide_30_yellow_bottom">
+                                    <span style="font-weight: bold;">Additional 200%</span>
+                                    of Basic Sum Assured
+                                </p>
+                            </div>
+                        </div>
+                         <div class="row accidental_row" style="align-items: center; margin-top: 45px;">
+                            <div class="col-6">
+                                <p class="slide_30_white_bottom">
+                                    Due to accident in Natural Disaster
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p class="slide_30_yellow_bottom">
+                                    <span style="font-weight: bold;">Additional 300%</span>
+                                    of Basic Sum Assured
+                                </p>
+                            </div>
+                        </div>
+                            </div>
+                        </div>
+                        <div style="font-size: 11px" id="slide_28_footer" class="mb-0 mt-1">
+                            Note:
+                            <ul class="s24_li">
+                                <li>The benefit payout is subject to juvenile lien if the Life Assured is below age 5 years old next birthday as of claims event date. </li>
+                                <li>Maximum additional amount payable for Accidental Death or Accidental TPD is RM 2 million per life for Life Assured age 16 next birthday and below, and RM10 million per life for Life Assured age 17 to 70 next birthday. </li>
+                                <li>Accidental Death or Accidental TPD benefit will cease at the policy anniversary immediately following the attainment of age 70 next birthday. </li>
+                                <li>In the event if the Accidental Death or Accidental TPD is due to multiple events, the highest benefit shall be payable. </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Payout for Legal Spouse’s Accidental Death / TPD*@
+            <section class="page_section fade-in" id="section_30">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex">
+                        <div class="d-flex summary_2_1">
+                            <div class="graph_bg d-flex slide_29 summary_2_3" style="margin: 0px !important">
+                                <div class="row" style="align-items: center;">
+                                    <div class="col-5 center">
+                                        <img src="~/assets/images/Spouse.png">
+                                        <p class="basic_sum_premium3"></p>
+                                    </div>
+                                    <div class="col-7">
+                                        <p class="married_text">
+                                            <span class="spouse_percent"></span> of Basic Sum Assured upon legal spouse’s Accidental Death or Accidental Total and Permanent Disability
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="font-size: 11px" id="slide_28_footer" class="mb-0 mt-1">
+                            Note: 
+                            <ul class="s24_li">
+                                <li>The per life limit of RM 500,000 of this benefit shall not aggregate with spouse accidental benefit of any Agency products and RHB Treasure Builder. </li>
+                                <li>This additional spouse accidental benefit shall not aggregate under the Life Assured’s Accidental Death/ Accidental TPD RM 10 million per life limit BUT under the spouse’s life for spouse’s individual life policies. </li>
+                                <li>This benefit is payable only once per policy and will be terminated after payout. </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Additional Payout for Lifestyle Reward*@
+             <section class="page_section fade-in" id="section_31">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex">
+                        <div class="d-flex summary_2_1">
+                            <div class="graph_bg d-flex slide_29 summary_2_3" style="margin: 0px !important">
+                                <div class="row" style="align-items: center;">
+                                    <div class="col-5 center">
+                                        <img src="~/assets/REP/lifestyle.png">
+                                        <p class="basic_sum_premium5"> RM 100,000</p>
+                                    </div>
+                                    <div class="col-7">
+                                        <p class="married_text">
+                                            Upon survival of the Life Assured, an ADDITIONAL 5% of the Basic Sum Assured will be added to the Current Basic Sum Assured upon every end of the 5 policy year, subject to a maximum <span class="spouse_percent"></span> of the Basic Sum Assured.
+                                        </p>
+                                    </div>
+                                </div>
+                                  <div class="row" style="align-items: center;">
+                                    <div class="col-6">
+                                        <p class="slide_30_white_top" style="color: white; border-radius: 0px !important; background: #0096a7 !important; min-height:unset !important;">
+                                            End of Policy Year
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="slide_30_yellow_top" style="color: white; border-radius: 0px !important; background: #0096a7 !important; min-height:unset !important;">
+                                            Current Basic Sum Assurred 
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="align-items: center;">
+                                    <div class="col-6">
+                                        <p class="slide_30_white_top" style="border-radius: 0px !important">
+                                            Year 1 - 4
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="slide_30_yellow_top massValue" style="border-radius: 0px !important">
+                                            RM xxx,xxx
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row" style="align-items: center;">
+                                    <div class="col-6">
+                                        <p class="slide_30_white_bottom" style="border-radius: 0px !important">
+                                            Year 5 - 9
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="slide_30_yellow_bottom massValue2" style="border-radius: 0px !important">
+                                            RM xxx,xxx
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row" style="align-items: center;">
+                                    <div class="col-6">
+                                        <p class="slide_30_white_bottom sec33_font" style="border-radius: 0px !important">
+                                            Year 10 - 14
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="slide_30_yellow_bottom massValue3" style="border-radius: 0px !important">
+                                            RM xxx,xxx
+                                        </p>
+                                    </div>
+                                </div>
+                                 <div class="row sec33_row" style="align-items: center;">
+                                    <div class="col-6">
+                                        <p class="slide_30_white_bottom" style="border-radius: 0px !important">
+                                            Year 15 - 19
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="slide_30_yellow_bottom massValue4" style="border-radius: 0px !important">
+                                            RM xxx,xxx
+                                        </p>
+                                    </div>
+                                </div>
+                                 <div class="row sec33_row" style="align-items: center;">
+                                    <div class="col-6">
+                                        <p class="slide_30_white_bottom" style="border-radius: 0px !important">
+                                            Year 20 and above
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="slide_30_yellow_bottom massValue5" style="border-radius: 0px !important">
+                                            RM xxx,xxx
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="font-size: 11px" id="slide_28_footer" class="mb-0 mt-1">
+                            Note: 
+                            <ul class="s24_li">
+                                <li>No cost of insurance will be charged on the additional Sum Assured.</li>
+                                <li>Basic Sum Assured shall refer to the Initial Sum Assured or Sum Assured as stated in endorsement while Current Basic Sum Assured shall refer to the Basic Sum Assured plus any additional Sum Assured from Lifestyle Reward(s) that have been entitled.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Additional Payout for Loyalty Bonus*@
+             <section class="page_section fade-in" id="section_32">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex">
+                        <div class="d-flex summary_2_1">
+                            <div class="graph_bg d-flex slide_29 summary_2_3" style="margin: 0px !important">
+                                <div class="row" style="align-items: center;">
+                                    <div class="col-5 center">
+                                        <img src="~/assets/REP/gift.png">
+                                        <p class="basic_sum_premium4"> </p>
+                                    </div>
+                                    <div class="col-7">
+                                        <p class="married_text">
+                                            Upon Life Assured attained age <span class="loyalty_age"></span> next birthday, a one-time extra Bonus equivalent to <span class="present_precent"></span> of the Basic Sum Assured, subject to a maximum of <span class="max_amt"></span>, shall be credited into the Protection Fund Value at the end of the policy year.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="font-size: 11px" id="slide_28_footer" class="mb-0 mt-1">
+                            Note: 
+                            <ul class="s24_li">
+                                <li>Loyalty bonus is payable while the policy remains in force and inclusive of the extended coverage term from Auto Extension Option.</li>
+                                <li>The coverage term of the policy and any attaching rider(s) will continue after the Date of Maturity with Auto-Extension Option without requiring any evidence of insurability PROVIDED there is sufficient fund value to deduct for the policy charges and the Cost of Insurance, up to age 100 of the Life Assured for the basic plan and the maximum coverage age of any attaching rider(s).</li>
+                                <li>The amount of the bonus will be apportioned and allocated to the Fund(s) selected for premium with allocation rate of one hundred percent (100.00%) to create units in the account of Protection Fund Value by referring to the unit price at the Next Valuation Date upon the payment of the bonus amount. </li>
+                                <li>Policy Owner will not be eligible for this Loyalty Bonus if there is any unpaid premium(s) due upon the entitlement of the bonus amount.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Auto Extension Option*@
+             <section class="page_section fade-in" id="section_33">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex">
+                        <div class="d-flex summary_2_1">
+                            <div class="graph_bg d-flex slide_29 summary_2_3" style="margin: 0px !important">
+                                <div class="row" style="align-items: center;">
+                                    <div class="col-3 center">
+                                        <img src="~/assets/REP/Overview Auto Extension Option.png">
+                                    </div>
+                                    <div class="col-9">
+                                        <p class="married_text">
+                                            Upon reaching maturity while the policy remains in force, the coverage term of the policy and any attaching rider(s) will continue after the Date of Maturity with Auto-Extension Option without requiring any evidence of insurability PROVIDED there is sufficient fund value to deduct for the policy charges and the Cost of Insurance (COI), up to age 100 of the Life Assured for the basic plan and the maximum coverage age of any attaching rider(s). The policy will lapse when the fund value has been fully utilised.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="font-size: 11px" id="slide_28_footer" class="mb-0 mt-1">
+                            Note: 
+                            <ul class="s24_li">
+                                <li>The policy and its attaching riders (if any) shall be extended at the same level of the coverage as existing prior to the Auto Extension, subject to the policy’s fund sufficiency. Any attaching riders will not be extended if the rider has expired or terminated prior to or upon the Auto Extension, or the rider has reached the maximum coverage term.</li>
+                                <li>Policy Owner may reduce the Basic Sum Assured and/or benefit of any attaching rider(s) for the extended coverage provided the Basic Sum Assured and/or the benefit of the rider(s) must be within the maximum limit.</li>
+                                <li>The Policy shall lapse and cease to be in force during the extended coverage when the Total Fund Value is insufficient to pay the Insurance Charges, Policy Fees and other applicable charges. Additional premium in the form of Limited Top Up may be required which will be allocated towards the purchase of Units with 95% allocation rates.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Protect Booster Rider*@
+              <section class="page_section fade-in" id="section_34">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex">
+                        <div style="text-align: center; font-weight: bold; font-size: 1.5em;">Add on protection from 50% Basic Sum Assured up to 300% Basic Sum Assured <br />The scenario below is projecting Rider Sum Assured at 100% Basic Sum Assured</div>
+                        <table style="    width: 80%; margin: auto;">
+                            <tbody>
+                                <tr>
+                                    <td class="tpd_font2">
+                                        Protect Boost Sum Assured
+                                    </td>
+                                    <td class="boostAssure" id="basic_premium_value">
+                                        RM xxx,xxx
+                                    </td>
+                                </tr>
+                                <tr style="background-color: #d2deef !important;">
+                                    <td class="tpd_font2">
+                                        Protect Boost Coverage Term
+                                    </td>
+                                    <td class="boostCover" id="ltu_value">
+                                        RM xxx,xxx
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        <div class="row">
+                            <div class="graph_bg d-flex slide_29 summary_2_3 col-6" style="margin: 0px !important; background:unset !important;">
+                                <div class="canvaDivRepo" style="background: #f1f4f9; padding: 20px;">
+                                    <p class="canvasFont" style="font-size: 1.2em; font-weight: bold; text-align: center; background: white; padding: 5px 0px;">Death Coverage Without Protect Boost Rider</p>
+                                    <canvas class="canvasRespon" id="Death_No_Boost"></canvas>
+                                </div>
+                                
+                            </div>
+
+                            <div class="graph_bg d-flex slide_29 summary_2_3 col-6" style="margin: 0px !important; background:unset !important;">
+                                <div class="canvaDivRepo" style="background: #f1f4f9; padding: 20px;">
+                                    <p style="font-size: 1.2em; font-weight: bold; text-align: center; background: white; padding: 5px 0px;">Death Coverage With Protect Boost Rider</p>
+                                    <canvas class="canvasRespon" id="Death_Boost"></canvas>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div style="font-size: 11px" id="slide_28_footer" class="mb-0 mt-1">
+                            Note: 
+                            <ul class="s24_li">
+                                <li>The benefit payout is subject to juvenile lien if the Life Assured is below age 5 next birthday as of claims event date.</li>
+                                <li>The information contained herein is purely projecting on Current Basic Sum Assured only and there is possibility that the protection fund value might be higher than the Current Basic Sum Assured.</li>
+                                <li>This illustration is strictly meant to be general information and reference only. It does not constitute a contract of insurance. For further details on this product, please refer to the Product Brochure, Sales Illustration, Product Disclosure Sheet (PDS) and policy contract for detailed benefits, exclusions, terms and conditions.</li>
+                                <li>Current Basic Sum Assured shall refer to the Basic Sum Assured plus any additional Sum Assured from Lifestyle Reward(s) that have been entitled.</li>
+                                <li>Basic Sum Assured shall refer to the Initial Sum Assured or Sum Assured as stated in endorsement.</li>
+                                <li>Investment Fund Value (IFV) refers to any allocated Regular Top-Up Premium plus any allocated Single Premium Top-Up, payable following the date of notification. </li>
+                                <li>Protection Fund Value (PFV) refers to allocated Basic Premium and any Limited Top-Up Premium, payable following the date of notification. </li>
+                                <li>Total Fund Value is the total of Investment Fund Value and Protection Fund Value.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*iComprehensive Critical Illness Rider*@
+            <section class="page_section fade-in" id="section_35">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex">
+                        <div class="d-flex summary_2_1">
+                            <div class="graph_bg d-flex slide_29 summary_2_3" style="margin: 0px !important">
+                                
+                                <div class="row" style="align-items: center; margin-bottom:20px;">
+                                    <div class="col-12 col-md-2 center" style="font-weight:bold; font-size:1.5em;     text-shadow: -1px 1px #a5a5a5;">
+                                        Early Stage
+                                    </div>
+                                    <div class="col-md-10 col-12">
+                                        <div style="background: white; padding: 12px 0px;">
+                                            <ul style="margin: 0px !important;">
+                                                <li>50% of Rider Sum Assured payable upon Life Assured diagnosed with any Critical Illness Condition under Early Stage. </li>
+                                                <li>Life Assured is allowed to claim up to 2 Critical Illness Condition under Early Stage, provided the second claim under Early Stage must be a different Critical Illness Category from the first claim under Early Stage. </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="align-items: center; margin-bottom:20px;">
+                                    <div class="col-md-2 col-12 center" style="font-weight:bold; font-size:1.5em;     text-shadow: -1px 1px #a5a5a5;">
+                                        Advanced Stage
+                                    </div>
+                                    <div class="col-md-10 col-12">
+                                        <div style="background: white; padding: 12px 0px;">
+                                            <ul style="margin: 0px !important;">
+                                                <li>100% of Rider Sum Assured payable upon Life Assured being diagnosed with any Critical Illness Condition under Advanced Stage.</li>
+                                                <li>Life Assured is allowed to claim only once under Advanced Stage.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="align-items: center; margin-bottom:20px;">
+                                    <div class="col-md-2 col-12 center" style="font-weight:bold; font-size:1.5em;     text-shadow: -1px 1px #a5a5a5;">
+                                        Health Recover
+                                    </div>
+                                    <div class="col-md-10 col-12">
+                                        <div style="background: white; padding: 12px 0px;">
+                                            <ul style="margin: 0px !important;">
+                                                <li>Additional 20% of Rider Sum Assured shall be payable together with the first Staged Critical Illness Benefit payable under this rider. </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="align-items: center; margin-bottom:20px;">
+                                    <div class="col-md-2 col-12 center" style="font-weight:bold; font-size:1.5em;     text-shadow: -1px 1px #a5a5a5;">
+                                        Special Benefit
+                                    </div>
+                                    <div class="col-md-10 col-12">
+                                        <div style="background: white; padding: 12px 0px;">
+                                            <ul style="margin: 0px !important;">
+                                                <li>Additional 10% of Rider Sum Assured subject to maximum of RM25,000 shall be payable if Life Assured undergo Angioplasty and Other Invasive Treatments for Coronary Artery Disease.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div style="font-size: 11px" id="slide_28_footer" class="mb-0 mt-1">
+                            Note:
+                            <ul class="s24_li">
+                                <li>Coverage term for iComprehensive Critical Illness Rider is up to age 85 years old next birthday or basic policy term, whichever is earlier.</li>
+                                <li>The benefit payable under Early or Advanced Stage is subject to juvenile lien.</li>
+                                <li>iComprehensive Critical Illness Rider is subject to waiting period and survival period.</li>
+                                <li>Once two claims under Early Stage have been made, all benefits under this rider shall cease.</li>
+                                <li> Advanced Stage benefit amount shall be 100% of the Rider Sum Assured less any prior Staged Critical Illness Benefit claims payout if:
+                                    <ul>
+                                        <li style="margin-bottom:0px !important">the first claim under Early Stage and the second claim under Advanced Stage are from the same Critical Illness Category; and </li>
+                                        <li>the Critical Illness Condition for the second claim was diagnosed within 90 days of the diagnosis of the Critical Illness Condition under Early Stage.</li>
+                                    </ul>
+                                </li>
+                                <li>Once a claim under Advanced Stage has been made, all benefits under this rider shall cease.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @*Brief Introduction to Optional Riders*@
+            <section class="page_section fade-in" id="section_36">
+                <div class="bottom mt-2" style="align-items: flex-start; height: auto">
+                    <div class="summary_2 d-flex">
+                        <div class="d-flex summary_2_1 center">
+                            <div style="    padding: 10px; background: #DEF0F6; border: 0.5px #41719c solid;">
+                                <h5 class="rider_col1"></h5>
+                                <p class="fs_16 mb-0 rider_col2">
+                                    It is an optional rider that provides additional Death & Total and Permanent Disability (TPD) benefit to <u>Life Assured.</u>
+                                </p>
+                            </div>
+
+                            <div class="mt-2 mb-2" style="    padding: 10px; background: #d8e6f4; border: 0.5px #41719c solid;">
+                                <h5>WHAT IS <b>ILIFE WAIVER 2.0 RIDER?</b></h5>
+                                <p class="fs_16 mb-0">
+                                    It is an optional rider that waives the next modal premium of policy due (i.e basic premium, limited top-up, excluding regular top-up) starting from the date of diagnosis until the end of the rider’s benefit term upon <u>Life Assured</u> is diagnosed with of any of the covered Critical Illnesses during the rider coverage term.
+                                </p>
+                            </div>
+
+                            <div style="    padding: 10px; background: #def0f6; border: 0.5px #41719c solid;">
+                                <h5>WHAT IS <b>IPAYOR WAIVER 2.0 RIDER?</b></h5>
+                                <p class="fs_16 mb-0">
+                                    It is an optional rider that walves the next modal premium (excluding RTU) due starting from the event date until the end of the rider's coverage term upon <u>Policy Owner</u> dies or is suffering from Total and Permanent Disability (TPD) prior to age 70 next birthday or is diagnosed with any of the Critical Illnesses (CI) covered by this rider.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <div class="strict">
+                STRICTLY FOR INTERNAL USE ONLY
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>

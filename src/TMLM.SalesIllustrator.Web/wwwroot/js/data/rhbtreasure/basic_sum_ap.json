@@ -1,0 +1,104 @@
+{
+  "basic_sum": {
+    "data": [
+      {
+        "basic_plan": 1800,
+        "income_builder": 13200,
+        "annual": 15000
+      },
+      {
+        "basic_plan": 1800,
+        "income_builder": 18200,
+        "annual": 20000
+      },
+      {
+        "basic_plan": 1800,
+        "income_builder": 23200,
+        "annual": 25000
+      },
+      {
+        "basic_plan": 1800,
+        "income_builder": 28200,
+        "annual": 30000
+      },
+      {
+        "basic_plan": 1800,
+        "income_builder": 38200,
+        "annual": 40000
+      },
+      {
+        "basic_plan": 1800,
+        "income_builder": 48200,
+        "annual": 50000
+      }
+    ]
+  },
+  "basic_ap": {
+    "data": {
+      "five_pay": [
+        {
+          "without_APO": 75000,
+          "with_APO": 71014.8,
+          "annual": 15000
+        },
+        {
+          "without_APO": 100000,
+          "with_APO": 94686.4,
+          "annual": 20000
+        },
+        {
+          "without_APO": 125000,
+          "with_APO": 118358,
+          "annual": 25000
+        },
+        {
+          "without_APO": 150000,
+          "with_APO": 142029.6,
+          "annual": 30000
+        },
+        {
+          "without_APO": 200000,
+          "with_APO": 189372.8,
+          "annual": 40000
+        },
+        {
+          "without_APO": 250000,
+          "with_APO": 236716,
+          "annual": 50000
+        }
+      ],
+      "eight_pay": [
+        {
+          "without_APO": 120000,
+          "with_APO": 108850.2,
+          "annual": 15000
+        },
+        {
+          "without_APO": 160000,
+          "with_APO": 145133.6,
+          "annual": 20000
+        },
+        {
+          "without_APO": 200000,
+          "with_APO": 181417,
+          "annual": 25000
+        },
+        {
+          "without_APO": 240000,
+          "with_APO": 217700.4,
+          "annual": 30000
+        },
+        {
+          "without_APO": 320000,
+          "with_APO": 290267.2,
+          "annual": 40000
+        },
+        {
+          "without_APO": 400000,
+          "with_APO": 362834,
+          "annual": 50000
+        }
+      ]
+    }
+  }
+}

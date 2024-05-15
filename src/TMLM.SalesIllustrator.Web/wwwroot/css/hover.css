@@ -1,0 +1,105 @@
+/*
+
+next sibling only 
+div.a:hover + div.b { styles for b when hovering a }
+
+general sibling selector 
+div.a:hover ~ div.c { styles for c when hovering a }
+div.b:hover ~ div.c { styles for c when hovering b }
+
+*/
+
+.box2:focus .overlay {
+    opacity: 0.7;
+}
+.box2>a>img, .box2>img {
+    cursor: pointer;
+}
+.box2:hover img {
+  	opacity: 0.5;
+}
+.box2:hover .hover_text {
+    opacity: 1;
+}
+.box2{
+    margin: 50px 15px 15px 15px;
+    cursor: pointer;
+    box-shadow: 0 3px 9px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+}
+.box2>a>img, .box2>img {
+    width: 22vw;
+    height: 19.5vw;
+}
+.box2:hover:before {
+    content: attr(title);
+    color: #333;
+    position: absolute;
+    white-space: nowrap;
+	width: 22vw;
+    height: 19.5vw;
+    z-index: 20;
+    background: #0096a978;
+    color: #fff !important;
+    font-size: 15px;
+}
+.text_box_1 {
+	
+}
+.box:hover + .text_box_1 {
+	opacity: 1;
+}
+.hover_text {
+    position: absolute;
+    width: 22vw;
+    height: 19.5vw;
+    //line-height: 19.5vw;
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 29px;
+    opacity: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 872px) {
+	.box2>a>img, .box2>img {
+	    width: 16vw !important;
+    	height: 14.5vw !important;
+
+	}
+	.box2:hover:before {
+	    width: 16vw !important;
+    	height: 14.5vw !important;
+        padding: 0px !important;
+        
+	}
+    .hover_text {
+        font-size: 13px !important;
+        width: 16vw !important;
+        height: 14.5vw !important;
+        //line-height: 14.5vw !important;
+    }
+
+}
+
+@media only screen and (max-width: 650px) {
+    .mobile_view_slide_two {
+        display: block !important;
+    }
+    .box2>a>img, .box2>img {
+        width: 50vw !important;
+        height: 48.5vw !important;
+    }
+    .box2:hover:before {
+        width: 50vw !important;
+        height: 48.5vw !important;
+    }
+    .hover_text {
+        width: 50vw !important;
+        height: 48.5vw !important;
+        //line-height: 48.5vw !important;
+    }
+}

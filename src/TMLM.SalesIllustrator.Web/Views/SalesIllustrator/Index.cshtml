@@ -1,0 +1,213 @@
+﻿@{
+    Layout = null;
+}
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    <script src="~/js/jquery-3.5.1.min.js"  asp-append-version="true"></script>
+    <script src="~/js/chart.js"  asp-append-version="true"></script>
+    <script src="~/js/chartjs-plugin-labels.js"  asp-append-version="true"></script>
+    <script src="~/js/sales_illustrator.js"  asp-append-version="true"></script>
+    <script src="~/js/site.js"  asp-append-version="true"></script>
+    <script src="~/js/glider/glider.js" asp-append-version="true"></script>
+    <script src="~/js/kendo.all.min.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/js/chartjs-plugin-labels.min.js" asp-append-version="true"></script>
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css"  asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/RT100.css"  asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/animation.css"  asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/hover.css"  asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/graph.css"  asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/glider.css"  asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/datepicker-bulma.css"  asp-append-version="true"/>
+    
+</head>
+
+<body>
+    <section class="page">
+        <div id="objectLoader" class="loader-wrapper">
+            <div id="loader" class="hidden hide"></div>
+        </div>
+        <div class="d-block">
+            <section>
+                <div class="header_bar">
+                    <img loading="lazy"  style="width: 10%;" src="~/assets/CoreLogo.png">
+                    <div class="header">Sales Illustrator</div>
+                </div>
+                <div class="top">
+                    <div id="main_title" class="main-title center">
+                        Choose Your Preferred Plan
+                    </div>
+                    <div id="sub_title" class="sub-title center">
+                        Life Insurance Solutions for Your Needs 
+                    </div>
+                </div>
+            </section>
+
+            <section class="page_section fade-in" id="section_1">
+                <div class="bottom">
+
+                    <div class="carousel mt-3" data-flickity='{ "wrapAround": true }'>
+
+                        <div class="carousel-cell">
+                            <div onclick="goToREP('mass')">
+                                <div style="background: #0096a9;
+                                    padding: 10px;
+                                    text-align: center;
+                                    color: #fff;
+                                    font-weight: 600;">RHB Essential Protect</div>
+                                <img loading="lazy"  style="
+                                display: block;
+                                margin-left: auto;
+                                cursor: pointer;
+                                margin-right: auto; width: 100%" src="~/assets/Mass.png">
+
+                                <div class="bottom_Description_f">
+                                    <ul>
+                                        <li class="fs_13">A limited premium payment term Investment-Linked endowment plan covering Death, Total and Permanent Disability (TPD) or Senior Disability (SD).</li>
+                                        <li class="fs_13">Additional coverage on accidental death or TPD of the Life Assured and his/her legal spouse.</li>
+                                        <li class="fs_13">This plan also provides Lifestyle Reward in which additional Basic Sum Assured will be added upon every end of the 5 policy years.</li>
+                                        <li class="fs_13">Loyalty Bonus is also payable to the Protection Fund Value based on the age of entitlement. </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-cell">
+                            <div onclick="goToREP('premier');">
+                                <div style="background: #0096a9;
+                                    padding: 10px;
+                                    text-align: center;
+                                    color: #fff;
+                                    font-weight: 600;">RHB Essential Protect Premier</div>
+                                <img loading="lazy"  style="
+                                display: block;
+                                margin-left: auto;
+                                cursor: pointer;
+                                margin-right: auto; width: 100%" src="~/assets/Premier.png">
+
+                                <div class="bottom_Description_f">
+                                    <ul>
+                                        <li class="fs_13">A limited premium payment term Investment-Linked endowment plan covering Death, Total and Permanent Disability (TPD) or Senior Disability (SD).</li>
+                                        <li class="fs_13">Additional coverage on accidental death or TPD of the Life Assured and his/her legal spouse.</li>
+                                        <li class="fs_13">This plan also provides Lifestyle Reward in which additional Basic Sum Assured will be added upon every end of the 5 policy years.</li>
+                                        <li class="fs_13">Loyalty Bonus is also payable to the Protection Fund Value based on the age of entitlement. </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-cell">
+                            <div onclick="goToRt100('mass');">
+                                <div style="background: #0096a9;
+                                    padding: 10px;
+                                    text-align: center;
+                                    color: #fff;
+                                    font-weight: 600;">RHB Treasure 100</div>
+                                <img loading="lazy"  style="
+                                display: block;
+                                margin-left: auto;
+                                cursor: pointer;
+                                margin-right: auto; width: 100%" src="~/assets/rt100/slide_1.png">
+
+                                <div class="bottom_Description_f">
+                                    <ul>
+                                        <li class="fs_13">A non-participating plan that provides annual Guaranteed Cash Payment (GCP) until the maturity of policy. </li>
+                                        <li class="fs_13">This plan also provides coverage on Death or Total & Permanent Disability (TPD).  </li>
+                                        <li class="fs_13">Additional coverage will be provided for Death or TPD due to Accident. </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                       
+                        <div class="carousel-cell">
+                            <div onclick="goToRt100('premier');">
+                                <div style="background: #0096a9;
+                                    padding: 10px;
+                                    text-align: center;
+                                    color: #fff;
+                                    font-weight: 600;">RHB Treasure 100 Premier</div>
+                                <img loading="lazy"  style="
+                                display: block;
+                                margin-left: auto;
+                                cursor: pointer;
+                                margin-right: auto; width: 100%" src="~/assets/rt100/slide_1_2.png">
+
+                                <div class="bottom_Description_f">
+                                    <ul>
+                                        <li class="fs_13">A non-participating plan that provides annual Guaranteed Cash Payment (GCP) until the maturity of policy. </li>
+                                        <li class="fs_13">This plan also provides coverage on Death or Total & Permanent Disability (TPD).  </li>
+                                        <li class="fs_13">Additional coverage will be provided for Death or TPD due to Accident. </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-cell">
+                            <div onclick="goToRhbTreasureBuilder()">
+                                <div style="background: #0096a9;
+                                    padding: 10px;
+                                    text-align: center;
+                                    color: #fff;
+                                    font-weight: 600;">RHB Treasure Builder</div>
+                                <img loading="lazy"  style="
+                                display: block;
+                                margin-left: auto;
+                                cursor: pointer;
+                                margin-right: auto; width: 100%" src="~/assets/main3.jpg">
+
+                                <div class="bottom_Description_f">
+                                    <ul>
+                                        <li class="fs_13">A limited 5 or 8 pay regular premium Investment-Linked plan covering Death or Total & Permanent Disability (TPD) up to 20 or 25 years. </li>
+                                        <li class="fs_13">This plan also comes with packaged premium paying riders that provides annual Guaranteed Cash Payment (GCP) until the maturity of policy. Additional GCP Booster will also be payable at the end of every five policy year. </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-cell">
+                            <div onclick="goToRhbTreasureSupreme()">
+                                <div style="background: #0096a9;
+                                    padding: 10px;
+                                    text-align: center;
+                                    color: #fff;
+                                    font-weight: 600;">
+                                    RHB Treasure Supreme
+                                </div>
+                                <img loading="lazy" style="
+                                display: block;
+                                margin-left: auto;
+                                cursor: pointer;
+                                margin-right: auto; width: 100%" src="~/assets/supreme.jpg">
+
+                                <div class="bottom_Description_f">
+                                    <ul>
+                                        <li class="fs_13">
+                                            A non-participating plan that provides annual Guaranteed Cash Payment (GCP) until the maturity of policy.
+                                        </li>
+                                        <li class="fs_13">
+                                            Short premium term of 3 years with Guaranteed Acceptance up to RM500,000.
+                                        </li>
+                                        <li class="fs_13">
+                                            This plan also provides coverage on Death or Total & Permanent Disability (TPD). 
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </section>
+</body>
+
+</html>
