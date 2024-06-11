@@ -1,0 +1,91 @@
+﻿.premium-option {
+    border: 0;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 1em;
+    color: #212529;
+}
+
+.green_button2 {
+    background: #9DCD5A;
+    border-color: #9DCD5A;
+    background-color: #9DCD5A !important;
+}
+
+.top2 {
+    background-color: #1E85B6;
+    height: 30%;
+    min-height: 185px;
+}
+
+.blue-back {
+    background-color: #1E85B6 !important;
+}
+
+.blue-text {
+    color: #1E85B6 !important;
+}
+
+.green-text {
+    color: #0096A9; 
+}
+
+.icon {
+    width: 6vw;
+    min-width: 90px;
+}
+
+#arrowF1, #arrowF2 {
+    width: 65px;
+    height: 65px;
+    transform: rotate(-15deg);
+}
+
+#arrowF3 {
+    width: 65px;
+    height: 65px;
+}
+
+#arrowF4, #arrowF5 {
+    width: 65px;
+    height: 65px;
+    transform: rotate(15deg);
+}
+
+.overviewIMG {
+    width: 6vw;
+    min-width: 90px;
+}
+
+.alignCenter {
+    align-items: center !important;
+}
+
+.justifyCenter {
+    justify-content: center !important;
+}
+
+@media only screen and (max-width: 400px) and (min-width: 325px) {
+    #arrowF1, #arrowF2, #arrowF3, #arrowF4, #arrowF5 {
+        width: 45px !important;
+        height: 45px !important;
+    }
+
+    .icon {
+        min-width: 210px !important;
+    }
+}
+
+@media only screen and (max-width: 325px) {
+    #arrowF1, #arrowF2, #arrowF3, #arrowF4, #arrowF5 {
+        width: 45px !important;
+        height: 45px !important;
+    }
+
+    .icon {
+        min-width: 180px !important;
+        margin-left: 0px !important;
+    }
+}

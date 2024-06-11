@@ -1,7 +1,11 @@
 ﻿using Dapper;
+using Newtonsoft.Json;
 using System.Data;
+using System.Data.SqlClient;
+using System.Reflection;
 using TMLM.SalesIllustrator.API.Repositories.Abstractions;
 using TMLM.SalesIllustrator.Shared.Models;
+using TMLM.SalesIllustrator.Shared.Models.SalesIllustrator;
 using TMLM.SalesIllustrator.Shared.Models.Streamline;
 
 namespace TMLM.SalesIllustrator.API.Repositories
@@ -125,6 +129,102 @@ namespace TMLM.SalesIllustrator.API.Repositories
             var RetVal = await base.DbConnection.QueryAsync("spValidate_AuthToken", _dParams, commandType: CommandType.StoredProcedure);
 
             resp.Result = RetVal.Count() > 0 ? "true" : "false";
+            resp.RetCode = _dParams.Get<string>("@varRetCode");
+            resp.RetMsg = _dParams.Get<string>("@varRetMsg");
+
+            base.CloseConnection();
+            return resp;
+        }
+
+        public async Task<RepositoryResult<string>> GetDropDownOccupation()
+        {
+            RepositoryResult<string> resp = new();
+            DynamicParameters _dParams = new();
+
+            _dParams.Add("@varRetCode", dbType: DbType.String, direction: ParameterDirection.Output, size: 10);
+            _dParams.Add("@varRetMsg", dbType: DbType.String, direction: ParameterDirection.Output, size: 1000);
+
+            //if(base.DbConnection != null)
+            //{
+            //    if (base.DbConnection.State == ConnectionState.Open)
+            //    {
+            //        base.CloseConnection();
+            //    }
+            //}
+
+            using(var cn = new SqlConnection(Constant.ConnectionString))
+            {
+                cn.Open();
+                var RetVal = await cn.QueryAsync<OccupationModel>("spGet_Occupation", _dParams, commandType: CommandType.StoredProcedure);
+
+                var result = JsonConvert.SerializeObject(RetVal);
+
+                resp.Result = result;
+                resp.RetCode = _dParams.Get<string>("@varRetCode");
+                resp.RetMsg = _dParams.Get<string>("@varRetMsg");
+            }
+
+            //base.OpenConnection(Constant.ConnectionString);
+            //var RetVal = await base.DbConnection.QueryAsync<OccupationModel>("spGet_Occupation", _dParams, commandType: CommandType.StoredProcedure);
+
+            //var result = JsonConvert.SerializeObject(RetVal);
+
+            //resp.Result = result;
+            //resp.RetCode = _dParams.Get<string>("@varRetCode");
+            //resp.RetMsg = _dParams.Get<string>("@varRetMsg");
+
+            //base.CloseConnection();
+            return resp;
+        }
+
+        public async Task<RepositoryResult<string>> GetDropDownNature()
+        {
+            RepositoryResult<string> resp = new();
+            DynamicParameters _dParams = new();
+
+            _dParams.Add("@varRetCode", dbType: DbType.String, direction: ParameterDirection.Output, size: 10);
+            _dParams.Add("@varRetMsg", dbType: DbType.String, direction: ParameterDirection.Output, size: 1000);
+
+            using (var cn = new SqlConnection(Constant.ConnectionString))
+            {
+                cn.Open();
+                var RetVal = await cn.QueryAsync<NatureModel>("spGet_NatureOfBusiness", _dParams, commandType: CommandType.StoredProcedure);
+
+                var result = JsonConvert.SerializeObject(RetVal);
+
+                resp.Result = result;
+                resp.RetCode = _dParams.Get<string>("@varRetCode");
+                resp.RetMsg = _dParams.Get<string>("@varRetMsg");
+            }
+            //    base.OpenConnection(Constant.ConnectionString);
+            //var RetVal = await base.DbConnection.QueryAsync<NatureModel>("spGet_NatureOfBusiness", _dParams, commandType: CommandType.StoredProcedure);
+
+            //var result = JsonConvert.SerializeObject(RetVal);
+
+            //resp.Result = result;
+            //resp.RetCode = _dParams.Get<string>("@varRetCode");
+            //resp.RetMsg = _dParams.Get<string>("@varRetMsg");
+
+            //base.CloseConnection();
+            return resp;
+        }
+
+        public async Task<RepositoryResult<string>> GetOccupationCode(string occupation, string nature)
+        {
+            RepositoryResult<string> resp = new();
+            DynamicParameters _dParams = new();
+
+            _dParams.Add("@occupation", occupation, DbType.String, ParameterDirection.Input);
+            _dParams.Add("@nature", nature, DbType.String, ParameterDirection.Input);
+            _dParams.Add("@varRetCode", dbType: DbType.String, direction: ParameterDirection.Output, size: 10);
+            _dParams.Add("@varRetMsg", dbType: DbType.String, direction: ParameterDirection.Output, size: 1000);
+
+            base.OpenConnection(Constant.ConnectionString);
+            var RetVal = await base.DbConnection.QueryFirstOrDefaultAsync<OccupationCodeModel>("spGet_OccupationCode", _dParams, commandType: CommandType.StoredProcedure);
+
+            var result = JsonConvert.SerializeObject(RetVal);
+
+            resp.Result = result;
             resp.RetCode = _dParams.Get<string>("@varRetCode");
             resp.RetMsg = _dParams.Get<string>("@varRetMsg");
 

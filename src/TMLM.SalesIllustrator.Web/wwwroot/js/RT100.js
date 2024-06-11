@@ -1,9 +1,17 @@
-﻿
+﻿var firstPrio = '';
+var secondPrio = '';
+var risk = '';
+var name = "";
+var gender = "";
+var dob = "";
+var age = '';
+var martial = '';
+var child = '';
+var occupationCode = '';
+var industryCode = '';
+
 var loadingTable = false;
 var page_count_store = 1;
-var name = "";
-var gender = null;
-var dob = "";
 var img_Src = "";
 var main = false;
 var amount = '';
@@ -105,7 +113,7 @@ function checkPageCounter(page_counter) {
     $('.home_button').hide();
 
     this.revertLongerBg();
-    if (page_counter == 22 && lastpageshown) {
+    if (page_counter == 4 && lastpageshown) {
         lastpage = true;
     }
     if (lastpage) {
@@ -123,92 +131,8 @@ function checkPageCounter(page_counter) {
         $(`#pagination`).css('display', 'block');
     }
 
-    if (page_counter == 1) {
-        lastpage = false;
-        lastpageshown = false;
-        $('.rt_name').val('');
-        $('#rt_age').val('');
-        $('.home_button').hide();
-        $(`#break`).css('display', 'block');
-        $(`#break2`).css('display', 'block');
-        $(`.over_section6`).addClass('hide');
-        $(`.over_section6`).removeClass('col-12');
-
-        for (let i = 0; i < 7; i++) {
-            $(`.overview_${i + 1}`).removeClass('blue_button');
-            $(`.overview_${i + 1}`).addClass('green_button');
-        }
-
-        this.name = '';
-        this.premium = '';
-        this.premium_year = '';
-        this.amount = '';
-        this.checkAmount = '';
-        this.checkDate = '';
-
-
-        $('.premium_selection').removeClass('green_button')
-        $('.premium_selection').removeClass('font_white')
-
-        $('.back_button').hide();
-        $('.next_button').hide();
-        $('#main_title').html("Choose Your Preferred Plan")
-        $('#sub_title').html("Life Insurance Solutions for Your Needs")
-    }
-    else if (page_counter == 2) {
-        $('.next_button').hide();
-        $('#main_title').html("What are you looking for?")
-        $('#sub_title').html("Life Insurance Solutions for Your Needs.")
-        saveProcess('storyboard select');
-
-        if (this.isMobile == true) {
-            this.occurence = 0;
-            $('.isNonMobile').hide();
-            $('.isMobile').show();
-
-            var _that = this;
-            $('html').click(function (evt) {
-                if (evt.target.classList[0] != "hover_text") {
-                    _that.occurence = 0;
-                    _that.temp_occurence = 0;
-                }
-            });
-
-        } else {
-            $('.isMobile').hide();
-            $('.isNonMobile').show();
-        }
-    }
-    else if (page_counter == 3 || page_counter == 4 || page_counter == 5 || page_counter == 6) {
-        var text = 'Legacy ' + (page_counter - 2);
-        saveProcess(text);
-        $('#main_title').html("Legacy")
-        $('#sub_title').html("Protection for your future and loves one.");
-        $('.skip_button').show();
-    }
-    else if (page_counter >= 7 && page_counter <= 10) {
-        var text = 'Retirement ' + (page_counter - 6);
-        saveProcess(text);
-        $('#main_title').html("Retirement")
-        $('#sub_title').html("To live without boundaries during retirement.")
-        $('.skip_button').show();
-    }
-    else if (page_counter >= 11 && page_counter <= 13) {
-        var text = 'Passive Income ' + (page_counter - 10);
-        saveProcess(text);
-        $('#main_title').html("Passive Income")
-        $('#sub_title').html("Guarantee regular earnings to create income source for future.")
-        $('.skip_button').show();
-    }
-    else if (page_counter >= 14 && page_counter <= 18) {
-        var text = 'Diversification ' + (page_counter - 14);
-        saveProcess(text);
-        $('#main_title').html("Diversification")
-        $('#sub_title').html("Diversifying your portfolio to make your investment plans more resilient.")
-        $('.skip_button').show();
-    }
-    else if (page_counter == 19 || page_counter == 20) {
-        var text = 'Let us know more about you  ' + (page_counter - 20);
+    if (page_counter == 19 || page_counter == 2) {
+        var text = 'Let us know more about you  ' + (page_counter - 1);
         saveProcess(text);
 
 
@@ -218,12 +142,10 @@ function checkPageCounter(page_counter) {
         document.getElementsByName("rt_age")[0].setAttribute('max', today);
 
         $('#getyourquote').addClass('disabled');
-        $('#main_title').html("Let us know more about you. ")
+        $('#main_title').html("Select your preferred plan");
         $('#sub_title').html("")
 
-        if (page_counter == 20) {
-            $('#main_title').html("Select your preferred plan");
-
+        if (page_counter == 2) {
             if (this.hide8payatinput == true) {
                 $('.d_hide8pay').show();
                 $('.d_show8pay').hide();
@@ -270,7 +192,7 @@ function checkPageCounter(page_counter) {
             $('#rt_enteredname').html(`Hi ${this.name.toUpperCase()},`);
         }, 100);
     }
-    else if (page_counter == 21) {
+    else if (page_counter == 3) {
 
         if (this.current_selection == '') {
             saveProcess('What is your preference?');
@@ -286,7 +208,7 @@ function checkPageCounter(page_counter) {
             $('#sub_title').html("");
         }
     }
-    else if (page_counter == 22) {
+    else if (page_counter == 4) {
 
         window.scrollTo(0, 0);
 
@@ -314,12 +236,35 @@ function checkPageCounter(page_counter) {
 
         $('.overview_gender').html(this.gender);
 
-        $('.overview_img').attr('src', this.img_Src);
+        if(this.age <= 16){
+            if(this.gender == 'female'){
+                $('.overview_img').attr('src', 'assets/images/Girl icon.png');
+            }
+            else{
+                $('.overview_img').attr('src', 'assets/images/Boy icon.png');
+            }
+        }
+        else if(this.age >= 60){
+            if(this.gender == 'female'){
+                $('.overview_img').attr('src', 'assets/images/Grandma icon.png');
+            }
+            else{
+                $('.overview_img').attr('src', 'assets/images/Grandpa icon.png');
+            }
+        }
+        else{
+            if(this.gender == 'female'){
+                $('.overview_img').attr('src', 'assets/images/Female icon.png');
+            }
+            else{
+                $('.overview_img').attr('src', 'assets/images/Male icon.png');
+            }
+        }
 
         this.getGuaranteedCashPayment();
 
     }
-    else if (page_counter == 23) {
+    else if (page_counter == 5) {
         window.scrollTo(0, 0);
 
         saveProcess('Total Premium Payment');
@@ -336,7 +281,7 @@ function checkPageCounter(page_counter) {
         this.premiumPayable();
         this.advancePremiumPayable();
     }
-    else if (page_counter == 24) {
+    else if (page_counter == 6) {
         window.scrollTo(0, 0);
         $('.overall_gcp_boosted_graph_div').hide();
         saveProcess('Overall Protection Payout for Death');
@@ -348,7 +293,7 @@ function checkPageCounter(page_counter) {
         $('#sub_title').html("")
         this.generateDeathGraph();
     }
-    else if (page_counter == 25) {
+    else if (page_counter == 7) {
         window.scrollTo(0, 0);
 
         saveProcess('Overall Protection Payout for TPD');
@@ -358,7 +303,7 @@ function checkPageCounter(page_counter) {
         $('#main_title').html(`<img class="mr-2 header_icon" src="${sitename}/assets/rt100/overview_wheelchair.png"> Overall Protection Payout for TPD`)
         $('#sub_title').html("")
     }
-    else if (page_counter == 26) {
+    else if (page_counter == 8) {
         window.scrollTo(0, 0);
 
         saveProcess('Additional Protection Payout for Accidental Death / TPD');
@@ -374,7 +319,7 @@ function checkPageCounter(page_counter) {
             $('.slide_29_percentage').html('110%');
         }
     }
-    else if (page_counter == 27) {
+    else if (page_counter == 9) {
         window.scrollTo(0, 0);
 
         saveProcess('Brief Introduction to Optional Riders');
@@ -385,7 +330,7 @@ function checkPageCounter(page_counter) {
         $('#main_title').html(`<img class="mr-2 header_icon" src="${sitename}/assets/rt100/overview_chat.png"> Brief Introduction to Optional Riders`)
         $('#sub_title').html("")
     }
-    else if (page_counter == 28) {
+    else if (page_counter == 10) {
         window.scrollTo(0, 0);
 
         saveProcess('Annual GCP Payout');
@@ -417,7 +362,7 @@ function checkPageCounter(page_counter) {
     //    $('.section_29_footer').html();
     //    this.oprvstpp_right_receive();
     //}
-    else if (page_counter == 29) {
+    else if (page_counter == 11) {
         window.scrollTo(0, 0);
         saveProcess('Potential Amount to Receive for Surrender');
         this.applyLongerBg();
@@ -648,7 +593,23 @@ $(document).ready(function () {
         $('.home_button').css('height', '40px');
         $('.home_button').css('font-size', '17px');
     }
+
+    getLocal();
 });
+
+async function getLocal(){
+    this.firstPrio = await localStorage.getItem("prio1");
+    this.secondPrio = await localStorage.getItem("prio2");
+    this.risk = await localStorage.getItem("risk");
+    this.name = await localStorage.getItem("name");
+    this.dob = await localStorage.getItem("dob");
+    this.gender = await localStorage.getItem("gender");
+    this.martial = await localStorage.getItem("martial");
+    this.child = await localStorage.getItem("child");
+    this.occupationCode = await localStorage.getItem("occupation");
+    this.industryCode = await localStorage.getItem("industry");
+    this.age = await localStorage.getItem("age");
+}
 
 window.addEventListener('resize', () => {
 
@@ -797,13 +758,13 @@ function back_page() {
         $(`#pagination`).css('display', 'block');
     }
 
-    if (page_count_store == 22) {
+    if (page_count_store == 4) {
         if (this.current_selection != '') {
             saveProcess(this.tempSubTitle);
         }
     }
 
-    if (page_count_store == 21) {
+    if (page_count_store == 3) {
         if (this.current_selection != '') {
             saveProcess('What is your preference?');
             $('.next_button').hide();
@@ -824,12 +785,12 @@ function back_page() {
     $(`#section_${page_count_store}`).css('display', 'none');
     page_count_store--;
 
-    if (page_count_store == 22) {
+    if (page_count_store == 4) {
         if (selected_year && selected_price)
             resubmit = true;
     }
 
-    if (page_count_store == 23) {
+    if (page_count_store == 5) {
         resubmit = true;
         if (this.premium_year == 825) {
             setTimeout(function () {
@@ -840,13 +801,13 @@ function back_page() {
         }
     }
 
-    page_count_store = this.choice == 1 && page_count_store == 18 ? 6 :
-        this.choice == 2 && page_count_store == 18 ? 10 :
-            this.choice == 3 && page_count_store == 18 ? 13 : page_count_store;
+    //page_count_store = this.choice == 1 && page_count_store == 18 ? 6 :
+    //    this.choice == 2 && page_count_store == 18 ? 10 :
+    //        this.choice == 3 && page_count_store == 18 ? 13 : page_count_store;
 
-    page_count_store = this.choice == 4 && page_count_store == 14 ? 2 :
-        this.choice == 2 && page_count_store == 6 ? 2 :
-            this.choice == 3 && page_count_store == 10 ? 2 : page_count_store;
+    //page_count_store = this.choice == 4 && page_count_store == 14 ? 2 :
+    //    this.choice == 2 && page_count_store == 6 ? 2 :
+    //        this.choice == 3 && page_count_store == 10 ? 2 : page_count_store;
 
     $(`#section_${page_count_store}`).css('display', 'block');
     checkPageCounter(page_count_store)
@@ -863,35 +824,35 @@ function next_page() {
     }
 
     if (this.backtoslide_25 != 0) {
-        page_count_store = 21;
+        page_count_store = 3;
         $(`#section_${this.backtoslide_25}`).css('display', 'none');
-        var rightsection = this.backtoslide_25 == 23 ? 1 : this.backtoslide_25 == 24 ? 2 :
-            this.backtoslide_25 == 25 ? 3 : this.backtoslide_25 == 26 ? 4 :
-                this.backtoslide_25 == 27 ? 5 : this.backtoslide_25 == 28 ? 6 : this.backtoslide_25 == 29 ? 7 : 8;
+        //var rightsection = this.backtoslide_25 == 23 ? 1 : this.backtoslide_25 == 24 ? 2 :
+        //    this.backtoslide_25 == 25 ? 3 : this.backtoslide_25 == 26 ? 4 :
+        //        this.backtoslide_25 == 27 ? 5 : this.backtoslide_25 == 28 ? 6 : this.backtoslide_25 == 29 ? 7 : 8;
 
         switch (this.backtoslide_25) {
-            case 23:
+            case 5:
                 saveProcess('Overview (Total Premium Payment)');
                 break;
-            case 24:
+            case 6:
                 saveProcess('Overview (Overall Protection Payout for Death)');
                 break;
-            case 25:
+            case 7:
                 saveProcess('Overview (Overall Protection Payout for TPD)');
                 break;
-            case 26:
+            case 8:
                 saveProcess('Overview (Additional Protection Payout for Accidental Death / TPD)');
                 break;
-            case 27:
+            case 9:
                 saveProcess('Overview (Brief Introduction to Optional Riders)');
                 break;
-            case 28:
+            case 10:
                 saveProcess('Overview (Annual GCP and GCP Booster Payout)');
                 break;
             //case 29:
             //    saveProcess('Overview (Overall Payout Received vs Total Premium Paid)');
             //    break;
-            case 29:
+            case 11:
                 saveProcess('Overview (Potential Amount to Receive for Surrender)');
                 break;
         }
@@ -902,17 +863,17 @@ function next_page() {
     $(`#section_${page_count_store}`).css('display', 'none');
     page_count_store++;
 
-    page_count_store = this.choice == 1 && page_count_store == 7 ? 19 :
-        this.choice == 2 && page_count_store == 11 ? 19 :
-            this.choice == 3 && page_count_store == 14 ? 19 : page_count_store;
+    //page_count_store = this.choice == 1 && page_count_store == 7 ? 19 :
+    //    this.choice == 2 && page_count_store == 11 ? 19 :
+    //        this.choice == 3 && page_count_store == 14 ? 19 : page_count_store;
 
-    if (this.previousChoice != 0) {
-        page_count_store = this.previousChoice == 2 ? 6 :
-            this.previousChoice == 3 ? 10 :
-                this.previousChoice == 4 ? 13 : page_count_store;
+    //if (this.previousChoice != 0) {
+    //    page_count_store = this.previousChoice == 2 ? 6 :
+    //        this.previousChoice == 3 ? 10 :
+    //            this.previousChoice == 4 ? 13 : page_count_store;
 
-        this.previousChoice = 0;
-    }
+    //    this.previousChoice = 0;
+    //}
 
     $(`#section_${page_count_store}`).css('display', 'block');
     checkPageCounter(page_count_store)
@@ -976,17 +937,17 @@ function afterHome() {
     $('#sub_title').html("");
 
     this.current_selection = '';
-    this.current_clicked = 23;
+    this.current_clicked = 5;
 
-    for (i = 23; i <= 30; i++) {
+    for (i = 5; i <= 29; i++) {
         $(`.box_${i}>.box_animation`).html('');
         $(`.box_${i}`).addClass('overview_disable');
         $(`.box_${i}>.box_check`).html(``);
     }
 
-    $(`.box_23>.box_animation`).html(`<div class="animating_click ping"></div>
+    $(`.box_5>.box_animation`).html(`<div class="animating_click ping"></div>
                                                <img class="animating_finger move_upward" width="40" src="${sitename}/assets/rt100/tap.png">`);
-    $(`.box_23`).removeClass('overview_disable');
+    $(`.box_5`).removeClass('overview_disable');
 }
 
 function mobileClickOccurence(i, y) {
@@ -1415,7 +1376,7 @@ function showPreferenceBox(display, subtitle) {
         $('.second_income_img').attr('src', `${sitename}/assets/rt100/preference_3.png`)
 }
 
-var current_clicked = 23;
+var current_clicked = 5;
 function checkOverview(page) {
 
     if (this.current_clicked >= page) {
@@ -1566,18 +1527,25 @@ function saveProcess(process_save) {
 function updateApi() {
     showLoader();
 
-    let categoryName = getCategoryName(choice);
+    let categoryName1 = getCategoryName(firstPrio);
+    let categoryName2 = getCategoryName(secondPrio);
     let premiumYear = getPremiumYear();
 
     var term = this.premium_year == 520 ? "5" : this.premium_year == 825 ? "8" : "10"
 
     var req = {
         name: name,
+        category: categoryName1,
+        category2: categoryName2,
+        risk: risk,
         gender: gender,
         age: age,
+        martial: martial,
+        child: child,
+        occupation: occupationCode,
+        industry: industryCode,
         desiredPlan: isMassPremier,
         dateOfBirth: new Date(dob),
-        category: categoryName,
         premiumPaymentTerm: parseFloat(term.replaceAll(',', '')),
         premiumAmountAnnually: parseFloat(amount.replaceAll(',', '')),
     };
@@ -1594,7 +1562,7 @@ function updateApi() {
         dataType: "JSON",
         type: "POST",
         success: function (data) {
-            next(21);
+            next(3);
             hideloader();
         },
         error: function (data) {
@@ -3052,13 +3020,15 @@ function generateEopyTable() {
 
 function getCategoryName(id) {
     if (id == 1)
-        return "legacy";
-    else if (id == 2)
         return "retirement";
+    else if (id == 2)
+        return "investment";
     else if (id == 3)
-        return "passive income";
-    else
-        return "diversification";
+        return "income replacement";
+    else if (id == 4)
+        return "education";
+    else if (id == 5)
+        return "regular savings";
 }
 
 function getPremiumYear() {

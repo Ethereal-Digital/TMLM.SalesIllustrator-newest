@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using TMLM.SalesIllustrator.API.Services.Abstractions;
+using TMLM.SalesIllustrator.Shared.Models.SalesIllustrator;
 using TMLM.SalesIllustrator.Shared.Models.UserSession;
 
 namespace TMLM.SalesIllustrator.API.Controllers
@@ -116,6 +117,73 @@ namespace TMLM.SalesIllustrator.API.Controllers
             catch (Exception ex)
             {
                 Log.Error($"UserSessionController ValidateToken: {ex}");
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetDropDownOccupation()
+        {
+            try
+            {
+                var authToken = Request.Headers["Auth"];
+                var resp = await service.GetDropDownOccupation();
+                return Ok(resp);
+
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Log.Error($"UserSessionController Unauthorized Get: {ex}");
+                return Unauthorized(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"UserSessionController Get: {ex}");
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetDropDownNature()
+        {
+            try
+            {
+                var authToken = Request.Headers["Auth"];
+                var resp = await service.GetDropDownNature();
+                return Ok(resp);
+
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Log.Error($"UserSessionController Unauthorized Get: {ex}");
+                return Unauthorized(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"UserSessionController Get: {ex}");
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetOccupationCode(string occupations, string natures)
+        {
+            try
+            {
+                var authToken = Request.Headers["Auth"];
+                var resp = await service.GetOccupationCode(occupations, natures);
+                //var resp = await service.GetDropDownNature();
+                return Ok(resp);
+
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Log.Error($"UserSessionController Unauthorized Get: {ex}");
+                return Unauthorized(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"UserSessionController Get: {ex}");
                 return BadRequest();
             }
         }

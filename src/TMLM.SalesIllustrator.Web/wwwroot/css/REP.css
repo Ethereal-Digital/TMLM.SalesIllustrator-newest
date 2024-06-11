@@ -393,6 +393,7 @@ body {
 .overview_disable {
     opacity: 0.65;
     cursor: initial !important;
+    pointer-events: none;
 }
 
 .overview_clickable {

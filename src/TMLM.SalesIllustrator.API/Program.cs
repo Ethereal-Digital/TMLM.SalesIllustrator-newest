@@ -36,6 +36,9 @@ builder.Services.AddTransient<IRhbEssentialProtectRepository, RhbEssentialProtec
 builder.Services.AddTransient<IRhbTreasureSupremeService, RhbTreasureSupremeService>();
 builder.Services.AddTransient<IRhbTreasureSupremeRepository, RhbTreasureSupremeRepository>();
 
+builder.Services.AddTransient<IRhbTreasureFlexiWealthService, RhbTreasureFlexiWealthService>();
+builder.Services.AddTransient<IRhbTreasureFlexiWealthRepository, RhbTreasureFlexiWealthRepository>();
+
 builder.Services.AddTransient<IUserSessionService, UserSessionService>();
 builder.Services.AddTransient<IUserSessionRepository, UserSessionRepository>();
 

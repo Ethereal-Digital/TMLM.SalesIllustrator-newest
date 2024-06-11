@@ -1,9 +1,19 @@
-﻿
+﻿var firstPrio = '';
+var secondPrio = '';
+var risk = '';
+var name = "";
+var gender = '';
+var dob = "";
+var age = '';
+var martial = '';
+var child = '';
+var occupationCode = '';
+var industryCode = '';
+
 var loadingTable = false;
 var page_count_store = 1;
-var name = "";
-var gender = null;
-var dob = "";
+
+
 var img_Src = "";
 var main = false;
 var amount = '';
@@ -114,7 +124,7 @@ function checkPageCounter(page_counter) {
     $('.home_button').hide();
 
     this.revertLongerBg();
-    if (page_counter == 36 && lastpageshown) {
+    if (page_counter == 15 && lastpageshown) {
         lastpage = true;
     }
     if (lastpage) {
@@ -132,139 +142,10 @@ function checkPageCounter(page_counter) {
         $(`#pagination`).css('display', 'block');
     }
 
-    if (page_counter == 1) {
-        lastpage = false;
-        lastpageshown = false;
-        $('.rt_name').val('');
-        $('#rt_age').val('');
-        $('.home_button').hide();
-        $(`#break`).css('display', 'block');
-        $(`#break2`).css('display', 'block');
-        $(`.over_section6`).addClass('hide');
-        $(`.over_section6`).removeClass('col-12');
-
-        for (let i = 0; i < 7; i++) {
-            $(`.overview_${i + 1}`).removeClass('blue_button');
-            $(`.overview_${i + 1}`).addClass('green_button');
-        }
-
-        this.name = '';
-        this.premium = '';
-        this.premium_year = '';
-        this.amount = '';
-        this.checkAmount = '';
-        this.checkDate = '';
-
-
-        $('.premium_selection').removeClass('green_button')
-        $('.premium_selection').removeClass('font_white')
-
-        $('.back_button').hide();
-        $('.next_button').hide();
-        $('#main_title').html("Choose Your Preferred Plan")
-        $('#sub_title').html("Life Insurance Solutions for Your Needs")
-    }
-    else if (page_counter == 2) {
-        $('.next_button').hide();
-        $('#main_title').html("What are you looking for?")
-        $('#sub_title').html("Life Insurance Solutions for Your Needs.")
-        saveProcess('storyboard select');
-
-        if (this.isMobile == true) {
-            this.occurence = 0;
-            $('.isNonMobile').hide();
-            $('.isMobile').show();
-
-            var _that = this;
-            $('html').click(function (evt) {
-                if (evt.target.classList[0] != "hover_text") {
-                    _that.occurence = 0;
-                    _that.temp_occurence = 0;
-                }
-            });
-
-        } else {
-            $('.isMobile').hide();
-            $('.isNonMobile').show();
-        }
-    }
-    else if (page_counter == 3) {
-        $('#main_title').html("High Protection")
-        $('#sub_title').html("Select your Persona");
-        $('.next_button').hide();
-        saveProcess('persona select');
-    }
-    else if (page_counter == 4 || page_counter == 5 || page_counter == 6) {
-        var text = 'Young Family/Family Breadwinner' + (page_counter - 3);
-        saveProcess(text);
-        $('#main_title').html("Young Family/Family Breadwinner")
-        $('#sub_title').html("When you think you don’t need it, it is the time when you need it.");
-        $('.skip_button').show();
-        document.getElementById("super").src = sitename + "assets/REP/superman.gif";
-    }
-    else if (page_counter >= 7 && page_counter <= 9) {
-        var text = 'Single ' + (page_counter - 6);
-        saveProcess(text);
-        $('#main_title').html("Single")
-        $('#sub_title').html("When you think you don’t need it, it is the time when you need it.")
-        $('.skip_button').show();
-    }
-    else if (page_counter >= 10 && page_counter <= 12) {
-        var text = 'Businessman/ Loan Borrower' + (page_counter - 9);
-        saveProcess(text);
-        $('#main_title').html("Businessman/ Loan Borrower")
-        $('#sub_title').html("When you think you don’t need it, it is the time when you need it.")
-        $('.skip_button').show();
-
-        if (this.isMassPremier == 'mass') {
-            document.getElementById("businessPath").src = sitename + "/assets/REP/pathMass.gif";
-        }
-        else {
-            document.getElementById("businessPath").src = sitename + "/assets/REP/pathPremier_1.gif";
-        }
-    }
-    else if (page_counter >= 13 && page_counter <= 15) {
-        var text = 'Estate Distribution ' + (page_counter - 12);
-        saveProcess(text);
-        $('#main_title').html("Estate Distribution")
-        $('#sub_title').html("- An effective and reliable Estate Distribution way to create more value -")
-        $('.skip_button').show();
-    }
-    else if (page_counter >= 16 && page_counter <= 21) {
-        var text = 'Legacy ' + (page_counter - 15);
-        saveProcess(text);
-        $('#main_title').html("Legacy")
-        $('#sub_title').html("When you look for MONEY, you get rich. When you look for LEGACY, you get wealth. <br>– Gary Vaynerchuk -")
-        $('.skip_button').show();
-    }
-    else if (page_counter == 22) {
-        var text = 'Let us know more about you 1'
-        saveProcess(text);
-
-        $('.skip_button').hide();
-
-        var today = new Date().toISOString().split('T')[0];
-        document.getElementsByName("rt_age")[0].setAttribute('max', today);
-
-        $('#getyourquote').addClass('disabled');
-        $('#main_title').html("Let us know more about you. ")
-        $('#sub_title').html("")
-
-        $('.next_button').hide();
-        this.checkSelectionMade();
-        if (this.name == '') {
-            $('.information_2').hide();
-            $('.information_3').hide();
-        }
-
-        setTimeout(() => {
-            $('#rt_enteredname').html(`Hi ${this.name.toUpperCase()},`);
-        }, 100);
-    }
-    else if (page_counter == 23) {
+    if (page_counter == 2) {
 
         $('#main_title').html("Let us know more about you. ")
-        var text = 'Let us know more about you 2';
+        var text = 'Let us know more about you';
         $('#rt_enteredname').html(`Hi ${this.name.toUpperCase()},`);
         saveProcess(text);
 
@@ -323,7 +204,7 @@ function checkPageCounter(page_counter) {
             document.getElementById("form_price3").innerHTML = "RM 1,500,000";
         }
     }
-    else if (page_counter == 24) {
+    else if (page_counter == 3) {
         saveProcess('RHB Essential Protect');
         $('.skip_button').hide();
 
@@ -398,7 +279,7 @@ function checkPageCounter(page_counter) {
             }
         }
     }
-    else if (page_counter == 25) {
+    else if (page_counter == 4) {
         this.generatePremiumPaymentDonut();
         window.scrollTo(0, 0);
 
@@ -480,12 +361,34 @@ function checkPageCounter(page_counter) {
 
         $('.overview_gender').html(this.gender);
 
-        $('.overview_img').attr('src', this.img_Src);
-
+        if(this.age <= 16){
+            if(this.gender == 'female'){
+                $('.overview_img').attr('src', 'assets/images/Girl icon.png');
+            }
+            else{
+                $('.overview_img').attr('src', 'assets/images/Boy icon.png');
+            }
+        }
+        else if(this.age >= 60){
+            if(this.gender == 'female'){
+                $('.overview_img').attr('src', 'assets/images/Grandma icon.png');
+            }
+            else{
+                $('.overview_img').attr('src', 'assets/images/Grandpa icon.png');
+            }
+        }
+        else{
+            if(this.gender == 'female'){
+                $('.overview_img').attr('src', 'assets/images/Female icon.png');
+            }
+            else{
+                $('.overview_img').attr('src', 'assets/images/Male icon.png');
+            }
+        }
         //this.getGuaranteedCashPayment();
 
     }
-    else if (page_counter == 26) {
+    else if (page_counter == 5) {
         window.scrollTo(0, 0);
 
         saveProcess('Total Premium Payment');
@@ -501,7 +404,7 @@ function checkPageCounter(page_counter) {
         $('#sub_title').html("")
         this.generatePremiumPaymentDonut();
     }
-    else if (page_counter == 27) {
+    else if (page_counter == 6) {
         window.scrollTo(0, 0);
         $('.overall_gcp_boosted_graph_div').hide();
         saveProcess('Overall Protection Payout for Death');
@@ -525,7 +428,7 @@ function checkPageCounter(page_counter) {
         this.calculateMass1();
         //this.generateDeathGraph();
     }
-    else if (page_counter == 28) {
+    else if (page_counter == 7) {
         window.scrollTo(0, 0);
 
         saveProcess('Overall Protection Payout for TPD / Senior Disability');
@@ -535,7 +438,7 @@ function checkPageCounter(page_counter) {
         $('#main_title').html(`<img class="mr-2 header_icon" src="${sitename}/assets/REP/oku.png"> Overall Protection Payout for TPD / Senior Disability`)
         $('#sub_title').html("")
     }
-    else if (page_counter == 29) {
+    else if (page_counter == 8) {
         window.scrollTo(0, 0);
 
         saveProcess('Additional Protection Payout for Accidental Death / TPD');
@@ -558,7 +461,7 @@ function checkPageCounter(page_counter) {
         
         
     }
-    else if (page_counter == 30) {
+    else if (page_counter == 9) {
         window.scrollTo(0, 0);
 
         saveProcess('Payout for Legal Spouse’s Accidental Death / TPD');
@@ -612,7 +515,7 @@ function checkPageCounter(page_counter) {
             $('.max_amt').html("RM 50,000")
         }
     }
-    else if (page_counter == 31) {
+    else if (page_counter == 10) {
         window.scrollTo(0, 0);
 
         saveProcess('Additional Payout for Lifestyle Reward');
@@ -626,7 +529,7 @@ function checkPageCounter(page_counter) {
         $('#main_title').html(`<img class="mr-2 header_icon" src="${sitename}/assets/REP/lifestyle.png"> Additional Payout for Lifestyle Reward`)
         $('#enteredamount2').html(`RM&nbsp;${this.amount} `);
     }
-    else if (page_counter == 32) {
+    else if (page_counter == 11) {
         window.scrollTo(0, 0);
 
         saveProcess('Additional Payout for Loyalty Bonus');
@@ -648,7 +551,7 @@ function checkPageCounter(page_counter) {
             $('.loyalty_age').html("90")
         }
     }
-    else if (page_counter == 33) {
+    else if (page_counter == 12) {
         window.scrollTo(0, 0);
         saveProcess('Auto Extension Option');
         this.applyLongerBg();
@@ -657,7 +560,7 @@ function checkPageCounter(page_counter) {
         $('#sub_title').html("")
         this.backtoslide_25 = page_counter;
     }
-    else if (page_counter == 34) {
+    else if (page_counter == 13) {
         window.scrollTo(0, 0);
         saveProcess('Protect Boost Rider');
         this.applyLongerBg();
@@ -690,7 +593,7 @@ function checkPageCounter(page_counter) {
         }
         
     }
-    else if (page_counter == 35) {
+    else if (page_counter == 14) {
         window.scrollTo(0, 0);
         saveProcess('iComprehensive Critical Illness Rider');
         this.applyLongerBg();
@@ -699,7 +602,7 @@ function checkPageCounter(page_counter) {
         $('#main_title').html(`<img class="mr-2 header_icon" src="${sitename}/assets/REP/medicalcare.png"> iComprehensive Critical Illness Rider`)
         $('#sub_title').html("")
     }
-    else if (page_counter == 36) {
+    else if (page_counter == 15) {
         window.scrollTo(0, 0);
         saveProcess('Brief Introduction to Optional Riders');
         this.applyLongerBg();
@@ -763,6 +666,23 @@ $(window).on("orientationchange", function (event) {
         }, 150)
     }
 });
+
+async function getLocal(){
+    this.firstPrio = await localStorage.getItem("prio1");
+    this.secondPrio = await localStorage.getItem("prio2");
+    this.risk = await localStorage.getItem("risk");
+    this.name = await localStorage.getItem("name");
+    this.dob = await localStorage.getItem("dob");
+    this.gender = await localStorage.getItem("gender");
+    this.martial = await localStorage.getItem("martial");
+    this.child = await localStorage.getItem("child");
+    this.occupationCode = await localStorage.getItem("occupation");
+    this.industryCode = await localStorage.getItem("industry");
+    this.age = await localStorage.getItem("age");    
+
+    validateDate(this.dob);
+    checkPageCounter(2);
+}
 
 $(document).ready(function () {
     //if (window.performance) {
@@ -938,6 +858,8 @@ $(document).ready(function () {
         $('.home_button').css('height', '40px');
         $('.home_button').css('font-size', '17px');
     }
+
+    getLocal();
 });
 
 window.addEventListener('resize', () => {
@@ -1150,13 +1072,13 @@ function next_page() {
         $(`#pagination`).css('display', 'block');
     }
 
-    if (this.backtoslide_25 == 36) {
+    if (this.backtoslide_25 == 15) {
         this.lastpage = true;
         this.lastpageshown = true;
     }
 
     if (this.backtoslide_25 != 0) {
-        page_count_store = 24;
+        page_count_store = 3;
         $(`#section_${this.backtoslide_25}`).css('display', 'none');
 
         this.backtoslide_25 = 0;
@@ -1165,14 +1087,14 @@ function next_page() {
     $(`#section_${page_count_store}`).css('display', 'none');
     page_count_store++;
 
-    if (this.choice == 1) {
-        page_count_store = this.persona == 1 && page_count_store == 7 ? 22 :
-            this.persona == 2 && page_count_store == 10 ? 22 :
-                this.persona == 3 && page_count_store == 13 ? 22 : page_count_store;
-    }
-    else {
-        page_count_store = this.choice == 2 && page_count_store == 16 ? 22 : page_count_store;
-    }
+    //if (this.choice == 1) {
+    //    page_count_store = this.persona == 1 && page_count_store == 7 ? 22 :
+    //        this.persona == 2 && page_count_store == 10 ? 22 :
+    //            this.persona == 3 && page_count_store == 13 ? 22 : page_count_store;
+    //}
+    //else {
+    //    page_count_store = this.choice == 2 && page_count_store == 16 ? 22 : page_count_store;
+    //}
 
     $(`#section_${page_count_store}`).css('display', 'block');
     checkPageCounter(page_count_store)
@@ -1321,8 +1243,9 @@ function validateName(event) {
     }, 700)
 }
 
-function validateDate(e) {
-    var age_datepicker = $('#rt_age').val(); //this.isMobile == true ? $('#rt_agemobile').val() : 
+function validateDate(date) {
+    /*var age_datepicker = $('#rt_age').val(); //this.isMobile == true ? $('#rt_agemobile').val() : */
+    var age_datepicker = date;
     if (age_datepicker.length > 10) {
         $('.invalid_date').show();
         $('.invalid_date').html('Invalid date');
@@ -1727,7 +1650,7 @@ function showPreferenceBox(display, subtitle) {
         $('.second_income_img').attr('src', `${sitename}/assets/rt100/preference_3.png`)
 }
 
-var current_clicked = 26;
+var current_clicked = 5;
 function checkOverview(page) {
 
    //console.log("current: " + this.current_clicked + "page: " + page);
@@ -1739,16 +1662,16 @@ function checkOverview(page) {
         $(`.box_${page}>.box_check`).html(`<img width="30" class="overview_check" src="${sitename}/assets/rt100/check.png">`);
 
         if (coverage == 4) {
-            if (current_clicked == 32) {
+            if (current_clicked == 11) {
                 this.current_clicked = this.current_clicked + 2;
                 //$(`.box_${this.current_clicked}`).addClass('bounce-top');
                 $(`.box_${this.current_clicked}>.box_animation`).html(`<div class="animating_click ping"></div>
                                                <img class="animating_finger move_upward" width="40" src="${sitename}/assets/rt100/tap.png">`);
                 $(`.box_${this.current_clicked}`).removeClass('overview_disable');
             }
-            else if (current_clicked == 34) {
+            else if (current_clicked == 13) {
                 if (coverage == 1 || coverage == 2) {
-                    page = page + 1;
+                    page = page + 1; //go to section 35
                 }
 
                 this.current_clicked = this.current_clicked + 2;
@@ -1765,7 +1688,7 @@ function checkOverview(page) {
                 $(`.box_${this.current_clicked}`).removeClass('overview_disable');
             }
         }
-        else if (page == 34) {
+        else if (page == 13) {
             if (coverage == 1 || coverage == 2) {
                 page = page + 1;
             }
@@ -1776,7 +1699,7 @@ function checkOverview(page) {
                                                <img class="animating_finger move_upward" width="40" src="${sitename}/assets/rt100/tap.png">`);
             $(`.box_${this.current_clicked}`).removeClass('overview_disable');
         }
-        else if (current_clicked == 36) {
+        else if (current_clicked == 15) {
             $(`.box_${this.current_clicked}>.box_animation`).html(``);
             $(`.box_${this.current_clicked}`).removeClass('overview_disable');
         }
@@ -1794,17 +1717,17 @@ function checkOverview(page) {
 }
 
 function resetOverview() {
-    for (let i = 23; i <= 36; i++) {
+    for (let i = 2; i <= 15; i++) {
         $(`.box_${i}`).addClass('overview_disable');
         $(`.box_${i}>.box_animation`).html('');
         $(`.box_${i}>.box_check`).html(``);
     }
 
-    $(`.box_26>.box_animation`).html(`<div class="animating_click ping"></div>
+    $(`.box_5>.box_animation`).html(`<div class="animating_click ping"></div>
                                                <img class="animating_finger move_upward" width="40" src="${sitename}/assets/rt100/tap.png">`);
-    $(`.box_26`).removeClass('overview_disable');
+    $(`.box_5`).removeClass('overview_disable');
 
-    this.current_clicked = 26;
+    this.current_clicked = 5;
 }   
 
 function changeTab(button) {
@@ -1933,7 +1856,8 @@ function saveProcess(process_save) {
 function updateApi() {
     showLoader();
 
-    let categoryName = getCategoryName(choice);
+    let categoryName1 = getCategoryName(firstPrio);
+    let categoryName2 = getCategoryName(secondPrio);
     let personaName = getPersonaName(persona);
     let coverageName = getCoverageName(coverage);
     let amountName = getAmount(selectedAmt);
@@ -1942,9 +1866,15 @@ function updateApi() {
 
     var req = {
         name: name,
+        category: categoryName1,
+        category2: categoryName2,
+        risk: risk,
         age: age,
         gender: gender,
-        category: categoryName,
+        martial: martial,
+        child: child,
+        occupation: occupationCode,
+        industry: industryCode,
         desiredPlan: isMassPremier,
         persona: personaName,
         premiumPaymentTerm: parseFloat(term.replaceAll(',', '')),
@@ -1966,7 +1896,7 @@ function updateApi() {
         dataType: "JSON",
         type: "POST",
         success: function (data) {
-            next(24);
+            next(3);
             hideloader();
         },
         error: function (data) {
@@ -2217,13 +2147,15 @@ function getPersonaName(id) {
 
 function getCategoryName(id) {
     if (id == 1)
-        return "High Protection";
+        return "retirement";
     else if (id == 2)
-        return "Estate Distribution";
+        return "investment";
     else if (id == 3)
-        return "Legacy Planning";
-    else
-        return "";
+        return "income replacement";
+    else if (id == 4)
+        return "education";
+    else if (id == 5)
+        return "regular savings";
 }
 
 function getPremiumYear() {

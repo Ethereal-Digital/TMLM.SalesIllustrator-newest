@@ -1,4 +1,5 @@
-﻿using TMLM.SalesIllustrator.Shared.Models.UserSession;
+﻿using TMLM.SalesIllustrator.Shared.Models.SalesIllustrator;
+using TMLM.SalesIllustrator.Shared.Models.UserSession;
 
 namespace TMLM.SalesIllustrator.API.Services.Abstractions
 {
@@ -8,5 +9,8 @@ namespace TMLM.SalesIllustrator.API.Services.Abstractions
         public Task<string> Recreate(string oldAuthToken);
         public Task ValidateToken(string token);
         public Task UpdateSessionPurpose(string token, string purpose);
+        public Task<string> GetDropDownOccupation();
+        public Task<string> GetOccupationCode(string occupation, string nature);
+        public Task<string> GetDropDownNature();
     }
 }

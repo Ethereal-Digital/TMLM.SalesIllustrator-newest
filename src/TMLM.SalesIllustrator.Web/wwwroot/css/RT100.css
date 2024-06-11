@@ -135,6 +135,14 @@ body {
     text-align: center !important;
 }
 
+.alignCenter {
+    align-items: center !important;
+}
+
+.justifyCenter {
+    justify-content: center !important;
+}
+
 .left {
     text-align: left !important;
 }
@@ -227,6 +235,24 @@ body {
     min-height: 54vh;
     padding: 1.5em;
     border-radius: 10px;
+}
+
+.enquiry_main {
+    background: #fff;
+    transform: translateY(-80px);
+    width: 60vw;
+    min-height: 54vh;
+    padding: 1.5em;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.riskOption {
+    background: white;
+    border-radius: 10px;
+    width: 40%;
+    padding: 15px;
+    box-shadow: 0px 0px 20px 0px rgb(167 167 167);
 }
 
 .overviewcontent {
@@ -501,6 +527,10 @@ body {
     line-height: 90px;
 }
 
+.address_name{
+    margin-top: 1rem;
+}
+
 .address_name > div > h4 {
     font-size: 18px;
     font-weight: 600;
@@ -574,6 +604,11 @@ body {
     font-size: 20px;
     text-align: justify;
     margin-top: 4vh;
+}
+
+.content_font3 {
+    font-size: 20px;
+    text-align: justify;
 }
 
 .source_ol_black {
@@ -1625,6 +1660,27 @@ input:focus {
     font-size: 14px;
     margin-top: 3em;
     border-radius: 8px;
+}
+
+.main-button2 {
+    background-color: #0096A9;
+    width: fit-content;
+    height: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 30px;
+    padding: 1rem 6rem;
+}
+
+.genderBox {
+    border: #D2D711 solid 4px;
+    border-radius: 2rem;
+}
 }
 
 .overall_btn:focus {

@@ -3,6 +3,7 @@ using Serilog;
 using TMLM.SalesIllustrator.API.Repositories.Abstractions;
 using TMLM.SalesIllustrator.API.Services.Abstractions;
 using TMLM.SalesIllustrator.Shared.Common;
+using TMLM.SalesIllustrator.Shared.Models.SalesIllustrator;
 using TMLM.SalesIllustrator.Shared.Models.Streamline;
 using TMLM.SalesIllustrator.Shared.Models.UserSession;
 
@@ -77,6 +78,39 @@ namespace TMLM.SalesIllustrator.API.Services
 
             }
             throw new Exception("Invalid error during create rhb treasure builder authorization data");
+        }
+
+        public async Task<string> GetDropDownOccupation()
+        {
+            var resp = await repo.GetDropDownOccupation();
+
+            if (resp.RetCode == ResponseReturnCode.Gen_Success)
+            {
+                return resp.Result;
+            }
+            throw new Exception("Invalid error during GetDropDownOccupation data");
+        }
+
+        public async Task<string> GetDropDownNature()
+        {
+            var resp = await repo.GetDropDownNature();
+
+            if (resp.RetCode == ResponseReturnCode.Gen_Success)
+            {
+                return resp.Result;
+            }
+            throw new Exception("Invalid error during GetDropDownNature data");
+        }
+
+        public async Task<string> GetOccupationCode(string occupation, string nature)
+        {
+            var resp = await repo.GetOccupationCode(occupation, nature);
+
+            if (resp.RetCode == ResponseReturnCode.Gen_Success)
+            {
+                return resp.Result;
+            }
+            throw new Exception("Invalid error during GetDropDownOccupation data");
         }
     }
 }

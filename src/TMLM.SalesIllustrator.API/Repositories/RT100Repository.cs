@@ -35,9 +35,16 @@ namespace TMLM.SalesIllustrator.API.Repositories
 
             DynamicParameters _dParams = new();
 
+            _dParams.Add("@category", model.Category, DbType.String, ParameterDirection.Input);
+            _dParams.Add("@category2", model.Category2, DbType.String, ParameterDirection.Input);
+            _dParams.Add("@risk", model.Risk, DbType.String, ParameterDirection.Input);
             _dParams.Add("@name", model.Name, DbType.String, ParameterDirection.Input);
             _dParams.Add("@age", model.Age, DbType.Int32, ParameterDirection.Input);
             _dParams.Add("@gender", model.Gender, DbType.String, ParameterDirection.Input);
+            _dParams.Add("@martial", model.Martial, DbType.String, ParameterDirection.Input);
+            _dParams.Add("@child", model.Child, DbType.String, ParameterDirection.Input);
+            _dParams.Add("@occupation", model.Occupation, DbType.String, ParameterDirection.Input);
+            _dParams.Add("@industry", model.Industry, DbType.String, ParameterDirection.Input);
             _dParams.Add("@desiredPlan", model.DesiredPlan, DbType.String, ParameterDirection.Input);
             _dParams.Add("@premiumPaymentTerm", model.PremiumPaymentTerm, DbType.Int32, ParameterDirection.Input);
             _dParams.Add("@premiumAmount", model.PremiumAmountAnnually, DbType.Decimal, ParameterDirection.Input);

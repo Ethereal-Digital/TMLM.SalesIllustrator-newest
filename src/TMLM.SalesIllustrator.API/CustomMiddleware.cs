@@ -76,6 +76,8 @@ namespace TMLM.SalesIllustrator.API
                 return "RHB Treasure Builder";
             if (path.ToLower().Contains("rhbtreasuresupreme"))
                 return "RHB Treasure Supreme";
+            if (path.ToLower().Contains("rhbtreasureflexiwealth"))
+                return "RHB Treasure Flexi Wealth";
             if (path.ToLower().Contains("rhbtreasure100"))
                 return "RT100";
             if (path.ToLower().Contains("rhbessentialprotect"))
