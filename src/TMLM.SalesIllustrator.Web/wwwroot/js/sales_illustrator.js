@@ -496,9 +496,9 @@ window.addEventListener('resize', () => {
     if (isMobileNew == true) {
         $('.skip_button').hide();
 
-        if (!lastpage) {
-            $('.home_button').hide();
-        }
+        //if (!lastpage) {
+        //    $('.home_button').hide();
+        //}
     } 
 })
 
@@ -1114,6 +1114,12 @@ function checkPageCounter(page_counter) {
             $('#prio3').show();
             $('#prio4').show();
             $('#prio5').show();
+
+            $('#prio1M').show();
+            $('#prio2M').show();
+            $('#prio3M').show();
+            $('#prio4M').show();
+            $('#prio5M').show();
         }
         else{
             $('#main_title').html("What will be your second priority?")
@@ -1124,6 +1130,11 @@ function checkPageCounter(page_counter) {
             this.firstPrio == 2 ? $('#prio2').hide() : 
             this.firstPrio == 3 ? $('#prio3').hide() : 
             this.firstPrio == 4 ? $('#prio4').hide() : $('#prio5').hide();
+
+            this.firstPrio == 1 ? $('#prio1M').hide() : 
+            this.firstPrio == 2 ? $('#prio2M').hide() : 
+            this.firstPrio == 3 ? $('#prio3M').hide() : 
+            this.firstPrio == 4 ? $('#prio4M').hide() : $('#prio5M').hide();
         }
         
 
@@ -1212,6 +1223,14 @@ function checkPageCounter(page_counter) {
             $('#ret6_4').css('opacity', '0');
             $('#ret6_5').css('opacity', '0');
 
+            if (this.isMobileNew == true) {
+                $('#ret6_1').removeClass("ml-5");
+                $('#ret6_2').removeClass("ml-5");
+                $('#ret6_3').removeClass("ml-5");
+                $('#ret6_4').removeClass("ml-5");
+                $('#ret6_5').removeClass("ml-5");
+            }
+
             $('#ret6_1').css('opacity', '1');
             $('#ret6_1').addClass("fade-in");
 
@@ -1267,11 +1286,13 @@ function checkPageCounter(page_counter) {
             $('#inv8_2').removeClass("fade-in");
             $('#inv8_3').removeClass("fade-in");
             $('#inv8_4').removeClass("fade-in");
+            $('#inv8_5').removeClass("fade-in");
 
             $('#inv8_1').css('opacity', '0');
             $('#inv8_2').css('opacity', '0');
             $('#inv8_3').css('opacity', '0');
             $('#inv8_4').css('opacity', '0');
+            $('#inv8_5').css('opacity', '0');
 
             $('#inv8_1').css('opacity', '1');
             $('#inv8_1').addClass("fade-in");
@@ -1289,6 +1310,9 @@ function checkPageCounter(page_counter) {
              setTimeout(function () {
                 $('#inv8_4').css('opacity', '1');
                 $('#inv8_4').addClass("fade-in");
+
+                $('#inv8_5').css('opacity', '1');
+                $('#inv8_5').addClass("fade-in");
             }, 2400);
         }
 
@@ -1618,6 +1642,12 @@ function checkPageCounter(page_counter) {
         $('#main_title').html("Rate Your Risk Appetite :")
         $('#sub_title').html("");
         updateProcess('Risk Appetite');
+
+        $('#riskArrowRow').show();
+
+        if (this.isMobileNew == true) {
+            $('#riskArrowRow').hide();
+        }
     }
     else if (page_counter == 20) {
         $('.back_button').show();

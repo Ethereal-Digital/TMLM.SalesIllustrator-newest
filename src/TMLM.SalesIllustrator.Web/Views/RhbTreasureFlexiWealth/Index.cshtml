@@ -52,9 +52,9 @@
                                         Next
                                     </button>
                                     <br id="break">
-                                    <button class="skip_button" style="margin-top: 10px;" onclick="skip()">
+                                    @* <button class="skip_button" style="margin-top: 10px;" onclick="skip()">
                                         Skip
-                                    </button>
+                                    </button> *@
                                 </div>
 
 
@@ -415,7 +415,8 @@
                                             <img class="d-block m-auto mt-1" width="40" src="~/assets/rt100/overview_angelheart.png">
 
                                             <div class="pb-1 mt-1" style="margin-bottom: 1.3em;">
-                                                <span class="fs_13 fs_68">Up to addtional<span class="mb-0 mt-0 fs_115 fw_600" id="deathOverview"><br />RMXXX</span></span>
+                                                <span class="fs_13 fs_68">Up to addtional<br />
+                                                <span class="mb-0 mt-0 fs_115 fw_600" id="deathOverview">RMXXX</span></span>
                                             </div>
 
                                             <div class="overview_box_bottom_2">
@@ -439,7 +440,9 @@
                                             <div style="    margin-top: 0.5em !important;">
                                                 <span class="fs_68">
                                                     Up to additional
-                                                    <b class="fs_115" id="accidentOverview"><br />RMXXX</b> <br />
+                                                    <br />
+                                                    <b class="fs_115" id="accidentOverview">RMXXX</b>
+                                                    <br />
                                                     ON TOP of Death/TPD Benefit
                                                 </span>
                                             </div>
@@ -458,7 +461,7 @@
                                             <div class="box_check"></div>
                                             <img class="d-block m-auto mt-1" width="40" src="~/assets/flexi/accident spouse.png">
 
-                                            <h5 class="mt-1 basic_sum_premium totalCoverage2 fs_115" id="">100,000</h5>
+                                            <h5 class="mt-1 basic_sum_premium totalCoverage2 fs_115" id="spouseCoverage">100,000</h5>
                                             <span class="fs_115">MYR</span>
 
                                             <div class="overview_box_bottom_2">
@@ -496,7 +499,8 @@
                                             <img class="d-block m-auto mt-1" style="margin-bottom: 15px !important;" width="40" src="~/assets/rt100/overview_moneybag.png">
 
                                             <div class="pb-1 mt-1" style="">
-                                                <span class="fs_13 fs_68">Up to<span class="mb-0 mt-0 fs_115 fw_600" id="deathOverview"><br />RMXXX</span></span>
+                                                <span class="fs_13 fs_68">Up to<br />
+                                                    <span class="mb-0 mt-0 fs_115 fw_600" id="matureOverview">RMXXX</span></span>
                                             </div>
 
                                             <div class="overview_box_bottom_3">
@@ -620,11 +624,11 @@
                         </div>
                         <div class="mt-2 p-3" style="background-color: white;">
                             <h3 class="green-text fw_600">Administration Charges</h3>
-                            <h5 class="fw_600">Deducted at the commencement date and at the beginning of monthly anniversary</h5>
+                            <h5 class="fw_600">Deducted at the commencement date and at the beginning of each subsequent monthly anniversary</h5>
                         </div>
                         <div class="mt-2 p-3" style="background-color: white;">
-                            <h3 class="green-text fw_600">Premium Holiday</h3>
-                            <h5 class="fw_600">Applied at the beginning of the month if premiums not paid after the 30-day grace period</h5>
+                            <h3 class="green-text fw_600">Premium Holiday Charges</h3>
+                            <h5 class="fw_600">Deducted on a monthly basis if premiums not paid after the 30-day grace period</h5>
                         </div>
                     </div>
                     <div class="col-5">
@@ -636,24 +640,24 @@
             <section class="page_section" id="section_7">
                 <div class="row" style="margin-top: 1rem; justify-content:left;">
                     @* <img class="slide_27_img" src="~/assets/supreme/lifeIcon.png" /> *@
-                    <div class="col-9 ml-3" style="display: flex; align-items: center; justify-content:left;">
+                    <div class="col-12 ml-3" style="display: flex; align-items: center; justify-content:center;">
                         <h5 class="slide_27_font">
                             Life protection up to 150% of total basic premium paid
                         </h5>
                     </div>
                 </div>
 
-                <div class="row mt-2" style="justify-content:left;">
+                <div class="row mt-2" style="justify-content:center;">
                     <div class="col-9 ml-3">
-                        <h1 class="slide_27_desc" style="text-align: left;">
+                        <h1 class="slide_27_desc">
                             The Death Benefit provides payout of RM5,000, Protection Fund Value, or a percentage of the Total Premium paid upon the death of the Life Assured
                         </h1>
                     </div>
                 </div>
 
-                <div class="row mt-3" style="justify-content:left;">
+                <div class="row mt-3" style="justify-content:center;">
                     <div class="col-9 ml-3">
-                        <h1 class="slide_27_desc" style="text-align: left;">
+                        <h1 class="slide_27_desc">
                             TPD of the Life Assured must happen prior to age 70
                         </h1>
                     </div>
@@ -829,7 +833,7 @@
 
             <section class="page_section fade-in" id="section_10">
                 <div class="bottom mt-2" style="justify-content: center;">
-                    <div id="death_table" class="col-12">
+                    <div id="death_table" class="col-9">
                         <table>
                             <thead>
                                 <tr>
@@ -860,7 +864,7 @@
                 </div>
                 <div class="row mt-2" style="justify-content:center;">
                     @* <div class="col-2"></div> *@
-                    <div class="col-12 ml-5">
+                    <div class="col-9 ml-5">
                         <p style="font-size: 11px" id="slide_28_footer" class="mb-0 mt-1">
                             *Basic Sum Assured is the amount payable in the event of a death claim, excluding any additional benefits such as riders or top-up premiums.
                         </p>
@@ -904,6 +908,8 @@
                 </div>
                 <div class="row mr-3">
                     <div class="col-8 pl-4 d-block mt-1 section_29_footer" style="font-size: 11px">
+                        *Basic Sum Assured is the amount payable in the event of a death claim, excluding any additional benefits such as riders or top-up premiums.
+                        <br />
                         i. The bonus amount will be apportioned and allocated to the Fund(s) selected for premium with allocation rate of one hundred percent (100.00%) to create units in the account of Protection Fund Value by referring to the unit price at the Next Valuation Date upon the payment of the bonus amount.
                         <br />
                         ii. Any unpaid premium(s) due at the payout age of the Loyalty Bonus, the bonus will not be declared, and the Policy Owner will be ineligible for this bonus.
@@ -917,7 +923,7 @@
             <section class="page_section" id="section_13">
                 <div class="row" style="margin-top: 1rem;">
                     <div class="col-8 center">
-                        <h2 class="fw_600 p-1">At maturity, the you shall receive the Total Fund Value</h2>
+                        <h2 class="fw_600 p-1">At maturity, you shall receive the Total Fund Value</h2>
                         @* <img style="width:90%;" src="~/assets/flexi/maturityTable.png"> *@
                         <div style="display: flex; justify-content: center;" class="mb-1">
                             <div class="overall_payout px-3 center" style="width:fit-content">
@@ -938,18 +944,24 @@
                                 </div>
                             </div>
                         </div>
-                        
+
+                        @* <div class="col-lg-12"> *@
+                            <div@*  style="display: grid" *@>
+                                @*<canvas id="payout_for_death_chart" class="payout_for_death_chart_supreme2"></canvas>*@
+                                <div id="payout_for_death_chart_supreme2"></div>
+                                <p style="text-align:center; font-size:12px; padding: 0; margin: 0; min-height: 0; background: unset;">End of Policy Year (EOPY)</p>
+                            </div>
+                        @* </div> *@
+
+                         
 
                         <table class="ml-2">
                             <thead id="">
                                 <tr>
                                     <th>EOPY</th>
-                                    <th>Basic Sum Assured (RM)</th>
                                     <th>Non-Guaranteed Account Value (RM)<br />(a)</th>
-                                    <th>Non-Guaranteed Cash Value (RM)<br />(b) = (a) - any Surrender Charge</th>
-                                    <th>Non-Guaranteed Death Benefit (RM)</th>
                                 </tr>
-                            </thead>90
+                            </thead>
                             <tbody class="death_table_body2">
                                 <tr>
                                     <td>1</td>
@@ -970,7 +982,7 @@
                         <img style="width:100%;" src="~/assets/flexi/mature.png">
                     </div>
                 </div>
-                <div class="col-12 d-block mt-1 section_29_footer" style="font-size: 11px">
+                <div class="col-9 d-block mt-1 section_29_footer" style="font-size: 11px">
                     Note:<br />
                     1) Please take note that the projection above is illustrated based on annual payment mode only.
                     <br />2) The projection above represents only Standard Life (S1) and it differs by life category. The classification of life category is subject to underwriting decision."
@@ -980,7 +992,7 @@
             </section>
 
             <section class="page_section" id="section_14">
-                <div class="row" style="margin-top: 1rem;">
+                <div class="row" style="margin-top: 1rem; align-items:end;">
                     <div class="col-9">
                         <div class="ml-5">
                             <h3 class="fw_600 green-text">iLife Waiver 2.0 Rider</h3>
