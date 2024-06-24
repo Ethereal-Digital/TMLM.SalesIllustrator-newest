@@ -14,6 +14,7 @@ var occupation = '';
 var nature = '';
 var occupationCode = '';
 var industryCode = '';
+var returnHome = '';
 
 var Validate_name = false;
 var Validate_dob = false;
@@ -207,6 +208,96 @@ $(window).on("orientationchange", function (event) {
     }
 });
 
+async function getLocal(){
+    this.firstPrio = await localStorage.getItem("prio1");
+    this.secondPrio = await localStorage.getItem("prio2");
+    this.risk = await localStorage.getItem("risk");
+    this.name = await localStorage.getItem("name");
+    this.dob = await localStorage.getItem("dob");
+    this.gender = await localStorage.getItem("gender");
+    this.martial = await localStorage.getItem("martial");
+    this.child = await localStorage.getItem("child");
+    this.occupationCode = await localStorage.getItem("occupation");
+    this.industryCode = await localStorage.getItem("industry");
+    this.age = await localStorage.getItem("age");
+    this.returnHome = await sessionStorage.getItem("return");
+
+    if(this.firstPrio == null){
+        this.firstPrio = '';
+    }
+
+    if(this.secondPrio == null){
+        this.secondPrio = '';
+    }
+
+    if(this.risk == null){
+        this.risk = '';
+    }
+
+    if(this.name == null){
+        this.name = '';
+    }
+
+    if(this.dob == null){
+        this.dob = '';
+    }
+
+    if(this.gender == null){
+        this.gender = '';
+    }
+
+    if(this.martial == null){
+        this.martial = '';
+    }
+
+    if(this.child == null){
+        this.child = '';
+    }
+
+    if(this.occupationCode == null){
+        this.occupationCode = '';
+    }
+
+    if(this.industryCode == null){
+        this.industryCode = '';
+    }
+
+    if(this.age == null){
+        this.age = '';
+    }
+
+    console.log(this.firstPrio);
+    console.log(this.secondPrio);
+    console.log(this.risk);
+    console.log(this.name);
+    console.log(this.dob);
+    console.log(this.gender);
+    console.log(this.martial);
+    console.log(this.child);
+    console.log(this.occupationCode);
+    console.log(this.industryCode);
+    console.log(this.age);
+    console.log(this.returnHome);
+
+    if(this.returnHome == "true"){
+        window.localStorage.clear();
+        next(20);
+    }
+    else{
+        this.firstPrio = '';
+        this.secondPrio = '';
+        this.risk = '';
+        this.name = '';
+        this.dob = '';
+        this.age = '';
+        this.gender = '';
+        this.martial = '';
+        this.child = '';
+        this.occupation = '';
+        this.nature = '';
+    }
+}
+
 $(document).ready(function () {
     $(`#section_1`).css('display', 'block');
     $(`#pagination`).css('display', 'none');
@@ -222,6 +313,9 @@ $(document).ready(function () {
     this.child = '';
     this.occupation = '';
     this.nature = '';
+    this.returnHome = '';
+
+    getLocal();
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         isMobile = true;

@@ -1424,24 +1424,40 @@ function afterHomeV2() {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
 
-    var url = `${sitename}SalesIllustrator/GenerateNewToken?id=${params.id}`;
+    //var url = `${sitename}SalesIllustrator/GenerateNewToken?id=${params.id}`;
 
-    $.ajax({
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        url: url,
-        type: "GET",
-        success: function (data) {
-            window.location.replace(data);
-        },
-        error: function (data) {
-            hideloader();
-            failApiResponse(data);
-            window.location.href = sitename + "error";
-        }
-    });
+    //$.ajax({
+    //    headers: {
+    //        'Accept': 'application/json',
+    //        'Content-Type': 'application/json'
+    //    },
+    //    url: url,
+    //    type: "GET",
+    //    success: function (data) {
+    //        window.location.replace(data);
+    //    },
+    //    error: function (data) {
+    //        hideloader();
+    //        failApiResponse(data);
+    //        window.location.href = sitename + "error";
+    //    }
+    //});
+
+    localStorage.setItem("prio1", this.firstPrio);
+    localStorage.setItem("prio2", this.secondPrio);
+    localStorage.setItem("risk", this.risk);
+    localStorage.setItem("name", this.name);
+    localStorage.setItem("dob", this.dob);
+    localStorage.setItem("gender", this.gender);
+    localStorage.setItem("martial", this.martial);
+    localStorage.setItem("child", this.child);
+    localStorage.setItem("occupation", this.occupationCode);
+    localStorage.setItem("industry", this.industryCode);
+    localStorage.setItem("age", this.age);
+    sessionStorage.setItem("return", "true");
+
+    var url = `${sitename}SalesIllustrator?id=${params.id}`;
+    window.location.replace(url);
 }
 
 function UpdatePurpose() {

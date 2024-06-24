@@ -104,8 +104,8 @@
     margin: auto;
 }
 #payout_for_death_chart, #overall_gcp_boosted_graph {
-    min-width: 41vw;
-    max-width: 41vw;
+    min-width: 50vw;
+    max-width: 50vw;
     height: 35vh !important;
     margin: auto;
 }
