@@ -593,23 +593,7 @@ $(document).ready(function () {
         $('.home_button').css('height', '40px');
         $('.home_button').css('font-size', '17px');
     }
-
-    getLocal();
 });
-
-async function getLocal(){
-    this.firstPrio = await localStorage.getItem("prio1");
-    this.secondPrio = await localStorage.getItem("prio2");
-    this.risk = await localStorage.getItem("risk");
-    this.name = await localStorage.getItem("name");
-    this.dob = await localStorage.getItem("dob");
-    this.gender = await localStorage.getItem("gender");
-    this.martial = await localStorage.getItem("martial");
-    this.child = await localStorage.getItem("child");
-    this.occupationCode = await localStorage.getItem("occupation");
-    this.industryCode = await localStorage.getItem("industry");
-    this.age = await localStorage.getItem("age");
-}
 
 window.addEventListener('resize', () => {
 
@@ -905,7 +889,7 @@ function skip() {
 
 function home() {
     saveProcess('Completed');
-    afterHomeV2();
+    afterHomeV3();
 }
 
 function afterHome() {
@@ -1424,40 +1408,33 @@ function afterHomeV2() {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
 
-    //var url = `${sitename}SalesIllustrator/GenerateNewToken?id=${params.id}`;
-
-    //$.ajax({
-    //    headers: {
-    //        'Accept': 'application/json',
-    //        'Content-Type': 'application/json'
-    //    },
-    //    url: url,
-    //    type: "GET",
-    //    success: function (data) {
-    //        window.location.replace(data);
-    //    },
-    //    error: function (data) {
-    //        hideloader();
-    //        failApiResponse(data);
-    //        window.location.href = sitename + "error";
-    //    }
-    //});
-
-    localStorage.setItem("prio1", this.firstPrio);
-    localStorage.setItem("prio2", this.secondPrio);
-    localStorage.setItem("risk", this.risk);
-    localStorage.setItem("name", this.name);
-    localStorage.setItem("dob", this.dob);
-    localStorage.setItem("gender", this.gender);
-    localStorage.setItem("martial", this.martial);
-    localStorage.setItem("child", this.child);
-    localStorage.setItem("occupation", this.occupationCode);
-    localStorage.setItem("industry", this.industryCode);
-    localStorage.setItem("age", this.age);
-    sessionStorage.setItem("return", "true");
-
     var url = `${sitename}SalesIllustrator?id=${params.id}`;
     window.location.replace(url);
+}
+
+function afterHomeV3() {
+    showLoader();
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+
+    var url = `${sitename}SalesIllustrator/GenerateNewToken?id=${params.id}`;
+
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        url: url,
+        type: "GET",
+        success: function (data) {
+            window.location.replace(data);
+        },
+        error: function (data) {
+            hideloader();
+            failApiResponse(data);
+            window.location.href = sitename + "error";
+        }
+    });
 }
 
 function UpdatePurpose() {
@@ -1578,6 +1555,8 @@ function updateApi() {
         dataType: "JSON",
         type: "POST",
         success: function (data) {
+            var user = JSON.parse(data);
+            getUserDetails(user.Name, user.DateOfBirth, user.Gender);
             next(3);
             hideloader();
         },
@@ -1590,11 +1569,15 @@ function updateApi() {
     //next(21);
 }
 
+function getUserDetails(name, date, gen){
+    this.name = name;
+    this.gender = gen;
 
-
-
-
-
+    var birthday = new Date(date);
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    this.age = Math.abs(ageDate.getUTCFullYear() - 1970) + 1;
+}
 
 // CHART FUNCTION
 var hasGenerated1 = false;

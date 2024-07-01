@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Serilog;
 using System.Net;
 using System.Security.Claims;
@@ -27,30 +28,34 @@ namespace TMLM.SalesIllustrator.Web.Controllers
             }
         }
 
-        [Route("RhbEssentialProtect/Create/{authToken}")]
-        public async Task<IActionResult> Create([FromRoute] string authToken)
+        //[Route("RhbEssentialProtect/Create/{authToken}")]
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] object model)
         {
             try
             {
+                var createModel = JsonConvert.DeserializeObject<CreateREPInputModel>(model.ToString());
+
                 HttpClient client = new();
                 var claims = new List<Claim>();
 
                 #region Check if this auth token got use b4
                 var cookie = HttpContext.GetAuthTokenWithoutException();
 
-                if (cookie == null || cookie != authToken)
+                if (cookie == null || cookie != createModel.Id)
                 {
-                    var tokenValidity = await ValidateToken(authToken);
+                    var tokenValidity = await ValidateToken(createModel.Id);
 
                     if (!tokenValidity)
                         return Unauthorized("Token has been used");
                 }
                 #endregion
 
-                var id = await client.GetAsJson<string>($"{Constant.ApiUrl}/api/RhbEssentialProtect/Create", authToken);
-                var hashedId = AspRijndael.EncryptData(id, "TMLM");
+                var id = await client.PostAsJson($"{Constant.ApiUrl}/api/RhbEssentialProtect/Create", createModel, createModel.Id);
+                string result = await id.Content.ReadAsStringAsync();
+                var hashedId = AspRijndael.EncryptData(result, "TMLM");
 
-                claims.Add(new Claim("Token", authToken));
+                claims.Add(new Claim("Token", createModel.Id));
                 var claimsIdentity = new ClaimsIdentity(claims, "cookies");
 
                 CookieOptions cookieOptions = new();
@@ -60,7 +65,7 @@ namespace TMLM.SalesIllustrator.Web.Controllers
                 Response.Cookies.Append(Constant.RhbEssentialProtectCookie, hashedId, cookieOptions);
 
                 await HttpContext.SignInAsync("cookies", new ClaimsPrincipal(claimsIdentity));
-                return Ok();
+                return Ok("Success");
             }
             catch (UnauthorizedAccessException ex)
             {
@@ -79,11 +84,12 @@ namespace TMLM.SalesIllustrator.Web.Controllers
         {
             HttpClient client = new();
             var authToken = HttpContext.GetAuthToken();
-            model.Id = int.Parse(HttpContext.GetTokenValue(Constant.RhbEssentialProtectCookie));
+            model.Id = HttpContext.GetTokenValue(Constant.RhbEssentialProtectCookie);
             var resp = await client.PostAsJson($"{Constant.ApiUrl}/api/RhbEssentialProtect/toUpdate", model, authToken);
+            string result = await resp.Content.ReadAsStringAsync();
 
             if (resp.IsSuccessStatusCode)
-                return Ok("Success");
+                return Ok(result);
             else if (resp.StatusCode == HttpStatusCode.Unauthorized)
                 return Unauthorized();
             else

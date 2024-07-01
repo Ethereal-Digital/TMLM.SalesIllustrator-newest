@@ -60,14 +60,35 @@ function goToREP(type) {
 
 function createREPApi(id, type) {
     showLoader();
-    var url = sitename + 'RhbEssentialProtect/Create/' + id;
+
+    let categoryName1 = getCategoryName2(firstPrio);
+    let categoryName2 = getCategoryName2(secondPrio);
+
+    var req = {
+        name: name,
+        category: categoryName1,
+        category2: categoryName2,
+        risk: risk,
+        age: this.age,
+        dateOfBirth: new Date(dob),
+        gender: gender,
+        martial: martial,
+        child: child,
+        occupation: occupationCode,
+        industry: industryCode,
+        id: id
+    };
+
+    var url = sitename + 'RhbEssentialProtect/Create';
     $.ajax({
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         url: url,
-        type: "GET",
+        data: JSON.stringify(req),
+        dataType: "JSON",
+        type: "POST",
         success: function (data) {
             var url = `${sitename}RhbEssentialProtect?id=${id}&page=2&type=${type}`;
             window.location.replace(url);
@@ -82,14 +103,35 @@ function createREPApi(id, type) {
 
 function createRt100Api(id, type) {
     showLoader();
-    var url = sitename + 'RT100/Create/' + id;
+
+    let categoryName1 = getCategoryName2(firstPrio);
+    let categoryName2 = getCategoryName2(secondPrio);
+
+    var req = {
+        name: name,
+        category: categoryName1,
+        category2: categoryName2,
+        risk: risk,
+        age: this.age,
+        dateOfBirth: new Date(dob),
+        gender: gender,
+        martial: martial,
+        child: child,
+        occupation: occupationCode,
+        industry: industryCode,
+        id: id
+    };
+
+    var url = sitename + 'RT100/Create';
     $.ajax({
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         url: url,
-        type: "GET",
+        data: JSON.stringify(req),
+        dataType: "JSON",
+        type: "POST",
         success: function (data) {
             var url = `${sitename}RT100?id=${id}&page=2&type=${type}`;
             window.location.replace(url);
@@ -104,14 +146,34 @@ function createRt100Api(id, type) {
 
 function createRhbTreasureBuilderApi(id) {
     showLoader();
-    var url = sitename + 'RhbTreasureBuilder/Create/' + id;
+
+    let categoryName1 = getCategoryName2(firstPrio);
+    let categoryName2 = getCategoryName2(secondPrio);
+
+    var req = {
+        name: name,
+        category: categoryName1,
+        category2: categoryName2,
+        risk: risk,
+        dateOfBirth: new Date(dob),
+        gender: gender,
+        martial: martial,
+        child: child,
+        occupation: occupationCode,
+        industry: industryCode,
+        id: id
+    };
+
+    var url = sitename + 'RhbTreasureBuilder/Create';
     $.ajax({
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         url: url,
-        type: "GET",
+        data: JSON.stringify(req),
+        dataType: "JSON",
+        type: "POST",
         success: function (data) {
             var url = sitename + 'RhbTreasureBuilder?id=' + id + '&page=2';
             window.location.replace(url);
@@ -126,14 +188,35 @@ function createRhbTreasureBuilderApi(id) {
 
 function createRhbTreasureSupremeApi(id) {
     showLoader();
-    var url = sitename + 'RhbTreasureSupreme/Create/' + id;
+
+    let categoryName1 = getCategoryName2(firstPrio);
+    let categoryName2 = getCategoryName2(secondPrio);
+
+    var req = {
+        name: name,
+        category: categoryName1,
+        category2: categoryName2,
+        risk: risk,
+        dateOfBirth: new Date(dob),
+        gender: gender,
+        martial: martial,
+        child: child,
+        occupation: occupationCode,
+        industry: industryCode,
+        id: id
+    };
+
+    var url = sitename + 'RhbTreasureSupreme/Create';
+
     $.ajax({
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         url: url,
-        type: "GET",
+        data: JSON.stringify(req),
+        dataType: "JSON",
+        type: "POST",
         success: function (data) {
             var url = sitename + 'RhbTreasureSupreme?id=' + id + '&page=2';
             window.location.replace(url);
@@ -148,14 +231,35 @@ function createRhbTreasureSupremeApi(id) {
 
 function createRhbTreasureFlexiWealthApi(id) {
     showLoader();
-    var url = sitename + 'RhbTreasureFlexiWealth/Create/' + id;
+
+    let categoryName1 = getCategoryName2(firstPrio);
+    let categoryName2 = getCategoryName2(secondPrio);
+
+    var req = {
+        name: name,
+        category: categoryName1,
+        category2: categoryName2,
+        risk: risk,
+        dateOfBirth: new Date(dob),
+        gender: gender,
+        martial: martial,
+        child: child,
+        occupation: occupationCode,
+        industry: industryCode,
+        id: id
+    };
+
+    var url = sitename + 'RhbTreasureFlexiWealth/Create';
+
     $.ajax({
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         url: url,
-        type: "GET",
+        data: JSON.stringify(req),
+        dataType: "JSON",
+        type: "POST",
         success: function (data) {
             var url = sitename + 'RhbTreasureFlexiWealth?id=' + id + '&page=2';
             window.location.replace(url);
@@ -208,96 +312,6 @@ $(window).on("orientationchange", function (event) {
     }
 });
 
-async function getLocal(){
-    this.firstPrio = await localStorage.getItem("prio1");
-    this.secondPrio = await localStorage.getItem("prio2");
-    this.risk = await localStorage.getItem("risk");
-    this.name = await localStorage.getItem("name");
-    this.dob = await localStorage.getItem("dob");
-    this.gender = await localStorage.getItem("gender");
-    this.martial = await localStorage.getItem("martial");
-    this.child = await localStorage.getItem("child");
-    this.occupationCode = await localStorage.getItem("occupation");
-    this.industryCode = await localStorage.getItem("industry");
-    this.age = await localStorage.getItem("age");
-    this.returnHome = await sessionStorage.getItem("return");
-
-    if(this.firstPrio == null){
-        this.firstPrio = '';
-    }
-
-    if(this.secondPrio == null){
-        this.secondPrio = '';
-    }
-
-    if(this.risk == null){
-        this.risk = '';
-    }
-
-    if(this.name == null){
-        this.name = '';
-    }
-
-    if(this.dob == null){
-        this.dob = '';
-    }
-
-    if(this.gender == null){
-        this.gender = '';
-    }
-
-    if(this.martial == null){
-        this.martial = '';
-    }
-
-    if(this.child == null){
-        this.child = '';
-    }
-
-    if(this.occupationCode == null){
-        this.occupationCode = '';
-    }
-
-    if(this.industryCode == null){
-        this.industryCode = '';
-    }
-
-    if(this.age == null){
-        this.age = '';
-    }
-
-    console.log(this.firstPrio);
-    console.log(this.secondPrio);
-    console.log(this.risk);
-    console.log(this.name);
-    console.log(this.dob);
-    console.log(this.gender);
-    console.log(this.martial);
-    console.log(this.child);
-    console.log(this.occupationCode);
-    console.log(this.industryCode);
-    console.log(this.age);
-    console.log(this.returnHome);
-
-    if(this.returnHome == "true"){
-        window.localStorage.clear();
-        next(20);
-    }
-    else{
-        this.firstPrio = '';
-        this.secondPrio = '';
-        this.risk = '';
-        this.name = '';
-        this.dob = '';
-        this.age = '';
-        this.gender = '';
-        this.martial = '';
-        this.child = '';
-        this.occupation = '';
-        this.nature = '';
-    }
-}
-
 $(document).ready(function () {
     $(`#section_1`).css('display', 'block');
     $(`#pagination`).css('display', 'none');
@@ -314,8 +328,6 @@ $(document).ready(function () {
     this.occupation = '';
     this.nature = '';
     this.returnHome = '';
-
-    getLocal();
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         isMobile = true;
@@ -453,6 +465,7 @@ $(document).ready(function () {
     }
 
     GetDropDown();
+    GetUserDetails();
 });
 
 window.addEventListener('resize', () => {
@@ -641,20 +654,6 @@ function submitForm(){
     }
 }
 
-function setInfo(){
-    localStorage.setItem("prio1", this.firstPrio);
-    localStorage.setItem("prio2", this.secondPrio);
-    localStorage.setItem("risk", this.risk);
-    localStorage.setItem("name", this.name);
-    localStorage.setItem("dob", this.dob);
-    localStorage.setItem("gender", this.gender);
-    localStorage.setItem("martial", this.martial);
-    localStorage.setItem("child", this.child);
-    localStorage.setItem("occupation", this.occupationCode);
-    localStorage.setItem("industry", this.industryCode);
-    localStorage.setItem("age", this.age);
-}
-
 async function updateProcess(purpose){
     await UpdatePurposeSales(purpose);
 }
@@ -726,6 +725,32 @@ function getCategoryName(id) {
         return "education";
     else if (id == 5)
         return "regularSavings";
+}
+
+function getCategoryName2(id) {
+    if (id == 1)
+        return "retirement";
+    else if (id == 2)
+        return "investment";
+    else if (id == 3)
+        return "income replacement";
+    else if (id == 4)
+        return "education";
+    else if (id == 5)
+        return "regular savings";
+}
+
+function getCategoryid(name) {
+    if (name == "retirement")
+        return 1;
+    else if (name == "investment")
+        return 2;
+    else if (name == "income replacement")
+        return 3;
+    else if (name == "education")
+        return 4;
+    else if (name == "regular savings")
+        return 5;
 }
 
 function productRecommend(){
@@ -886,6 +911,55 @@ async function GetDropDown(){
     const params = Object.fromEntries(urlSearchParams.entries());
     await GetOccDropDown(params.id);
     await GetNatureDropDown(params.id);
+}
+
+function GetUserDetails(){
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+
+    var url = sitename + 'SalesIllustrator/GetUserDetails';
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        url: url,
+        data: {
+            authToken: params.id
+        },
+        datatype: "JSON",
+        type: "GET",
+        success: function (data) {
+            if(data != ""){
+                response = JSON.parse(data);
+
+                if(response != null){
+                    BindUserDetails(response);
+                    next(20);
+                }
+            }
+        },
+        error: function (data) {
+            hideloader();
+            alert('fail user details' + data)
+            //failApiResponse(data);
+            //window.location.href = sitename + "error";
+        }
+    });
+}
+
+function BindUserDetails(detials){
+    this.name = detials.Name;
+    dob = detials.DateOfBirth;
+    gender = detials.Gender;
+    martial = detials.MartialStatus;
+    child = detials.Children;
+    occupationCode = detials.Occupation;
+    industryCode = detials.IndustryCode;
+    firstPrio = getCategoryid(detials.Category);
+    secondPrio = getCategoryid(detials.Category2);
+    risk = detials.Risk;
+    age = detials.Age;
 }
 
 function GetOccDropDown(auth){
@@ -1761,7 +1835,7 @@ function checkPageCounter(page_counter) {
         appendProduct();
 
         var reco = productRecommend();
-        setInfo();
+
         if(reco.length == 7){
             console.log('empty');
             next(21);
@@ -1822,6 +1896,10 @@ function validateDate(e) {
         this.Validate_dob = false;
         return;
     }
+
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    this.age = Math.abs(ageDate.getUTCFullYear() - 1970) + 1;
 
     var thisyear = new Date().getFullYear();
     this.age = parseInt(thisyear) - parseInt(age_datepicker.substring(0, 4))

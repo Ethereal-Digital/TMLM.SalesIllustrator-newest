@@ -187,5 +187,27 @@ namespace TMLM.SalesIllustrator.API.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetUserDetails()
+        {
+            try
+            {
+                var authToken = Request.Headers["Auth"];
+                var resp = await service.GetUserDetails(authToken);
+                
+                return Ok(resp);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Log.Error($"UserSessionController Unauthorized Get: {ex}");
+                return Unauthorized(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"UserSessionController Get: {ex}");
+                return BadRequest();
+            }
+        }
     }
 }

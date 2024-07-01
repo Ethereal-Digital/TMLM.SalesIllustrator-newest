@@ -6,6 +6,7 @@ using System.Net;
 using System.Security.Claims;
 using TMLM.SalesIllustrator.Shared.Common;
 using TMLM.SalesIllustrator.Shared.Crypto;
+using TMLM.SalesIllustrator.Shared.Models.FlexiWealth;
 using TMLM.SalesIllustrator.Shared.Models.SalesIllustrator;
 
 namespace TMLM.SalesIllustrator.Web.Controllers
@@ -50,30 +51,35 @@ namespace TMLM.SalesIllustrator.Web.Controllers
             }
         }
 
-        [Route("RhbTreasureSupreme/Create/{authToken}")]
-        public async Task<IActionResult> Create([FromRoute] string authToken)
+        //[Route("RhbTreasureSupreme/Create/{authToken}")]
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] object model)
         {
             try
             {
+                var inputModel = JsonConvert.DeserializeObject<CreateSupremeInputModel>(model.ToString());
+
                 HttpClient client = new();
                 var claims = new List<Claim>();
 
                 #region Check if this auth token got use b4
                 var cookie = HttpContext.GetAuthTokenWithoutException();
 
-                if (cookie == null || cookie != authToken)
+                if (cookie == null || cookie != inputModel.Id)
                 {
-                    var tokenValidity = await ValidateToken(authToken);
+                    var tokenValidity = await ValidateToken(inputModel.Id);
 
                     if(!tokenValidity)
                         return Unauthorized("Token has been used");
                 }
                 #endregion
 
-                var id = await client.GetAsJson<string>($"{Constant.ApiUrl}/api/RhbTreasureSupreme/Create", authToken);
-                var hashedId = AspRijndael.EncryptData(id, "TMLM");
+                var id = await client.PostAsJson($"{Constant.ApiUrl}/api/RhbTreasureSupreme/Create", inputModel, inputModel.Id);
 
-                claims.Add(new Claim("Token", authToken));
+                string result = await id.Content.ReadAsStringAsync();
+                var hashedId = AspRijndael.EncryptData(result, "TMLM");
+
+                claims.Add(new Claim("Token", inputModel.Id));
                 var claimsIdentity = new ClaimsIdentity(claims, "cookies");
 
                 CookieOptions cookieOptions = new();
@@ -83,7 +89,8 @@ namespace TMLM.SalesIllustrator.Web.Controllers
                 Response.Cookies.Append(Constant.RhbTreasureCookie, hashedId, cookieOptions);
 
                 await HttpContext.SignInAsync("cookies", new ClaimsPrincipal(claimsIdentity));
-                return Ok();
+                
+                return Ok("Success");
             }
             catch(UnauthorizedAccessException ex)
             {
@@ -104,9 +111,10 @@ namespace TMLM.SalesIllustrator.Web.Controllers
             var authToken = HttpContext.GetAuthToken();
             model.Id = HttpContext.GetTokenValue(Constant.RhbTreasureCookie);
             var resp = await client.PostAsJson($"{Constant.ApiUrl}/api/RhbTreasureSupreme/Update", model, authToken);
+            string result = await resp.Content.ReadAsStringAsync();
 
             if (resp.IsSuccessStatusCode)
-                return Ok("Success");
+                return Ok(result);
             else if (resp.StatusCode == HttpStatusCode.Unauthorized)
                 return Unauthorized();
             else

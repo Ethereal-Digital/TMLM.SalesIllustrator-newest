@@ -26,31 +26,31 @@ namespace TMLM.SalesIllustrator.API.Services
             throw new Exception("GetAgencyToken Repository");
         }
 
-        public async Task<string> Create(string authToken)
+        public async Task<string> Create(CreateRT100InputModel model)
         {
-            if (string.IsNullOrEmpty(authToken))
+            if (string.IsNullOrEmpty(model.Id))
                 throw new UnauthorizedAccessException("Empty Auth Token");
 
-            var streamlineModel = await GetAgencyToken(authToken);
+            var streamlineModel = await GetAgencyToken(model.Id);
 
             //await StreamlineApiHelper.GetMemberProfile($"{Constant.StreamlineApiUrl}Member/Get_Profile", streamlineModel);
 
-            var resp = await repo.Create(authToken);
+            var resp = await repo.Create(model);
 
             if (resp.RetCode == ResponseReturnCode.Gen_Success)
                 return resp.Result;
             else if (resp.RetCode == ResponseReturnCode.TokenExpired)
-                throw new UnauthorizedAccessException($"Invalid Auth Token with value {authToken}");
+                throw new UnauthorizedAccessException($"Invalid Auth Token with value {model.Id}");
 
             throw new Exception("Invalid error during create RT100 data");
         }
 
-        public async Task Update(UpdateRT100InputModel model)
+        public async Task<string> Update(UpdateRT100InputModel model)
         {
             var resp = await repo.Update(model);
 
             if (resp.RetCode == ResponseReturnCode.Gen_Success)
-                return;
+                return resp.Result;
 
             throw new Exception("Invalid error during update RT100 data");
         }

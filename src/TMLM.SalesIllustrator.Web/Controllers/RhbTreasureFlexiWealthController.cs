@@ -51,30 +51,36 @@ namespace TMLM.SalesIllustrator.Web.Controllers
             }
         }
 
-        [Route("RhbTreasureFlexiWealth/Create/{authToken}")]
-        public async Task<IActionResult> Create([FromRoute] string authToken)
+        //[Route("RhbTreasureFlexiWealth/Create/{authToken}")]
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] object model)
         {
             try
             {
+                var temp = JsonConvert.DeserializeObject<CreateFWnputModel>(model.ToString());
+
                 HttpClient client = new();
                 var claims = new List<Claim>();
 
                 #region Check if this auth token got use b4
                 var cookie = HttpContext.GetAuthTokenWithoutException();
 
-                if (cookie == null || cookie != authToken)
+                if (cookie == null || cookie != temp.Id)
                 {
-                    var tokenValidity = await ValidateToken(authToken);
+                    var tokenValidity = await ValidateToken(temp.Id);
 
                     if(!tokenValidity)
                         return Unauthorized("Token has been used");
                 }
                 #endregion
 
-                var id = await client.GetAsJson<string>($"{Constant.ApiUrl}/api/RhbTreasureFlexiWealth/Create", authToken);
-                var hashedId = AspRijndael.EncryptData(id, "TMLM");
+                var id = await client.PostAsJson($"{Constant.ApiUrl}/api/RhbTreasureFlexiWealth/Create", temp, temp.Id);
+                string result = await id.Content.ReadAsStringAsync();
 
-                claims.Add(new Claim("Token", authToken));
+                var hashedId = AspRijndael.EncryptData(result, "TMLM");
+
+
+                claims.Add(new Claim("Token", temp.Id));
                 var claimsIdentity = new ClaimsIdentity(claims, "cookies");
 
                 CookieOptions cookieOptions = new();
@@ -82,9 +88,10 @@ namespace TMLM.SalesIllustrator.Web.Controllers
 
                 Response.Cookies.Delete(Constant.RhbTreasureCookie);
                 Response.Cookies.Append(Constant.RhbTreasureCookie, hashedId, cookieOptions);
-
+                
                 await HttpContext.SignInAsync("cookies", new ClaimsPrincipal(claimsIdentity));
-                return Ok();
+
+                return Ok("Success");
             }
             catch(UnauthorizedAccessException ex)
             {
@@ -105,9 +112,10 @@ namespace TMLM.SalesIllustrator.Web.Controllers
             var authToken = HttpContext.GetAuthToken();
             model.Id = HttpContext.GetTokenValue(Constant.RhbTreasureCookie);
             var resp = await client.PostAsJson($"{Constant.ApiUrl}/api/RhbTreasureFlexiWealth/goUpdate", model, authToken);
+            string result = await resp.Content.ReadAsStringAsync();
 
             if (resp.IsSuccessStatusCode)
-                return Ok("Success");
+                return Ok(result);
             else if (resp.StatusCode == HttpStatusCode.Unauthorized)
                 return Unauthorized();
             else

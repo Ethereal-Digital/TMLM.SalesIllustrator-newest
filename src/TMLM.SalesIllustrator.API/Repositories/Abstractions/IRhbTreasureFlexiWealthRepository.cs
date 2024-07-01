@@ -6,7 +6,7 @@ namespace TMLM.SalesIllustrator.API.Repositories.Abstractions
 {
     public interface IRhbTreasureFlexiWealthRepository
     {
-        public Task<RepositoryResult<string>> Create(string rhbTreasureAuthorizationId);
+        public Task<RepositoryResult<string>> Create(CreateFWnputModel model);
 
         public Task<RepositoryResult<string>> Update(UpdateFWnputModel model);
 

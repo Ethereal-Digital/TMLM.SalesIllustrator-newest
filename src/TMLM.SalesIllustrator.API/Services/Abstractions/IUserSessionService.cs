@@ -12,5 +12,6 @@ namespace TMLM.SalesIllustrator.API.Services.Abstractions
         public Task<string> GetDropDownOccupation();
         public Task<string> GetOccupationCode(string occupation, string nature);
         public Task<string> GetDropDownNature();
+        public Task<string> GetUserDetails(string authToken);
     }
 }

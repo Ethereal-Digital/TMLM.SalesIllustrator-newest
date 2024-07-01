@@ -5,7 +5,7 @@ namespace TMLM.SalesIllustrator.API.Repositories.Abstractions
 {
     public interface IRT100Repository
     {
-        public Task<RepositoryResult<string>> Create(string authToken);
+        public Task<RepositoryResult<string>> Create(CreateRT100InputModel model);
 
         public Task<RepositoryResult<string>> Update(UpdateRT100InputModel model);
 

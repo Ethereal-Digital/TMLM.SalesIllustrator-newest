@@ -112,5 +112,16 @@ namespace TMLM.SalesIllustrator.API.Services
             }
             throw new Exception("Invalid error during GetDropDownOccupation data");
         }
+
+        public async Task<string> GetUserDetails(string authToken)
+        {
+            var resp = await repo.GetUserSessionDetails(authToken);
+
+            if (resp.RetCode == ResponseReturnCode.Gen_Success)
+            {
+                return resp.Result;
+            }
+            throw new Exception("Invalid error during GetUserDetails data");
+        }
     }
 }

@@ -4,9 +4,9 @@ namespace TMLM.SalesIllustrator.API.Services.Abstractions
 {
     public interface IRhbTreasureBuilderService
     {
-        public Task<string> Create(string authToken);
+        public Task<string> Create(CreateUserSiInputModel model);
 
-        public Task Update(UpdateSiInputModel model);
+        public Task<string> Update(UpdateUserSiInputModel model);
 
         public Task UpdateProcess(UpdateProcessSiInputModel model);
     }

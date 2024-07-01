@@ -17,13 +17,13 @@ namespace TMLM.SalesIllustrator.API.Controllers
             this.service = _service;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Create()
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateSupremeInputModel model)
         {
             try
             {
                 var authToken = Request.Headers["Auth"];
-                var resp = await service.Create(authToken);
+                var resp = await service.Create(model);
                 return Ok(resp);
                  
             }
@@ -44,8 +44,8 @@ namespace TMLM.SalesIllustrator.API.Controllers
         {
             try
             {
-                await service.Update(model);
-                return Ok();
+                var resp = await service.Update(model);
+                return Ok(resp);
             }
             catch (Exception ex)
             {

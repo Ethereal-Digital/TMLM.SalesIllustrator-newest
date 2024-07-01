@@ -153,5 +153,38 @@ namespace TMLM.SalesIllustrator.Web.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetUserDetails(string authToken)
+        {
+            try
+            {
+                HttpClient client = new();
+
+                var cookie = HttpContext.GetAuthTokenWithoutException();
+
+                if (cookie == null || cookie != authToken)
+                {
+                    var tokenValidity = await ValidateToken(authToken);
+
+                    if (!tokenValidity)
+                        return Unauthorized("Token has been used");
+                }
+
+                var result = await client.GetAsJson($"{Constant.ApiUrl}/api/UserSession/GetUserDetails", authToken);
+
+                return Ok(result);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Log.Error($"Unauthorized Expection: {ex.ToString()}");
+                return Unauthorized(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"Unexpected Expection: {ex.ToString()}");
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

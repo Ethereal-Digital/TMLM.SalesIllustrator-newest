@@ -4,8 +4,8 @@ namespace TMLM.SalesIllustrator.API.Services.Abstractions
 {
     public interface IRT100Service
     {
-        public Task<string> Create(string authToken);
-        public Task Update(UpdateRT100InputModel model);
+        public Task<string> Create(CreateRT100InputModel model);
+        public Task<string> Update(UpdateRT100InputModel model);
         public Task UpdateProcess(UpdateProcessRT100InputModel model);
     }
 }

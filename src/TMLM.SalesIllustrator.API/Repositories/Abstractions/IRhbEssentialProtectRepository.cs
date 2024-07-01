@@ -5,7 +5,7 @@ namespace TMLM.SalesIllustrator.API.Repositories.Abstractions
 {
     public interface IRhbEssentialProtectRepository
     {
-        public Task<RepositoryResult<string>> Create(string authToken);
+        public Task<RepositoryResult<string>> Create(CreateREPInputModel model);
 
         public Task<RepositoryResult<string>> Update(UpdateREPInputModel model);
 

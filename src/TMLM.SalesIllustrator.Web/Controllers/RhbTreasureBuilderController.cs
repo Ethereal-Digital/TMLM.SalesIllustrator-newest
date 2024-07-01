@@ -50,30 +50,34 @@ namespace TMLM.SalesIllustrator.Web.Controllers
             }
         }
 
-        [Route("RhbTreasureBuilder/Create/{authToken}")]
-        public async Task<IActionResult> Create([FromRoute] string authToken)
+        //[Route("RhbTreasureBuilder/Create/{authToken}")]
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] object model)
         {
             try
             {
+                var createModel = JsonConvert.DeserializeObject<CreateUserSiInputModel>(model.ToString());
+
                 HttpClient client = new();
                 var claims = new List<Claim>();
 
                 #region Check if this auth token got use b4
                 var cookie = HttpContext.GetAuthTokenWithoutException();
 
-                if (cookie == null || cookie != authToken)
+                if (cookie == null || cookie != createModel.Id)
                 {
-                    var tokenValidity = await ValidateToken(authToken);
+                    var tokenValidity = await ValidateToken(createModel.Id);
 
                     if(!tokenValidity)
                         return Unauthorized("Token has been used");
                 }
                 #endregion
 
-                var id = await client.GetAsJson<string>($"{Constant.ApiUrl}/api/RhbTreasureBuilder/Create", authToken);
-                var hashedId = AspRijndael.EncryptData(id, "TMLM");
+                var id = await client.PostAsJson($"{Constant.ApiUrl}/api/RhbTreasureBuilder/Create", createModel, createModel.Id);
+                string result = await id.Content.ReadAsStringAsync();
+                var hashedId = AspRijndael.EncryptData(result, "TMLM");
 
-                claims.Add(new Claim("Token", authToken));
+                claims.Add(new Claim("Token", createModel.Id));
                 var claimsIdentity = new ClaimsIdentity(claims, "cookies");
 
                 CookieOptions cookieOptions = new();
@@ -83,7 +87,7 @@ namespace TMLM.SalesIllustrator.Web.Controllers
                 Response.Cookies.Append(Constant.RhbTreasureCookie, hashedId, cookieOptions);
 
                 await HttpContext.SignInAsync("cookies", new ClaimsPrincipal(claimsIdentity));
-                return Ok();
+                return Ok("Success");
             }
             catch(UnauthorizedAccessException ex)
             {
@@ -98,15 +102,16 @@ namespace TMLM.SalesIllustrator.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update([FromBody] UpdateSiInputModel model)
+        public async Task<IActionResult> Update([FromBody] UpdateUserSiInputModel model)
         {
             HttpClient client = new();
             var authToken = HttpContext.GetAuthToken();
             model.Id = HttpContext.GetTokenValue(Constant.RhbTreasureCookie);
             var resp = await client.PostAsJson($"{Constant.ApiUrl}/api/RhbTreasureBuilder/Update", model, authToken);
+            string result = await resp.Content.ReadAsStringAsync();
 
             if (resp.IsSuccessStatusCode)
-                return Ok("Success");
+                return Ok(result);
             else if (resp.StatusCode == HttpStatusCode.Unauthorized)
                 return Unauthorized();
             else

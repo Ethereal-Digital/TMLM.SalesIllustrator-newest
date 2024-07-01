@@ -231,5 +231,68 @@ namespace TMLM.SalesIllustrator.API.Repositories
             base.CloseConnection();
             return resp;
         }
+
+        public async Task<RepositoryResult<string>> GetUserSessionDetails(string authToken)
+        {
+            string result = null;
+            string[] DBName = { "RHBESSENTIALPROTECT", "RHBTREASURE100", "RHBTREASUREBUILDER", "RHBTREASUREFLEXIWEALTH", "RHBTREASURESUPREME" };
+            RepositoryResult<string> resp = new();
+            DynamicParameters _dParams = new();
+
+            _dParams.Add("@authToken", authToken, DbType.String, ParameterDirection.Input);
+            _dParams.Add("@varRetCode", dbType: DbType.String, direction: ParameterDirection.Output, size: 10);
+            _dParams.Add("@varRetMsg", dbType: DbType.String, direction: ParameterDirection.Output, size: 1000);
+
+            base.OpenConnection(Constant.ConnectionString);
+            var RetVal = await base.DbConnection.QueryFirstOrDefaultAsync<UserSessionDetailsModel>("spGet_UserSessionDetails", _dParams, commandType: CommandType.StoredProcedure);
+
+            if (RetVal != null)
+            {
+                if (RetVal.Purpose == "RT100")
+                {
+                    RetVal.Purpose = "RHBTreasure100";
+                }
+
+                RetVal.Purpose = RetVal.Purpose.ToUpper();
+
+
+                if (DBName.Contains(RetVal.Purpose))
+                {
+                    var temp = await GetUserDetails(authToken, RetVal.Purpose, RetVal.Id);
+                    result = temp.Result;
+                }
+            }
+
+            resp.Result = result;
+            resp.RetCode = _dParams.Get<string>("@varRetCode");
+            resp.RetMsg = _dParams.Get<string>("@varRetMsg");
+
+            base.CloseConnection();
+            return resp;
+        }
+
+        private async Task<RepositoryResult<string>> GetUserDetails(string authToken, string table, string userId)
+        {
+            RepositoryResult<string> resp = new();
+            DynamicParameters _dParams = new();
+
+            _dParams.Add("@authToken", authToken, DbType.String, ParameterDirection.Input);
+            _dParams.Add("@tableName", table, DbType.String, ParameterDirection.Input);
+            _dParams.Add("@UserId", userId, DbType.String, ParameterDirection.Input);
+            _dParams.Add("@varRetCode", dbType: DbType.String, direction: ParameterDirection.Output, size: 10);
+            _dParams.Add("@varRetMsg", dbType: DbType.String, direction: ParameterDirection.Output, size: 1000);
+
+            base.OpenConnection(Constant.ConnectionString);
+            var RetVal = await base.DbConnection.QueryFirstOrDefaultAsync<UserDetails2Model>("spGet_UserDetails", _dParams, commandType: CommandType.StoredProcedure);
+
+            var result = JsonConvert.SerializeObject(RetVal);
+
+            resp.Result = result;
+            resp.RetCode = _dParams.Get<string>("@varRetCode");
+            resp.RetMsg = _dParams.Get<string>("@varRetMsg");
+
+            base.CloseConnection();
+            return resp;
+        }
     }
 }

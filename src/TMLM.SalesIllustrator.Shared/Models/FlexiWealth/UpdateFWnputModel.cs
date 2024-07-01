@@ -8,18 +8,24 @@ namespace TMLM.SalesIllustrator.Shared.Models.FlexiWealth
 {
     public class UpdateFWnputModel
     {
-        public string Name { get; set; }
-        public string Category { get; set; }
-        public string Category2 { get; set; }
-        public string Risk { get; set; }
+        public string? PremiumPaymentTerm { get; set; }
+        public decimal? PremiumAmountAnnually { get; set; }
+        public string? Id { get; set; }
+    }
+
+    public class CreateFWnputModel
+    {
+        public string? Name { get; set; }
+        public string? Category { get; set; }
+        public string? Category2 { get; set; }
+        public string? Risk { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public string Gender { get; set; }
-        public string Martial { get; set; }
-        public string Child { get; set; }
-        public string Occupation { get; set; }
-        public string Industry { get; set; }
-        public string PremiumPaymentTerm { get; set; }
-        public decimal PremiumAmountAnnually { get; set; }
-        public string Id { get; set; } 
+        public string? Gender { get; set; }
+        public string? Martial { get; set; }
+        public string? Child { get; set; }
+        public string? Occupation { get; set; }
+        public string? Industry { get; set; }
+        public string? Id { get; set; }
+        public int? Age { get; set; }
     }
 }

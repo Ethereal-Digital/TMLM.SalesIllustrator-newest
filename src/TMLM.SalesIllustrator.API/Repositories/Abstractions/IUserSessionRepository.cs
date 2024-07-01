@@ -14,5 +14,6 @@ namespace TMLM.SalesIllustrator.API.Repositories.Abstractions
         public Task<RepositoryResult<string>> GetDropDownOccupation();
         public Task<RepositoryResult<string>> GetOccupationCode(string occupation, string nature);
         public Task<RepositoryResult<string>> GetDropDownNature();
+        public Task<RepositoryResult<string>> GetUserSessionDetails(string authToken);
     }
 }
