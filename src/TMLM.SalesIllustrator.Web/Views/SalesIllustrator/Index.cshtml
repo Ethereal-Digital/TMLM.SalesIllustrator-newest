@@ -276,32 +276,32 @@
                     </div>
                 </div>
 
-                <div class="isMobile">
-                    <div class="row mobile_view_slide_two">
-                        <div class="box2 fade-in2" id="prio1M" onclick="submitPriority(1,4);">
+                <div class="isMobile" style="display:block !important;">
+                    <div class="row mobile_view_slide_two" style="justify-content: center;">
+                        <div class="box2 fade-in2" id="prio1M" onclick="mobileClickOccurence(1,4);">
                             <span class="hover_text" is="target_id">Retirement</span>
                             <img src="~/assets/images/Retirement.jpg" />
 
                         </div>
-                        <div class="box2 fade-in3" id="prio2M" onclick="submitPriority(2,7);">
+                        <div class="box2 fade-in3" id="prio2M" onclick="mobileClickOccurence(2,7);">
                             <span class="hover_text" is="target_id">Investment</span>
                             <img src="~/assets/images/Diversification.jpg" />
 
                         </div>
-                        <div class="box2 fade-in4" id="prio3M" onclick="submitPriority(3,10);">
+                        <div class="box2 fade-in4" id="prio3M" onclick="mobileClickOccurence(3,10);">
                             <span class="hover_text" is="target_id">Income Replacement</span>
-                            <img src="~/assets/images/incomeReplace.jpg" />
+                            <img src="~/assets/images/incomeReplace.png" />
 
                         </div>
                     </div>
-                    <div class="row mobile_view_slide_two">
-                        <div class="box2 fade-in" id="prio4M" onclick="submitPriority(4,13);">
+                    <div class="row mobile_view_slide_two" style="justify-content: center;">
+                        <div class="box2 fade-in" id="prio4M" onclick="mobileClickOccurence(4,13);">
                             <span class="hover_text" is="target_id">Education</span>
                                 <img src="~/assets/images/Education.jpg">
                         </div>
-                        <div class="box2 fade-in" id="prio5M" onclick="submitPriority(5,16);">
+                        <div class="box2 fade-in" id="prio5M" onclick="mobileClickOccurence(5,16);">
                             <span class="hover_text" is="target_id">Regular Savings</span>
-                            <img src="~/assets/images/regularSave.png">
+                            <img src="~/assets/images/regularSave.jpg">
                         </div>
                     </div>
                 </div>
@@ -324,7 +324,7 @@
                             <div class="col-4" id="ret5_1">
                                 <div class="d-flex alignCenter justifyCenter">
                                     <img style="width:28%;" src="~/assets/sales-ill/ret1.png">
-                                    <h4 class="ml-3 mr-3">Explore the world</h4>
+                                    <p class="content_font3 ml-3 mr-3">Explore the world</p>
                                     <img style="width:10%;" src="~/assets/sales-ill/arrow-up2.png">
                                 </div>
                             </div>
@@ -332,7 +332,7 @@
                             <div class="col-4" id="ret5_2">
                                 <div class="d-flex alignCenter justifyCenter">
                                     <img style="width:10%;" src="~/assets/sales-ill/redArrow-up.png">
-                                    <h4 class="ml-3 mr-3">Anxious to spend</h4>
+                                    <p class="content_font3 ml-3 mr-3">Anxious to spend</p>
                                     <img style="width:35%;" src="~/assets/sales-ill/ret4.png">
                                 </div>
                             </div>
@@ -342,7 +342,7 @@
                             <div class="col-4" id="ret5_3">
                                 <div class="d-flex alignCenter justifyCenter">
                                     <img style="width:28%;" src="~/assets/sales-ill/ret2.png">
-                                    <h4 class="ml-3 mr-3">Relaxed and laid back</h4>
+                                    <p class="content_font3 ml-3 mr-3">Relaxed and laid back</p>
                                     <img style="width:10%;" src="~/assets/sales-ill/arrow-mid2.png">
                                 </div>
                             </div>
@@ -354,7 +354,7 @@
                             <div class="col-4" id="ret5_4">
                                 <div class="d-flex alignCenter justifyCenter">
                                     <img style="width:10%;" src="~/assets/sales-ill/redArrow.png">
-                                    <h4 class="ml-3 mr-3">Stress and worry</h4>
+                                    <p class="content_font3 ml-3 mr-3">Stress and worry</p>
                                     <img style="width:28%;" src="~/assets/sales-ill/ret5.png">
                                 </div>
                             </div>
@@ -364,7 +364,7 @@
                             <div class="col-4" id="ret5_5">
                                 <div class="d-flex alignCenter justifyCenter">
                                     <img style="width:28%;" src="~/assets/sales-ill/ret3.png">
-                                    <h4 class="ml-3 mr-3">Stress-free</h4>
+                                    <p class="content_font3 ml-3 mr-3">Stress-free</p>
                                     <img style="width:10%;" src="~/assets/sales-ill/arrow-down3.png">
                                 </div>
                             </div>
@@ -372,53 +372,11 @@
                             <div class="col-4" id="ret5_6">
                                 <div class="d-flex alignCenter justifyCenter">
                                     <img style="width:10%;" src="~/assets/sales-ill/redArrow-down.png">
-                                    <h4 class="ml-3 mr-3">Late retirement</h4>
+                                    <p class="content_font3 ml-3 mr-3">Late retirement</p>
                                     <img style="width:35%;" src="~/assets/sales-ill/ret6.png">
                                 </div>
                             </div>
                         </div>
-
-                        @* <div class="row">
-                            <div class="col-4">
-                                <div class="d-flex alignCenter justifyCenter">
-                                    <img style="width:28%;" src="~/assets/sales-ill/ret1.png">
-                                    <h4 class="ml-3 mr-3">Explore the world</h4>
-                                    <img style="width:10%;" src="~/assets/sales-ill/arrow-up2.png">
-                                </div>
-                                <div class="d-flex alignCenter justifyCenter">
-                                    <img style="width:28%;" src="~/assets/sales-ill/ret2.png">
-                                    <h4 class="ml-3 mr-3">Relaxed and laid back</h4>
-                                    <img style="width:10%;" src="~/assets/sales-ill/arrow-mid2.png">
-                                </div>
-                                <div class="d-flex alignCenter justifyCenter">
-                                    <img style="width:28%;" src="~/assets/sales-ill/ret3.png">
-                                    <h4 class="ml-3 mr-3">Stress-free</h4>
-                                    <img style="width:10%;" src="~/assets/sales-ill/arrow-down3.png">
-                                </div>
-                            </div>
-                            <div class="col-4 d-flex alignCenter justifyCenter">
-                                <h4 class="fw_600" style="color: #70AD47;">Ideal Retirement</h4>
-                                <h4 class="fw_600 ml-3 mr-3">vs</h4>
-                                <h4 class="fw_600" style="color: red;">Not so ideal retirement</h4>
-                            </div>
-                            <div class="col-4">
-                                <div class="d-flex alignCenter justifyCenter">
-                                    <img style="width:10%;" src="~/assets/sales-ill/redArrow-up.png">
-                                    <h4 class="ml-3 mr-3">Anxious to spend</h4>
-                                    <img style="width:28%;" src="~/assets/sales-ill/ret4.png">
-                                </div>
-                                <div class="d-flex alignCenter justifyCenter">
-                                    <img style="width:10%;" src="~/assets/sales-ill/redArrow.png">
-                                    <h4 class="ml-3 mr-3">Stress and worry</h4>
-                                    <img style="width:28%;" src="~/assets/sales-ill/ret5.png">
-                                </div>
-                                <div class="d-flex alignCenter justifyCenter">
-                                    <img style="width:10%;" src="~/assets/sales-ill/redArrow-down.png">
-                                    <h4 class="ml-3 mr-3">Late retirement</h4>
-                                    <img style="width:28%;" src="~/assets/sales-ill/ret6.png">
-                                </div>
-                            </div>
-                        </div> *@
                     </div>
                 </div>
             </section>
@@ -490,14 +448,14 @@
                             <div class="col-3" id="inv8_1">
                                 <div class="d-flex" style="align-items: center; justify-content: space-around;">
                                     <div>
-                                        <h4>Stock Market</h4>
+                                        <p class="content_font3" style="text-align: center !important;">Stock Market</p>
                                         <img style="width:70%;" src="~/assets/sales-ill/inv1.png">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6" style="display: flex; justify-content: space-between; align-items: center;">
                                 <img style="width:9%;" src="~/assets/sales-ill/arrow-mid2.png">
-                                <h3 class="fw_600">Types of investment tools:</h3>
+                                <h4 class="fw_600">Types of investment tools:</h4>
                                 <img id="inv8_5" style="width:9%;" src="~/assets/sales-ill/arrow-mid.png">
                             </div>
                             <div class="col-3" id="inv8_4">
@@ -514,7 +472,7 @@
                                 <div class="d-flex" style="align-items: center; flex-direction: column;">
                                     <img style="width:12%; transform: rotate(130deg);" src="~/assets/sales-ill/arrow-mid.png">
                                     <div>
-                                        <h4>Real Estate</h4>
+                                        <p class="content_font3" style="text-align: center !important;">Real Estate</p>
                                         <img style="width:55%;" src="~/assets/sales-ill/inv2.png">
                                     </div>
                                 </div>
@@ -523,7 +481,7 @@
                                 <div class="d-flex" style="align-items: center; flex-direction: column;">
                                     <img style="width:12%; transform: rotate(56deg);" src="~/assets/sales-ill/arrow-mid.png">
                                     <div>
-                                        <h4>Mutual Fund</h4>
+                                        <p class="content_font3" style="text-align: center !important;">Mutual Fund</p>
                                         <img style="width:55%;" src="~/assets/sales-ill/inv3.png">
                                     </div>
                                 </div>
@@ -538,7 +496,7 @@
                     <div class="center">
                         <div class="row">
                             <div class="col-6">
-                                <h3 class="mt-1 fw_600">Benefits of Insurance with Investment-Linked Plan</h3>
+                                <h4 class="mt-1 fw_600">Benefits of Insurance with Investment-Linked Plan</h4>
                                 <img style="width:50%" src="~/assets/sales-ill/invest5.png">
                             </div>
                             <div class="col-6">
@@ -574,11 +532,31 @@
                     <div class="center">
                         <div class="row mt-1">
                             <div class="col-7">
-                                    <h4 class="fw_600">To provide financial security to your loved ones, diversify your financial portfolio in each tyre!</h4>
-                                    <img class="mt-1" style="width:85%;" src="~/assets/sales-ill/incomeCar.png">
+                                <h4 class="fw_600">To provide financial security to your loved ones, diversify your financial portfolio in each tyre!</h4>
+                                <div class="row mt-2">
+                                    <div class="col-3 p-0" style="display: flex; justify-content: space-between; flex-direction: column; align-items: end;">
+                                        <p class="content_font3">Cash/FD</p>
+                                        <p class="content_font3">Bond/Stock</p>
+                                    </div>
+                                    <div class="col-6 p-0">
+                                        <img style="width:100%;" src="~/assets/sales-ill/wheel.png">
+                                    </div>
+                                    <div class="col-3 p-0" style="display: flex; justify-content: space-between; flex-direction: column; align-items: start;">
+                                        <h4 class="fw_600" style="color:#0106E3;">Insurance</h4>
+                                        <p class="content_font3">Property</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-5">
-                                <img style="width:75%;" src="~/assets/sales-ill/incomeCar2.png">
+                                <div class="row">
+                                    <div class="col-8 p-0">
+                                        <h4 class="fw_600" style="color:#00CC00;">GOAL: FINANCIAL FREEDOM</h4>
+                                        <img style="width:46%;" src="~/assets/sales-ill/race.png">
+                                    </div>
+                                    <div class="col-3 p-0">
+                                        <img style="width:75%;" src="~/assets/sales-ill/incomeRepl.png">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -587,7 +565,7 @@
 
             <section class="page_section fade-in" id="section_11">
                 <div class="bottom" style="display: block !important;">
-                    <p class="content_font ml-3 mb-0">Life is full of uncertainties....</p>
+                    <p class="content_font3 ml-3 mb-0">Life is full of uncertainties....</p>
                     <div class="center">
                         <h4 class="fw_600">If one day you are no longer here due to:</h4>
                         <div class="d-flex alignCenter justifyCenter">
@@ -609,7 +587,7 @@
                     <div class="center">
                         <div class="row">
                             <div class="col-6">
-                                <h3 class="mt-1 fw_600">Benefits of Having Insurance as an Income Replacement?</h3>
+                                <h4 class="mt-1 fw_600">Benefits of Having Insurance as an Income Replacement?</h4>
                                 <img style="width:50%" src="~/assets/sales-ill/income3.png">
                             </div>
                             <div class="col-6">
@@ -654,29 +632,29 @@
                     <div class="center">
                         <div class="row">
                             <div class="col-6">
-                                <h3 class="mt-1 fw_600" style="color: red">Risks of failure for early education planning:</h3>
+                                <h4 class="mt-1 fw_600" style="color: red">Risks of failure for early education planning:</h4>
                                 <img style="width:73%" src="~/assets/sales-ill/edu2.png">
                             </div>
                             <div class="col-6">
                                 <div class="d-flex alignCenter mt-1 mb-1" id="edu14_1">
                                     <img style="width:10%" src="~/assets/sales-ill/arrow-up.png">
-                                    <p class="content_font ml-4 fw_600" style="color: #00546C;">Work part-time while studying</p>
+                                    <p class="content_font3 ml-4 fw_600" style="color: #00546C;">Work part-time while studying</p>
                                 </div>
                                 <div class="d-flex alignCenter mb-1" id="edu14_2">
                                     <img style="width:10%" src="~/assets/sales-ill/arrow-up.png">
-                                    <p class="content_font ml-4 fw_600" style="color: #00546C;">Funding from retirement fund</p>
+                                    <p class="content_font3 ml-4 fw_600" style="color: #00546C;">Funding from retirement fund</p>
                                 </div>
                                 <div class="d-flex alignCenter mb-1" id="edu14_3">
                                     <img style="width:10%" src="~/assets/sales-ill/arrow-mid.png">
-                                    <p class="content_font ml-4 fw_600" style="color: #00546C;">Take up an education loan</p>
+                                    <p class="content_font3 ml-4 fw_600" style="color: #00546C;">Take up an education loan</p>
                                 </div>
                                 <div class="d-flex alignCenter mb-1" id="edu14_4">
                                     <img style="width:10%" src="~/assets/sales-ill/arrow-down.png">
-                                    <p class="content_font ml-4 fw_600" style="color: #00546C;">Start working at an early age</p>
+                                    <p class="content_font3 ml-4 fw_600" style="color: #00546C;">Start working at an early age</p>
                                 </div>
                                 <div class="d-flex alignCenter" id="edu14_5">
                                     <img style="width:10%" src="~/assets/sales-ill/arrow-down.png">
-                                    <p class="content_font ml-4 fw_600" style="color: #00546C;">Apply for PTPTN loan</p>
+                                    <p class="content_font3 ml-4 fw_600" style="color: #00546C;">Apply for PTPTN loan</p>
                                 </div>
                             </div>
                         </div>                       
@@ -687,7 +665,7 @@
             <section class="page_section fade-in" id="section_15">
                 <div class="bottom" style="display: block !important;">
                     <div class="center">
-                        <h3 class="fw_600">Importance of Insurance to Education Planning:</h3>
+                        <h4 class="fw_600">Importance of Insurance to Education Planning:</h4>
                         <div class="row">
                             <div class="col-4" style="display: flex; flex-direction: column; align-items: center;" id="edu15_1">
                                 <div style="display: flex; flex-direction: column; align-items: center;">
@@ -741,29 +719,29 @@
                     <div class="center">
                         <div class="row">
                             <div class="col-6">
-                                <h3 class="mt-1 fw_600">What is the importance of having regular savings?</h3>
+                                <h4 class="mt-1 fw_600">What is the importance of having regular savings?</h4>
                                 <img style="width:50%" src="~/assets/sales-ill/regSave.png">
                             </div>
                             <div class="col-6">
                                 <div class="d-flex alignCenter mt-1 mb-1" id="reg16_1">
                                     <img style="width:10%" src="~/assets/sales-ill/arrow-up.png">
-                                    <p class="content_font ml-4 fw_600">Offer financial stability</p>
+                                    <p class="content_font3 ml-4 fw_600">Offer financial stability</p>
                                 </div>
                                 <div class="d-flex alignCenter mb-1" id="reg16_2">
                                     <img style="width:10%" src="~/assets/sales-ill/arrow-up.png">
-                                    <p class="content_font ml-4 fw_600">Fulfill life stages accomplishment</p>
+                                    <p class="content_font3 ml-4 fw_600">Fulfill life stages accomplishment</p>
                                 </div>
                                 <div class="d-flex alignCenter mb-1" id="reg16_3">
                                     <img style="width:10%" src="~/assets/sales-ill/arrow-mid.png">
-                                    <p class="content_font ml-4 fw_600">Quality lifestyle</p>
+                                    <p class="content_font3 ml-4 fw_600">Quality lifestyle</p>
                                 </div>
                                 <div class="d-flex alignCenter mb-1" id="reg16_4">
                                     <img style="width:10%" src="~/assets/sales-ill/arrow-down.png">
-                                    <p class="content_font ml-4 fw_600">Safety net for rainy days</p>
+                                    <p class="content_font3 ml-4 fw_600">Safety net for rainy days</p>
                                 </div>
                                 <div class="d-flex alignCenter" id="reg16_5">
                                     <img style="width:10%" src="~/assets/sales-ill/arrow-down.png">
-                                    <p class="content_font ml-4 fw_600">Unexpected expenses</p>
+                                    <p class="content_font3 ml-4 fw_600">Unexpected expenses</p>
                                 </div>
                             </div>
                         </div>
@@ -778,14 +756,14 @@
                             <div class="col-4" id="reg17_1">
                                 <div class="d-flex" style="align-items: center; justify-content: space-around;">
                                     <div>
-                                        <h4>Cash Savings</h4>
+                                        <p class="content_font3"style="text-align: center !important;">Cash Savings</p>
                                         <img style="width:60%;" src="~/assets/sales-ill/reg1.png">
                                     </div>
                                     <img style="width:12%;" src="~/assets/sales-ill/arrow-mid2.png">
                                 </div>
                             </div>
                             <div class="col-4">
-                                <h3 class="fw_600">How can you start saving?</h3>
+                                <h4 class="fw_600">How can you start saving?</h4>
                             </div>
                             <div class="col-4" id="reg17_4">
                                 <div class="d-flex" style="align-items: center; justify-content: space-around;">
@@ -802,7 +780,7 @@
                                 <div class="d-flex" style="align-items: center; flex-direction: column;">
                                     <img style="width:12%; transform: rotate(130deg);" src="~/assets/sales-ill/arrow-mid.png">
                                     <div>
-                                        <h4>EPF/PRS</h4>
+                                        <p class="content_font3" style="text-align: center !important;">EPF/PRS</p>
                                         <img style="width:55%;" src="~/assets/sales-ill/reg2.png">
                                     </div>                                    
                                 </div>
@@ -811,7 +789,7 @@
                                 <div class="d-flex" style="align-items: center; flex-direction: column;">
                                     <img style="width:12%; transform: rotate(56deg);" src="~/assets/sales-ill/arrow-mid.png">
                                     <div>
-                                        <h4>Property investment</h4>
+                                        <p class="content_font3" style="text-align: center !important;">Property investment</p>
                                         <img style="width:55%;" src="~/assets/sales-ill/reg3.png">
                                     </div>
                                 </div>

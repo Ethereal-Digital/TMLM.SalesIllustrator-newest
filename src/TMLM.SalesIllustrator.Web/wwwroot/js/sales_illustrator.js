@@ -699,11 +699,11 @@ const products = [
     //{ product: 'RAF', type: 'Non-Par', suitability: { retirement: '', investment: 'Y', incomeReplacement: 'Y', education: 'Y', regularSavings: 'Y' } },
     { product: 'RT100', type: 'Non-Par', suitability: { retirement: 'Y', investment: '', incomeReplacement: '', education: 'Y', regularSavings: 'Y' } },
     { product: 'RT100P', type: 'Non-Par', suitability: { retirement: 'Y', investment: '', incomeReplacement: '', education: 'Y', regularSavings: 'Y' } },
-    { product: 'RTB', type: 'ILP', suitability: { retirement: 'Y', investment: 'Y', incomeReplacement: 'Y', education: 'Y', regularSavings: 'Y' } },
-    { product: 'REP', type: 'ILP', suitability: { retirement: 'Y', investment: 'Y', incomeReplacement: '', education: 'Y', regularSavings: 'Y' } },
-    { product: 'REPP', type: 'ILP', suitability: { retirement: 'Y', investment: 'Y', incomeReplacement: '', education: 'Y', regularSavings: 'Y' } },
+    { product: 'RTB', type: 'ILP', suitability: { retirement: 'Y', investment: '', incomeReplacement: 'Y', education: 'Y', regularSavings: 'Y' } },
+    { product: 'REP', type: 'ILP', suitability: { retirement: 'Y', investment: '', incomeReplacement: 'Y', education: '', regularSavings: 'Y' } },
+    { product: 'REPP', type: 'ILP', suitability: { retirement: 'Y', investment: '', incomeReplacement: 'Y', education: '', regularSavings: 'Y' } },
     { product: 'RTS', type: 'Non-Par', suitability: { retirement: 'Y', investment: '', incomeReplacement: '', education: 'Y', regularSavings: 'Y' } },
-    { product: 'RFW', type: 'ILP', suitability: { retirement: 'Y', investment: 'Y', incomeReplacement: '', education: 'Y', regularSavings: 'Y' } }
+    { product: 'RFW', type: 'ILP', suitability: { retirement: 'Y', investment: '', incomeReplacement: 'Y', education: '', regularSavings: 'Y' } }
 ];
 
 const riskPreferences = {
@@ -1058,6 +1058,30 @@ function submitPriority(priority, page) {
         this.secondPrio = priority;
         next(page);
     }
+}
+
+function mobileClickOccurence(i, y) {
+
+    if( this.occurence == 1){
+        submitPriority(i, y);
+    }
+    else{
+        this.occurence++;
+    }
+
+    //if (this.temp_occurence == i) {
+    //    this.occurence++;
+
+    //    if (this.occurence == 2) {
+    //        this.choice = i;
+    //        next(y);
+    //    }
+
+    //    this.occurence = 0;
+    //} else {
+    //    this.occurence = 1;
+    //}
+    //this.temp_occurence = i;
 }
 
 function next(page_counter) {

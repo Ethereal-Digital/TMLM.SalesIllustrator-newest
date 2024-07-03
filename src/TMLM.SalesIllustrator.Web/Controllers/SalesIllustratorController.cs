@@ -13,10 +13,16 @@ namespace TMLM.SalesIllustrator.Web.Controllers
     {
         public async Task<IActionResult> Index([FromQuery] string id)
         {
-            var result = await ValidateToken(id);
-            if (result)
-                return View();
-            return Redirect($"{Constant.WebUrl}/error");
+            var token = User.FindFirstValue("Token");
+
+            if(token == null)
+            {
+                var result = await ValidateToken(id);
+                if (!result)
+                    return Redirect($"{Constant.WebUrl}/error");
+            }
+            return View();
+            
         }
 
         private async Task<bool> ValidateToken(string authToken)

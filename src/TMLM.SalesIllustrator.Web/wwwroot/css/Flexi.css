@@ -55,8 +55,8 @@
 }
 
 .overviewIMG {
-    width: 6vw;
-    min-width: 90px;
+    width: 26vw;
+    min-width: 250px;
 }
 
 .alignCenter {
@@ -87,5 +87,9 @@
     .icon {
         min-width: 180px !important;
         margin-left: 0px !important;
+    }
+
+    #overviewIMG {
+        min-width: 210px !important;
     }
 }

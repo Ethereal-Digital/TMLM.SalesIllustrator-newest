@@ -59,14 +59,21 @@ namespace TMLM.SalesIllustrator.Web.Controllers
 
                 claims.Add(new Claim("Token", userModel.Id));
                 var claimsIdentity = new ClaimsIdentity(claims, "cookies");
-
+                HttpContext.User.AddIdentity(claimsIdentity);
                 CookieOptions cookieOptions = new();
                 cookieOptions.Secure = true;
 
                 Response.Cookies.Delete(Constant.RhbTreasure100Cookie);
                 Response.Cookies.Append(Constant.RhbTreasure100Cookie, hashedId, cookieOptions);
 
-                await HttpContext.SignInAsync("cookies", new ClaimsPrincipal(claimsIdentity));
+                var authProperties = new AuthenticationProperties
+                {
+                    IssuedUtc = DateTimeOffset.UtcNow,
+                    ExpiresUtc = DateTimeOffset.UtcNow.AddHours(2),
+                    IsPersistent = false
+                };
+
+                await HttpContext.SignInAsync("cookies", new ClaimsPrincipal(claimsIdentity), authProperties);
                 return Ok("Success");
             }
             catch (UnauthorizedAccessException ex)
