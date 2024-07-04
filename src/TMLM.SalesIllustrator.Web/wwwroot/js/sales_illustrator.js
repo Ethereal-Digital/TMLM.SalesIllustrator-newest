@@ -1023,7 +1023,12 @@ function GetNatureDropDown(auth){
                 opt.value = ocp.NatureOfBusiness;
                 opt.innerHTML = ocp.NatureOfBusiness;
 
-                select.appendChild(opt);
+                if(opt.value == 'NOT APPLICABLE'){
+                    select.insertBefore(opt, select.options[1]);
+                }
+                else{
+                    select.appendChild(opt);
+                }
             });
         },
         error: function (data) {
@@ -1157,25 +1162,30 @@ function back_page() {
 }
 
 function next_page() {
-    $(`#section_${page_count_store}`).css('display', 'none');
-    page_count_store++;
-  
-    if(this.firstPrio != '' && this.secondPrio != ''){
-        page_count_store = this.secondPrio == 1 && page_count_store == 7 ? 19 :
-        this.secondPrio == 2 && page_count_store == 10 ? 19 : 
-        this.secondPrio == 3 && page_count_store == 13 ? 19 :
-        this.secondPrio == 4 && page_count_store == 16 ? 19 : page_count_store;
+    if (page_count_store == 2 && completeForm == false) {
+        checkForm();
     }
-    else if (this.firstPrio != '') {
+    else {
+        $(`#section_${page_count_store}`).css('display', 'none');
+        page_count_store++;
+
+        if (this.firstPrio != '' && this.secondPrio != '') {
+            page_count_store = this.secondPrio == 1 && page_count_store == 7 ? 19 :
+                this.secondPrio == 2 && page_count_store == 10 ? 19 :
+                    this.secondPrio == 3 && page_count_store == 13 ? 19 :
+                        this.secondPrio == 4 && page_count_store == 16 ? 19 : page_count_store;
+        }
+        else if (this.firstPrio != '') {
             page_count_store = this.firstPrio == 1 && page_count_store == 7 ? 3 :
-            this.firstPrio == 2 && page_count_store == 10 ? 3 : 
-            this.firstPrio == 3 && page_count_store == 13 ? 3 :
-            this.firstPrio == 4 && page_count_store == 16 ? 3 :
-            this.firstPrio == 5 && page_count_store == 19 ? 3 : page_count_store;
+                this.firstPrio == 2 && page_count_store == 10 ? 3 :
+                    this.firstPrio == 3 && page_count_store == 13 ? 3 :
+                        this.firstPrio == 4 && page_count_store == 16 ? 3 :
+                            this.firstPrio == 5 && page_count_store == 19 ? 3 : page_count_store;
+        }
+
+        $(`#section_${page_count_store}`).css('display', 'block');
+        checkPageCounter(page_count_store);
     }
-    
-    $(`#section_${page_count_store}`).css('display', 'block');
-    checkPageCounter(page_count_store);
 }
 
 function riskReset(){
@@ -1270,7 +1280,7 @@ function checkPageCounter(page_counter) {
 
     if (page_counter == 2) {
         $('.back_button').hide();
-        $('.next_button').hide();
+        $('.next_button').show();
         $('#main_title').html("Let us know more about yourself!")
         $('#sub_title').html("")
         updateProcess('Let us know more about yourself');
@@ -1989,7 +1999,7 @@ function validateChild() {
     checkForm();
 }
 
-function validateNature() {
+async function validateNature() {
     this.nature = $('#natureopt').val();
     if (this.nature == '') {
         $('.nature_invalid').show();
@@ -1998,6 +2008,29 @@ function validateNature() {
     else {
         $('.nature_invalid').hide();
         this.Validate_nature = true;
+
+         if(this.nature == 'NOT APPLICABLE'){
+            $("#occupationDrop").empty();
+            var select = document.getElementById('occupationDrop');
+            var opt = document.createElement('option');
+            opt.value = '';
+            opt.innerHTML = '-Please Select-';
+            select.appendChild(opt);
+
+            var dropArr = ['HOUSEWIFE/HUSBAND', 'PENSIONER', 'RETIREE', 'STUDENT', 'UNEMPLOYED']
+
+            dropArr.forEach(ele =>{
+                var opt = document.createElement('option');
+                opt.value = ele;
+                opt.innerHTML = ele;
+                select.appendChild(opt);
+            })
+         }
+         else{
+             const urlSearchParams = new URLSearchParams(window.location.search);
+             const params = Object.fromEntries(urlSearchParams.entries());
+             await GetOccDropDown(params.id);
+         }
     }
     checkForm();
 }
