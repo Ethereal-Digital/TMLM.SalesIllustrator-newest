@@ -608,7 +608,7 @@ body {
 
 .content_font3 {
     font-size: 20px;
-    text-align: justify;
+    text-align: left;
 }
 
 .riskAlign {
@@ -1414,10 +1414,10 @@ li:not(:last-child) {
         flex: auto !important;
     }
 
-    .d-flex {
+/*    .d-flex.alignCenter {
         display: block !important;
     }
-
+*/
     .slide_8_left {
         padding: 0px !important;
         margin-top: 0px !important;
