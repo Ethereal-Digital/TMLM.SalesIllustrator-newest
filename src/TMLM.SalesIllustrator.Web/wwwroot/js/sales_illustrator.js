@@ -1201,6 +1201,7 @@ function riskReset(){
     $(`#riskArr4`).hide();
     $(`#riskArr5`).hide();
     $(`#riskMeter`).hide();
+    $('.next_button').hide();
 }
 
 function riskClick(option){
@@ -1214,6 +1215,7 @@ function riskClick(option){
             $(`#riskMeter`).show();
             document.getElementById("riskMeterImg").src = sitename + "assets/sales-ill/Mrisk1.png";
             $(`#riskText`).html("You are conservative in your investment and prefer products that preserve capital, e.g. Bank's Fixed Deposits or Savings Account");
+            $('.next_button').show();
             break;
         case 2:
             $(`#riskBox${option}`).css('background', '#D2D711');
@@ -1221,6 +1223,7 @@ function riskClick(option){
             $(`#riskMeter`).show();
             document.getElementById("riskMeterImg").src = sitename + "assets/sales-ill/Mrisk2.png";
             $(`#riskText`).html("You are moderately conservative in your investment and prefer minor investment fluctuations");
+            $('.next_button').show();
             break;
         case 3:
             $(`#riskBox${option}`).css('background', '#FFD966');
@@ -1228,6 +1231,7 @@ function riskClick(option){
             $(`#riskMeter`).show();
             document.getElementById("riskMeterImg").src = sitename + "assets/sales-ill/Mrisk3.png";
             $(`#riskText`).html("You are moderate in your investments and prefer moderate investment fluctuations.");
+            $('.next_button').show();
             break;
         case 4:
             $(`#riskBox${option}`).css('background', '#F4B183');
@@ -1235,6 +1239,7 @@ function riskClick(option){
             $(`#riskMeter`).show();
             document.getElementById("riskMeterImg").src = sitename + "assets/sales-ill/Mrisk4.png";
             $(`#riskText`).html("You are moderately aggressive in your investments and prefer moderately high investment fluctuations.");
+            $('.next_button').show();
             break;
         case 5:
             $(`#riskBox${option}`).css('background', '#FF0000');
@@ -1242,6 +1247,7 @@ function riskClick(option){
             $(`#riskMeter`).show();
             document.getElementById("riskMeterImg").src = sitename + "assets/sales-ill/Mrisk5.png";
             $(`#riskText`).html("You are aggressive in your investments and prefer high investment fluctuations.");
+            $('.next_button').show();
             break;
         default:
             riskReset();
@@ -1839,15 +1845,22 @@ function checkPageCounter(page_counter) {
     }
     else if (page_counter == 19) {
         $('.back_button').show();
-        $('.next_button').show();
         $('.skip_button').hide();
         $('#main_title').html("Rate Your Risk Appetite :")
         $('#sub_title').html("");
         updateProcess('Risk Appetite');
 
+        if (this.risk) {
+            $('.next_button').show();
+            riskClick(this.risk);
+        } else {
+            $('.next_button').hide();
+            
+        }
+
         $('#riskArrowRow').show();
 
-        if (this.isMobileNew == true) {
+        if (this.isMobileNew ==  true) {
             $('#riskArrowRow').hide();
         }
     }
