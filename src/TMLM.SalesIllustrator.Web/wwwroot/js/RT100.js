@@ -473,7 +473,7 @@ $(document).ready(function () {
         $('.skip_button').css('margin-right', '10px')
         $('.home_button').css('width', '40px')
         $('.home_button').css('margin-right', '10px')
-        $('.pagination_button').css('top', '58px')
+        $('.pagination_button').css('top', '80px')
     } else {
         isMobile = false;
     }
@@ -510,7 +510,7 @@ $(document).ready(function () {
         $('.home_button').css('font-size', '61px');
         $('.home_button').css('border-radius', '70px');
 
-        $('.pagination_button').css('top', '57px');
+        $('.pagination_button').css('top', '80px');
     }
     else if (browserZoomLevel >= 175 && browserZoomLevel <= 300) {
         $('.next_button').css('width', '50px');
@@ -542,7 +542,7 @@ $(document).ready(function () {
         $('.home_button').css('justify-content', 'center');
         $('.home_button').css('align-items', 'center');
 
-        $('.pagination_button').css('top', '57px')
+        $('.pagination_button').css('top', '80px')
     }
     else if (browserZoomLevel >= 301 && browserZoomLevel <= 800) {
         $('.next_button').css('width', '30px');
@@ -574,7 +574,7 @@ $(document).ready(function () {
         $('.home_button').css('justify-content', 'center');
         $('.home_button').css('align-items', 'center');
 
-        $('.pagination_button').css('top', '51px')
+        $('.pagination_button').css('top', '80px')
     }
     else {
         $('.next_button').css('width', '165px');
@@ -635,7 +635,7 @@ window.addEventListener('resize', () => {
             $('.home_button').css('font-size', '61px');
             $('.home_button').css('border-radius', '70px');
 
-            $('.pagination_button').css('top', '57px');
+            $('.pagination_button').css('top', '80px');
         }
         else if (browserZoomLevel >= 175 && browserZoomLevel <= 300) {
             $('.next_button').css('width', '50px');
@@ -667,7 +667,7 @@ window.addEventListener('resize', () => {
             $('.home_button').css('justify-content', 'center');
             $('.home_button').css('align-items', 'center');
 
-            $('.pagination_button').css('top', '57px')
+            $('.pagination_button').css('top', '80px')
         }
         else if (browserZoomLevel >= 301 && browserZoomLevel <= 800) {
             $('.next_button').css('width', '30px');
@@ -699,7 +699,7 @@ window.addEventListener('resize', () => {
             $('.home_button').css('justify-content', 'center');
             $('.home_button').css('align-items', 'center');
 
-            $('.pagination_button').css('top', '51px')
+            $('.pagination_button').css('top', '80px')
         }
         else {
             $('.next_button').css('width', '165px');

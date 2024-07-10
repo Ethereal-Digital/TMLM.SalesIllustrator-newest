@@ -343,7 +343,7 @@ $(document).ready(function () {
         $('.skip_button').css('margin-right', '10px')
         $('.home_button').css('width', '40px')
         $('.home_button').css('margin-right', '10px')
-        $('.pagination_button').css('top', '58px')
+        $('.pagination_button').css('top', '80px')
     } else {
         isMobile = false;
     }
@@ -484,7 +484,7 @@ window.addEventListener('resize', () => {
         $('.skip_button').css('margin-right', '10px')
         $('.home_button').css('width', '40px')
         $('.home_button').css('margin-right', '10px')
-        $('.pagination_button').css('top', '58px')
+        $('.pagination_button').css('top', '80px')
     } else {
         isMobileNew = false;
     }
