@@ -466,6 +466,59 @@ $(document).ready(function () {
 
     GetDropDown();
     GetUserDetails();
+
+    var paramsId = getParamsID();
+    let occupationList = [];
+    let natureList = [];
+    var occupationUrl = sitename + 'SalesIllustrator/GetDropDownOccupation/' + paramsId.id;
+    var natureUrl = sitename + 'SalesIllustrator/GetDropDownNature/' + paramsId.id;
+
+    $('.occupation-list').select2({
+        placeholder: 'Select an option',
+        matcher: function (term, text, option) {
+            return text.toUpperCase().indexOf(term.toUpperCase()) >= 0 || option.val().toUpperCase().indexOf(term.toUpperCase()) >= 0;
+        },
+        width: 'resolve',
+        ajax: {
+            url: occupationUrl,
+            processResults: function (data) {
+                response = JSON.parse(data);
+
+                for (let obj of response) {
+                    occupationList.push({ id: obj.Occupation, text: obj.Occupation });
+                }
+
+                // Transforms the top-level key of the response object from 'items' to 'results'
+                return {
+                    results: occupationList
+                };
+            }
+        }     
+    });
+
+    $('.nature-list').select2({
+        placeholder: 'Select an option',
+        matcher: function (term, text, option) {
+            return text.toUpperCase().indexOf(term.toUpperCase()) >= 0 || option.val().toUpperCase().indexOf(term.toUpperCase()) >= 0;
+        },
+        width: 'resolve',
+        ajax: {
+            url: natureUrl,
+            processResults: function (data) {
+                response = JSON.parse(data);
+
+                for (let obj of response) {
+                    natureList.push({ id: obj.NatureOfBusiness, text: obj.NatureOfBusiness });
+                }
+
+                // Transforms the top-level key of the response object from 'items' to 'results'
+                return {
+                    results: natureList
+                };
+            }
+        }
+    });
+
 });
 
 window.addEventListener('resize', () => {
@@ -653,7 +706,31 @@ function submitForm(){
         next_page();
     }
 }
+function matchCustom(params, data) {
+    // If there are no search terms, return all of the data
+    if ($.trim(params.term) === '') {
+        return data;
+    }
 
+    // Do not display the item if there is no 'text' property
+    if (typeof data.text === 'undefined') {
+        return null;
+    }
+
+    // `params.term` should be the term that is used for searching
+    // `data.text` is the text that is displayed for the data object
+    if (data.text.indexOf(params.term) > -1) {
+        var modifiedData = $.extend({}, data, true);
+        modifiedData.text += ' (matched)';
+
+        // You can return modified objects from here
+        // This includes matching the `children` how you want in nested data sets
+        return modifiedData;
+    }
+
+    // Return `null` if the term should not be displayed
+    return null;
+}
 async function updateProcess(purpose){
     await UpdatePurposeSales(purpose);
 }
@@ -769,8 +846,7 @@ function productRecommend(){
         var isAllowedType = allowedTypes.includes(product.type);
         return !(isSuitable && isAllowedType);
     });
-    
-    console.log(recommendedProducts);
+
     return recommendedProducts;
     //var options = [];
     //var result = [];
@@ -826,6 +902,48 @@ function productRecommend(){
     //        options.push('RFW');
     //    }
     //}
+}
+
+function getProducts() {
+    let productText = "Product Recommendation : ";
+    var removedProducts = productRecommend();
+
+    var listedProducts = products.filter(obj => !removedProducts.some(o => o.product === obj.product));
+
+    for (let i = 0; i < listedProducts.length; i++) {
+        console.log(listedProducts[i].product);
+        var productName = getProductName(listedProducts[i].product);
+
+        productText += productName + (i < listedProducts.length - 1 ? ", " : "");
+    }
+
+    if (listedProducts.length == 0) {
+        productText = "No product available"
+    }
+
+    return productText;
+}
+
+function getProductName(productId) {
+
+    switch (productId) {
+        case "RT100":
+            return "RHB Treasure 100";
+        case "RT100P":
+            return "RHB Treasure 100 Premie";
+        case "RTB":
+            return "RHB Treasure Builder ";
+        case "REP":
+            return "RHB Essential Protect";
+        case "REPP":
+            return "RHB Essential Protect Premier";
+        case "RTS":
+            return "RHB Treasure Supreme";
+        case "RFW":
+            return "RHB Treasure FlexiWealth";
+        default:
+            
+    }
 }
 
 Array.prototype.remove = function() {
@@ -906,6 +1024,12 @@ function GetOccCode(occupation, nature){
     });
 }
 
+function getParamsID() {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+
+    return params;
+}
 async function GetDropDown(){
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
@@ -973,6 +1097,7 @@ function GetOccDropDown(auth){
         type: "GET",
         success: function (data) {
             response = JSON.parse(data);
+            console.log(response);
             $("#occupationDrop").empty();
             var select = document.getElementById('occupationDrop');
             var opt = document.createElement('option');
@@ -1207,6 +1332,7 @@ function riskReset(){
 function riskClick(option){
     riskReset();
     this.risk = option;
+    console.log(getProducts());
 
     switch (option) {
         case 1:
@@ -1252,7 +1378,10 @@ function riskClick(option){
         default:
             riskReset();
             break;
+
+         
     }
+    $(`#prodRecommendation`).html(getProducts());
 }
 
 function appendProduct(){
@@ -1889,6 +2018,7 @@ function checkPageCounter(page_counter) {
         }
 
         reco.forEach((opt) => {
+            console.log(opt.product);
             $('.carousel').flickity( 'remove', document.getElementById(`${opt.product}`))
         });
     }

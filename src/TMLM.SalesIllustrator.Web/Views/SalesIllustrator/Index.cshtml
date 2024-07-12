@@ -14,6 +14,10 @@
     <script src="~/js/site.js"  asp-append-version="true"></script>
     <script src="~/js/glider/glider.js" asp-append-version="true"></script>
     <script src="~/js/kendo.all.min.js" asp-append-version="true"></script>
+    <script src="~/js/select2.full.js" asp-append-version="true"></script>
+    <script src="~/js/select2.full.min.js" asp-append-version="true"></script>
+    <script src="~/js/select2.js" asp-append-version="true"></script>
+    <script src="~/js/select2.min.js" asp-append-version="true"></script>
     <script type="text/javascript" src="~/js/chartjs-plugin-labels.min.js" asp-append-version="true"></script>
 
     <link rel="stylesheet" href="~/css/bootstrap.min.css"  asp-append-version="true"/>
@@ -22,6 +26,8 @@
     <link rel="stylesheet" href="~/css/hover.css"  asp-append-version="true"/>
     <link rel="stylesheet" href="~/css/graph.css"  asp-append-version="true"/>
     <link rel="stylesheet" href="~/css/glider.css"  asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/select2.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/select2.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/datepicker-bulma.css"  asp-append-version="true"/>
     
 </head>
@@ -132,7 +138,7 @@
 
                             <div class="address_gender address_name slide-in-bottom">
                                     <div class="col-12">
-                                        <h4>When is your gender?</h4>
+                                        <h4>What is your gender?</h4>
                                     </div>
                                 
                                 <div class="row">
@@ -203,11 +209,16 @@
                                                 <div class="d-flex m-auto">
 
                                                     <!-- isNonMobile -->
-                                                    <div class=" main-selection w_100">
+                                                    @* <div class=" main-selection w_100">
                                                         <select onchange="validateNature();" id="natureopt" style="background: transparent; border: 0; text-align: center; width: 100%; height: 100%;">
                                                             <option value="">-Please Select-</option>
                                                         </select>
                                                         <!--  min="1995-01-01" max="2000-12-31" -->
+                                                    </div> *@
+                                                    <div class=" main-selection w_100">
+                                                        <select onchange="validateNature();" id="natureopt" class="nature-list" name="nature" style="background: transparent !important; border: 0!important; text-align: center; width: 100% !important; height: 100%!important;">
+                                                            <option value="">-Please Select-</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <small class="hidden red nature_invalid">Please select an option</small>
@@ -224,12 +235,19 @@
                                                 <div class="d-flex m-auto">
 
                                                     <!-- isNonMobile -->
-                                                    <div class=" main-selection w_100">
+                                                    @* <div class=" main-selection w_100">
                                                         <select onchange="validateOccupation();" id="occupationDrop" style="background: transparent; border: 0; text-align: center; width: 100%; height: 100%;">
                                                             <option value="">-Please Select-</option>
                                                         </select>
                                                         <!--  min="1995-01-01" max="2000-12-31" -->
+                                                    </div> *@
+
+                                                    <div class=" main-selection w_100">
+                                                        <select onchange="validateOccupation();" id="occupationDrop" class="occupation-list" name="occupation" style="background: transparent !important; border: 0!important; text-align: center; width: 100% !important; height: 100%!important;">
+                                                            <option value="">-Please Select-</option>
+                                                        </select>
                                                     </div>
+                                                  
                                                 </div>
                                                 <small class="hidden red occupation_invalid">Please select an option</small>
                                             </div>
@@ -892,6 +910,7 @@
                             <div style="width: 66%" class="d-flex alignCenter">
                                 <img id="riskMeterImg" src="~/assets/sales-ill/riskMeter.png">
                                 <h6 class="fw_600 ml-3" id="riskText" style="text-align:left;">You are conservative in your investment and prefer products that preserve capital, e.g. Bank's Fixed Deposits or Savings Account</h6>
+                                <h6 class="fw_600 ml-3" id="prodRecommendation"></h6>
                             </div>
                         </div>
                     </div>
