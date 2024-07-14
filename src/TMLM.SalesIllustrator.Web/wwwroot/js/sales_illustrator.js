@@ -475,7 +475,7 @@ $(document).ready(function () {
 
     $('.occupation-list').select2({
         placeholder: 'Select an option',
-        matcher: function (term, text, option) {
+        matcher: function(term, text, option) {
             return text.toUpperCase().indexOf(term.toUpperCase()) >= 0 || option.val().toUpperCase().indexOf(term.toUpperCase()) >= 0;
         },
         width: 'resolve',
@@ -502,6 +502,7 @@ $(document).ready(function () {
             return text.toUpperCase().indexOf(term.toUpperCase()) >= 0 || option.val().toUpperCase().indexOf(term.toUpperCase()) >= 0;
         },
         width: 'resolve',
+        matcher: matchCustom,
         ajax: {
             url: natureUrl,
             processResults: function (data) {
@@ -664,6 +665,32 @@ window.addEventListener('resize', () => {
 
 
 /*JS FUNCTIONS*/
+function matchCustom(params, data) {
+    // If there are no search terms, return all of the data
+    if ($.trim(params.term) === '') {
+        return data;
+    }
+
+    // Do not display the item if there is no 'text' property
+    if (typeof data.text === 'undefined') {
+        return null;
+    }
+
+    // `params.term` should be the term that is used for searching
+    // `data.text` is the text that is displayed for the data object
+    if (data.text.indexOf(params.term) > -1) {
+        var modifiedData = $.extend({}, data, true);
+        modifiedData.text += ' (matched)';
+
+        // You can return modified objects from here
+        // This includes matching the `children` how you want in nested data sets
+        return modifiedData;
+    }
+
+    // Return `null` if the term should not be displayed
+    return null;
+}
+
 function submitForm(){
     this.name = $('.name').val();
     this.dob = $('#age').val();
@@ -1340,7 +1367,7 @@ function riskClick(option){
             $(`#riskArr${option}`).show();
             $(`#riskMeter`).show();
             document.getElementById("riskMeterImg").src = sitename + "assets/sales-ill/Mrisk1.png";
-            $(`#riskText`).html("You are conservative in your investment and prefer products that preserve capital, e.g. Bank's Fixed Deposits or Savings Account");
+            $(`#riskText`).html("You are conservative in your investment and prefer products that preserve capital, e.g. Bank's Fixed Deposits or Savings Account.");
             $('.next_button').show();
             break;
         case 2:
@@ -1348,7 +1375,7 @@ function riskClick(option){
             $(`#riskArr${option}`).show();
             $(`#riskMeter`).show();
             document.getElementById("riskMeterImg").src = sitename + "assets/sales-ill/Mrisk2.png";
-            $(`#riskText`).html("You are moderately conservative in your investment and prefer minor investment fluctuations");
+            $(`#riskText`).html("You are moderately conservative in your investment and prefer minor investment fluctuations.");
             $('.next_button').show();
             break;
         case 3:
@@ -1442,7 +1469,7 @@ function checkPageCounter(page_counter) {
         window.scrollTo(0, 0);
 
         if (this.firstPrio == '') {
-            $('#main_title').html("What will be your priority at this moment?")
+            $('#main_title').html("What is your priority at this moment?")
             $('#sub_title').html("")
             updateProcess('Priority 1');
 
@@ -1459,7 +1486,7 @@ function checkPageCounter(page_counter) {
             $('#prio5M').show();
         }
         else{
-            $('#main_title').html("What will be your second priority?")
+            $('#main_title').html("What is your second priority?")
             $('#sub_title').html("")
             updateProcess('Priority 2');
 
