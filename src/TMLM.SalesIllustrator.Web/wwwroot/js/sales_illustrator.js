@@ -941,11 +941,11 @@ function getProducts() {
         console.log(listedProducts[i].product);
         var productName = getProductName(listedProducts[i].product);
 
-        productText += productName + (i < listedProducts.length - 1 ? ", " : "");
+        productText += productName + (i < listedProducts.length - 1 ? ", " : ".");
     }
 
     if (listedProducts.length == 0) {
-        productText = "No product available"
+        productText = "No product available."
     }
 
     return productText;
