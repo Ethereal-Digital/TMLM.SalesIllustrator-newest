@@ -467,59 +467,6 @@ $(document).ready(function () {
     GetDropDown();
     GetUserDetails();
 
-    var paramsId = getParamsID();
-    let occupationList = [];
-    let natureList = [];
-    var occupationUrl = sitename + 'SalesIllustrator/GetDropDownOccupation/' + paramsId.id;
-    var natureUrl = sitename + 'SalesIllustrator/GetDropDownNature/' + paramsId.id;
-
-    $('.occupation-list').select2({
-        placeholder: 'Select an option',
-        matcher: function(term, text, option) {
-            return text.toUpperCase().indexOf(term.toUpperCase()) >= 0 || option.val().toUpperCase().indexOf(term.toUpperCase()) >= 0;
-        },
-        width: 'resolve',
-        ajax: {
-            url: occupationUrl,
-            processResults: function (data) {
-                response = JSON.parse(data);
-
-                for (let obj of response) {
-                    occupationList.push({ id: obj.Occupation, text: obj.Occupation });
-                }
-
-                // Transforms the top-level key of the response object from 'items' to 'results'
-                return {
-                    results: occupationList
-                };
-            }
-        }     
-    });
-
-    $('.nature-list').select2({
-        placeholder: 'Select an option',
-        matcher: function (term, text, option) {
-            return text.toUpperCase().indexOf(term.toUpperCase()) >= 0 || option.val().toUpperCase().indexOf(term.toUpperCase()) >= 0;
-        },
-        width: 'resolve',
-        matcher: matchCustom,
-        ajax: {
-            url: natureUrl,
-            processResults: function (data) {
-                response = JSON.parse(data);
-
-                for (let obj of response) {
-                    natureList.push({ id: obj.NatureOfBusiness, text: obj.NatureOfBusiness });
-                }
-
-                // Transforms the top-level key of the response object from 'items' to 'results'
-                return {
-                    results: natureList
-                };
-            }
-        }
-    });
-
 });
 
 window.addEventListener('resize', () => {
@@ -665,32 +612,6 @@ window.addEventListener('resize', () => {
 
 
 /*JS FUNCTIONS*/
-function matchCustom(params, data) {
-    // If there are no search terms, return all of the data
-    if ($.trim(params.term) === '') {
-        return data;
-    }
-
-    // Do not display the item if there is no 'text' property
-    if (typeof data.text === 'undefined') {
-        return null;
-    }
-
-    // `params.term` should be the term that is used for searching
-    // `data.text` is the text that is displayed for the data object
-    if (data.text.indexOf(params.term) > -1) {
-        var modifiedData = $.extend({}, data, true);
-        modifiedData.text += ' (matched)';
-
-        // You can return modified objects from here
-        // This includes matching the `children` how you want in nested data sets
-        return modifiedData;
-    }
-
-    // Return `null` if the term should not be displayed
-    return null;
-}
-
 function submitForm(){
     this.name = $('.name').val();
     this.dob = $('#age').val();
@@ -733,31 +654,7 @@ function submitForm(){
         next_page();
     }
 }
-function matchCustom(params, data) {
-    // If there are no search terms, return all of the data
-    if ($.trim(params.term) === '') {
-        return data;
-    }
 
-    // Do not display the item if there is no 'text' property
-    if (typeof data.text === 'undefined') {
-        return null;
-    }
-
-    // `params.term` should be the term that is used for searching
-    // `data.text` is the text that is displayed for the data object
-    if (data.text.indexOf(params.term) > -1) {
-        var modifiedData = $.extend({}, data, true);
-        modifiedData.text += ' (matched)';
-
-        // You can return modified objects from here
-        // This includes matching the `children` how you want in nested data sets
-        return modifiedData;
-    }
-
-    // Return `null` if the term should not be displayed
-    return null;
-}
 async function updateProcess(purpose){
     await UpdatePurposeSales(purpose);
 }
@@ -1115,6 +1012,7 @@ function BindUserDetails(detials){
 
 function GetOccDropDown(auth){
     var url = sitename + 'SalesIllustrator/GetDropDownOccupation/' + auth;
+    var occupationList = [];
     $.ajax({
         headers: {
             'Accept': 'application/json',
@@ -1126,20 +1024,14 @@ function GetOccDropDown(auth){
             response = JSON.parse(data);
             console.log(response);
             $("#occupationDrop").empty();
-            var select = document.getElementById('occupationDrop');
-            var opt = document.createElement('option');
-            opt.value = '';
-            opt.innerHTML = '-Please Select-';
-            select.appendChild(opt);
 
-            $(response).each(function(index, ocp){
-                var select  = document.getElementById('occupationDrop');
-                var opt = document.createElement('option');
-                opt.value = ocp.Occupation;
-                opt.innerHTML = ocp.Occupation;
-
-                select.appendChild(opt);
-                /*console.log(ocp.Occupation)*/
+            for (let obj of response) {
+                occupationList.push({ id: obj.Occupation, text: obj.Occupation });
+            }
+            
+            $('.occupation-list').select2({
+                placeholder: "Select a state",
+                data: occupationList
             });
         },
         error: function (data) {
@@ -1153,6 +1045,7 @@ function GetOccDropDown(auth){
 
 function GetNatureDropDown(auth){
     var url = sitename + 'SalesIllustrator/GetDropDownNature/' + auth;
+    let natureList = [];
     $.ajax({
         headers: {
             'Accept': 'application/json',
@@ -1162,25 +1055,16 @@ function GetNatureDropDown(auth){
         type: "GET",
         success: function (data) {
             response = JSON.parse(data);
+            console.log(response);
             $("#natureopt").empty();
-            var select = document.getElementById('natureopt');
-            var opt = document.createElement('option');
-            opt.value = '';
-            opt.innerHTML = '-Please Select-';
-            select.appendChild(opt);
 
-            $(response).each(function(index, ocp){
-                var select  = document.getElementById('natureopt');
-                var opt = document.createElement('option');
-                opt.value = ocp.NatureOfBusiness;
-                opt.innerHTML = ocp.NatureOfBusiness;
+            for (let obj of response) {
+                natureList.push({ id: obj.NatureOfBusiness, text: obj.NatureOfBusiness });
+            }
 
-                if(opt.value == 'NOT APPLICABLE'){
-                    select.insertBefore(opt, select.options[1]);
-                }
-                else{
-                    select.appendChild(opt);
-                }
+            $('.nature-list').select2({
+                placeholder: "Select a state",
+                data: natureList
             });
         },
         error: function (data) {
