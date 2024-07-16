@@ -1022,16 +1022,16 @@ function GetOccDropDown(auth){
         type: "GET",
         success: function (data) {
             response = JSON.parse(data);
-            console.log(response);
-            $("#occupationDrop").empty();
 
             for (let obj of response) {
                 occupationList.push({ id: obj.Occupation, text: obj.Occupation });
             }
-            
-            $('.occupation-list').select2({
-                placeholder: "Select a state",
-                data: occupationList
+           
+            $(".occ-list").select2({
+                placeholder: "-Please select-",
+                allowClear: true,
+                data: occupationList,
+                width: 'resolve'
             });
         },
         error: function (data) {
@@ -1055,16 +1055,16 @@ function GetNatureDropDown(auth){
         type: "GET",
         success: function (data) {
             response = JSON.parse(data);
-            console.log(response);
-            $("#natureopt").empty();
 
             for (let obj of response) {
                 natureList.push({ id: obj.NatureOfBusiness, text: obj.NatureOfBusiness });
             }
 
-            $('.nature-list').select2({
-                placeholder: "Select a state",
-                data: natureList
+            $(".nature-list").select2({
+                placeholder: "-Please select-",
+                allowClear: true,
+                data: natureList,
+                width: 'resolve'
             });
         },
         error: function (data) {
