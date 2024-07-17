@@ -184,6 +184,7 @@ namespace TMLM.SalesIllustrator.API.Repositories
 
             _dParams.Add("@varRetCode", dbType: DbType.String, direction: ParameterDirection.Output, size: 10);
             _dParams.Add("@varRetMsg", dbType: DbType.String, direction: ParameterDirection.Output, size: 1000);
+            
 
             using (var cn = new SqlConnection(Constant.ConnectionString))
             {
