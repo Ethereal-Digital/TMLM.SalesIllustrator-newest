@@ -216,9 +216,12 @@
                                                         <!--  min="1995-01-01" max="2000-12-31" -->
                                                     </div> *@
                                                     <div class=" main-selection w_100">
-                                                        <select onchange="validateNature();" id="natureopt" class="nature-list" name="nature" style="background: transparent !important; border: 0!important; text-align: center; width: 100% !important; height: 100%!important;">
-                                                            <option value="">-Please Select-</option>
+                                                        <select onChange="validateNature();" class="nature-list form-control" style="width: 100%; height: 100%;" id="natureopt">
+                                                            <option></option>
                                                         </select>
+                                                    @*     <select onchange="validateNature();" id="natureopt" data-placeholder="-Please Select-" class="nature-list" name="nature" style="background: transparent !important; border: 0!important; text-align: center; width: 100% !important; height: 100%!important;">
+                                                            <option></option>
+                                                        </select> *@
                                                     </div>
                                                 </div>
                                                 <small class="hidden red nature_invalid">Please select an option</small>
@@ -243,9 +246,12 @@
                                                     </div> *@
 
                                                     <div class=" main-selection w_100">
-                                                        <select onchange="validateOccupation();" id="occupationDrop" class="occupation-list" name="occupation" style="background: transparent !important; border: 0!important; text-align: center; width: 100% !important; height: 100%!important;">
-                                                            <option value="">-Please Select-</option>
+                                                        <select onchange="validateOccupation();" class="occ-list js-states form-control" style="width: 100%; height: 100%;" id="occupationDrop">
+                                                            <option></option>
                                                         </select>
+                                                        @* <select onchange="validateOccupation();" data-placeholder="-Please Select-" id="occupationDrop" class="occupation-list" name="occupation" style="background: transparent !important; border: 0!important; text-align: center; width: 100% !important; height: 100%!important;">
+                                                            <option></option>
+                                                        </select> *@
                                                     </div>
                                                   
                                                 </div>
@@ -341,9 +347,9 @@
                         <div class="row alignCenter">
                             <div class="col-4" id="ret5_1">
                                 <div class="d-flex alignCenter justifyCenter">
-                                    <img style="width:28%;margin-top: 20px;" src="~/assets/sales-ill/ret1.png">
+                                    <img style="width:28%;" src="~/assets/sales-ill/ret1.png">
                                     <p class="content_font3 ml-3 mr-3">Explore the world</p>
-                                    <img style="width:10%;" src="~/assets/sales-ill/arrow-up2.png">
+                                    <img style="width:10%;margin-top: 20px;" src="~/assets/sales-ill/arrow-up2.png">
                                 </div>
                             </div>
                             <div class="col-4"></div>
@@ -888,19 +894,19 @@
                             <div class="col">
                             </div>
                             <div class="col">
-                                <img id="riskArr1" style="width:55%; display: none;" src="~/assets/sales-ill/risk.png">
+                                <img id="riskArr1" style="width:55%; display: none;height: 60px;" src="~/assets/sales-ill/risk.png">
                             </div>
                             <div class="col">
-                                <img id="riskArr2" style="width:55%; display: none;" src="~/assets/sales-ill/risk2.png">
+                                <img id="riskArr2" style="width:55%; display: none;height: 60px;" src="~/assets/sales-ill/risk2.png">
                             </div>
                             <div class="col">
-                                <img id="riskArr3" style="width:55%; display: none;" src="~/assets/sales-ill/risk3.png">
+                                <img id="riskArr3" style="width:55%; display: none;height: 60px;" src="~/assets/sales-ill/risk3.png">
                             </div>
                             <div class="col">
-                                <img id="riskArr4" style="width:55%; display: none;" src="~/assets/sales-ill/risk4.png">
+                                <img id="riskArr4" style="width:55%; display: none;height: 60px;" src="~/assets/sales-ill/risk4.png">
                             </div>
                             <div class="col">
-                                <img id="riskArr5" style="width:55%; display: none;" src="~/assets/sales-ill/risk5.png">
+                                <img id="riskArr5" style="width:55%; display: none;height: 60px;" src="~/assets/sales-ill/risk5.png">
                             </div>
                             <div class="col">
                             </div>
