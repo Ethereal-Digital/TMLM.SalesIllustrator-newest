@@ -86,7 +86,12 @@ namespace TMLM.SalesIllustrator.Shared.Common
         public static async Task<string> GetAsJson(this HttpClient httpClient, string url, string authToken)
         {
             if (!string.IsNullOrEmpty(authToken))
-                httpClient.DefaultRequestHeaders.Add("Auth", authToken);
+            {
+                //httpClient.DefaultRequestHeaders.Add("Auth", authToken);
+                httpClient.DefaultRequestHeaders.Add("Auth",authToken);
+            }
+
+
             var response = await httpClient.GetAsync(url);
             var content = await response.Content.ReadAsStringAsync();
 
