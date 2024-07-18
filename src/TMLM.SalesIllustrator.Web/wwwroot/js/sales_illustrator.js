@@ -854,9 +854,9 @@ function getProductName(productId) {
         case "RT100":
             return "RHB Treasure 100";
         case "RT100P":
-            return "RHB Treasure 100 Premie";
+            return "RHB Treasure 100 Premier";
         case "RTB":
-            return "RHB Treasure Builder ";
+            return "RHB Treasure Builder";
         case "REP":
             return "RHB Essential Protect";
         case "REPP":
