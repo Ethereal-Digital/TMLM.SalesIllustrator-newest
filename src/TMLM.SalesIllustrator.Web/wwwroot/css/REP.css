@@ -256,6 +256,8 @@ body {
     min-height: 54vh;
     padding: 1.5em;
     border-radius: 10px;
+    top:37%;
+    position: absolute;
 }
 
 .overviewcontent {
@@ -275,7 +277,7 @@ body {
     width: 90vw;
     background: #fff;
     position: absolute;
-    top: 22%;
+    top: 28%;
     transform: translateY(0px);
     flex: 1;
     display: flex;

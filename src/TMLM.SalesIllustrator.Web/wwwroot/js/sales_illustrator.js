@@ -380,7 +380,7 @@ $(document).ready(function () {
         $('.home_button').css('font-size', '61px');
         $('.home_button').css('border-radius', '70px');
 
-        $('.pagination_button').css('top', '57px');
+        $('.pagination_button').css('top', '80px');
     }
     else if (browserZoomLevel >= 175 && browserZoomLevel <= 300) {
         $('.next_button').css('width', '50px');
@@ -412,7 +412,8 @@ $(document).ready(function () {
         $('.home_button').css('justify-content', 'center');
         $('.home_button').css('align-items', 'center');
 
-        $('.pagination_button').css('top', '57px')
+        // $('.pagination_button').css('top', '65px')
+        $('.pagination_button').css('top', '80px')
     }
     else if (browserZoomLevel >= 301 && browserZoomLevel <= 800) {
         $('.next_button').css('width', '30px');
@@ -521,7 +522,7 @@ window.addEventListener('resize', () => {
             $('.home_button').css('font-size', '61px');
             $('.home_button').css('border-radius', '70px');
 
-            $('.pagination_button').css('top', '57px');
+            $('.pagination_button').css('top', '80px');
         }
         else if (browserZoomLevel >= 175 && browserZoomLevel <= 300) {
             $('.next_button').css('width', '50px');
@@ -550,7 +551,7 @@ window.addEventListener('resize', () => {
             $('.home_button').css('justify-content', 'center');
             $('.home_button').css('align-items', 'center');
 
-            $('.pagination_button').css('top', '57px')
+            $('.pagination_button').css('top', '80px')
         }
         else if (browserZoomLevel >= 301 && browserZoomLevel <= 800) {
             $('.next_button').css('width', '30px');
@@ -1302,7 +1303,7 @@ function appendProduct(){
     const $cellElems4 = $(`<div class="carousel-cell" id="RT100P"> <div onclick="goToRt100(\'premier\');"> <div style="background: #0096a9; padding: 10px; text-align: center; color: #fff; font-weight: 600;">RHB Treasure 100 Premier</div> <img loading="lazy"  style=" display: block; margin-left: auto; cursor: pointer; margin-right: auto; width: 100%" src="${sitename}assets/rt100/slide_1_2.png"> <div class="bottom_Description_f"> <ul> <li class="fs_13">A non-participating plan that provides annual Guaranteed Cash Payment (GCP) until the maturity of policy. </li> <li class="fs_13">This plan also provides coverage on Death or Total & Permanent Disability (TPD).  </li> <li class="fs_13">Additional coverage will be provided for Death or TPD due to Accident. </li> </ul> </div> </div></div>`);
     const $cellElems5 = $(`<div class="carousel-cell" id="RTB"> <div onclick="goToRhbTreasureBuilder()"> <div style="background: #0096a9; padding: 10px; text-align: center; color: #fff; font-weight: 600;">RHB Treasure Builder</div> <img loading="lazy"  style=" display: block; margin-left: auto; cursor: pointer; margin-right: auto; width: 100%" src="${sitename}assets/main3.jpg"> <div class="bottom_Description_f"> <ul> <li class="fs_13">A limited 5 or 8 pay regular premium Investment-Linked plan covering Death or Total & Permanent Disability (TPD) up to 20 or 25 years. </li><li class="fs_13">This plan also comes with packaged premium paying riders that provides annual Guaranteed Cash Payment (GCP) until the maturity of policy. Additional GCP Booster will also be payable at the end of every five policy year. </li> </ul></div> </div></div>`);
     const $cellElems6 = $(`<div class="carousel-cell" id="RTS"> <div onclick="goToRhbTreasureSupreme()"> <div style="background: #0096a9; padding: 10px; text-align: center; color: #fff; font-weight: 600;"> RHB Treasure Supreme </div> <img loading="lazy" style=" display: block; margin-left: auto; cursor: pointer; margin-right: auto; width: 100%" src="${sitename}assets/supreme.jpg"> <div class="bottom_Description_f"> <ul> <li class="fs_13"> A non-participating plan that provides annual Guaranteed Cash Payment (GCP) until the maturity of policy. </li><li class="fs_13"> Short premium term of 3 years with Guaranteed Acceptance up to RM500,000. </li> <li class="fs_13"> This plan also provides coverage on Death or Total & Permanent Disability (TPD). </li> </ul></div></div></div>`);
-    const $cellElems7 = $(`<div class="carousel-cell" id="RFW"> <div onclick="goToRhbTreasureFlexiWealth()"> <div style="background: #0096a9; padding: 10px; text-align: center; color: #fff; font-weight: 600;"> RHB Treasure FlexiWealth </div> <img loading="lazy" style=" display: block; margin-left: auto; cursor: pointer; margin-right: auto; width: 100%" src="${sitename}assets/flexi.jpg"> <div class="bottom_Description_f"> <ul> <li class="fs_13"> Our premier 3-pay investment-linked plan, designed to offer enduring coverage for Death or Total and Permanent Disability (TPD) up to your 100th birthday!</li> <li class="fs_13"> This plan requires only 3 regular premium payments, making it an optimal choice for those seeking substantial long-term protection with minimal upfront commitment. </li> <li class="fs_13"> Receive an exclusive Loyalty Bonus equal to 100% of your Basic Sum Assured (BSA), a reward for your commitment, payable at significant milestones — age 70, 80, 90, or 100 next birthday. </li> <li class="fs_13"> Enhance your peace of mind with comprehensive Spouse Accidental Death and Total Permanent Disability Coverage.  </li> </ul> </div> </div> </div>`);
+    const $cellElems7 = $(`<div class="carousel-cell" id="RFW"> <div onclick="goToRhbTreasureFlexiWealth()"> <div style="background: #0096a9; padding: 10px; text-align: center; color: #fff; font-weight: 600;"> RHB Treasure FlexiWealth </div> <img loading="lazy" style=" display: block; margin-left: auto; cursor: pointer; margin-right: auto; width: 100%" src="${sitename}assets/flexi.jpg"> <div class="bottom_Description_f"> <ul> <li class="fs_13"> Our premier 3-pay investment-linked plan, designed to offer enduring coverage for Death or Total and Permanent Disability (TPD) up to your 100th birthday!</li> <li class="fs_13"> This plan requires only 3 regular premium payments, making it an optimal choice for those seeking substantial long-term protection with minimal upfront commitment. </li> <li class="fs_13"> Receive an exclusive Loyalty Bonus equal to 100% of your Basic Sum Assured (BSA), a reward for your commitment, payable at significant milestones ï¿½ age 70, 80, 90, or 100 next birthday. </li> <li class="fs_13"> Enhance your peace of mind with comprehensive Spouse Accidental Death and Total Permanent Disability Coverage.  </li> </ul> </div> </div> </div>`);
 
     $('.carousel').flickity('append', $cellElems1);
     $('.carousel').flickity('append', $cellElems2);

@@ -721,7 +721,7 @@ $(document).ready(function () {
         $('.skip_button').css('margin-right', '10px')
         $('.home_button').css('width', '40px')
         $('.home_button').css('margin-right', '10px')
-        $('.pagination_button').css('top', '58px')
+        $('.pagination_button').css('top', '80px')
     } else {
         isMobile = false;
     }
@@ -758,7 +758,7 @@ $(document).ready(function () {
         $('.home_button').css('font-size', '61px');
         $('.home_button').css('border-radius', '70px');
 
-        $('.pagination_button').css('top', '57px');
+        $('.pagination_button').css('top', '80px');
     }
     else if (browserZoomLevel >= 175 && browserZoomLevel <= 300) {
         $('.next_button').css('width', '50px');
@@ -790,7 +790,7 @@ $(document).ready(function () {
         $('.home_button').css('justify-content', 'center');
         $('.home_button').css('align-items', 'center');
 
-        $('.pagination_button').css('top', '57px')
+        $('.pagination_button').css('top', '65px')
     }
     else if (browserZoomLevel >= 301 && browserZoomLevel <= 800) {
         $('.next_button').css('width', '30px');
@@ -883,7 +883,7 @@ window.addEventListener('resize', () => {
             $('.home_button').css('font-size', '61px');
             $('.home_button').css('border-radius', '70px');
 
-            $('.pagination_button').css('top', '57px');
+            $('.pagination_button').css('top', '80px');
         }
         else if (browserZoomLevel >= 175 && browserZoomLevel <= 300) {
             $('.next_button').css('width', '50px');
@@ -915,7 +915,7 @@ window.addEventListener('resize', () => {
             $('.home_button').css('justify-content', 'center');
             $('.home_button').css('align-items', 'center');
 
-            $('.pagination_button').css('top', '57px')
+            $('.pagination_button').css('top', '65px')
         }
         else if (browserZoomLevel >= 301 && browserZoomLevel <= 800) {
             $('.next_button').css('width', '30px');
@@ -1180,14 +1180,14 @@ function mobileClickOccurence(i, y) {
 function applyLongerBg() {
     $('.top').css('height', "50%");
     $('.summary_1').css('position', 'absolute')
-    $('.summary_1').css('top', '22%')
+    $('.summary_1').css('top', '28%')
     $('.summary_1').css('transform', 'translateY(0px)')
 }
 
 function revertLongerBg() {
     $('.top').css('height', "30%");
     $('.summary_1').css('position', 'relative')
-    $('.summary_1').css('top', '22%')
+    $('.summary_1').css('top', '28%')
     $('.summary_1').css('transform', 'translateY(-80px)')
 }
 
