@@ -344,8 +344,15 @@ $(document).ready(function () {
         $('.home_button').css('width', '40px')
         $('.home_button').css('margin-right', '10px')
         $('.pagination_button').css('top', '80px')
+
+        // textview
+        // $('.txtView1').css('text-align','left')
+        $('.txtView1').attr('style', 'text-align: left !important');
     } else {
+        console.log("ok")
         isMobile = false;
+        $('.txtView1').css('text-align','center')
+        $('.txtView1').css('vertical-align', 'middle')
     }
 
     if (/iPad|iPhone|MacIntel|iPod/.test(navigator.platform)) {
