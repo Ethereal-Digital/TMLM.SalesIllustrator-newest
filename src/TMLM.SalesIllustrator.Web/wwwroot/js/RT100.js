@@ -954,14 +954,14 @@ function mobileClickOccurence(i, y) {
 function applyLongerBg() {
     $('.top').css('height', "50%");
     $('.summary_1').css('position', 'absolute')
-    $('.summary_1').css('top', '22%')
+    $('.summary_1').css('top', '28%')
     $('.summary_1').css('transform', 'translateY(0px)')
 }
 
 function revertLongerBg() {
     $('.top').css('height', "30%");
     $('.summary_1').css('position', 'relative')
-    $('.summary_1').css('top', '22%')
+    $('.summary_1').css('top', '28%')
     $('.summary_1').css('transform', 'translateY(-80px)')
 }
 
