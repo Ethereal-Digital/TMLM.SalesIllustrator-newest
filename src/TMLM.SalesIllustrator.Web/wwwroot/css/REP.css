@@ -256,8 +256,6 @@ body {
     min-height: 54vh;
     padding: 1.5em;
     border-radius: 10px;
-    top:37%;
-    position: absolute;
 }
 
 .overviewcontent {
@@ -277,7 +275,7 @@ body {
     width: 90vw;
     background: #fff;
     position: absolute;
-    top: 28%;
+    top: 22%;
     transform: translateY(0px);
     flex: 1;
     display: flex;
@@ -731,7 +729,7 @@ body {
     text-align: center;
     font-size: 30px;
     color: white;
-    transform: translateY(105px);
+    transform: translateY(55px);
     font-weight: 600;
 }
 
@@ -740,7 +738,7 @@ body {
     text-align: center;
     font-size: 15px;
     color: white;
-    transform: translateY(110px);
+    transform: translateY(60px);
 }
 
 #enteredamount2 {
@@ -1156,11 +1154,11 @@ li:not(:last-child) {
 @media only screen and (max-height: 720px) {
     .main-title {
         font-size: 24px !important;
-        transform: translateY(65px) !important;
+        transform: translateY(50px) !important;
     }
 
     .sub-title {
-        transform: translateY(70px) !important;
+        transform: translateY(50px) !important;
     }
 
     .box {

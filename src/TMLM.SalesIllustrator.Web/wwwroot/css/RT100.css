@@ -235,8 +235,6 @@ body {
     min-height: 54vh;
     padding: 1.5em;
     border-radius: 10px;
-    top:45%;
-    position: absolute;
 }
 
 .enquiry_main {
@@ -274,7 +272,7 @@ body {
     width: 90vw;
     background: #fff;
     position: absolute;
-    top: 28%;
+    top: 22%;
     transform: translateY(0px);
     flex: 1;
     display: flex;
