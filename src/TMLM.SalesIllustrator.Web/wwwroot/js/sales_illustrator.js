@@ -351,7 +351,6 @@ $(document).ready(function () {
     } else {
         console.log("ok")
         isMobile = false;
-        $('.txtView1').css('text-align','center')
         $('.txtView1').css('vertical-align', 'middle')
     }
 
