@@ -349,7 +349,6 @@ $(document).ready(function () {
         // $('.txtView1').css('text-align','left')
         $('.txtView1').attr('style', 'text-align: left !important');
     } else {
-        console.log("ok")
         isMobile = false;
         $('.txtView1').css('vertical-align', 'middle')
     }
@@ -454,21 +453,21 @@ $(document).ready(function () {
         $('.pagination_button').css('top', '51px')
     }
     else {
-        $('.next_button').css('width', '165px');
-        $('.next_button').css('height', '40px');
-        $('.next_button').css('font-size', '17px');
+        $('.next_button').css('width', '130px');
+        $('.next_button').css('height', '30px');
+        $('.next_button').css('font-size', '12px');
 
-        $('.back_button').css('width', '165px');
-        $('.back_button').css('font-size', '17px');
-        $('.back_button').css('height', '40px');
+        $('.back_button').css('width', '130px');
+        $('.back_button').css('font-size', '12px');
+        $('.back_button').css('height', '30px');
 
-        $('.skip_button').css('width', '165px');
-        $('.skip_button').css('height', '40px');
-        $('.skip_button').css('font-size', '17px');
+        $('.skip_button').css('width', '130px');
+        $('.skip_button').css('height', '30px');
+        $('.skip_button').css('font-size', '12px');
 
-        $('.home_button').css('width', '165px');
-        $('.home_button').css('height', '40px');
-        $('.home_button').css('font-size', '17px');
+        $('.home_button').css('width', '130px');
+        $('.home_button').css('height', '30px');
+        $('.home_button').css('font-size', '12px');
     }
 
     GetDropDown();
@@ -589,21 +588,21 @@ window.addEventListener('resize', () => {
             $('.pagination_button').css('top', '51px')
         }
         else {
-            $('.next_button').css('width', '165px');
-            $('.next_button').css('height', '40px');
-            $('.next_button').css('font-size', '17px');
+            $('.next_button').css('width', '130px');
+            $('.next_button').css('height', '30px');
+            $('.next_button').css('font-size', '12px');
 
-            $('.back_button').css('width', '165px');
-            $('.back_button').css('font-size', '17px');
-            $('.back_button').css('height', '40px');
+            $('.back_button').css('width', '130px');
+            $('.back_button').css('font-size', '12px');
+            $('.back_button').css('height', '30px');
 
-            $('.skip_button').css('width', '165px');
-            $('.skip_button').css('height', '40px');
-            $('.skip_button').css('font-size', '17px');
+            $('.skip_button').css('width', '130px');
+            $('.skip_button').css('height', '30px');
+            $('.skip_button').css('font-size', '12px');
 
-            $('.home_button').css('width', '165px');
-            $('.home_button').css('height', '40px');
-            $('.home_button').css('font-size', '17px');
+            $('.home_button').css('width', '130px');
+            $('.home_button').css('height', '30px');
+            $('.home_button').css('font-size', '12px');
         }
     }
 
@@ -842,7 +841,6 @@ function getProducts() {
     var listedProducts = products.filter(obj => !removedProducts.some(o => o.product === obj.product));
 
     for (let i = 0; i < listedProducts.length; i++) {
-        console.log(listedProducts[i].product);
         var productName = getProductName(listedProducts[i].product);
 
         productText += productName + (i < listedProducts.length - 1 ? ", " : ".");
@@ -971,7 +969,7 @@ async function GetDropDown(){
 function GetUserDetails(){
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
-
+    showLoader();
     var url = sitename + 'SalesIllustrator/GetUserDetails';
     $.ajax({
         headers: {
@@ -985,14 +983,23 @@ function GetUserDetails(){
         datatype: "JSON",
         type: "GET",
         success: function (data) {
-            if(data != ""){
+            hideloader();
+            if (data != "") {
                 response = JSON.parse(data);
 
-                if(response != null){
+                if (response != null) {
+                    $('#main_title').html("")
+                    $('#sub_title').html("")
                     BindUserDetails(response);
                     next(20);
+                    hideloader();
                 }
             }
+            else {
+                $('#main_title').html("Welcome to your personalised Sales Illustrator!");
+                $('#sub_title').html("Let’s start your financial planning journey.");
+            }
+            
         },
         error: function (data) {
             hideloader();
@@ -1036,7 +1043,6 @@ function GetOccDropDown(auth){
            
             $(".occ-list").select2({
                 placeholder: "-Please select-",
-                allowClear: true,
                 data: occupationList,
                 width: 'resolve'
             });
@@ -1069,7 +1075,6 @@ function GetNatureDropDown(auth){
 
             $(".nature-list").select2({
                 placeholder: "-Please select-",
-                allowClear: true,
                 data: natureList,
                 width: 'resolve'
             });
@@ -1250,7 +1255,7 @@ function riskReset(){
 function riskClick(option){
     riskReset();
     this.risk = option;
-    console.log(getProducts());
+ 
 
     switch (option) {
         case 1:
@@ -2071,10 +2076,9 @@ async function validateNature() {
         this.Validate_nature = true;
 
          if(this.nature == 'NOT APPLICABLE'){
-            $("#occupationDrop").empty();
+             $("#occupationDrop").empty();
             var select = document.getElementById('occupationDrop');
             var opt = document.createElement('option');
-            opt.value = '';
             opt.innerHTML = '-Please Select-';
             select.appendChild(opt);
 
@@ -2087,7 +2091,12 @@ async function validateNature() {
                 select.appendChild(opt);
             })
          }
-         else{
+         else {
+             $("#occupationDrop").empty();
+             var select = document.getElementById('occupationDrop');
+             var opt = document.createElement('option');
+             opt.innerHTML = '-Please Select-';
+             select.appendChild(opt);
              const urlSearchParams = new URLSearchParams(window.location.search);
              const params = Object.fromEntries(urlSearchParams.entries());
              await GetOccDropDown(params.id);

@@ -825,21 +825,21 @@ $(document).ready(function () {
         $('.pagination_button').css('top', '51px')
     }
     else {
-        $('.next_button').css('width', '165px');
-        $('.next_button').css('height', '40px');
-        $('.next_button').css('font-size', '17px');
+        $('.next_button').css('width', '130px');
+        $('.next_button').css('height', '30px');
+        $('.next_button').css('font-size', '12px');
 
-        $('.back_button').css('width', '165px');
-        $('.back_button').css('font-size', '17px');
-        $('.back_button').css('height', '40px');
+        $('.back_button').css('width', '130px');
+        $('.back_button').css('font-size', '12px');
+        $('.back_button').css('height', '30px');
 
-        $('.skip_button').css('width', '165px');
-        $('.skip_button').css('height', '40px');
-        $('.skip_button').css('font-size', '17px');
+        $('.skip_button').css('width', '130px');
+        $('.skip_button').css('height', '30px');
+        $('.skip_button').css('font-size', '12px');
 
-        $('.home_button').css('width', '165px');
-        $('.home_button').css('height', '40px');
-        $('.home_button').css('font-size', '17px');
+        $('.home_button').css('width', '130px');
+        $('.home_button').css('height', '30px');
+        $('.home_button').css('font-size', '12px');
     }
 });
 
@@ -950,21 +950,21 @@ window.addEventListener('resize', () => {
             $('.pagination_button').css('top', '51px')
         }
         else {
-            $('.next_button').css('width', '165px');
-            $('.next_button').css('height', '40px');
-            $('.next_button').css('font-size', '17px');
+            $('.next_button').css('width', '130px');
+            $('.next_button').css('height', '30px');
+            $('.next_button').css('font-size', '12px');
 
-            $('.back_button').css('width', '165px');
-            $('.back_button').css('font-size', '17px');
-            $('.back_button').css('height', '40px');
+            $('.back_button').css('width', '130px');
+            $('.back_button').css('font-size', '12px');
+            $('.back_button').css('height', '30px');
 
-            $('.skip_button').css('width', '165px');
-            $('.skip_button').css('height', '40px');
-            $('.skip_button').css('font-size', '17px');
+            $('.skip_button').css('width', '130px');
+            $('.skip_button').css('height', '30px');
+            $('.skip_button').css('font-size', '12px');
 
-            $('.home_button').css('width', '165px');
-            $('.home_button').css('height', '40px');
-            $('.home_button').css('font-size', '17px');
+            $('.home_button').css('width', '130px');
+            $('.home_button').css('height', '30px');
+            $('.home_button').css('font-size', '12px');
         }
     }
 
