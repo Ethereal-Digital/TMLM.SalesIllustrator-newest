@@ -1003,7 +1003,7 @@ function GetUserDetails(){
         },
         error: function (data) {
             hideloader();
-            alert('fail user details' + data)
+            //alert('fail user details' + data)
             //failApiResponse(data);
             //window.location.href = sitename + "error";
         }
@@ -1049,7 +1049,7 @@ function GetOccDropDown(auth){
         },
         error: function (data) {
             hideloader();
-            alert('fail occupation dropdown' + data)
+            //alert('fail occupation dropdown' + data)
             failApiResponse(data);
             window.location.href = sitename + "error";
         }
@@ -1081,7 +1081,7 @@ function GetNatureDropDown(auth){
         },
         error: function (data) {
             hideloader();
-            alert('fail nature dropdown ' + data)
+            //alert('fail nature dropdown ' + data)
             failApiResponse(data);
             window.location.href = sitename + "error";
         }

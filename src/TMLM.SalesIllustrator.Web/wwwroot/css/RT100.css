@@ -684,7 +684,7 @@ body {
     text-align: center;
     font-size: 30px;
     color: white;
-    transform: translateY(88px);
+    transform: translateY(60px);
     font-weight: 600;
 }
 
@@ -693,7 +693,7 @@ body {
     text-align: center;
     font-size: 15px;
     color: white;
-    transform: translateY(110px);
+    transform: translateY(80px);
 }
 
 #enteredamount2 {
@@ -2033,4 +2033,43 @@ tr:nth-child(odd) {
 .box_30 > .box_animation > .animating_click {
     top: 0px;
 }
+
+@media only screen and (min-width: 1300px) and (max-width:1400px) {
+    #incomeRep {
+        transform: translate(-20px, 0);
+    }
+}
+
+@media only screen and (min-width: 1400px) and (max-width:1500px) {
+    #incomeRep {
+        transform: translate(-30px, 0);
+    }
+}
+
+@media only screen and (min-width: 1500px) and (max-width:1600px){
+    #incomeRep {
+        transform: translate(-50px, 0);
+    }
+}
+
+@media only screen and (min-width: 1600px) and (max-width:1800px) {
+    #incomeRep {
+        transform: translate(-70px, 0);
+    }
+}
+
+
+@media only screen and (min-width: 1800px) and (max-width:2000px) {
+    #incomeRep {
+        transform: translate(-90px, 0);
+    }
+}
+
+@media only screen and (min-width: 2000px) {
+    #incomeRep {
+        transform: translate(-200px, 0);
+    }
+}
+
+
 

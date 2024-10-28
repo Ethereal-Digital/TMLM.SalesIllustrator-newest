@@ -6,13 +6,13 @@ var sitename = "https://localhost:7019/";
 
 function failApiResponse(data) {
     if (data.status == 401) {
-        alert("Session has been timeout. Please re-login");
+        //alert("Session has been timeout. Please re-login");
         window.close();
         //window.location.href = sitename + "/login?timeout=1";
         return;
     }
     else if (data.status == 400) {
-        alert(data.responseJSON);
+        //alert(data.responseJSON);
         return;
     }
 }
